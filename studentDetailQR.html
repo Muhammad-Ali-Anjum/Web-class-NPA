@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student QR Generator</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    input { display: block; margin: 8px 0; padding: 8px; width: 300px; }
+    img { max-width: 200px; border: 1px solid #ccc; margin-top: 10px; }
+    .qr-box { margin-top: 20px; }
+    button { margin-top: 10px; padding: 8px 12px; cursor: pointer; }
+    a { display: inline-block; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h2>Student QR Code Generator</h2>
+  <form id="studentForm">
+    <input type="text" id="name" placeholder="Full Name" required>
+    <input type="text" id="course" placeholder="Course / Event Title" required>
+    <input type="text" id="duration" placeholder="Duration (e.g., 1 Month)" required>
+    <input type="date" id="completion" required>
+    <input type="text" id="org" placeholder="Organization Name" required>
+    <input type="text" id="role" placeholder="Role / Achievement" required>
+    <input type="text" id="cnic" placeholder="CNIC" required>
+    <input type="file" id="photo" accept="image/*" required>
+    <button type="button" onclick="generateFiles()">Generate Student Page + QR</button>
+  </form>
+
+  <div id="downloadSection" style="margin-top:20px; display:none;">
+    <h3>Download Files</h3>
+    <a id="downloadHTML" download="student_details.html">⬇ Download Student Page</a><br><br>
+    <div class="qr-box" id="qrcode"></div>
+    <a id="downloadQR" style="display:none" download="StudentQR.png">⬇ Download QR Code</a>
+    <p style="color:red; font-size:14px;">
+      ⚠ QR code points to the hosted student_details.html page online.
+    </p>
+  </div>
+
+  <script>
+    const hostedURL = "https://student-details-scanner.vercel.app/student_details.html";
+
+    function generateFiles() {
+      const name = document.getElementById("name").value;
+      const course = document.getElementById("course").value;
+      const duration = document.getElementById("duration").value;
+      const completion = document.getElementById("completion").value;
+      const org = document.getElementById("org").value;
+      const role = document.getElementById("role").value;
+      const cnic = document.getElementById("cnic").value;
+      const photoFile = document.getElementById("photo").files[0];
+
+      if (!photoFile) { alert("Please upload a photo."); return; }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const photoData = e.target.result;
+
+        // Create downloadable student_details.html file with user data
+        const studentHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>${name} - Student Details</title>
+  <style>
+    body{font-family:Arial;padding:20px;}
+    img{max-width:150px;border:1px solid #ccc;margin-top:10px;}
+  </style>
+</head>
+<body>
+  <h2>Student Details</h2>
+  <p><b>Full Name:</b> ${name}</p>
+  <p><b>Course:</b> ${course}</p>
+  <p><b>Duration:</b> ${duration}</p>
+  <p><b>Completion Date:</b> ${completion}</p>
+  <p><b>Organization:</b> ${org}</p>
+  <p><b>Role / Achievement:</b> ${role}</p>
+  <p><b>CNIC:</b> ${cnic}</p>
+  <img src="${photoData}" alt="Student Photo">
+</body>
+</html>
+        `;
+
+        // Create blob for download
+        const blob = new Blob([studentHTML], { type: "text/html" });
+        const htmlURL = URL.createObjectURL(blob);
+        document.getElementById("downloadHTML").href = htmlURL;
+
+        // Generate QR code pointing to **hosted online page**
+        document.getElementById("qrcode").innerHTML = "";
+        new QRCode(document.getElementById("qrcode"), { text: hostedURL, width: 200, height: 200 });
+
+        // Enable download QR
+        setTimeout(() => {
+          const qrImg = document.querySelector("#qrcode img").src;
+          const downloadLink = document.getElementById("downloadQR");
+          downloadLink.href = qrImg;
+          downloadLink.style.display = "inline-block";
+        }, 500);
+
+        document.getElementById("downloadSection").style.display = "block";
+      };
+      reader.readAsDataURL(photoFile);
+    }
+  </script>
+</body>
+</html>
