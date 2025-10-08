@@ -27,7 +27,3 @@ console.log(`the divesion of two value ${dev}`);
 console.log(`the multiply of two value ${mul}`);
 console.log(`the modulo of two value ${nori}`);
 
-
-
-
-
