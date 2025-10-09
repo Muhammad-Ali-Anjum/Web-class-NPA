@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .main{
+        width: 500px;
+        height: 500px;
+        border: 10px solid;
+        position: relative;
+     }
+     .sub{
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+        position: absolute;
+        animation: farhan 5s linear 2s infinite alternate;
+
+     }
+     @keyframes farhan {
+        0%{
+            left: 0%;
+            top: 0%;
+            background-color: blue;
+        }
+        25%{
+            left: 400px;
+            top: 0%;
+            background-color: aquamarine;
+        }
+        50%{
+             left: 400px;
+            top: 400px;
+            background-color: rgb(185, 255, 127);
+        }
+        75%{
+             left: 0px;
+            top: 400px;
+            background-color: rgb(255, 140, 127);
+        }
+        100%{
+             left: 0px;
+            top: 0%;
+            background-color: rgb(166, 255, 0);
+        }
+     }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="sub"></div>
+    </div>
+</body>
+</html>
