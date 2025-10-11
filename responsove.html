@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 100%;
+        height: 100vh;
+        background-color: bisque;
+        display: flex;
+        justify-content: space-between;
+    }
+    .sub{
+        width: 32%;
+        height: 400px;
+        background-color: green;
+    }
+    @media screen and (max-width: 736px){
+    .main{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .sub{
+        width: 100%;
+        margin-top: 20px;
+    }
+
+}
+        /* @media screen and (min-width: 480px){
+.main{
+        display: none;
+    }
+        } */
+    
+</style>
+<body>
+    <div class="main">
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+    </div>
+</body>
+</html>
