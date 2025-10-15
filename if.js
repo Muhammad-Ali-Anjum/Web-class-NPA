@@ -1,6 +1,12 @@
-mark=125;
+total_m=100;
+obM=sub1+dub2+sub3;
 
-if (mark>80 && mark<100){
+let mark=(total_m/obM)*100;
+
+
+// let mark=125;
+
+if (mark>80 && mark<=100){
     console.log("grade A++");
     
 }
