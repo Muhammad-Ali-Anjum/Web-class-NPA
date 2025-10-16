@@ -18,15 +18,24 @@
         height: 400px;
         background-color: green;
     }
+    .sub img{
+        width: 100%;
+    }
     @media screen and (max-width: 736px){
     .main{
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        height: 100vh;
     }
     .sub{
         width: 100%;
+        height: 100vh;
         margin-top: 20px;
+    }
+    .sub p{
+        font-size: 30px;
+        line-height: 5vh;
     }
 
 }
@@ -39,9 +48,11 @@
 </style>
 <body>
     <div class="main">
-        <div class="sub"></div>
-        <div class="sub"></div>
-        <div class="sub"></div>
+        <div class="sub"><h1>Lorem ipsum, dolor </h1>
+        <p>sit amet consectetur adipisicing elit. At laborum dignissimos accusantium enim exercitationem voluptates quis perferendis eos unde minima dolor non rerum, deleniti provident id nam harum. Fuga, voluptatum?</p></div>
+        <div class="sub"><img src="./img/536269967_1230722859094706_5694562282301046339_n.jpg" alt="">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora temporibus debitis laboriosam consequuntur cupiditate nihil dignissimos nam est! A totam reiciendis rem accusamus nulla sapiente recusandae error fugit doloribus ipsa.</div>
+        <div class="sub"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque dolorum quod quasi possimus ducimus laborum odio placeat esse ipsum repellendus saepe, ratione est molestias reiciendis perspiciatis rem quia quisquam! Ipsum.</p></div>
     </div>
 </body>
 </html>
