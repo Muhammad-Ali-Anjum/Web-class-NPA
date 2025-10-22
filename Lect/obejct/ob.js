@@ -1,6 +1,3 @@
-// ===============================
-// 🚀 JavaScript Object Full Lecture
-// ===============================
 
 // 1️⃣ Creating an Object
 const person = {
