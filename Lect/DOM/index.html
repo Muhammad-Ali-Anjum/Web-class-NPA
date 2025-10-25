@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="demo" id="demo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, corporis! Et omnis quo sapiente eveniet ipsam? Ullam repellat pariatur reprehenderit voluptatum voluptates perspiciatis placeat totam. Possimus architecto magnam aperiam dicta?
+    </p>
+    <form name="myForm" action="https://www.w3schools.com/action_page.php" onsubmit="return valid()" method="post">
+  Name: <input type="text" name="fname">
+  <input type="submit" value="Submit">
+</form>
+    <script>
+        // document.getElementsByClassName("demo").innerHTML="Hello World!";
+            document.getElementById("demo").innerHTML = "Lorem ipsum dolor sit amet";
+
+function valid() {
+    // let i=document.getElementById("").value
+  let x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+}
+    </script>
+</body>
+</html>
+
+
