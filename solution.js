@@ -39,7 +39,10 @@ if (num % 2 === 0) {
 } else {
   console.log("The number is odd.");
 }
-
+// let pak
+// {
+//   let a;
+// }
 // -----------------------------------------
 // 4. Check if a given character is a vowel or consonant
 // -----------------------------------------
