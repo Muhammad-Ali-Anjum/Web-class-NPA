@@ -6,19 +6,22 @@ console.log("hi programer");
 // var
 // const
 var a=30;
-// console.log(a);
+//  console.log(a);
 var a=45;
-console.log(a);
+ console.log(a);
 // es6
 
 let b=34;
-console.log(b);
+console.log(b+true);
+
 
 
 let v="ali";
 console.log(v);
 const add=34;
-console.log(add);
+console.log(add)
+console.log("hi");
+
 
 // oprators 
 // = asgn
@@ -46,3 +49,5 @@ console.log(add);
 // T F 
 // F T
 
+let c=1;
+console.log(c*false);
