@@ -190,7 +190,6 @@ console.log("Student: " + student1.getName() + ", Grade: " + student1.grade());
 
 // --------------------------- Q3: 2D Array Rotate 90° Clockwise ---------------------------
 console.log("\nQ3 – 2D Array Rotate 90° Clockwise");
-
 function rotateMatrix(matrix, N) {
     for (var i = 0; i < N / 2; i++) {
         for (var j = i; j < N - i - 1; j++) {
@@ -209,7 +208,6 @@ var matrix = [
     [4, 5, 6],
     [7, 8, 9]
 ];
-
 rotateMatrix(matrix, 3);
 console.log("Rotated Matrix:");
 for (var i = 0; i < 3; i++) {
@@ -219,7 +217,6 @@ for (var i = 0; i < 3; i++) {
     }
     console.log(row);
 }
-
 // --------------------------- Q4: Recursion Sum of Digits ---------------------------
 console.log("\nQ4 – Recursion Sum of Digits");
 
