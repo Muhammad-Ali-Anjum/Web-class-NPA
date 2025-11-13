@@ -1,26 +1,26 @@
-console.log("hi programer");
+// console.log("hi programer");
 
 
-// js data type
-// let 
-// var
-// const
-var a=30;
+// // js data type
+// // let 
+// // var
+// // const
+// var a=30;
+// //  console.log(a);
+// var a=45;
 //  console.log(a);
-var a=45;
- console.log(a);
-// es6
+// // es6
 
-let b=34;
-console.log(b+true);
+// let b=34;
+// console.log(b+true);
 
 
 
-let v="ali";
-console.log(v);
-const add=34;
-console.log(add)
-console.log("hi");
+// let v="ali";
+// console.log(v);
+// const add=34;
+// console.log(add)
+// console.log("hi");
 
 
 // oprators 
@@ -49,5 +49,46 @@ console.log("hi");
 // T F 
 // F T
 
-let c=1;
-console.log(c*false);
+// let c=1;
+// console.log(c*false);
+ 
+
+const mark=500;
+
+if (mark>=30 && mark<=50){
+    console.log(mark);
+    
+}
+else{
+    console.log("invlid");
+    
+}
+
+
+if(mark>=40 || mark<=50){
+    console.log("pass");
+    
+}
+else{
+    console.log("fail");
+    
+}
+
+let user="ali"
+if (user=="ali"){
+    console.log("ali is here");
+    
+}
+else{
+    console.log("not match the name");
+    
+}
+let pass =23242
+if (pass==1234){
+ console.log("login");
+ 
+}
+else{
+    console.log("incorrect password");
+    
+}
