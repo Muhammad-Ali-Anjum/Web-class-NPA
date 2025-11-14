@@ -53,42 +53,108 @@
 // console.log(c*false);
  
 
-const mark=500;
+// const mark=500;
 
-if (mark>=30 && mark<=50){
-    console.log(mark);
+// if (mark>=30 && mark<=50){
+//     console.log(mark);
     
-}
-else{
-    console.log("invlid");
+// }
+// else{
+//     console.log("invlid");
     
-}
+// }
 
 
-if(mark>=40 || mark<=50){
-    console.log("pass");
+// if(mark>=40 || mark<=50){
+//     console.log("pass");
     
-}
-else{
-    console.log("fail");
+// }
+// else{
+//     console.log("fail");
     
-}
+// }
 
-let user="ali"
-if (user=="ali"){
-    console.log("ali is here");
+// let user="ali"
+// if (user=="ali"){
+//     console.log("ali is here");
     
-}
-else{
-    console.log("not match the name");
+// }
+// else{
+//     console.log("not match the name");
     
-}
-let pass =23242
-if (pass==1234){
- console.log("login");
+// }
+// let pass =23242
+// if (pass==1234){
+//  console.log("login");
  
-}
-else{
-    console.log("incorrect password");
+// }
+// else{
+//     console.log("incorrect password");
     
+// }
+
+
+// let a=3
+// let b=4;
+// let arr=[1,2,4,56,6,77,88,8,888,7,65,33,4,66]
+
+// for(let i =5;i<=10;i++){
+//     if (i==6 || i==7){
+//         // break
+// continue
+//     }
+//     console.log(i);
+// }
+
+// for(let i=0; i<10;i++){
+//     for(let j=0;j<i;j++)
+//     {
+//         // if(i===j){
+//         //     console.log("ji");
+
+//         // }
+//         console.log("hi");
+        
+//     }
+// }
+for (let i = 1; i <= 20; i++) { // Outer loop = rows
+    let row = '';
+    for (let j = 1; j <= 10; j++) { // Inner loop = columns
+        row =row + `${i * j}\t`; // Multiply current row and column
+    }
+    console.log(row); // Print complete row after inner loop finishes
 }
+console.log("\n");
+
+for (let i = 1; i <= 5; i++) {
+    let row = '';
+    for (let j = 1; j <= i; j++) {
+        row += '* ';
+    }
+    console.log(row);
+}
+console.log("\n");
+
+let n = 4; // Size of square
+for (let i = 1; i <= n; i++) { // Outer loop = rows
+    let row = '';
+    for (let j = 1; j <= n; j++) { // Inner loop = columns
+        row += '* ';
+    }
+    console.log(row); // Print each row
+}
+console.log("\n");
+
+
+let m=7;
+    for (var i = 0; i < m; i++) {
+        var row = "";
+        for (var j = 0; j < m; j++) {
+            if (i == 0 || m == m-1 || j == 0 || j == m-1 || i == j || j == m-i-1) {
+                row += "* ";
+            } else {
+                row += "  ";
+            }
+        }
+        console.log(row);
+    }

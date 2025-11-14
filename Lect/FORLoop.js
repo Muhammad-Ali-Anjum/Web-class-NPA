@@ -80,3 +80,13 @@ for (let i = 1; i <= 3; i++) {
 console.log("\n");
 
 console.log("✅ FOR Loop Lecture End");
+
+
+for (let i = 1; i <= 5; i++) { // Outer loop = rows
+    let row = '';
+    for (let j = 1; j <= 5; j++) { // Inner loop = columns
+        row += `${i * j}\t`; // Multiply current row and column
+    }
+    console.log(row); // Print complete row after inner loop finishes
+}
+console.log("\n");
