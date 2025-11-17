@@ -117,44 +117,83 @@
         
 //     }
 // }
-for (let i = 1; i <= 20; i++) { // Outer loop = rows
-    let row = '';
-    for (let j = 1; j <= 10; j++) { // Inner loop = columns
-        row =row + `${i * j}\t`; // Multiply current row and column
-    }
-    console.log(row); // Print complete row after inner loop finishes
+// for (let i = 1; i <= 20; i++) { // Outer loop = rows
+//     let row = '';
+//     for (let j = 1; j <= 10; j++) { // Inner loop = columns
+//         row =row + `${i * j}\t`; // Multiply current row and column
+//     }
+//     console.log(row); // Print complete row after inner loop finishes
+// }
+// console.log("\n");
+
+// for (let i = 1; i <= 5; i++) {
+//     let row = '';
+//     for (let j = 1; j <= i; j++) {
+//         row += '* ';
+//     }
+//     console.log(row);
+// }
+// console.log("\n");
+
+// let n = 4; // Size of square
+// for (let i = 1; i <= n; i++) { // Outer loop = rows
+//     let row = '';
+//     for (let j = 1; j <= n; j++) { // Inner loop = columns
+//         row += '* ';
+//     }
+//     console.log(row); // Print each row
+// }
+// console.log("\n");
+
+
+// let m=7;
+//     for (var i = 0; i < m; i++) {
+//         var row = "";
+//         for (var j = 0; j < m; j++) {
+//             if (i == 0 || m == m-1 || j == 0 || j == m-1 || i == j || j == m-i-1) {
+//                 row += "* ";
+//             } else {
+//                 row += "  ";
+//             }
+//         }
+//         console.log(row);
+//     }
+
+
+// let a =1;
+// while(a<=5){
+  
+//   let b=3
+//     while(b<a){
+//         console.log(b,a);
+//         b++
+        
+//     }
+//     a++
+    
+      
+// }
+// let a=2;
+// do{
+//     a++
+// console.log(a);
+
+
+// }while(a<10)
+
+let opr="-";
+let a=3;
+let b=6;
+switch(opr){
+    case "+":
+        console.log(a+b);
+        break
+    case "-":
+        console.log(a-b);
+        break
+        default:
+            console.log("error");
+            
+                
+
 }
-console.log("\n");
-
-for (let i = 1; i <= 5; i++) {
-    let row = '';
-    for (let j = 1; j <= i; j++) {
-        row += '* ';
-    }
-    console.log(row);
-}
-console.log("\n");
-
-let n = 4; // Size of square
-for (let i = 1; i <= n; i++) { // Outer loop = rows
-    let row = '';
-    for (let j = 1; j <= n; j++) { // Inner loop = columns
-        row += '* ';
-    }
-    console.log(row); // Print each row
-}
-console.log("\n");
-
-
-let m=7;
-    for (var i = 0; i < m; i++) {
-        var row = "";
-        for (var j = 0; j < m; j++) {
-            if (i == 0 || m == m-1 || j == 0 || j == m-1 || i == j || j == m-i-1) {
-                row += "* ";
-            } else {
-                row += "  ";
-            }
-        }
-        console.log(row);
-    }
