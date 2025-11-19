@@ -181,19 +181,52 @@
 
 // }while(a<10)
 
-let opr="-";
-let a=3;
-let b=6;
-switch(opr){
-    case "+":
-        console.log(a+b);
-        break
-    case "-":
-        console.log(a-b);
-        break
-        default:
-            console.log("error");
-            
-                
+// let opr="-";
+// let a=3;
+// let b=6;
+// switch(opr){
+//     case "+":
+//         console.log(a+b);
+//         break
+//     case "-":
+//         console.log(a-b);
+//         break
+//         default:
+//             console.log("error");
+// }
 
+
+
+// let arr=[12,2,3,4,6,7,8,4,3]
+// console.log(arr[2]);
+// for(let i= 0;i<arr.length;i++){
+//     console.log(arr[i]);
+    
+// }
+
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// console.log(arr);
+// arr.push(12)
+// console.log(arr);
+
+
+let obj={
+    name:"ali",
+    f_Name:"hussain",
+    marks:56,
+    city:["skardu","khaplu","shgr"],
+    board:{
+        fbise:"FBISE",
+        kui:"KUI"
+    }
 }
+console.log(obj);
+console.log(obj.name);
+console.log(obj.city[1]);
+
+
