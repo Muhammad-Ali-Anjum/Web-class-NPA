@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPA</title>
+</head>
+<style>
+    .main{
+        width: 500px;
+        height: 500px;
+        border-radius: 20px;
+        border: 2px solid;
+        cursor: pointer;
+        background-color: wheat;
+       
+    }
+ 
+    .sub{
+        width: 150px;
+        height: 150px;
+        background-color: tomato;
+        border-radius: 20px;
+        position: relative;
+        animation: balghari 10s linear infinite alternate;
+    }
+       @keyframes balghari {
+        0%{
+            left: 0px;
+            top: 0px;
+        }
+        25%{
+            left: 350px;
+            top: 0px;
+            background-color: blue;
+        }
+        50%{
+            left: 350px;
+            top: 350px;
+            background-color: blueviolet;
+        }
+        75%{
+            left: 0px;
+            top: 350px;
+            background-color: yellow;
+        }
+        100%{
+            left: 0px;
+            top: 0px;
+            background-color: wheat;
+        }
+        
+    }
+     .main1{
+        width: 100%;
+        height: 300px;
+        background-color: blueviolet;
+        position: relative;
+        /* position: fixed; */
+        /* position: static; */
+        z-index: 1;
+     }
+     .main2{
+        width: 500px;
+        height: 500px;
+        background-color: aquamarine;
+        position: relative;
+     }
+     .mn{
+        width: 100px;
+        height: 100px;
+        position: relative;
+        background-color: beige;
+        left: 400px;
+        
+     }
+     img{
+        width: 100%;
+        height: 100px;
+        position: relative;
+        top: -100px;
+        z-index: -1;
+     }
+</style>
+<body>
+
+    <div class="main1"></div>
+    <div class="main2"><div class="mn"></div></div>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor labore ad esse! Aliquid iure perferendis minima quis. A cumque fugiat tempora consequuntur est iusto, suscipit sequi nihil blanditiis sint excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, eum porro laudantium magnam perferendis sed perspiciatis repudiandae non? Facere vitae esse dolorem aliquid expedita quam explicabo excepturi. Ratione, iste suscipit. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis eos ex cum optio animi odio exercitationem perferendis suscipit illum. A repellendus voluptatibus labore possimus porro? Voluptas commodi a corrupti eum. Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nemo ducimus deserunt, dicta cum saepe eligendi, itaque sequi placeat officia voluptatibus consectetur quisquam, tenetur dignissimos temporibus aspernatur et aperiam laudantium.</p>
+    <img src="../img/arrow icon.png" alt="">
+    <div class="main"> <div class="sub"></div></div>
+</body>
+</html>
