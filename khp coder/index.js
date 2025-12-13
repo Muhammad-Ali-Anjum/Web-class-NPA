@@ -7,10 +7,10 @@
 // let 
 // var
 // const
-var a=24;
+// var a=24;
 
-var a=89;
-console.log(a);
+// var a=89;
+// console.log(a);
 
 
 // const a=32;
@@ -19,11 +19,11 @@ console.log(a);
 // operter
 // arth opr
 // let c= c+54;
-let c =54;
-c=c+43;
-console.log(c);
-c+=43;
-console.log(c);
+// let c =54;
+// c=c+43;
+// console.log(c);
+// c+=43;
+// console.log(c);
 
 // log
 
@@ -39,30 +39,71 @@ console.log(c);
 // T F T
 // F T T
 // F F F
-let num=434
+// let num=434
 
-if(num>30 && num<40 ){
-    console.log("eligble");
+// if(num>30 && num<40 ){
+//     console.log("eligble");
     
+// }
+// else{
+//     console.log("not equall");
+    
+// }
+// let pass="npa";
+// if (pass==="npa"){
+//     console.log("login");
+    
+// }
+// else{
+//     console.log("password not correct");
+
+
+// }
+// if(pass!="npa"){
+//     console.log("password not correct");
+    
+// }
+
+
+const per=60;
+
+if(per>=80 && per<=100 ){
+    console.log("Grade A+");
+    
+}
+else if(per=>60 && per<80){
+    console.log("Grate A");
+    
+}
+else if(per>100){
+console.log("tech error ");
+
 }
 else{
-    console.log("not equall");
+    console.log("Fail");
     
 }
-let pass="npa";
-if (pass==="npa"){
-    console.log("login");
-    
+// this 
+console.log(1+true);
+console.log(5*false);
+
+// true 1
+// false 0
+
+const opr="-";
+
+switch(opr){
+    case "+":
+        console.log(" add :",4+5);
+        break
+    case "-":
+        console.log("sub: ",43-34);
+        break;
+    default:
+        console.log("something wrong");
+        
+        
+        
+
 }
-else{
-    console.log("password not correct");
-
-
-}
-if(pass!="npa"){
-    console.log("password not correct");
-    
-}
-
-
 
