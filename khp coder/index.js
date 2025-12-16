@@ -137,47 +137,32 @@ let t=5
 // for  (i in a){
 // console.log(i)
 // }
-a=43;
+// a=43;
 // console.log(a);
 
 // for (i in Range(a)){
 //     console.log(i);
     
 // }
-// let a=10;
-for(i=5;i>=1;i--){
-    let r=""
-    for (j=i;j>0;j--){
 
-        r+="*"
-        
-        // console.log("*");
-        
-        
-    }
-    // r+=r
-    console.log(r);
-    
-   
-}
-console.log("_________________________________________________________");
+// console.log("_________________________________________________________");
 
-for(i=0;i<10;i++){
-    if(i%2==1){
-        console.log(i);
+// for(i=0;i<10;i++){
+//     if(i%2==1){
+//         console.log(i);
         
-    }
-}
+//     }
+// }
 
-console.log("---------------------------");
-for(let i=1;i<50;i++){
-    if(i%3===0 && i%5===0){
-        console.log(i);
+// console.log("---------------------------");
+// for(let i=1;i<50;i++){
+//     if(i%3===0 && i%5===0){
+//         console.log(i);
         
-    }
-}
+//     }
+// }
 
-console.log("__________________________________________");
+// console.log("__________________________________________");
 
 // let num=1234
 // let temp=num;
@@ -187,23 +172,54 @@ console.log("__________________________________________");
 //     temp=Math.floor(temp/10)
 // }
 // console.log("reverse", reverse);
-let fect=1;
-let fa=1;
-let num=3;
-do{
-    fect *=fa;
-    fa++;
-} while(fa<=num)
-    console.log(fect);
+// let fect=1;
+// let fa=1;
+// let num=3;
+// do{
+//     fect *=fa;
+//     fa++;
+// } while(fa<=num)
+//     console.log(fect);
     
 
-    console.log("______________________________________");
-let num1=0,num2=1 , N=8;
-    for(let i=1; i<=N;i++){
-        console.log("series",num1);
-        (num1)
-        let next =num1+num2;
-        num1=num2;
-        num2=next
+//     console.log("______________________________________");
+// let num1=0,num2=1 , N=8;
+//     for(let i=1; i<=N;i++){
+//         console.log("series",num1);
+//         (num1)
+//         let next =num1+num2;
+//         num1=num2;
+//         num2=next
+//     }
+//         console.log("series",num1);
+
+let a=10;
+for(i=5;i>=1;i--){
+    let r=""
+    for (j=i;j>0;j--){
+
+        r+="*"
+        
     }
-        console.log("series",num1);
+    // r+=r
+    console.log(r);  
+   
+}
+let ab=10;
+for(i=0;i<10;i++){
+    let r=""
+    for (j=i;j>0;j--){
+
+        r+="*"
+        
+    }
+    // r+=r
+    console.log(r);  
+   
+}
+
+let arr=[1,3,4,6,4,6,7,4]
+console.log(arr);
+
+console.log(arr[5 ]);
+
