@@ -193,33 +193,65 @@ let t=5
 //     }
 //         console.log("series",num1);
 
-let a=10;
-for(i=5;i>=1;i--){
-    let r=""
-    for (j=i;j>0;j--){
+// let a=10;
+// for(i=5;i>=1;i--){
+//     let r=""
+//     for (j=i;j>0;j--){
 
-        r+="*"
+//         r+="*"
         
-    }
-    // r+=r
-    console.log(r);  
+//     }
+//     // r+=r
+//     console.log(r);  
    
-}
-let ab=10;
-for(i=0;i<10;i++){
-    let r=""
-    for (j=i;j>0;j--){
+// }
+// let ab=10;
+// for(i=0;i<10;i++){
+//     let r=""
+//     for (j=i;j>0;j--){
 
-        r+="*"
+//         r+="*"
         
-    }
-    // r+=r
-    console.log(r);  
+//     }
+//     // r+=r
+//     console.log(r);  
    
-}
+// }
 
-let arr=[1,3,4,6,4,6,7,4]
+// let arr=[1,3,4,6,4,6,7,4]
+// console.log(arr);
+
+// console.log(arr[5 ]);
+
+
+let arr=[1,2,3,5,7,43,2,21,335,54]
 console.log(arr);
+arr.pop();
+arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
+// arr.pop();
 
-console.log(arr[5 ]);
+arr.push(43);
+arr.push(128);
+arr.push(128);
+arr.push(124);
+console.log(arr);
+console.log(arr[6]);
+// arr [a,b,c]=arr
+// console.log(a);
+let [a,b,c,...res]=arr;
+console.log(c);
+console.log(res);
+let aray=[1,2,[3,4,56,7,],34,34,3]
+console.log(aray);
+
+
+
+
 
