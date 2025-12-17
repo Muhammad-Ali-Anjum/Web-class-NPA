@@ -3,18 +3,25 @@ const [first, ...rest] = arr;
 const last = rest[rest.length - 1];
 
 const sum = first + last;
+let res=sum%2===0 ? "Even ":"odd";
 console.log(sum % 2 === 0 ? "Even" : "Odd");
-
+if(sum%2===0){
+  console.log("even");
+  
+}
 
 // task 2
 const arr1 = [12, 5, 9, 21, 3];
 let max = arr[0];
+let typ=43;
 
 for (let i = 1; i < arr1.length; i++) {
   if (arr1[i] > max) {
     max = arr[i];
   }
 }
+console.log(`the length of array is ${arr1.length}`);
+
 
 console.log(max);
 
