@@ -1,0 +1,34 @@
+  div{
+        width: 500px;
+        height: 500px;
+        background-color: blueviolet;
+    }
+
+/* tag
+universal sel *
+Id sel #
+class sel .
+tag sel p h1 div  */
+*{
+    /* background-color: aquamarine; */
+}
+.main{
+ width: 500px;
+ height: 500px;  
+ background-color: aquamarine; 
+}
+#kuchbi{
+    width: 500px;
+    height: 400px;
+    background-color: red;
+}
+.main1{
+    width: 300px;
+    height: 200px;
+    background-color: blue;
+}
+#kuchbi1{
+    width: 100%;
+    height: 20vh;
+    background-color: tomato;
+}
