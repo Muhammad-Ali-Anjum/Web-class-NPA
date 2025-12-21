@@ -224,10 +224,10 @@ let t=5
 // console.log(arr[5 ]);
 
 
-let arr=[1,2,3,5,7,43,2,21,335,54]
-console.log(arr);
-arr.pop();
-arr.pop();
+// let arr=[1,2,3,5,7,43,2,21,335,54]
+// console.log(arr);
+// arr.pop();
+// arr.pop();
 // arr.pop();
 // arr.pop();
 // arr.pop();
@@ -237,19 +237,46 @@ arr.pop();
 // arr.pop();
 // arr.pop();
 
-arr.push(43);
-arr.push(128);
-arr.push(128);
-arr.push(124);
-console.log(arr);
-console.log(arr[6]);
+// arr.push(43);
+// arr.push(128);
+// arr.push(128);
+// arr.push(124);
+// console.log(arr);
+// console.log(arr[6]);
 // arr [a,b,c]=arr
 // console.log(a);
-let [a,b,c,...res]=arr;
-console.log(c);
-console.log(res);
-let aray=[1,2,[3,4,56,7,],34,34,3]
-console.log(aray);
+// let [a,b,c,...res]=arr;
+// console.log(c);
+// console.log(res);
+// let aray=[1,2,[3,4,56,7,],34,34,3]
+// console.log(aray);
+
+
+let obj={
+    Name:"inam",
+    Password:54546,
+    role:["Admin","user","manager"],
+    produt:function sum(){
+        console.log("the sum function is runing");
+        
+    }
+}
+
+console.log(obj.Name);
+console.log(obj.role);
+let {Name,...res}=obj
+console.log(`Object name is: ${res}`);
+// console.log(role[0]);
+// let [admin, user, manger]=role
+// console.log(admin);
+// console.log(obj.role[0]);
+
+
+
+
+
+// console.log(obj);
+
 
 
 
