@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Ali Anjum | Full Stack Developer</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      perspective: 1000px;
+      overflow-x: hidden;
+    }
+
+    section { padding: 80px 0; }
+    .section-title { font-weight: 600; margin-bottom: 40px; text-align: center; }
+
+    .hero { background: #0d6efd; color: #fff; min-height: 100vh; display: flex; align-items: center; }
+    .hero h1 span { color: #ffc107; }
+
+    .progress { height: 8px; }
+
+    .card { transition: transform 0.4s ease, box-shadow 0.4s ease; transform-style: preserve-3d; }
+    .card:hover { transform: perspective(1000px) rotateX(6deg) rotateY(-6deg) translateY(-12px); box-shadow: 0 25px 45px rgba(0,0,0,0.18); }
+
+    footer { background: #111; color: #aaa; padding: 20px 0; }
+    footer a { color: #aaa; text-decoration: none; }
+    footer a:hover { color: #fff; }
+
+    @media (max-width: 991px) {
+      .navbar-collapse { position: fixed; top: 56px; left: -100%; width: 250px; height: 100vh; background: #212529; padding: 20px; transition: left 0.3s ease-in-out; }
+      .navbar-collapse.show { left: 0; }
+    }
+
+    .fade-up { opacity: 0; transform: translateY(60px) rotateX(10deg); transition: transform 0.8s ease, opacity 0.8s ease; transform-style: preserve-3d; }
+    .fade-up.show { opacity: 1; transform: translateY(0) rotateX(0deg); }
+
+    .parallax-3d { transition: transform 0.1s linear; transform-style: preserve-3d; will-change: transform; }
+    .hero h1, .hero p, .hero .btn { animation: heroFade 1.2s ease forwards; }
+
+    @keyframes heroFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#home">Muhammad Ali Anjum</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero parallax-3d" data-depth="0.15" id="home">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Muhammad Ali <span>Anjum</span></h1>
+      <p class="lead">Full Stack Web Developer | Building Modern Web Solutions</p>
+      <div class="mt-4">
+        <a href="#projects" class="btn btn-warning me-2">View Projects</a>
+        <a href="#contact" class="btn btn-outline-light">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="fade-up parallax-3d" data-depth="0.12">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="row align-items-center">
+        <div class="col-md-4 text-center">
+          <img src="https://via.placeholder.com/250" class="img-fluid rounded-circle mb-3" alt="Profile">
+        </div>
+        <div class="col-md-8">
+          <p>I am Muhammad Ali Anjum, a passionate Full Stack Web Developer with experience in building responsive and scalable web applications. I enjoy solving problems and creating efficient digital solutions using modern web technologies.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-light fade-up parallax-3d" data-depth="0.10">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <h6>HTML / CSS / Bootstrap</h6>
+          <div class="progress"><div class="progress-bar bg-primary" style="width: 90%"></div></div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h6>JavaScript</h6>
+          <div class="progress"><div class="progress-bar bg-success" style="width: 85%"></div></div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h6>Backend Development</h6>
+          <div class="progress"><div class="progress-bar bg-warning" style="width: 80%"></div></div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <h6>Databases & Tools</h6>
+          <div class="progress"><div class="progress-bar bg-danger" style="width: 75%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="fade-up parallax-3d" data-depth="0.08">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4"><div class="card"><img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project"><div class="card-body"><h5 class="card-title">Project One</h5><p class="card-text">A sample web application built using HTML, CSS, Bootstrap, and JavaScript.</p><a href="#" class="btn btn-sm btn-primary">Live Demo</a></div></div></div>
+        <div class="col-md-4 mb-4"><div class="card"><img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project"><div class="card-body"><h5 class="card-title">Project Two</h5><p class="card-text">Responsive and performance-optimized website design.</p><a href="#" class="btn btn-sm btn-primary">Live Demo</a></div></div></div>
+        <div class="col-md-4 mb-4"><div class="card"><img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project"><div class="card-body"><h5 class="card-title">Project Three</h5><p class="card-text">Full stack project showcasing frontend and backend integration.</p><a href="#" class="btn btn-sm btn-primary">Live Demo</a></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience / Education -->
+  <section id="experience" class="bg-light fade-up parallax-3d" data-depth="0.06">
+    <div class="container">
+      <h2 class="section-title">Experience & Education</h2>
+      <ul class="list-group">
+        <li class="list-group-item">BS Computer Science – University (In Progress)</li>
+        <li class="list-group-item">Freelance Web Developer – Frontend & Full Stack Projects</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="fade-up parallax-3d" data-depth="0.05">
+    <div class="container">
+      <h2 class="section-title">Contact Me</h2>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <form>
+            <input type="text" class="form-control mb-2" placeholder="Your Name" required>
+            <input type="email" class="form-control mb-2" placeholder="Your Email" required>
+            <textarea class="form-control mb-2" rows="4" placeholder="Your Message"></textarea>
+            <button class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+        <div class="col-md-6">
+          <p><strong>GitHub:</strong> github.com/username</p>
+          <p><strong>LinkedIn:</strong> linkedin.com/in/username</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-center">
+    <p>© 2025 Muhammad Ali Anjum. All Rights Reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Scroll reveal (fade + 3D)
+    const animatedSections = document.querySelectorAll('.fade-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('show'); });
+    }, { threshold: 0.2 });
+    animatedSections.forEach(section => observer.observe(section));
+
+    // ===== Next Level 3D Smooth Scroll & Mouse Effect =====
+    const parallaxItems = document.querySelectorAll('.parallax-3d');
+    let lastScrollY = 0;
+    let ticking = false;
+
+    function updateParallax() {
+      parallaxItems.forEach((item, index) => {
+        const depth = parseFloat(item.dataset.depth) || 0.08;
+        const translate = lastScrollY * depth;
+        const rotateX = Math.min(10, lastScrollY * depth * 0.6);
+        item.style.transform = `translate3d(0, ${translate}px, 0) rotateX(${rotateX}deg)`;
+      });
+      ticking = false;
+    }
+
+    window.addEventListener('scroll', () => {
+      lastScrollY = window.scrollY;
+      if (!ticking) { requestAnimationFrame(updateParallax); ticking = true; }
+    });
+
+    // Mouse-move 3D tilt (desktop only)
+    if (window.matchMedia('(pointer: fine)').matches) {
+      document.addEventListener('mousemove', e => {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const dx = (e.clientX - cx) / cx;
+        const dy = (e.clientY - cy) / cy;
+        parallaxItems.forEach(item => {
+          const depth = parseFloat(item.dataset.depth) || 0.06;
+          const rx = dy * -8 * depth;
+          const ry = dx * 8 * depth;
+          item.style.transform += ` rotateX(${rx}deg) rotateY(${ry}deg)`;
+        });
+      });
+    }
+  </script>
+</body>
+</html>
