@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Complete HTML Form</title>
+</head>
+<body>
+
+<h2>Registration Form</h2>
+
+<form action="#" method="post" enctype="multipart/form-data">
+
+  <!-- Personal Info -->
+  <fieldset>
+    <legend>Personal Information</legend>
+
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" id="fullname" name="fullname" placeholder="Enter full name" required><br><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" placeholder="Enter email" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" placeholder="Enter password" required><br><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone" placeholder="+92 300 1234567"><br><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob"><br><br>
+
+    <label>Gender:</label><br>
+    <input type="radio" name="gender" value="male"> Male
+    <input type="radio" name="gender" value="female"> Female<br><br>
+  </fieldset>
+
+  <!-- Preferences -->
+  <fieldset>
+    <legend>Preferences</legend>
+
+    <label>Skills:</label><br>
+    <input type="checkbox" name="skills[]" value="HTML"> HTML
+    <input type="checkbox" name="skills[]" value="CSS"> CSS
+    <input type="checkbox" name="skills[]" value="JS"> JavaScript<br><br>
+
+    <label for="color">Favorite Color:</label><br>
+    <input type="color" id="color" name="color"><br><br>
+
+    <label for="experience">Experience Level:</label><br>
+    <input type="range" id="experience" name="experience" min="0" max="10"><br><br>
+
+    <label for="website">Website:</label><br>
+    <input type="url" id="website" name="website" placeholder="https://example.com"><br><br>
+  </fieldset>
+
+  <!-- File & Message -->
+  <fieldset>
+    <legend>Additional Info</legend>
+
+    <label for="resume">Upload Resume:</label><br>
+    <input type="file" id="resume" name="resume"><br><br>
+
+    <label for="message">Message:</label><br>
+    <textarea id="message" name="message" placeholder="Write your message here"></textarea><br><br>
+
+    <label for="browser">Choose Browser:</label><br>
+    <input list="browsers" id="browser" name="browser" placeholder="Select browser">
+    <datalist id="browsers">
+      <option value="Chrome">
+      <option value="Firefox">
+      <option value="Edge">
+      <option value="Safari">
+    </datalist><br><br>
+
+    <label>Task Progress:</label><br>
+    <progress value="50" max="100"></progress><br><br>
+
+    <label>Performance Meter:</label><br>
+    <meter value="7" min="0" max="10"></meter><br><br>
+  </fieldset>
+
+  <!-- Hidden field -->
+  <input type="hidden" name="user_id" value="123">
+
+  <!-- Form Buttons -->
+  <input type="submit" value="Submit">
+  <input type="reset" value="Reset">
+  <input type="button" value="Click Me">
+
+</form>
+
+</body>
+</html>

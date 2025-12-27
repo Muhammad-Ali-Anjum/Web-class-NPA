@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional E-Commerce</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { background-color: #f5f5f5; }
+  .product-card { cursor: pointer; transition: transform .2s; }
+  .product-card:hover { transform: scale(1.03); }
+  .wishlist-btn { position: absolute; top: 10px; right: 10px; }
+  #singleProduct, #cartPage { display: none; }
+  .toast-container { position: fixed; top: 1rem; right: 1rem; z-index: 9999; }
+  .size-btn { margin-right:5px; margin-bottom:5px; }
+  .table img { height:50px; object-fit:contain; }
+  #sameProducts .card { cursor:pointer; transition: transform .2s; }
+  #sameProducts .card:hover { transform: scale(1.05); }
+</style>
+</head>
+<body>
+
+<div class="container my-4">
+  <h1 class="text-center mb-4">Professional E-Commerce</h1>
+  <div id="login" class="mb-3"></div>
+  <div id="products" class="row row-cols-1 row-cols-md-3 g-4"></div>
+
+  <!-- Single Product -->
+  <div id="singleProduct" class="my-4 p-4 bg-white rounded shadow-sm">
+    <button id="backBtn" class="btn btn-secondary mb-3">← Back to Products</button>
+    <div class="row">
+      <div class="col-md-6">
+        <img id="singleImg" src="" class="img-fluid rounded shadow-sm" style="object-fit:contain;">
+      </div>
+      <div class="col-md-6">
+        <h3 id="singleTitle"></h3>
+        <p id="singleDesc"></p>
+        <h4 id="singlePrice" class="text-success"></h4>
+        <div class="mb-3">
+          <label class="form-label">Size:</label><br>
+          <button class="btn btn-outline-primary size-btn" data-multiplier="1">S</button>
+          <button class="btn btn-outline-primary size-btn" data-multiplier="1.2">M</button>
+          <button class="btn btn-outline-primary size-btn" data-multiplier="1.5">L</button>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Color:</label>
+          <select class="form-select" id="colorSelect">
+            <option value="Red">Red</option>
+            <option value="Blue">Blue</option>
+            <option value="Black">Black</option>
+          </select>
+        </div>
+        <button id="buySingle" class="btn btn-success mt-2 me-2">Add to Cart</button>
+        <button id="wishlistSingle" class="btn btn-warning mt-2">Add to Wishlist</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Related Products below Single Product -->
+<div class="container-fluid bg-light py-4" id="sameProducts"></div>
+
+<!-- Cart Page -->
+<div id="cartPage" class="container my-4 p-4 bg-white rounded shadow-sm">
+  <button id="backCart" class="btn btn-secondary mb-3">← Back to Products</button>
+  <h3>Shopping Cart</h3>
+  <div id="cartTable" class="table-responsive"></div>
+  <h3 class="mt-4">Wishlist</h3>
+  <div id="wishlistTable" class="table-responsive"></div>
+  <h4 class="mt-4" id="totalPrice"></h4>
+  <button class="btn btn-success" id="checkoutBtn">Checkout</button>
+
+  <!-- Related Products below Cart -->
+  <div class="container-fluid bg-light py-4 mt-5" id="relatedCartProducts"></div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ===== Toast =====
+function showToast(message, type='success'){
+  const toastEl = document.createElement('div');
+  toastEl.className = `toast align-items-center text-bg-${type} border-0`;
+  toastEl.setAttribute("role","alert");
+  toastEl.innerHTML = `
+    <div class="d-flex">
+      <div class="toast-body">${message}</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>`;
+  document.getElementById("toastContainer").appendChild(toastEl);
+  const bsToast = new bootstrap.Toast(toastEl, { delay: 2000 });
+  bsToast.show();
+}
+
+// ===== Global Data =====
+const userEmail = "Sincere@april.biz";
+const userPassword = "1234";
+let cart = [];
+let wishlist = [];
+let productsList = [];
+let currentProduct = { price:0, sizeMultiplier:1, color:"Red" };
+
+// ===== Login =====
+function loginUser(email,password){
+  return fetch("https://jsonplaceholder.typicode.com/users")
+    .then(res=>res.json())
+    .then(users=>{
+      const user = users.find(u=>u.email===email);
+      if(user && password==="1234") return user;
+      throw "Login failed";
+    });
+}
+
+// ===== Fetch Products =====
+function fetchProducts(){
+  return fetch("https://fakestoreapi.com/products?limit=6")
+    .then(res=>res.json());
+}
+
+// ===== Add to Cart =====
+function addToCart(cartItem){
+  return new Promise(resolve=>{
+    const existing = cart.find(i=>i.id===cartItem.id && i.size===cartItem.size && i.color===cartItem.color);
+    if(existing) existing.qty += cartItem.qty;
+    else cart.push(cartItem);
+    resolve(cart);
+  });
+}
+
+// ===== Add to Wishlist =====
+function addToWishlist(product){
+  return new Promise(resolve=>{
+    if(!wishlist.find(i=>i.id===product.id)) wishlist.push(product);
+    resolve(wishlist);
+  });
+}
+
+// ===== Update Cart Table =====
+function updateCartTable(){
+  if(cart.length===0){
+    document.getElementById("cartTable").innerHTML="<p>No items in cart.</p>";
+    document.getElementById("totalPrice").innerText="";
+    return;
+  }
+  let html = `<table class="table table-bordered align-middle">
+  <thead class="table-dark">
+    <tr><th>Image</th><th>Product</th><th>Size</th><th>Color</th><th>Qty</th><th>Price</th><th>Action</th></tr>
+  </thead><tbody>`;
+  cart.forEach((item,index)=>{
+    html+=`<tr>
+      <td><img src="${item.image}" alt="${item.title}"></td>
+      <td>${item.title}</td>
+      <td>${item.size}</td>
+      <td>${item.color}</td>
+      <td>
+        <button class="btn btn-sm btn-outline-secondary decrement" data-index="${index}">-</button>
+        ${item.qty}
+        <button class="btn btn-sm btn-outline-secondary increment" data-index="${index}">+</button>
+      </td>
+      <td>$${(item.price*item.qty).toFixed(2)}</td>
+      <td><button class="btn btn-sm btn-danger remove-cart" data-index="${index}">Remove</button></td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  document.getElementById("cartTable").innerHTML=html;
+
+  document.querySelectorAll(".remove-cart").forEach(btn=>{
+    btn.onclick=()=>{ cart.splice(btn.dataset.index,1); updateCartTable(); showToast("Removed from cart ❌","danger"); }
+  });
+  document.querySelectorAll(".increment").forEach(btn=>{
+    btn.onclick=()=>{ cart[btn.dataset.index].qty++; updateCartTable(); }
+  });
+  document.querySelectorAll(".decrement").forEach(btn=>{
+    btn.onclick=()=>{ if(cart[btn.dataset.index].qty>1) cart[btn.dataset.index].qty--; else cart.splice(btn.dataset.index,1); updateCartTable(); }
+  });
+
+  const total = cart.reduce((sum,i)=>sum+i.price*i.qty,0);
+  document.getElementById("totalPrice").innerText = "Total: $"+total.toFixed(2);
+}
+
+// ===== Update Wishlist Table =====
+function updateWishlistTable(){
+  if(wishlist.length===0){
+    document.getElementById("wishlistTable").innerHTML="<p>No items in wishlist.</p>";
+    return;
+  }
+  let html = `<table class="table table-bordered align-middle">
+  <thead class="table-dark"><tr><th>Product</th><th>Action</th></tr></thead><tbody>`;
+  wishlist.forEach((item,index)=>{
+    html+=`<tr>
+      <td>${item.title}</td>
+      <td>
+        <button class="btn btn-sm btn-success add-cart-wishlist" data-index="${index}">Add to Cart</button>
+        <button class="btn btn-sm btn-danger remove-wishlist" data-index="${index}">Remove</button>
+      </td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  document.getElementById("wishlistTable").innerHTML=html;
+
+  document.querySelectorAll(".remove-wishlist").forEach(btn=>{
+    btn.onclick=()=>{ wishlist.splice(btn.dataset.index,1); updateWishlistTable(); showToast("Removed from wishlist ❌","danger"); }
+  });
+  document.querySelectorAll(".add-cart-wishlist").forEach(btn=>{
+    btn.onclick=()=>{
+      const prod = wishlist[btn.dataset.index];
+      addToCart({...prod, size:"S", color:"Default", qty:1, image:prod.image}).then(()=>{
+        updateCartTable();
+        showToast("Added to cart 🛒");
+      });
+    }
+  });
+}
+
+// ===== Main Flow =====
+loginUser(userEmail,userPassword).then(user=>{
+  document.getElementById("login").innerHTML=`<div class="alert alert-primary">Welcome, ${user.name}</div>`;
+  return fetchProducts();
+}).then(products=>{
+  productsList = products;
+  const productsDiv = document.getElementById("products");
+  productsDiv.innerHTML="";
+  products.forEach(product=>{
+    const prodCol = document.createElement("div");
+    prodCol.className="col";
+    prodCol.innerHTML=`
+      <div class="card h-100 shadow-sm product-card position-relative">
+        <img src="${product.image}" class="card-img-top p-3" style="height:200px; object-fit:contain;">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">${product.title}</h5>
+          <p class="card-text">$${product.price}</p>
+          <button class="btn btn-primary mt-auto">View</button>
+          <button class="btn btn-warning wishlist-btn">♥</button>
+        </div>
+      </div>`;
+    prodCol.querySelector(".btn-primary").addEventListener("click",()=>showSingleProduct(product));
+    prodCol.querySelector(".wishlist-btn").addEventListener("click",()=>{
+      addToWishlist(product).then(()=>{updateWishlistTable(); showToast("Added to wishlist ♥","info");});
+    });
+    productsDiv.appendChild(prodCol);
+  });
+});
+
+// ===== Single Product =====
+function showSingleProduct(product){
+  currentProduct={...product,sizeMultiplier:1,color:"Red"};
+  document.getElementById("singleProduct").style.display="block";
+  document.getElementById("products").style.display="none";
+  document.getElementById("cartPage").style.display="none";
+  document.getElementById("singleImg").src=product.image;
+  document.getElementById("singleTitle").innerText=product.title;
+  document.getElementById("singleDesc").innerText=product.description;
+  document.getElementById("singlePrice").innerText="$"+product.price.toFixed(2);
+
+  document.querySelectorAll(".size-btn").forEach(btn=>{
+    btn.onclick=()=>{
+      document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      currentProduct.sizeMultiplier=parseFloat(btn.dataset.multiplier);
+      updatePrice();
+    }
+  });
+  document.getElementById("colorSelect").value="Red";
+  document.getElementById("colorSelect").onchange=(e)=>{currentProduct.color=e.target.value;}
+  showSameProducts(product);
+}
+
+// ===== Update Price =====
+function updatePrice(){
+  const price=currentProduct.price*currentProduct.sizeMultiplier;
+  document.getElementById("singlePrice").innerText="$"+price.toFixed(2);
+}
+
+// ===== Buy Single =====
+document.getElementById("buySingle").onclick=()=>{
+  const item={
+    id:currentProduct.id,
+    title:currentProduct.title,
+    price:currentProduct.price*currentProduct.sizeMultiplier,
+    size:document.querySelector(".size-btn.active")?.innerText||"S",
+    color:currentProduct.color,
+    qty:1,
+    image:currentProduct.image
+  };
+  addToCart(item).then(()=>{
+    updateCartTable();
+    showToast("Added to cart 🛒");
+  });
+};
+
+// ===== Wishlist Single =====
+document.getElementById("wishlistSingle").onclick=()=>{
+  addToWishlist(currentProduct).then(()=>{
+    updateWishlistTable();
+    showToast("Added to wishlist ♥","info");
+  });
+};
+
+// ===== Back Buttons =====
+document.getElementById("backBtn").onclick=()=>{
+  document.getElementById("singleProduct").style.display="none";
+  document.getElementById("products").style.display="flex";
+};
+
+document.body.insertAdjacentHTML('beforeend','<button id="viewCartPage" class="btn btn-primary position-fixed bottom-0 start-0 m-3">View Cart</button>');
+document.getElementById("viewCartPage").onclick=()=>{
+  document.getElementById("singleProduct").style.display="none";
+  document.getElementById("products").style.display="none";
+  document.getElementById("cartPage").style.display="block";
+  updateCartTable();
+  updateWishlistTable();
+  showRelatedProductsCart(); // Related products below cart
+};
+document.getElementById("backCart").onclick=()=>{
+  document.getElementById("cartPage").style.display="none";
+  document.getElementById("products").style.display="flex";
+};
+
+// ===== Show Related Products Full Width (Single Product) =====
+// function showSameProducts(product){
+//   const sameDiv = document.getElementById("sameProducts");
+//   sameDiv.innerHTML = "<h5 class='ms-3 mb-3'>Related Products</h5>";
+  
+//   const related = productsList.filter(p => p.id !== product.id);
+//   const row = document.createElement("div");
+//   row.className = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 mx-3";
+
+//   related.forEach(p => {
+//     const col = document.createElement("div");
+//     col.className = "col";
+//     col.innerHTML = `
+//       <div class="card h-100 shadow-sm">
+//         <img src="${p.image}" class="card-img-top p-3" style="height:150px; object-fit:contain;">
+//         <div class="card-body d-flex flex-column">
+//           <h6 class="card-title">${p.title}</h6>
+//           <p class="card-text text-success">$${p.price}</p>
+//           <button class="btn btn-sm btn-primary mt-auto">Add to Cart</button>
+//         </div>
+//       </div>
+//     `;
+//     col.querySelector("button").onclick = () => {
+//       addToCart({...p, size:"S", color:"Default", qty:1, image:p.image}).then(()=>{
+//         updateCartTable();
+//         showToast("Added to cart 🛒");
+//       });
+//     }
+//     row.appendChild(col);
+//   });
+
+//   sameDiv.appendChild(row);
+// }
+
+// ===== Show Related Products Below Cart (only 4) =====
+function showRelatedProductsCart(){
+  const relatedDiv = document.getElementById("relatedCartProducts");
+  relatedDiv.innerHTML = "<h5 class='ms-3 mb-3'>You May Also Like</h5>";
+
+  const related = productsList.slice(0,4);
+  const row = document.createElement("div");
+  row.className = "row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3 mx-3";
+
+  related.forEach(p => {
+    const col = document.createElement("div");
+    col.className = "col";
+    col.innerHTML = `
+      <div class="card h-100 shadow-sm">
+        <img src="${p.image}" class="card-img-top p-3" style="height:150px; object-fit:contain;">
+        <div class="card-body d-flex flex-column">
+          <h6 class="card-title">${p.title}</h6>
+          <p class="card-text text-success">$${p.price}</p>
+          <button class="btn btn-sm btn-primary mt-auto">Add to Cart</button>
+        </div>
+      </div>
+    `;
+    col.querySelector("button").onclick = () => {
+      addToCart({...p, size:"S", color:"Default", qty:1, image:p.image}).then(()=>{
+        updateCartTable();
+        showToast("Added to cart 🛒");
+      });
+    }
+    row.appendChild(col);
+  });
+
+  relatedDiv.appendChild(row);
+}
+
+// ===== Checkout =====
+document.getElementById("checkoutBtn").onclick=()=>{
+  if(cart.length===0){showToast("Cart is empty ❌","danger"); return;}
+  cart=[]; wishlist=[]; updateCartTable(); updateWishlistTable();
+  showToast("Checkout successful ✅");
+};
+</script>
+</body>
+</html>

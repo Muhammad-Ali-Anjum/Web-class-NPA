@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professional E-Commerce</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  body { background-color: #f8f9fa; font-family: 'Segoe UI', sans-serif; }
+  .product-card:hover, .related-card:hover { transform: scale(1.03); transition: 0.2s; cursor: pointer; }
+  .size-btn, .color-btn { margin-right:5px; margin-bottom:5px; }
+  .toast-container { position: fixed; top: 1rem; right: 1rem; z-index: 9999; }
+  .card img { height: 200px; object-fit: contain; }
+  .related-card img { height: 150px; object-fit: contain; }
+  .nav-btn { cursor:pointer; }
+  .quantity-input { width: 60px; text-align: center; }
+  .card-title { font-size: 1rem; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">E-Shop</a>
+    <div class="ms-auto">
+      <button class="btn btn-outline-light me-2 nav-btn" id="navHome">Home</button>
+      <button class="btn btn-outline-light me-2 nav-btn" id="navCart">Cart</button>
+      <button class="btn btn-outline-light nav-btn" id="navWishlist">Wishlist</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-4">
+
+  <!-- Home Page -->
+  <div id="homePage" class="row g-4"></div>
+
+  <!-- Single Product Page -->
+  <div id="singleProduct" class="row bg-white p-4 rounded shadow-sm" style="display:none;">
+    <div class="col-md-6 text-center">
+      <img id="singleImg" src="" class="img-fluid rounded shadow-sm" style="max-height:400px;">
+    </div>
+    <div class="col-md-6">
+      <h2 id="singleTitle"></h2>
+      <p id="singleDesc" class="text-muted"></p>
+      <h4 id="singlePrice" class="text-success mb-3"></h4>
+
+      <div class="mb-3">
+        <label class="form-label">Select Size:</label><br>
+        <button class="btn btn-outline-primary size-btn" data-multiplier="1">S</button>
+        <button class="btn btn-outline-primary size-btn" data-multiplier="1.2">M</button>
+        <button class="btn btn-outline-primary size-btn" data-multiplier="1.5">L</button>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Select Color:</label><br>
+        <button class="btn btn-outline-dark color-btn" data-color="Red">Red</button>
+        <button class="btn btn-outline-dark color-btn" data-color="Blue">Blue</button>
+        <button class="btn btn-outline-dark color-btn" data-color="Black">Black</button>
+      </div>
+
+      <button id="buySingle" class="btn btn-success mt-2 me-2">Add to Cart</button>
+      <button id="wishlistSingle" class="btn btn-warning mt-2">Add to Wishlist</button>
+    </div>
+  </div>
+
+  <!-- Related Products -->
+  <div id="relatedProducts" class="mt-5" style="display:none;">
+    <h4 class="mb-4">You May Also Like</h4>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-4" id="relatedProductsRow"></div>
+  </div>
+
+  <!-- Cart Page -->
+  <div id="cartPage" style="display:none;">
+    <h3>Shopping Cart</h3>
+    <div id="cartTable" class="table-responsive"></div>
+
+    <!-- Checkout Button -->
+    <div id="checkoutSection" style="margin-top:20px;">
+      <button id="checkoutBtn" class="btn btn-primary">Proceed to Payment</button>
+    </div>
+  </div>
+
+  <!-- Wishlist Page -->
+  <div id="wishlistPage" style="display:none;">
+    <h3>Wishlist</h3>
+    <div id="wishlistTable" class="table-responsive"></div>
+  </div>
+
+</div>
+
+<!-- Payment Form Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-primary text-white">
+        <h5 class="modal-title">Payment Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="paymentForm">
+          <div class="mb-3">
+            <label for="cardName" class="form-label">Name on Card</label>
+            <input type="text" class="form-control" id="cardName" required>
+          </div>
+          <div class="mb-3">
+            <label for="cardNumber" class="form-label">Card Number</label>
+            <input type="text" class="form-control" id="cardNumber" maxlength="16" required>
+          </div>
+          <div class="row">
+            <div class="col mb-3">
+              <label for="expiry" class="form-label">Expiry Date</label>
+              <input type="text" class="form-control" id="expiry" placeholder="MM/YY" required>
+            </div>
+            <div class="col mb-3">
+              <label for="cvv" class="form-label">CVV</label>
+              <input type="text" class="form-control" id="cvv" maxlength="3" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="paymentMethod" class="form-label">Payment Method</label>
+            <select id="paymentMethod" class="form-select" required>
+              <option value="Credit Card">Credit Card</option>
+              <option value="Debit Card">Debit Card</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Pay Now</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ===== Toast Function =====
+function showToast(message,type='success'){
+  const toastEl=document.createElement('div');
+  toastEl.className=`toast align-items-center text-bg-${type} border-0`;
+  toastEl.setAttribute("role","alert");
+  toastEl.innerHTML=`<div class="d-flex"><div class="toast-body">${message}</div>
+  <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button></div>`;
+  document.getElementById("toastContainer").appendChild(toastEl);
+  const bsToast=new bootstrap.Toast(toastEl,{delay:2000});
+  bsToast.show();
+}
+
+// ===== Global Variables =====
+let productsList=[],cart=[],wishlist=[],currentProduct={price:0,sizeMultiplier:1,color:"Red"};
+
+// ===== Fetch Products from API =====
+async function fetchProducts(){
+  try{
+    const res = await fetch('https://fakestoreapi.com/products');
+    const data = await res.json();
+    productsList = data.slice(0,12);
+    productsList.forEach(p=>{ p.images={Red:p.image,Blue:p.image,Black:p.image}; }); // simulate colors
+    renderHome();
+  } catch(err){
+    console.error("Error fetching products",err);
+  }
+}
+
+// ===== Render Home Page =====
+function renderHome(){
+  document.getElementById("homePage").style.display="flex";
+  document.getElementById("singleProduct").style.display="none";
+  document.getElementById("relatedProducts").style.display="none";
+  document.getElementById("cartPage").style.display="none";
+  document.getElementById("wishlistPage").style.display="none";
+
+  const homeDiv=document.getElementById("homePage");
+  homeDiv.innerHTML="";
+  productsList.forEach(p=>{
+    const div=document.createElement("div");
+    div.className="col-md-3";
+    div.innerHTML=`<div class="card h-100 shadow-sm product-card">
+      <img src="${p.image}" class="card-img-top p-3">
+      <div class="card-body d-flex flex-column">
+        <h6 class="card-title">${p.title}</h6>
+        <p class="card-text text-success">$${p.price}</p>
+        <button class="btn btn-sm btn-primary mt-auto">View</button>
+      </div></div>`;
+    div.querySelector("button").onclick=()=>showSingleProduct(p);
+    homeDiv.appendChild(div);
+  });
+}
+
+// ===== Show Single Product =====
+function showSingleProduct(product){
+  currentProduct={...product,sizeMultiplier:1,color:"Red"};
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("singleProduct").style.display="flex";
+  document.getElementById("relatedProducts").style.display="block";
+
+  document.getElementById("singleImg").src=product.image;
+  document.getElementById("singleTitle").innerText=product.title;
+  document.getElementById("singleDesc").innerText=product.description;
+  document.getElementById("singlePrice").innerText="$"+product.price.toFixed(2);
+
+  document.querySelectorAll(".size-btn").forEach(btn=>{
+    btn.classList.remove("active");
+    btn.onclick=()=>{
+      document.querySelectorAll(".size-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      currentProduct.sizeMultiplier=parseFloat(btn.dataset.multiplier);
+      document.getElementById("singlePrice").innerText="$"+(currentProduct.price*currentProduct.sizeMultiplier).toFixed(2);
+    };
+  });
+
+  document.querySelectorAll(".color-btn").forEach(btn=>{
+    btn.classList.remove("active");
+    btn.onclick=()=>{
+      document.querySelectorAll(".color-btn").forEach(b=>b.classList.remove("active"));
+      btn.classList.add("active");
+      currentProduct.color=btn.dataset.color;
+      document.getElementById("singleImg").src=product.images[currentProduct.color];
+    };
+  });
+
+  renderRelated(product);
+}
+
+// ===== Related Products =====
+function renderRelated(product){
+  const relatedDiv=document.getElementById("relatedProductsRow");
+  relatedDiv.innerHTML="";
+  productsList.filter(p=>p.id!==product.id).slice(0,4).forEach(p=>{
+    const col=document.createElement("div");
+    col.className="col";
+    col.innerHTML=`<div class="card h-100 shadow-sm related-card">
+      <img src="${p.image}" class="card-img-top p-3">
+      <div class="card-body d-flex flex-column">
+        <h6 class="card-title">${p.title}</h6>
+        <p class="card-text text-success">$${p.price}</p>
+        <button class="btn btn-sm btn-primary mt-auto">Add to Cart</button>
+      </div></div>`;
+    col.querySelector("button").onclick=()=>{
+      cart.push({...p,size:"S",color:"Red",qty:1,image:p.image});
+      showToast("Added to cart 🛒");
+    };
+    relatedDiv.appendChild(col);
+  });
+}
+
+// ===== Add to Cart / Wishlist =====
+document.getElementById("buySingle").onclick=()=>{
+  cart.push({...currentProduct,price:currentProduct.price*currentProduct.sizeMultiplier,qty:1,image:currentProduct.images[currentProduct.color]});
+  showToast("Added to cart 🛒");
+};
+document.getElementById("wishlistSingle").onclick=()=>{
+  if(!wishlist.find(p=>p.id===currentProduct.id)) wishlist.push(currentProduct);
+  showToast("Added to wishlist ♥","info");
+};
+
+// ===== Render Cart =====
+function renderCart(){
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("singleProduct").style.display="none";
+  document.getElementById("relatedProducts").style.display="none";
+  document.getElementById("cartPage").style.display="block";
+  document.getElementById("wishlistPage").style.display="none";
+
+  const div=document.getElementById("cartTable");
+  if(cart.length===0){ div.innerHTML="<p>Cart is empty.</p>"; return; }
+  let html=`<table class="table table-bordered align-middle">
+    <thead class="table-dark"><tr><th>Image</th><th>Product</th><th>Size</th><th>Color</th><th>Qty</th><th>Price</th><th>Action</th></tr></thead><tbody>`;
+  cart.forEach((item,index)=>{
+    html+=`<tr>
+      <td><img src="${item.image}" alt="${item.title}" height="60"></td>
+      <td>${item.title}</td>
+      <td>${item.size}</td>
+      <td>${item.color}</td>
+      <td><input type="number" min="1" value="${item.qty}" class="quantity-input" data-index="${index}"></td>
+      <td>$${item.price.toFixed(2)}</td>
+      <td><button class="btn btn-sm btn-danger remove-cart" data-index="${index}">Remove</button></td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  html+=`<h5>Total: $${cart.reduce((a,b)=>a+b.price*b.qty,0).toFixed(2)}</h5>`;
+  div.innerHTML=html;
+
+  document.querySelectorAll(".remove-cart").forEach(btn=>{
+    btn.onclick=()=>{ cart.splice(btn.dataset.index,1); renderCart(); showToast("Removed from cart ❌","danger"); }
+  });
+
+  document.querySelectorAll(".quantity-input").forEach(input=>{
+    input.onchange=()=>{ 
+      const idx=input.dataset.index;
+      cart[idx].qty=parseInt(input.value);
+      renderCart();
+    };
+  });
+}
+
+// ===== Render Wishlist =====
+function renderWishlist(){
+  document.getElementById("homePage").style.display="none";
+  document.getElementById("singleProduct").style.display="none";
+  document.getElementById("relatedProducts").style.display="none";
+  document.getElementById("cartPage").style.display="none";
+  document.getElementById("wishlistPage").style.display="block";
+
+  const div=document.getElementById("wishlistTable");
+  if(wishlist.length===0){ div.innerHTML="<p>Wishlist is empty.</p>"; return; }
+  let html=`<table class="table table-bordered align-middle">
+    <thead class="table-dark"><tr><th>Product</th><th>Action</th></tr></thead><tbody>`;
+  wishlist.forEach((item,index)=>{
+    html+=`<tr>
+      <td>${item.title}</td>
+      <td>
+        <button class="btn btn-sm btn-success add-cart-wishlist" data-index="${index}">Add to Cart</button>
+        <button class="btn btn-sm btn-danger remove-wishlist" data-index="${index}">Remove</button>
+      </td>
+    </tr>`;
+  });
+  html+="</tbody></table>";
+  div.innerHTML=html;
+
+  document.querySelectorAll(".remove-wishlist").forEach(btn=>{
+    btn.onclick=()=>{ wishlist.splice(btn.dataset.index,1); renderWishlist(); showToast("Removed from wishlist ❌","danger"); }
+  });
+
+  document.querySelectorAll(".add-cart-wishlist").forEach(btn=>{
+    btn.onclick=()=>{
+      const p=wishlist[btn.dataset.index];
+      cart.push({...p,size:"S",color:"Red",qty:1,image:p.image});
+      showToast("Added to cart 🛒");
+    };
+  });
+}
+
+// ===== Navbar Navigation =====
+document.getElementById("navHome").onclick=renderHome;
+document.getElementById("navCart").onclick=renderCart;
+document.getElementById("navWishlist").onclick=renderWishlist;
+
+// ===== Checkout Button =====
+document.getElementById("checkoutBtn").onclick = () => {
+  if(cart.length === 0){
+    showToast("Your cart is empty!","warning");
+    return;
+  }
+  const paymentModal = new bootstrap.Modal(document.getElementById('paymentModal'));
+  paymentModal.show();
+};
+
+// ===== Payment Form Submit =====
+document.getElementById("paymentForm").onsubmit = (e) => {
+  e.preventDefault();
+  const name = document.getElementById("cardName").value.trim();
+  const number = document.getElementById("cardNumber").value.trim();
+  const expiry = document.getElementById("expiry").value.trim();
+  const cvv = document.getElementById("cvv").value.trim();
+
+  if(!name || !number || !expiry || !cvv){
+    showToast("Please fill all payment details","warning");
+    return;
+  }
+
+  if(number.length !== 16 || isNaN(number)){
+    showToast("Invalid card number","danger");
+    return;
+  }
+
+  if(cvv.length !== 3 || isNaN(cvv)){
+    showToast("Invalid CVV","danger");
+    return;
+  }
+
+  // Simulate Payment Success
+  showToast("Payment Successful! ✅", "success");
+  cart = [];
+  renderCart();
+  const paymentModal = bootstrap.Modal.getInstance(document.getElementById('paymentModal'));
+  paymentModal.hide();
+};
+
+// ===== Initialize =====
+fetchProducts();
+</script>
+
+</body>
+</html>
