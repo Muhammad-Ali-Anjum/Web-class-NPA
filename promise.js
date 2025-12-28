@@ -17,7 +17,8 @@ function fetchProducts() {
     setTimeout(() => {
       resolve([
         { id: 1, name: "Laptop", price: 120000 },
-        { id: 2, name: "Mobile", price: 60000 }
+        { id: 2, name: "Mobile", price: 60000 },
+        { id: 3, name: "Speaker", price: 70000 },
       ]);
     }, 1000);
   });
@@ -77,70 +78,70 @@ loginUser("user@test.com", "1234")
   .catch(err => console.log("Error:", err))
   .finally(() => console.log("Shopping complete 🛒"));
 
-  // ================= REAL-TIME E-COMMERCE USING PROMISES =================
+//   //  REAL-TIME E-COMMERCE USING PROMISES 
 
-// 1️⃣ Login (simulate API call)
-function loginUser(email, password) {
-  return fetch("https://jsonplaceholder.typicode.com/users")
-    .then(res => res.json())
-    .then(users => {
-      const user = users.find(u => u.email === email);
-      if (user && password === "1234") return user;
-      throw "Login failed ❌";
-    });
-}
+// // 1️⃣ Login (simulate API call)
+// function loginUser(email, password) {
+//   return fetch("https://jsonplaceholder.typicode.com/users")
+//     .then(res => res.json())
+//     .then(users => {
+//       const user = users.find(u => u.email === email);
+//       if (user && password === "1234") return user;
+//       throw "Login failed ❌";
+//     });
+// }
 
-// 2️⃣ Fetch Products (using fake API)
-function fetchProducts() {
-  return fetch("https://fakestoreapi.com/products?limit=5")
-    .then(res => res.json())
-    .then(products => products);
-}
+// // 2️⃣ Fetch Products (using fake API)
+// function fetchProducts() {
+//   return fetch("https://fakestoreapi.com/products?limit=5")
+//     .then(res => res.json())
+//     .then(products => products);
+// }
 
-// 3️⃣ Add to Cart
-function addToCart(product) {
-  return new Promise((resolve, reject) => {
-    if (product) resolve({ ...product, qty: 1 });
-    else reject("Product not found ❌");
-  });
-}
+// // 3️⃣ Add to Cart
+// function addToCart(product) {
+//   return new Promise((resolve, reject) => {
+//     if (product) resolve({ ...product, qty: 1 });
+//     else reject("Product not found ❌");
+//   });
+// }
 
-// 4️⃣ Make Payment
-function makePayment(cartItem) {
-  return new Promise((resolve, reject) => {
-    if (cartItem.price <= 2000) resolve({ paymentId: "PAY001", amount: cartItem.price });
-    else reject("Payment failed ❌ (Limit exceeded)");
-  });
-}
+// // 4️⃣ Make Payment
+// function makePayment(cartItem) {
+//   return new Promise((resolve, reject) => {
+//     if (cartItem.price <= 2000) resolve({ paymentId: "PAY001", amount: cartItem.price });
+//     else reject("Payment failed ❌ (Limit exceeded)");
+//   });
+// }
 
-// 5️⃣ Confirm Order
-function confirmOrder(payment) {
-  return new Promise(resolve => {
-    resolve({ orderId: "ORD1001", status: "Confirmed", payment });
-  });
-}
+// // 5️⃣ Confirm Order
+// function confirmOrder(payment) {
+//   return new Promise(resolve => {
+//     resolve({ orderId: "ORD1001", status: "Confirmed", payment });
+//   });
+// }
 
-// ================= MAIN FLOW =================
+// // ================= MAIN FLOW =================
 
-loginUser("Sincere@april.biz", "1234") // JSONPlaceholder user email
-  .then(user => {
-    console.log("Logged in:", user.name);
-    return fetchProducts();
-  })
-  .then(products => {
-    console.log("Products:", products);
-    return addToCart(products[0]);
-  })
-  .then(cartItem => {
-    console.log("Added to cart:", cartItem);
-    return makePayment(cartItem);
-  })
-  .then(payment => {
-    console.log("Payment successful:", payment);
-    return confirmOrder(payment);
-  })
-  .then(order => {
-    console.log("Order confirmed:", order);
-  })
-  .catch(err => console.log("Error:", err))
-  .finally(() => console.log("Shopping complete 🛒"));
+// loginUser("Sincere@april.biz", "1234") // JSONPlaceholder user email
+//   .then(user => {
+//     console.log("Logged in:", user.name);
+//     return fetchProducts();
+//   })
+//   .then(products => {
+//     console.log("Products:", products);
+//     return addToCart(products[0]);
+//   })
+//   .then(cartItem => {
+//     console.log("Added to cart:", cartItem);
+//     return makePayment(cartItem);
+//   })
+//   .then(payment => {
+//     console.log("Payment successful:", payment);
+//     return confirmOrder(payment);
+//   })
+//   .then(order => {
+//     console.log("Order confirmed:", order);
+//   })
+//   .catch(err => console.log("Error:", err))
+//   .finally(() => console.log("Shopping complete 🛒"));

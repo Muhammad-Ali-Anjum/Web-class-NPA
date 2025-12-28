@@ -43,7 +43,7 @@ let promis4=new Promise((resolve, reject) => {
     }, 1000);
 })
 
-promis4.then((user) => {
+promis4.then(user => {
     console.log(user);
     return user.username;
     
