@@ -26,7 +26,7 @@ const promise3=new Promise((resolve, reject) => {
     }, 1000);
 })
 
-promise3.then((user)=>{
+promise3.then(user=>{
 console.log(user);
 
 })
@@ -43,19 +43,20 @@ let promis4=new Promise((resolve, reject) => {
     }, 1000);
 })
 
-promis4.then(user => {
+let va=promis4.then(user => {
     console.log(user);
-    return user.username;
+    return user.password;
     
-}).then((username)=>{
-console.log(username);
-
-}).catch((error)=>{
+}).then(data=>console.log(data)
+)
+.catch((error)=>{
     console.log(error);  
 }).finally(()=>{
     console.log("The promise is resolved or reject");
     
 })
+// console.log(va());
+
 // console.log(username);
 
 const promis5=new Promise((resolve, reject) => {
@@ -78,6 +79,8 @@ async function consumePromeis5(){
     console.log(error);
     
   }
+
+
    
 }
 consumePromeis5()
