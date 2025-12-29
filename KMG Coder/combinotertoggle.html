@@ -16,10 +16,12 @@
     background-color: gray;
     position: relative;
     left: -100%;
-    transition: 1s;
+    /* display: none; */
+    transition: 2s;
 }
 input[type="checkbox"]:checked ~ .div{
     left: 0;
+    display: block;
 }
 
 /* hover,first-letter,first-line,lfocus,active,visited,link,checked,first-child */
@@ -27,11 +29,9 @@ input[type="checkbox"]:checked ~ .div{
 <body>
    
    
-    <br>
+  
     <input type="checkbox">
 
-    <div class="div">
-
-    </div>
+    <div class="div"></div>
 </body>
 </html>
