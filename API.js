@@ -28,36 +28,36 @@ fetchData();
 
 
 
-// async function loadDashboard() {
-//   try {
-//     console.log("Loading dashboard...");
+async function loadDashboard() {
+  try {
+    console.log("Loading dashboard...");
 
-//     // Show loading spinner (simulate with delay)
-//     await new Promise(resolve => setTimeout(resolve, 2000));
-//     console.log("Loading spinner done");
+    // Show loading spinner (simulate with delay)
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    console.log("Loading spinner done");
 
-//     // Fetch user data from API
-//     const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
+    // Fetch user data from API
+    const response = await fetch("https://jsonplaceholder.typicode.com/users/1");
 
-//     if (!response.ok) {
-//       throw new Error("Failed to fetch user data");
-//     }
+    if (!response.ok) {
+      throw new Error("Failed to fetch user data");
+    }
 
-//     const user = await response.json();
+    const user = await response.json();
     
-//     // Display user data (console simulates UI)
-//     console.log("User Name:", user.name);
-//     console.log("Email:", user.email);
-//     console.log("Username:", user.username);
+    // Display user data (console simulates UI)
+    console.log("User Name:", user.name);
+    console.log("Email:", user.email);
+    console.log("Username:", user.username);
 
-//     // Another delay before showing dashboard ready message
-//     await new Promise(resolve => setTimeout(resolve, 1000));
-//     console.log("Dashboard ready ✅");
+    // Another delay before showing dashboard ready message
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    console.log("Dashboard ready ✅");
 
-//   } catch (error) {
-//     console.log("Error loading dashboard:", error.message);
-//   }
-// }
+  } catch (error) {
+    console.log("Error loading dashboard:", error.message);
+  }
+}
 
-// // Call the function
-// loadDashboard();
+// Call the function
+loadDashboard();
