@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0%;
+        margin: 0%;
+    }
+    .main{
+        width: 100%;
+        height: 10vh;
+        background-color: bisque;
+        position: fixed;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .log{
+        width: 25%;
+        height: inherit;
+        
+    }
+    .log img{
+        width: 100%;
+        height: 10vh;   
+    }
+    .primary{
+        width: 30%;
+        
+    }
+    .primary ul{
+        display: flex;
+        justify-content: space-evenly;
+       
+    }
+    li{
+         list-style-type: none;
+    }
+    a{
+         text-decoration: none;
+         font-size: 18px;
+    }
+    .search{
+        width: 15%;
+    }
+    .search input{
+        width: 100%;
+        height: 5vh;
+        border: none;
+    }
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+}
+.hero1{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(254, 14, 14);
+}
+</style>
+<body>
+    <div class="main">
+        <div class="log"><img src="../img/arrow icon.png" alt="not fond"></div>
+        <div class="primary">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+        <div class="search"><input type="search" placeholder="searching......"></div>
+    </div>
+    <div class="hero"></div>
+    <div class="hero1"></div>
+</body>
+</html>
