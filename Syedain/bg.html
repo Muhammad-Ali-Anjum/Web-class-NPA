@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 70%;
+        height: 70vh;
+        background-image: url(../img/arrow\ icon.png);
+        background-repeat: no-repeat;
+        /* background-position: center; */
+        background-size: 100% 40vh;
+    }
+    #zindex{
+        width: 500px;
+        height: 600px;
+
+    }
+   
+    .main1{
+        width: 100%;
+        height: 300px;
+        background-color: rgb(0, 255, 136);
+
+        z-index: 1;
+    }
+      .main2{
+        width: 100%;
+        height: 300px;
+        background-color: rgb(214, 214, 44);
+        margin-top: -250px;
+        position: relative;
+        z-index: -1;
+    }
+/* Combinators */
+ /* Descendant combinator (space) */
+    #zindex p{
+        margin-top: -250px;
+        z-index: -1;
+     
+    }
+/* Child combinator (>) */
+    /* .main1 >P{color: red;
+
+    } */
+    /* sibling combinator (+) */
+     /* .main1 +P{color: red;
+
+    } */
+    /* GENRAL sibling combinator (~) */
+     .main1 ~P{color: red;
+
+    }
+
+</style>
+<body>
+    <div class="main">
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos sunt provident iste voluptas velit asperiores soluta in! Doloribus, ea omnis asperiores eveniet voluptas sunt aut quae ab libero, beatae possimus.l Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, cupiditate eveniet quam magnam aliquid nam illum molestiae iure. Voluptatibus, temporibus maxime illum numquam nostrum ut impedit aliquid provident eveniet eius! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam recusandae, vero animi aut id dignissimos ad aliquid molestiae ut alias accusantium iusto. Ad omnis placeat sunt impedit enim, quia a?</p>
+
+
+
+    </div>
+  <div id="zindex">
+      <img src="../img/arrow icon.png" alt="">
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ad laboriosam, pariatur illum, assumenda vitae ducimus odio explicabo, quidem animi autem consectetur atque. Hic magnam minus consequatur accusamus non minima expedita? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis eaque assumenda eveniet, alias distinctio, id quaerat, obcaecati ab iusto cum aspernatur quo tenetur. Quidem blanditiis corporis error, obcaecati recusandae cupiditate? Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, expedita consequatur? Eos mollitia dicta natus molestias quam iste eaque cupiditate, similique, voluptas iusto architecto nihil officiis ab quasi totam! Molestias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero magnam quasi velit numquam, necessitatibus fugiat facere fuga deserunt magni vel quae ex eum, quis assumenda nemo voluptate debitis esse impedit?</p>
+  
+  </div>
+  <div class="main1">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aut molestias laborum ullam. Ipsam magnam accusamus quisquam quibusdam quia aliquid reprehenderit, praesentium facilis. Mollitia aperiam amet illo quibusdam quae, inventore repellendus?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam recusandae alias voluptatibus quis? Itaque quam nesciunt laboriosam, atque, rem velit, provident esse rerum magni assumenda iusto! Nihil commodi cumque sit.</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic expedita itaque modi. Eveniet minima provident, laudantium iusto fugiat odio architecto ex! Impedit error cumque natus ipsa perspiciatis. Eveniet, magnam quam!</p>
+  </div>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt laudantium velit magnam qui totam. Iste est saepe nam quos? Maxime natus sit illo odio explicabo earum doloribus esse necessitatibus mollitia?</p>
+  <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, corporis? Fuga modi quibusdam illum maiores iure hic reprehenderit sit, eum, inventore beatae atque ipsum dicta cupiditate quae aliquid. Dicta, praesentium.</p>
+  <div class="main2"></div>
+</body>
+</html>
