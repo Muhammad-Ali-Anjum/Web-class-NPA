@@ -1,5 +1,12 @@
+.product{
+   width: 100%;
+   display: flex;
+   /* justify-content: space-around; */
+   /* justify-content: space-between; */
+   justify-content: space-evenly;
+}
 .main{
-   width: 20%;
+   width: 23%;
    height: 80vh;
    background-color: azure;
 }
@@ -32,4 +39,24 @@ font-size: 18px;
    background-image: url(../../../img/arrow\ icon.png);
    background-repeat: no-repeat;
    background-size: 100% 30vh;
+}
+.topcourse {
+text-align: center;
+text-transform: capitalize;
+}
+
+.flexdir{
+   width: 100%;
+   height: 100vh;
+   background-color: aquamarine;
+   display: flex;
+   justify-content: space-between;
+   /* flex-direction: column; */
+   align-content: end;
+   align-items: center;
+}
+.flx{
+   width: 23%;
+   height: 50vh;
+   background-color: bisque;
 }
