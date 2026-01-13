@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Card Layout</title>
+
+    <style>
+       
+
+       
+        .main{
+            width: 300px;
+            height: 300px;
+            background-color: bisque;
+            margin-bottom: 20px;
+        }
+
+        .sub{
+            width: 300px;
+            height: 300px;
+            background-color: blueviolet;
+            margin-bottom: 40px;
+        }
+
+       
+        .card{
+            max-width: 800px;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            border-radius: 10px;
+            display: flex;
+            gap: 30px;
+            padding: 20px;
+            margin-bottom: 40px;
+        }
+
+        .image{
+            width: 300px;
+            text-align: center;
+        }
+
+        .image img{
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .image h3{
+            margin-top: 10px;
+            color: #333;
+        }
+
+        .cont{
+            flex: 1;
+        }
+
+        .cont ul{
+            padding-left: 20px;
+        }
+
+        .cont li{
+            margin-bottom: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+      
+        p{
+            max-width: 800px;
+            margin-bottom: 40px;
+            color: #ffffff;
+            line-height: 1.6;
+           position: relative;
+           top: -120px;
+           /* z-index: -1; */
+        }
+
+       
+        .co{
+            width: 500px;
+            height: 150px;
+            background-color: rgb(196, 196, 255);
+            margin-bottom: 20px;
+             position: absolute;
+             z-index: -1;
+        }
+
+        .clss{
+            width: 500px;
+            height: 150px;
+            background-color: rgb(253, 141, 5);
+            margin-left: 20px;
+           
+        }
+
+       
+
+    </style>
+</head>
+<body>
+
+    <div class="main"></div>
+    <div class="sub"></div>
+
+    <div class="card">
+        <div class="image">
+            <img src="../img/carousel-1.jpg" alt="Profile Image">
+            <h3>Name XYZ</h3>
+            <h3>MERN Stack Developer</h3>
+        </div>
+
+        <div class="cont">
+            <ul>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+                <li>Optio ratione dignissimos quia perspiciatis.</li>
+                <li>Corporis ipsum velit illum consectetur.</li>
+                <li>Architecto molestias officiis laborum.</li>
+                <li>Voluptatibus facere maiores accusamus.</li>
+            </ul>
+        </div>
+    </div>
+
+    <img src="../img/carousel-1.jpg" alt="Banner Image" style="max-width:800px; border-radius:10px; margin-bottom:20px;">
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quas,
+        eos corrupti expedita fugit quo cum id, magni fuga molestiae officia amet.
+        Aliquam ut laborum esse corporis quod aliquid.
+    </p>
+
+    <div class="co"></div>
+    <div class="clss"></div>
+
+</body>
+</html>

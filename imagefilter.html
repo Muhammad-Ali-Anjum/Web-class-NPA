@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Image Filters</title>
+
+  <!-- Internal CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .gallery {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      background: white;
+      padding: 10px;
+      border-radius: 10px;
+      width: 140px;
+      box-shadow: 1px 1px 5px rgb(103, 103, 204);
+    }
+
+    .box img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    /* 1. Grayscale */
+    .grayscale img {
+      filter: grayscale(100%);
+    }
+
+    /* 2. Blur */
+    .blur img {
+      filter: blur(3px);
+    }
+
+    /* 3. Sepia */
+    .sepia img {
+      filter: sepia(100%);
+    }
+
+    /* 4. Brightness */
+    .brightness img {
+      filter: brightness(150%);
+    }
+
+    /* 5. Contrast */
+    .contrast img {
+      filter: contrast(100%);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>CSS Image Filters</h1>
+     
+
+  <div class="gallery">
+     <div class="box">
+      <p>orignal</p>
+      <img src="./img/carousel-1.jpg" alt="image">
+
+    </div>
+    <div class="box grayscale">
+      <p>Grayscale</p>
+      <img src="./img/carousel-1.jpg" alt="image">
+
+    </div>
+
+    <div class="box blur">
+      <p>Blur</p>
+      <img src="https://picsum.photos/200/200?2" alt="image">
+      
+      
+    </div>
+
+    <div class="box sepia">
+      <p>Sepia</p>
+      <img src="./img/carousel-1.jpg" alt="image">
+
+    </div>
+
+    <div class="box brightness">
+      <p>Brightness</p>
+      <img src="./img/carousel-1.jpg" alt="image">
+
+    </div>
+
+    <div class="box contrast">
+      <p>Contrast</p>
+      <img src="./img/carousel-1.jpg" alt="image">
+
+    </div>
+  </div>
+
+</body>
+</html>
