@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .header{
+        width: 100%;
+        height: 100vh;
+        /* background-color: aqua; */
+       position: relative;
+     
+    }
+    .header h1{
+        width: 0%;
+        font-size: 60px;
+        font-weight: bolder;
+        overflow: hidden;
+        font-family: Algerian;
+        white-space: nowrap;
+        border-right: solid 4px white;
+        animation: change 7s  steps(33)  infinite;
+        
+    }
+    @keyframes change{
+        0%{
+        width: 0%;
+    }
+        50%{
+        width: 70%;
+        color: red;}
+    }
+</style>
+<body>
+    <header class="header">
+      <h1>Well Come To Over Page</h1>
+    </header>
+</body>
+</html>

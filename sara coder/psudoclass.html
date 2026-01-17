@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        width: 20%;
+        height: 70vh;
+        box-shadow: 1px 1px 10px gray;
+        transition: 2s;
+    }
+    .container img{
+        width:100%;
+        height: 200px;
+    }
+
+    .heading{
+        font-size: 24px;
+        text-align: center;
+    }
+    .paragraph{
+        font-size: 16px;
+        text-align: center;
+    }
+    .btn-primary{
+        width: 100px;
+        height: 40px;
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        margin-left: 25%;
+        cursor: pointer;
+        font-size: 16px;
+        transition: 2s;
+    }
+    .container:hover{
+         width: 20.3%;
+        height: 70.5vh;
+    }
+    .btn-primary:hover{
+        background-color: darkblue;
+    }
+    nav li a{
+        text-decoration: none;
+    }
+    nav li{
+        list-style-type: none;
+    }
+    nav li a:active{
+        color: tomato;
+    }
+    a:visited{
+        color: purple;
+    }
+    a:link{
+        color: green;
+    }
+    a::after{
+        content: url(../img/arrow\ icon.png);
+    }
+    a::before{
+        content: "start ";}
+</style>
+<body>
+
+    <div class="container">
+        <img src="../img/arrow icon.png" alt="">
+        <h1 class="heading">This is heading</h1>
+        <p class="paragraph">This is paragraph</p>
+        <button class="btn-primary">Click Me</button>
+    </div>
+    <!-- navbar -->
+     <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+        </ul>
+     </nav>
+    
+</body>
+</html>
