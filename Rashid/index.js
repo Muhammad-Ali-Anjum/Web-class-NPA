@@ -36,7 +36,6 @@ else if(mark<0 || mark>100){
     console.log("invalid");
   }
  else{
-        console.log("Fail");
-        
+        console.log("Fail");        
     }
 
