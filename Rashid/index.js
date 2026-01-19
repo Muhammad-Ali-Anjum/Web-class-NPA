@@ -39,3 +39,26 @@ else if(mark<0 || mark>100){
         console.log("Fail");        
     }
 
+
+
+console.log("========================class start===========================");
+
+let opr="+";
+
+switch(opr){
+    case "+":
+        let a=5;
+        let b=10;
+
+        console.log("Addition", a+b);   
+        break;
+    case "-": 
+        console.log("Subtraction");
+        break;
+    case "*":
+        console.log("Multiplication"); 
+        break;
+    default:
+        console.log("invlid operator");
+}
+        
