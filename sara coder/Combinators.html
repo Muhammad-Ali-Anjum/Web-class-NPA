@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* child sel */
+    .main>p{
+        width: 100%;
+        height: 200px;
+        /* background-color: lightcoral; */
+        /* Combinators */
+        /* descendant combinator */
+        /* border */
+        /* border: 10px solid purple; */
+        /* border-width */
+        /* border-width: 50px; */
+        /* border-width: 20px 10px 30px 40px; */
+        /* border-style */
+        /* border-style: dashed; */
+        /* border-style: dotted dashed solid double; */
+        /* border-color */
+        /* border-color: red; */
+        /* border-color: blue green yellow orange; */
+        
+    }
+    .main +p{
+        color: blue;
+
+    }
+    /* gen sib sel */
+    .main ~p{
+        font-size: 20px;
+        color: brown;
+    }
+    .div{
+    width: 400px;
+    height: 70vh;
+    background-color: gray;
+    position: relative;
+    left: -100%;
+    /* display: none; */
+    transition: 4s;
+}
+input[type="checkbox"]:checked ~ .div{
+    left: 0;
+    /* display: block; */
+}
+
+
+</style>
+<body>
+     <input type="checkbox">
+    <div class="div"></div>
+    <div class="main">
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>
+                <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>
+
+    </div>
+
+            <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>
+                <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>
+                <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati illum voluptas porro libero et ratione fugit, autem maiores quod nostrum reprehenderit recusandae id omnis dolor quaerat repellendus accusamus quos aspernatur. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis dolorem sit aperiam, sunt beatae iure perferendis exercitationem deleniti autem animi id in corporis delectus pariatur expedita nobis harum maiores! Dolor. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quidem repudiandae error iusto cumque iste sit exercitationem. Dignissimos incidunt ullam praesentium molestiae quia, aliquid excepturi? Maxime eum itaque nobis quas!
+        </p>
+</body>
+</html>
