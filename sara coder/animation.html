@@ -1,0 +1,90 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <style>
+        .main{
+            width: 500px;
+            height: 500px;
+            border: 2px solid;
+        }
+        .sub{
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            /* animation-name: mover;
+            animation-duration: 2s;
+            animation-timing-function: ease;
+            animation-delay:initial;
+            animation-iteration-count: infinite; */
+            animation:coder 2s ease alternate-reverse infinite;
+            position: relative;
+
+        }
+        @keyframes coder {
+            0%{
+                left: 0%;
+                top: 0%;
+            }
+            25%{
+                left: 300px;
+                top: 0%;
+                background-color: blue;
+            }
+            50%{
+                    left: 300px;
+                top: 300px;
+                background-color: yellow;
+            }
+            75%{
+                left: 0%;
+                top: 300px;
+                background-color: aquamarine;
+            }
+            100%{
+                left: 0%;
+                top: 0%;
+                background-color: rgb(75, 185, 32);
+            }
+            
+        }
+        .header{
+        width: 100%;
+        height: 100vh;
+        /* background-color: aqua; */
+       position: relative;
+     
+    }
+    .header h1{
+        width: 0%;
+        font-size: 60px;
+        font-weight: bolder;
+        overflow: hidden;
+        font-family: Algerian;
+        white-space: nowrap;
+        border-right: solid 4px #ffffff;
+        animation: change 7s  steps(24)  infinite;
+        
+    }
+    @keyframes change{
+        0%{
+        width: 0%;
+    }
+        50%{
+        width: 70%;
+        color: red;}
+    }
+    </style>
+    <body>
+        <div class="main">
+            <div class="sub"></div>
+        </div>
+       <header class="header">
+      <h1>Well Come To Over Page</h1>
+    </header>
+    </body>
+    </html>

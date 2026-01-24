@@ -73,8 +73,29 @@
     
 // }
 
-for(let i=5;i>=1;i--){
-    for(let j=1;j<=i;j++){
-        console.log(j);
-    }
-}
+// for(let i=5;i>=1;i--){
+//     for(let j=1;j<=i;j++){
+//         console.log(j);
+//     }
+// }
+
+let condition=10;
+while(condition<=15){
+    console.log("while loop",condition);
+    condition++;
+    // code block to be executed
+  }
+  console.log("=========================while loop======================");
+  
+  let a=0;
+  while(a<=5){
+    console.log("while loop",a);
+    a++;
+  }
+
+    console.log("=========================do while loop======================");
+    let b=0;
+    do{
+        console.log("do while loop",b);
+        b++;
+    }while(b<=5);
