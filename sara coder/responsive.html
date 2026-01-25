@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+            height: 100vh;
+        }
+        .sub1 ,.sub2{
+            width: 100%;
+            height: 70vh;
+            /* background-color: beige; */
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+          
+        .sub{
+            width: 23%;
+            height: 67vh;
+            background-color: thistle;
+        }
+        @media only screen and (max-width: 1000px){
+            .mains{
+                width: 100%;
+            display: flex;
+           }
+            .sub2, .sub1{
+                width: 47%;
+            flex-direction: column;
+            height: auto;
+           }
+           .sub{
+            width: 95%;
+            margin-bottom: 12px;
+           
+           }
+          
+            
+        }
+        @media  only screen and (max-width:647px){
+            .mains{
+                flex-direction: column;
+            }
+            .sub2, .sub1{
+                width: 100%;
+            }
+            .sub{
+                width: 95%;
+                margin-bottom: 12px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h1>Top Product</h1>
+    <div class="mains">
+    <div class="sub1">
+        <div class="sub">sub 1</div>
+        <div class="sub">sub 1</div>
+        <div class="sub">sub 1</div>
+        <div class="sub">sub 1</div>
+    </div>
+     <div class="sub2">
+        <div class="sub">sub 2</div>
+        <div class="sub">sub 2</div>
+        <div class="sub">sub 2</div>
+        <div class="sub">sub 2</div>
+    </div>
+    </div>
+</body>
+</html>
