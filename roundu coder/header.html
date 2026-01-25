@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPA</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .Header{
+        width: 100%;
+        height: 80px;
+        background-color: teal;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .logo{
+        width: 10%;
+        height: 60px;
+        background-color: coral;
+    }
+    .logo img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .headers{
+        width: 50%;
+        height: 60px;
+        /* background-color: cadetblue; */
+    }
+    .headers ul{
+        list-style: none;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+    }
+    .headers ul li{
+        color: white;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        cursor: pointer;
+    }
+    .search{
+        width: 20%;
+        height: 40px;
+        background-color: chocolate;
+    }
+    .search #search{
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        padding-left: 10px;
+    }
+    .Herosection{
+        width: 100%;
+        height: 500px;
+       background-image: url("../img/carousel-1.jpg");
+       background-size: 100% 100vh;
+       background-repeat: no-repeat;
+         background-position: center;
+         display: flex;
+         justify-content: space-around;
+         align-items: center;
+
+    }
+    .hero1{
+        width: 20%;
+        height: 30vh;
+    }
+    .Herosqure{
+        width: 15%;
+        height: 7vh;
+        background-color: tomato;
+        margin-bottom: 12px;
+        border-radius: 50%;
+    }
+    .hero2{
+        width: 75%;
+
+    }
+    .hero2 h1{
+        font-size: 55px;
+        color: white;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .hero2 p{
+        font-size: 20px;
+        color: white;
+        margin-bottom: 30px;
+        text-align: justify;
+        line-height: 30px;
+    }
+    .btn{
+        width: 150px;
+        height: 40px;
+        font-size: 18px;
+        background-color: tomato;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .HeroSub{
+        width: 70%;
+    }
+</style>
+<body>
+    <div class="Header">
+        <div class="logo"><a href=""><img src="../img/arrow icon.png" alt=""></a></div>
+        <div class="headers"> <ul>
+            <li>Home</li>
+            <li>About</li>
+            <li>Shop</li>
+            <li>Contact</li>
+            <li>login/sign up</li>
+        </ul></div>
+        <div class="search"><input type="search" placeholder="seaching......." id="search"></div>
+    </div>
+    <div class="Herosection">
+        <div class="hero1">
+            <div class="Herosqure"></div>
+            <div class="Herosqure"></div>
+            <div class="Herosqure"></div>
+        </div>
+        <div class="hero2">
+           <div class="HeroSub">
+            <h1>Welcome to NPA</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sint ipsa? Odit, alias facere exercitationem vitae accusantium similique modi nihil inventore impedit voluptatibus quos ut, aut est beatae doloremque possimus.</p>
+            <button class="btn">Shop Now</button>
+           </div>
+        </div>
+    </div>
+</body>
+</html>
