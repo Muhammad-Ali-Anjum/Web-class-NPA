@@ -1,141 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NPA</title>
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NPA | Modern UI</title>
+
 <style>
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-    .Header{
-        width: 100%;
-        height: 80px;
-        background-color: teal;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    }
-    .logo{
-        width: 10%;
-        height: 60px;
-        background-color: coral;
-    }
-    .logo img{
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-    .headers{
-        width: 50%;
-        height: 60px;
-        /* background-color: cadetblue; */
-    }
-    .headers ul{
-        list-style: none;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        height: 100%;
-    }
-    .headers ul li{
-        color: white;
-        font-size: 20px;
-        font-family: Arial, Helvetica, sans-serif;
-        cursor: pointer;
-    }
-    .search{
-        width: 20%;
-        height: 40px;
-        background-color: chocolate;
-    }
-    .search #search{
-        width: 100%;
-        height: 100%;
-        font-size: 18px;
-        padding-left: 10px;
-    }
-    .Herosection{
-        width: 100%;
-        height: 500px;
-       background-image: url("../img/carousel-1.jpg");
-       background-size: 100% 100vh;
-       background-repeat: no-repeat;
-         background-position: center;
-         display: flex;
-         justify-content: space-around;
-         align-items: center;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: "Segoe UI", sans-serif;
+}
 
-    }
-    .hero1{
-        width: 20%;
-        height: 30vh;
-    }
-    .Herosqure{
-        width: 15%;
-        height: 7vh;
-        background-color: tomato;
-        margin-bottom: 12px;
-        border-radius: 50%;
-    }
-    .hero2{
-        width: 75%;
+body{
+    background:#f5f7fa;
+}
 
-    }
-    .hero2 h1{
-        font-size: 55px;
-        color: white;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-    .hero2 p{
-        font-size: 20px;
-        color: white;
-        margin-bottom: 30px;
-        text-align: justify;
-        line-height: 30px;
-    }
-    .btn{
-        width: 150px;
-        height: 40px;
-        font-size: 18px;
-        background-color: tomato;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .HeroSub{
-        width: 70%;
-    }
+/* ================= HEADER ================= */
+.header{
+    height:80px;
+    background:linear-gradient(135deg,#0f766e,#115e59);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 60px;
+}
+
+/* Logo hover */
+.logo img{
+    width:55px;
+    transition:0.3s;
+}
+.logo img:hover{
+    transform:scale(1.1);
+}
+
+/* ================= NAVIGATION ================= */
+.nav ul{
+    list-style:none;
+    display:flex;
+    gap:35px;
+}
+
+/* Link states */
+.nav ul li a:link{
+    color:#ffffff;
+    text-decoration:none;
+    font-size:17px;
+    position:relative;
+}
+
+.nav ul li a:visited{
+    color:#d1fae5;
+}
+
+.nav ul li a:hover{
+    color:#f97316;
+}
+
+.nav ul li a:active{
+    color:#fb923c;
+}
+
+/* underline animation */
+.nav ul li a::after{
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    background:#f97316;
+    left:0;
+    bottom:-6px;
+    transition:0.3s;
+}
+.nav ul li a:hover::after{
+    width:100%;
+}
+
+/* ================= SEARCH ================= */
+.search-box input{
+    width:220px;
+    height:40px;
+    border-radius:20px;
+    border:none;
+    padding:0 15px;
+    outline:none;
+    transition:0.3s;
+}
+
+/* focus pseudo-class */
+.search-box input:focus{
+    box-shadow:0 0 0 3px rgba(249,115,22,0.4);
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:calc(100vh - 80px);
+    background:
+        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+        url("../img/carousel-1.jpg");
+    background-size:cover;
+    background-position:center;
+    display:flex;
+    align-items:center;
+    padding:0 80px;
+    color:white;
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero-content h1{
+    font-size:58px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:18px;
+    line-height:30px;
+    margin-bottom:35px;
+}
+
+/* ================= BUTTON ================= */
+.hero-content button{
+    padding:14px 40px;
+    font-size:17px;
+    border:none;
+    border-radius:30px;
+    background:#f97316;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* hover */
+.hero-content button:hover{
+    background:#ea580c;
+    transform:translateY(-2px);
+}
+
+/* active */
+.hero-content button:active{
+    transform:scale(0.95);
+}
+
+/* ================= DOTS ================= */
+.hero-dots{
+    position:absolute;
+    left:30px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.dot{
+    width:12px;
+    height:12px;
+    background:#f97316;
+    border-radius:50%;
+}
 </style>
+</head>
+
 <body>
-    <div class="Header">
-        <div class="logo"><a href=""><img src="../img/arrow icon.png" alt=""></a></div>
-        <div class="headers"> <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Shop</li>
-            <li>Contact</li>
-            <li>login/sign up</li>
-        </ul></div>
-        <div class="search"><input type="search" placeholder="seaching......." id="search"></div>
+
+<header class="header">
+    <div class="logo">
+        <img src="../img/arrow icon.png" alt="logo">
     </div>
-    <div class="Herosection">
-        <div class="hero1">
-            <div class="Herosqure"></div>
-            <div class="Herosqure"></div>
-            <div class="Herosqure"></div>
-        </div>
-        <div class="hero2">
-           <div class="HeroSub">
-            <h1>Welcome to NPA</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod. Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, sint ipsa? Odit, alias facere exercitationem vitae accusantium similique modi nihil inventore impedit voluptatibus quos ut, aut est beatae doloremque possimus.</p>
-            <button class="btn">Shop Now</button>
-           </div>
-        </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login / Sign Up</a></li>
+        </ul>
+    </nav>
+
+    <div class="search-box">
+        <input type="search" placeholder="Search...">
     </div>
+</header>
+
+<section class="hero">
+
+    <div class="hero-dots">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <div class="hero-content">
+        <h1>Welcome to NPA</h1>
+        <p>
+            Discover premium products with modern design and unmatched quality.
+            Experience innovation, comfort, and style with NPA.
+        </p>
+        <button>Shop Now</button>
+    </div>
+
+</section>
+
 </body>
 </html>

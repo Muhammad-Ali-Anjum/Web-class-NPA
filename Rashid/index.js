@@ -79,23 +79,40 @@
 //     }
 // }
 
-let condition=10;
-while(condition<=15){
-    console.log("while loop",condition);
-    condition++;
-    // code block to be executed
-  }
-  console.log("=========================while loop======================");
+// let condition=10;
+// while(condition<=15){
+//     console.log("while loop",condition);
+//     condition++;
+//     // code block to be executed
+//   }
+//   console.log("=========================while loop======================");
   
-  let a=0;
-  while(a<=5){
-    console.log("while loop",a);
-    a++;
-  }
+//   let a=0;
+//   while(a<=5){
+//     console.log("while loop",a);
+//     a++;
+//   }
 
-    console.log("=========================do while loop======================");
-    let b=0;
-    do{
-        console.log("do while loop",b);
-        b++;
-    }while(b<=5);
+//     console.log("=========================do while loop======================");
+//     let b=0;a
+//     do{
+//         console.log("do while loop",b);
+//         b++;
+//     }while(b<=5);
+
+//     console.log("=========================function======================");
+//    function greet(name){
+function rashid(){
+        console.log("Hello Rashid");
+    }
+    rashid();
+
+function sum(a,b){
+    let total=a+b;
+    console.log("Sum:",total);
+}
+sum(5,10);
+function name(){
+    console.log("My name is Rashid");
+}
+name();
