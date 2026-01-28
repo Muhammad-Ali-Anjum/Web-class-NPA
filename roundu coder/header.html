@@ -1,215 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NPA | Modern UI</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPA | Modern UI</title>
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: "Segoe UI", sans-serif;
-}
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Segoe UI", sans-serif;
+        }
 
-body{
-    background:#f5f7fa;
-}
+        body {
+            background: #f5f7fa;
+        }
 
-/* ================= HEADER ================= */
-.header{
-    height:80px;
-    background:linear-gradient(135deg,#0f766e,#115e59);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 60px;
-}
+        /* ================= HEADER ================= */
+        .header {
+            height: 80px;
+            background: linear-gradient(135deg, #0f766e, #115e59);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 60px;
+            width: 100%;
+            position: fixed;
+            /* position: static; */
+        }
 
-/* Logo hover */
-.logo img{
-    width:55px;
-    transition:0.3s;
-    transition: 2s;
-}
-.logo img:hover{
-    transform:scale(1.1);
-    transform: rotate(360deg);
-}
+        /* Logo hover */
+        .logo img {
+            width: 55px;
+            transition: 0.3s;
+            transition: 2s;
+        }
 
-/* ================= NAVIGATION ================= */
-.nav ul{
-    list-style:none;
-    display:flex;
-    gap:35px;
-}
+        .logo img:hover {
+            transform: scale(1.1);
+            transform: rotate(360deg);
+        }
 
-/* Link states */
-.nav ul li a:link{
-    color:#ffffff;
-    text-decoration:none;
-    font-size:17px;
-    position:relative;
-}
+        /* ================= NAVIGATION ================= */
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        /* Link states */
+        .nav ul li a:link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 17px;
+            position: relative;
+        }
 
 
-.nav ul li a:visited{
-    color:#d1fae5;
-}
+        .nav ul li a:visited {
+            color: #d1fae5;
+        }
 
-.nav ul li a:hover{
-    color:#f97316;
-}
+        .nav ul li a:hover {
+            color: #f97316;
+        }
 
-.nav ul li a:active{
-    color:#fb923c;
-}
+        .nav ul li a:active {
+            color: #fb923c;
+        }
 
-/* underline animation */
-.nav ul li a::after{
-    content:"";
-    position:absolute;
-    width:0%;
-    height:2px;
-    background:#f97316;
-    left:0;
-    bottom:-6px;
-    transition:0.3s;
-}
-.nav ul li a:hover::after{
-    width:100%;
-}
+        /* underline animation */
+        .nav ul li a::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #f97316;
+            left: 0;
+            bottom: -6px;
+            transition: 0.3s;
+        }
 
-/* ================= SEARCH ================= */
-.search-box input{
-    width:220px;
-    height:40px;
-    border-radius:20px;
-    border:none;
-    padding:0 15px;
-    outline:none;
-    transition:0.3s;
-}
+        .nav ul li a:hover::after {
+            width: 100%;
+        }
 
-/* focus pseudo-class */
-/* .search-box input:focus{
+        /* ================= SEARCH ================= */
+        .search-box input {
+            width: 220px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            padding: 0 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        /* focus pseudo-class */
+        /* .search-box input:focus{
     box-shadow:0 0 0 3px rgba(249,115,22,0.4);
 } */
 
-/* ================= HERO ================= */
-.hero{
-    height:calc(100vh - 80px);
-    background:
-        linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
-        url("../img/carousel-1.jpg");
-    background-size:cover;
-    background-position:center;
-    display:flex;
-    align-items:center;
-    padding:0 80px;
-    color:white;
-}
+        /* ================= HERO ================= */
+        .hero {
+            height: calc(100vh - 80px);
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("../img/carousel-1.jpg");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 80px;
+            color: white;
+        }
 
-.hero-content{
-    max-width:650px;
-}
+        .hero-content {
+            max-width: 650px;
+        }
 
-.hero-content h1{
-    font-size:58px;
-    margin-bottom:20px;
-}
+        .hero-content h1 {
+            font-size: 58px;
+            margin-bottom: 20px;
+        }
 
-.hero-content p{
-    font-size:18px;
-    line-height:30px;
-    margin-bottom:35px;
-}
+        .hero-content p {
+            font-size: 18px;
+            line-height: 30px;
+            margin-bottom: 35px;
+        }
 
-/* ================= BUTTON ================= */
-.hero-content button{
-    padding:14px 40px;
-    font-size:17px;
-    border:none;
-    border-radius:30px;
-    background:#f97316;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
+        /* ================= BUTTON ================= */
+        .hero-content button {
+            padding: 14px 40px;
+            font-size: 17px;
+            border: none;
+            border-radius: 30px;
+            background: #f97316;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-/* hover */
-.hero-content button:hover{
-    background:#ea580c;
-    transform:translateY(-2px);
-}
+        /* hover */
+        .hero-content button:hover {
+            background: #ea580c;
+            transform: translateY(-2px);
+        }
 
-/* active */
-/* .hero-content button:active{
+        /* active */
+        /* .hero-content button:active{
     transform:scale(0.95);
 } */
 
-/* ================= DOTS ================= */
-.hero-dots{
-    position:absolute;
-    left:30px;
-    display:flex;
-    flex-direction:column;
-    gap:15px;
-}
+        /* ================= DOTS ================= */
+        .hero-dots {
+            position: absolute;
+            left: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
 
-.dot{
-    width:12px;
-    height:12px;
-    background:#f97316;
-    border-radius:50%;
-}
-</style>
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #f97316;
+            border-radius: 50%;
+        }
+
+        .nav1 {
+            width: 100%;
+            height: 100vh;
+            background-color: yellowgreen;
+        }
+    </style>
 </head>
 
 <body>
 
 
-    
 
-<header class="header">
-    <div class="logo">
-        <img src="../img/arrow icon.png" alt="logo">
+
+    <header class="header">
+        <div class="logo">
+            <img src="../img/arrow icon.png" alt="logo">
+        </div>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login / Sign Up</a></li>
+            </ul>
+        </nav>
+
+        <div class="search-box">
+            <input type="search" placeholder="Search...">
+        </div>
+    </header>
+
+    <section class="hero">
+
+        <div class="hero-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Welcome to NPA</h1>
+            <p>
+                Discover premium products with modern design and unmatched quality.
+                Experience innovation, comfort, and style with NPA.
+            </p>
+            <button>Shop Now</button>
+        </div>
+
+    </section>
+
+    <div class="nav1">
+
     </div>
-
-    <nav class="nav">
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Shop</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Login / Sign Up</a></li>
-        </ul>
-    </nav>
-
-    <div class="search-box">
-        <input type="search" placeholder="Search...">
-    </div>
-</header>
-
-<section class="hero">
-
-    <div class="hero-dots">
-        <div class="dot"></div>
-        <div class="dot"></div>
-        <div class="dot"></div>
-    </div>
-
-    <div class="hero-content">
-        <h1>Welcome to NPA</h1>
-        <p>
-            Discover premium products with modern design and unmatched quality.
-            Experience innovation, comfort, and style with NPA.
-        </p>
-        <button>Shop Now</button>
-    </div>
-
-</section>
 
 </body>
+
 </html>
