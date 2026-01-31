@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p::first-line{
+        color: red;
+    }
+    p::first-letter{
+        font-size: 40px;
+    }
+    p::after{
+        content: url(../img/arrow\ icon.png);
+    }
+    .main{
+       width: 300px;
+       height: 300px;
+       background-color: blueviolet;
+      transition: 2s;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+transform: rotate(60deg);
+       
+    }
+    .main:hover{
+transform: rotate(360deg);
+    }
+    .main1{
+       width: 300px;
+       height: 300px;
+       background-color: rgb(118, 203, 119);
+      transition: 2s;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+transform: translate(100px, 200px);
+       
+    }
+   .main2 {
+       width: 300px;
+       height: 300px;
+       background-color: blueviolet;
+      transition: 2s;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+transform: scale(0.4);
+/* transform: scaleX(3);
+transform: scaleY(5); */
+       
+    }
+    .skew{
+         width: 300px;
+       height: 300px;
+       background-color: blueviolet;
+      transition: 2s;
+      font-size: 40px;
+      text-align: center;
+      color: white;
+      transition: 3s;
+     
+    }
+    .skew:hover{
+ transform: skew(360deg);
+    }
+</style>
+<body>
+    
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas quia blanditiis tempore omnis doloribus? Voluptate dolore quae quia sed quidem a molestias commodi, labore quaerat! Non officiis praesentium suscipit necessitatibus?</p>
+
+    <div class="main">rotate</div>
+    <div class="main1">translate</div>
+    <div class="main2">scale</div>
+    <div class="skew">skew</div>
+    
+</body>
+</html>

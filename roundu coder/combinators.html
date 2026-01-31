@@ -5,8 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    /* .main p{
+        font-size: large;
+    } */
+     /* child */
+     /* .main >p{
+        color: red;
+     } */
+      /* adjacent sibling selector (+) */
+      /* .main +p{
+        color: red;
+      } */
+      /* Genral sibling selector (~) */
+      .main ~p{
+        color: red;
+      }
+       .div{
+    width: 400px;
+    height: 70vh;
+    background-color: gray;
+    position: relative;
+    left: -100%;
+    /* display: none; */
+    transition: 4s;
+}
+/* input[type="checkbox"]:checked ~ .div{
+    left: 0;
+} */
+ input[type="checkbox"]:checked ~.div{
+    left: 0;
+ }
+</style>
 <body>
-    
-    
+      <input type="checkbox">
+    <div class="div"></div>
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem neque molestias repellat blanditiis! Animi tempore obcaecati praesentium provident nostrum odio! Explicabo necessitatibus ad tempora doloremque eum voluptatem esse quae porro.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure alias commodi a nesciunt explicabo voluptas escdse voluptatum autem quos. Officiis incidunt culpa expedita laboriosam dolorum nesciunt nemo accusamus dolores et?</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus nisi, architecto cupiditate dolorum ea sunt iste! Saepe, voluptatibus. Voluptates quod asperiores hic veniam saepe rerum omnis! Quam saepe explicabo commodi!</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci, eum vel. Hic, id incidunt. Magnam eveniet tempora facere consequuntur animi voluptatibus cum, necessitatibus ipsam. Provident quis mollitia repellendus dolor totam.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim at unde perferendis impedit iure id error harum asperiores. Qui accusamus dolore libero autem ducimus dolorum exercitationem rem unde veniam similique?</p>
 </body>
 </html>
