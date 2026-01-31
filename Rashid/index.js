@@ -102,17 +102,36 @@
 
 //     console.log("=========================function======================");
 //    function greet(name){
-function rashid(){
-        console.log("Hello Rashid");
-    }
-    rashid();
+// function rashid(){
+//         console.log("Hello Rashid");
+//     }
+//     rashid();
 
-function sum(a,b){
-    let total=a+b;
-    console.log("Sum:",total);
+// function sum(a,b){
+//     let total=a+b;
+//     console.log("Sum:",total);
+// }
+// sum(5,10);
+// function name(){
+//     console.log("My name is Rashid");
+// }
+// name();
+
+ const num=(...num)=>{
+    console.log(num);
+    
+ }
+
+ num(1,2,3,4,4,5,6,7,9,0,7,4,2,)
+
+ function sum(...numbers) {
+  let total = 0;
+  for (const num of numbers) {
+    // total =total+ num;
+    total+=num;
+  }
+  return total;
 }
-sum(5,10);
-function name(){
-    console.log("My name is Rashid");
-}
-name();
+
+console.log(sum(1, 2, 3, 4)); // Output: 10
+
