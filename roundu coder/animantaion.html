@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 500px;
+        height: 500px;
+        border: 2px solid;
+    }
+    .sub{
+        width: 200px;
+        height: 200px;
+        background-color: aquamarine;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        /* animation-name: kuchbi;
+        animation-duration: 2s;
+       animation-iteration-count: infinite; */
+       animation: kuchbi 2s ease-in-out infinite alternate;
+      
+        position: relative;
+    }
+    @keyframes kuchbi {
+        0%{
+left: 0px;
+top: 0px;
+        }
+        25%{
+            left: 300px;
+            top: 0px;
+            background-color: yellowgreen;
+        }
+         50%{
+            left: 300px;
+            top: 300px;
+            background-color: rgb(7, 255, 176);
+        }
+         75%{
+            left: 0px;
+            top: 300px;
+            background-color: rgb(228, 82, 3);
+        }
+         100%{
+            left: 0px;
+            top: 0px;
+            background-color: rgb(6, 14, 255);
+        }
+
+    }
+</style>
+<body>
+    
+
+    <div class="main">
+        <div class="sub"></div>
+    </div>
+</body>
+</html>

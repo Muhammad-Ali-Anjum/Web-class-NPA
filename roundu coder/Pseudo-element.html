@@ -7,13 +7,16 @@
 </head>
 <style>
     p::first-line{
-        color: red;
+        color: rgb(44, 32, 32);
     }
     p::first-letter{
-        font-size: 40px;
+        font-size: 68px;
+    }
+    p::before{
+        content: "web ";
     }
     p::after{
-        content: url(../img/arrow\ icon.png);
+        content: "This is after";
     }
     .main{
        width: 300px;
@@ -48,9 +51,9 @@ transform: translate(100px, 200px);
       font-size: 40px;
       text-align: center;
       color: white;
-transform: scale(0.4);
-/* transform: scaleX(3);
-transform: scaleY(5); */
+transform: scale(0.9);
+transform: scaleX(3);
+transform: scaleY(0.3);
        
     }
     .skew{
@@ -62,6 +65,7 @@ transform: scaleY(5); */
       text-align: center;
       color: white;
       transition: 3s;
+      transform: skew(20deg);
      
     }
     .skew:hover{
