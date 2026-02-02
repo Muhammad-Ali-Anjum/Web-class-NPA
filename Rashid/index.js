@@ -117,21 +117,39 @@
 // }
 // name();
 
- const num=(...num)=>{
-    console.log(num);
+//  const num=(...num)=>{
+//     console.log(num);
     
- }
+//  }
 
- num(1,2,3,4,4,5,6,7,9,0,7,4,2,)
+//  num(1,2,3,4,4,5,6,7,9,0,7,4,2,)
 
- function sum(...numbers) {
-  let total = 0;
-  for (const num of numbers) {
-    // total =total+ num;
-    total+=num;
-  }
-  return total;
-}
+//  function sum(...numbers) {
+//   let total = 0;
+//   for (const num of numbers) {
+//     // total =total+ num;
+//     total+=num;
+//   }
+//   return total;
+// }
 
-console.log(sum(1, 2, 3, 4)); // Output: 10
+// console.log(sum(1, 2, 3, 4)); 
+
+// let q=3
+// let b=4
+
+let arr=[1,2,3,4,5,6];
+console.log(arr);
+console.log(`index 0 value is ${arr[0]}`);
+console.log(`index 1 value is ${arr[1]}`);
+console.log(`index 2 value is ${arr[2]}`);
+console.log(`index 3 value is ${arr[3]}`);
+console.log(`index 4 value is ${arr[4]}`);
+console.log(`index 5 value is ${arr[5]}`);
+console.log(`index 6 value is ${arr[6]}`);
+arr.push(6)
+console.log(`index 6 value is ${arr[6]}`);
+
+
+
 
