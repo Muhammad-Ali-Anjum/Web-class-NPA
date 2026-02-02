@@ -133,8 +133,7 @@
 //   return total;
 // }
 
-// console.log(sum(1, 2, 3, 4)); 
-
+// console.log(sum(1, 2, 3, 4));
 // let q=3
 // let b=4
 
@@ -147,7 +146,7 @@ console.log(`index 3 value is ${arr[3]}`);
 console.log(`index 4 value is ${arr[4]}`);
 console.log(`index 5 value is ${arr[5]}`);
 console.log(`index 6 value is ${arr[6]}`);
-arr.push(6)
+arr.push(6);
 console.log(`index 6 value is ${arr[6]}`);
 
 
