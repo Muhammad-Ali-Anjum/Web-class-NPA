@@ -148,6 +148,26 @@ console.log(`index 5 value is ${arr[5]}`);
 console.log(`index 6 value is ${arr[6]}`);
 arr.push(6);
 console.log(`index 6 value is ${arr[6]}`);
+arr.pop();
+arr.pop();
+arr.pop();
+arr.pop();
+arr.pop();
+console.log(arr);
+let array=["Honda","seventy","Prado","havy","rase bike","xyz",["alike","likeee","rise"]]
+
+let [honda,seventy,prado,havy,...data]=array;
+
+console.log(honda);
+console.log(prado);
+console.log(havy);
+console.log(data);
+
+let =12412412;
+
+
+
+
 
 
 
