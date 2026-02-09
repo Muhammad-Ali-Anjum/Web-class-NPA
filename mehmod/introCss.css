@@ -1,0 +1,32 @@
+ h1{
+        /* font-size: 40px; */
+
+    }
+    div{
+        width: 300px;
+        height: 400px;
+        background-color: aquamarine;}
+        nav{
+            width: 400px;
+            height: 600px;
+            background-color: blue;
+        }
+
+/* selector */
+/* id selector symbol . */
+.npa{
+    width: 300px;
+    height: 500px;
+    background-color: rebeccapurple;
+}
+/* universal selector sybmoble *  */
+*{
+    background-color: wheat;
+}
+/* id selector symbol # */
+
+#npa{
+    width: 300px;
+    height: 500px;
+    background-color: rgb(150, 218, 15);
+}
