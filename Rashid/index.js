@@ -172,15 +172,46 @@ let obj={
     address:{
     city:["kHP", "skardu", "shiger","rundu"],
     zipCode:16100
-    }
+    },
+    mark:()=>{
+        console.log("you are pass");
+        
+
+    },
+    cout:"USA",
+    
 }
 
-console.log(obj.name);
-console.log(obj.age);
-console.log(obj.address);
+// console.log(obj.name);
+// console.log(obj.age);
+// console.log(obj.address);
 
-console.log(obj.address.city[1]);
-console.log(obj.address.zipCode);
+// console.log(obj.address.city[1]);
+// console.log(obj.address.zipCode);
+
+
+// let {name,age,address,zipCode}=obj;
+
+// console.log(name);
+
+// console.log(age);
+// console.log(address);
+// console.log(address.city);
+let {name, age, ...spread}=obj
+console.log(name);
+console.log(age);
+console.log(spread);
+let {cout="pk"}=obj
+
+
+const person = {
+  name: "Alice",
+  age: 25,
+  location: "New York"
+};
+
+const { country = "USA" } = person;
+console.log(country);
 
 
 
