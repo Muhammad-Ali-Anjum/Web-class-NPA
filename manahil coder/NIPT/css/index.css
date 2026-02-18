@@ -1,0 +1,92 @@
+/* *{
+    background-color: bisque;
+} */
+
+.main{
+    width: 100%;
+    height: 70vh;
+    /* background-color: bisque; */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* class sel . id # */
+.box1{
+    width: 30%;
+    height: 40vh;
+    background-color: rgb(53, 51, 48);
+}
+.box2{
+    width: 30%;
+    height: 40vh;
+    background-color: rgb(199, 238, 6);
+}
+
+.box3{
+    width: 30%;
+    height: 40vh;
+    background-color: rgb(29, 6, 238);
+}
+.box5{
+    width: 30%;
+    height: 40vh;
+    background-color: rgb(238, 19, 19);
+}
+
+.box{
+    width: 23%;
+    height: 70vh;
+    border: 1px solid black;
+    border-radius: 12px;
+}
+.box img{
+    width: 100%;
+    height: 30vh;
+    border-top-right-radius: 12px;
+    border-top-left-radius: 12px;
+}
+.box h4{
+    text-align: center;
+    font-size: 1.5rem;
+    color: rgb(238, 19, 19);
+    line-height: 2px;
+
+}
+.box p{
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(29, 6, 238);
+    line-height: 18px;
+}
+.cardbtn button{
+    width: 40%;
+    height: 5vh;
+    /* align-items: center; */
+    background-color: rgb(30, 19, 238);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+
+}
+.line{
+    width: 70%;
+    height: 1px;
+    border-bottom: 2px solid;
+    color: rgb(29, 6, 238);
+   
+
+}
+.cardduration{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+.cardduration p{
+    font-size: 11px;
+    color: rgb(29, 6, 238);
+}

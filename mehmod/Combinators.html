@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+    width: 50%;
+    height: 70vh;
+    
+}
+.main img{
+    width: 100%;
+    height: 100%;
+}
+.main1{
+    width: 100%;
+    height: 40vh;}
+    /* .main1>p{
+       color: rebeccapurple;
+    } */
+     .main1>p:nth-child(1){
+       color: rebeccapurple;}
+       .main1+p{
+       color: red;}
+       .main1+p:nth-child(1){
+       color: blue;}
+       .main1~p{
+         color: green;}
+    .div{
+    width: 400px;
+    height: 70vh;
+    background-color: gray;
+    position: relative;
+    left: -100%;
+    /* display: none; */
+    transition: 4s;
+}
+/* input[type="checkbox"]:checked ~ .div{
+    left: 0;
+} */
+ input[type="checkbox"]:checked ~.div{
+    left: 0;
+ }
+       
+</style>
+<body>
+
+    <div class="main">
+        <img src="../img/carousel-1.jpg" alt="">
+    </div>
+    
+    <div class="main1">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur autem tenetur aperiam. Commodi, laboriosam, natus similique doloribus tenetur iusto sint minus itaque, nulla dolorem dolorum fugit maiores. Voluptatum, autem dicta?</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sequi iure consequatur nobis, maiores quibusdam? Ipsam ipsum id itaque, earum temporibus culpa quibusdam sequi hic delectus beatae expedita eaque exercitationem.</p>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. A facilis, soluta provident harum neque ipsam. Soluta beatae incidunt rerum inventore eveniet repellat dolores, eum eos alias ad suscipit dolorem tempore.</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus maiores nesciunt minus praesentium eveniet ipsum odit voluptas quibusdam officiis? Minus repellendus veniam iste dicta exercitationem porro iusto repellat maxime ea?</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque provident quis, odit quae quasi excepturi eius ad molestiae! A ipsum tempora ex expedita quas sunt veniam doloribus voluptas culpa deserunt!</p>
+
+     <input type="checkbox">
+    <div class="div"></div>
+</body>
+</html>
