@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p::first-letter{
+        font-size: 30px;
+        color: red;
+    }
+    p::first-line{
+        font-size: 20px;
+        color: blue;
+    }
+    p::before{
+        content: "Before";
+        /* content: url(../img/arrow\ icon.png); */
+        color: green;
+    }
+    p::after{
+        content: "After";
+        /* content: url(../img/arrow\ icon.png); */
+        color: orange;
+    }
+    p::marker{
+        font-size: 20px;
+        color: purple;
+    }
+</style>
+<body>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut vitae consequatur magnam? Id, dolorem. Maxime, amet quo! Explicabo aspernatur officia ratione nisi quam eveniet assumenda corrupti dignissimos quibusdam, et repellendus.</p>
+</body>
+</html>
