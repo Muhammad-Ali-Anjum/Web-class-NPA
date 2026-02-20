@@ -261,5 +261,13 @@ setTimeout(()=>{
     console.log("second time");
 },500)
 
+console.log("================");
+
+let intervalId=setInterval(()=>{
+    console.log("this is set interval");
+},2000)
+console.log("this is after set interval");
+clearInterval(intervalId);
+
 
 
