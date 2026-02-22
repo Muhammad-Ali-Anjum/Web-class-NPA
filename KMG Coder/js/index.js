@@ -215,3 +215,12 @@ ary=a.sort((a,b)=>{
     return a-b;
 });
 console.log(ary);
+
+let car=["tsla","bmw","vits","honda","colra" ,"tx","tz"]
+// console.log(car[0]);
+let [tsal,bmw,vits,honda,colre,...  ]=car;
+
+console.log(vits);
+console.log(remingcar);
+
+
