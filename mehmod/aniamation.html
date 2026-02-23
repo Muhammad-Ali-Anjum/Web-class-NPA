@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 400px;
+        height: 500px;
+        border: 2px solid;
+       
+    }
+    .sub{
+        width: 150px;
+        height: 150px;
+        background-color: aquamarine;
+         /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+        /* animation-name: anam;
+        animation-timing-function: ease-in-out;
+        animation-delay: 2s;
+        animation-duration: 3s;
+        position: relative; */
+        position: relative;
+        animation: anam 2s ease-in-out infinite alternate-reverse;
+        transition: 2s;
+    }
+    @keyframes anam {
+        0%{
+            left: 0%;
+            top: 0%;
+        }
+        25%{
+            left: 250px;
+            top: 0%;
+            background-color: black;
+        }
+        50%{
+             left: 250px;
+            top: 350px;
+            background-color: blue;
+        }
+        75%{
+             left: 0px;
+            top: 350px;
+            background-color: yellow;
+        }
+        100%{
+             left: 0px;
+            top: 0%;
+        }
+
+
+        
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="sub"></div>
+    </div>
+</body>
+</html>

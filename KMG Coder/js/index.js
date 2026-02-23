@@ -218,9 +218,20 @@ console.log(ary);
 
 let car=["tsla","bmw","vits","honda","colra" ,"tx","tz"]
 // console.log(car[0]);
-let [tsal,bmw,vits,honda,colre,...  ]=car;
+let [tsal,bmw,vits,honda,colre,...remingcar]=car;
 
 console.log(vits);
 console.log(remingcar);
+console.log("----------------- boject-----------------");
 
+let person={
+    name:"sydain",
+    age:23,
+    email:"sy@gmail.com"
+}
+
+console.log(person);
+console.log(person.name);
+console.log(person.age);
+console.log(person.email);
 
