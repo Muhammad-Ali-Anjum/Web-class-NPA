@@ -291,3 +291,38 @@ let prom=new Promise((res,rej)=>{
 prom.then((e)=>console.log(e)
 ).catch((rej)=>console.error(rej)
 )
+
+
+console.log("------------------");
+// function loginApi(username, password) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (username === "admin" && password === "1234") {
+//         resolve({ message: "Login Successful", token: "abc123" });
+//       } else {
+//         reject("Invalid Credentials");
+//       }
+//     }, 1500);
+//   });
+// }loginApi("admin", "1234")
+//   .then((res) => console.log(res))
+//   .catch((err) => console.log(err));
+ 
+ 
+ 
+ function login(username,pswd){
+    return new Promise((res,rej)=>{
+setTimeout(()=>{
+if(username=="admin" && pswd=="123"){
+    res("login sucessfull")
+}
+else{
+    rej("Fail to login")
+}
+},1000);
+    });
+  }
+  login("admin","123")
+  .then((res)=>console.log(res)
+  )
+  .catch((rj)=>console.error(rj))

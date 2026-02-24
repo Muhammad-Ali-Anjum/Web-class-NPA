@@ -228,10 +228,41 @@ let person={
     name:"sydain",
     age:23,
     email:"sy@gmail.com"
+
 }
 
 console.log(person);
 console.log(person.name);
 console.log(person.age);
 console.log(person.email);
+console.log("+++++++++++++++++today class++++++++++++++++");
+
+let {name,age,email}=person;
+console.log(name);
+console.log(age);
+
+let persons=[
+    {
+          name:"sydain",
+    age:23,
+    email:"sy@gmail.com",
+    adres:{
+        cit:["skardu","shigr","KMG","KHP"],
+        zip:[1610,23121,342124]
+    }
+    },
+    {
+    name:"muntazr",
+    age:23,
+    email:"sy@gmail.com"
+    },
+     {
+    name:"mutaba",
+    age:23,
+    email:"sy@gmail.com"
+    }
+];
+
+console.log(persons);
+
 

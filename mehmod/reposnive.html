@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-around;
+    }
+    .sub{
+        width: 23%;
+        height: 60vh;
+        border: 1px solid;
+        border-radius: 12px;
+        transition: 1s;
+    }
+    .sub:hover{
+        width: 23.2%;
+        height: 60.5vh;
+    }
+    @media (max-width:992px){
+        .main{
+            flex-direction: column;
+        }
+        .sub{
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+<body>
+    <div class="main">
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+    </div>
+</body>
+</html>

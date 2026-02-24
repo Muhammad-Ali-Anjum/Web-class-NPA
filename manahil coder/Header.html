@@ -48,6 +48,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        position: fixed;
 
      }
         .logo{
@@ -88,6 +89,25 @@
             color: #F7941D;
             font-family: 'Arial', sans-serif;
         }
+        .hero{
+            width: 100%;
+            height: 100vh;
+            background-image: url(../img/carousel-1.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 100% 100vh;
+        }
+        .hero h1{
+            position: relative;
+            top: 200px;
+            color: white;
+            font-size: 45px;
+        }
+        .about{
+            width: 100%;
+            height: 100vh;
+            background-color: aqua;
+        }
 
 </style>
 <body>
@@ -105,6 +125,10 @@
         </nav>
         <nav class="btn"> <button>Apply </button></nav>
      </header>
+     <div class="hero">
+        <h1>welcome </h1>
+     </div>
+     <div class="about"></div>
     
 </body>
 </html>

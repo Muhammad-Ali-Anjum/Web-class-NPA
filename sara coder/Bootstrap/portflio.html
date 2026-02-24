@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Maryam | Full Stack Developer</title>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Light & Dark Theme Variables */
+        :root {
+            --bg-body: #f8fafc;
+            --bg-surface: #ffffff;
+            --text-primary: #0a1e3c;
+            --text-secondary: #475569;
+            --border-light: #e2e8f0;
+            --card-shadow: 0 15px 35px -12px rgba(0,0,0,0.07);
+            --navbar-bg: rgba(255, 255, 255, 0.85);
+            --hero-bg: linear-gradient(145deg, #f1f5f9 0%, #ffffff 100%);
+            --stat-bg: #ffffff;
+            --footer-bg: #0a1e3c;
+            --footer-text: #ffffff;
+        }
+
+        body.dark {
+            --bg-body: #0f172a;
+            --bg-surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --border-light: #334155;
+            --card-shadow: 0 15px 35px -12px rgba(0,0,0,0.5);
+            --navbar-bg: rgba(15, 23, 42, 0.85);
+            --hero-bg: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+            --stat-bg: #1e293b;
+            --footer-bg: #020617;
+            --footer-text: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease, color 0.2s ease, border-color 0.2s ease;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+        }
+
+        /* Modern Navbar */
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: var(--navbar-bg) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            padding: 1rem 0;
+        }
+        
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            color: var(--text-primary);
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.25rem;
+            border-radius: 30px;
+            transition: all 0.2s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #0d6efd;
+            background-color: rgba(13, 110, 253, 0.05);
+        }
+        
+        .navbar-nav .nav-link.active {
+            color: #0d6efd;
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+
+        .btn-modern {
+            border-radius: 30px;
+            padding: 0.6rem 1.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .btn-modern.btn-primary {
+            background: linear-gradient(135deg, #0d6efd, #0b5ed7);
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.3);
+        }
+        
+        .btn-modern.btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(13, 110, 253, 0.4);
+        }
+        
+        .btn-modern.btn-outline-primary {
+            background: transparent;
+            border: 2px solid #0d6efd;
+            color: #0d6efd;
+        }
+        
+        .btn-modern.btn-outline-primary:hover {
+            background: #0d6efd;
+            color: white;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        .filter-btn:hover {
+            color: #0d6efd;
+            background: rgba(13, 110, 253, 0.05);
+        }
+        .filter-btn.active {
+            color: #0d6efd;
+            border-color: #0d6efd;
+            background: rgba(13, 110, 253, 0.1);
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+        .theme-toggle:hover {
+            background-color: rgba(13, 110, 253, 0.1);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: var(--hero-bg);
+            min-height: 100vh;
+            padding-top: 90px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-image {
+            border-radius: 50%;
+            box-shadow: 0 30px 40px -20px rgba(0,0,0,0.3);
+            border: 6px solid var(--bg-surface);
+            max-width: 380px;
+            width: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Stat Cards */
+        .stat-card {
+            background: var(--stat-bg);
+            border: none;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            transition: all 0.2s;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 35px -10px rgba(13, 110, 253, 0.15);
+        }
+        
+        .stat-icon {
+            font-size: 2.5rem;
+            color: #0d6efd;
+            margin-bottom: 1rem;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        /* Section Titles */
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #0d6efd, #7b9eff);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Modern Cards */
+        .modern-card {
+            border: none;
+            border-radius: 28px;
+            background: var(--bg-surface);
+            box-shadow: var(--card-shadow);
+            transition: all 0.25s;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .modern-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 40px -12px rgba(13, 110, 253, 0.2);
+        }
+        
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+        
+        .service-icon {
+            font-size: 2.8rem;
+            color: #0d6efd;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonial */
+        .testimonial-card {
+            background: var(--bg-surface);
+            border: none;
+            border-radius: 28px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .quote-icon {
+            color: #0d6efd;
+            opacity: 0.2;
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-surface);
+            border-radius: 36px;
+            padding: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .form-control.modern-input {
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 0.9rem 1.2rem;
+            transition: all 0.2s;
+            background-color: var(--bg-body);
+            color: var(--text-primary);
+        }
+        
+        .form-control.modern-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 5px rgba(13, 110, 253, 0.15);
+            background-color: var(--bg-surface);
+        }
+        /* Experience items hover effect */
+.hover-lift {
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.hover-lift:hover {
+    transform: translateY(-3px);
+    background-color: var(--bg-surface);
+    box-shadow: var(--card-shadow);
+}
+
+/* Testimonial cards */
+.testimonial-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.hover-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(13, 110, 253, 0.15) !important;
+}
+
+/* Section headers */
+.section-header {
+    border-left: 4px solid #0d6efd;
+    padding-left: 1.2rem;
+}
+.section-header .section-title {
+    margin-bottom: 0.3rem;
+}
+.section-header p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+}
+
+/* Full-width testimonials section */
+.testimonials-fullwidth {
+    background: linear-gradient(145deg, #0d6efd 0%, #0b5ed7 100%);
+    color: white;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,0.2);
+}
+
+/* Carousel indicators customisation */
+.testimonials-fullwidth .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+}
+.testimonials-fullwidth .carousel-indicators button.active {
+    background-color: white;
+}
+
+/* Testimonial cards inside full-width */
+.testimonial-card-full {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: transform 0.3s;
+}
+.testimonial-card-full:hover {
+    transform: translateY(-5px);
+}
+
+/* Experience hover effect (if not already present) */
+.hover-lift {
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+.hover-lift:hover {
+    transform: translateY(-3px);
+    background-color: var(--bg-surface);
+    box-shadow: var(--card-shadow);
+}
+
+/* Section header with underline (if not already defined) */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+.section-title:after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd, #7b9eff);
+    border-radius: 2px;
+}
+.testimonials-fullwidth .section-title:after {
+    background: white;
+}
+
+/* Ensure body doesn't hide the full-width */
+body {
+    overflow-x: hidden;
+}
+
+        /* Footer */
+        .footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding-top: 70px;
+                text-align: center;
+            }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar with Theme Toggle -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="#" style="color: var(--text-primary);">Sara<span style="color: #0d6efd;">.</span></a>
+            <div class="d-flex align-items-center order-lg-3">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                    <i class="bi bi-sun-fill" id="themeIcon"></i>
+                </button>
+                <button class="navbar-toggler border-0 ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse order-lg-2" id="navbarMain">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button class="btn btn-modern btn-primary d-lg-inline d-none" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Let's Talk</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-4">👋 Welcome to my portfolio</span>
+                    <h1 class="display-4 fw-bold mb-3" style="color: var(--text-primary);">Hi, I'm <span style="color: #0d6efd;">Sara Maryam</span></h1>
+                    <h3 class="text-secondary-emphasis mb-4" style="color: var(--text-secondary);">Full Stack Developer & Web Designer</h3>
+                    <p class="lead mb-5" style="color: var(--text-secondary);">Crafting beautiful digital experiences from the heart of Skardu, Pakistan. I turn ideas into responsive, user-friendly web applications.</p>
+                    <div class="d-flex gap-3 flex-wrap">
+                        <a href="#work" class="btn btn-modern btn-primary">View My Work</a>
+                       <a href="/files/Sara_Maryam_CV.pdf" download="Sara_Maryam_CV.pdf" class="btn btn-modern btn-outline-primary"> Download CV</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://placehold.co/400x400/0d6efd/white?text=SARA" alt="Sara Maryam" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Row -->
+    <div class="container mt-5 pt-4">
+        <div class="row g-4">
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-journal-code stat-icon"></i>
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-people stat-icon"></i>
+                    <div class="stat-number">45+</div>
+                    <div class="stat-label">Clients</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-award stat-icon"></i>
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">Years Exp</div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="stat-card">
+                    <i class="bi bi-stack stat-icon"></i>
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Technologies</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="container mt-5 pt-5">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+                <img src="https://placehold.co/600x600/0d6efd/white?text=About+Me" alt="About Sara" class="img-fluid rounded-5 shadow-lg">
+            </div>
+            <div class="col-lg-7">
+                <h2 class="section-title text-lg-start text-center">About Me</h2>
+                <p class="fs-5 mt-4" style="color: var(--text-secondary);">I'm a passionate Full Stack Developer with expertise in building custom WordPress websites, React.js applications, and backend systems using Node.js, MongoDB, and RESTful APIs. I specialize in creating responsive, scalable, and user-friendly digital solutions for businesses across various industries.</p>
+                <div class="row mt-4 g-3">
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <span class="fw-medium">React & Next.js</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <span class="fw-medium">Node.js & MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <span class="fw-medium">UI/UX Design</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="bi bi-check-circle-fill text-primary fs-4 me-3"></i>
+                            <span class="fw-medium">WordPress</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex gap-3 mt-4 flex-wrap">
+                    <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm">Programming</span>
+                    <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm">Web Design</span>
+                    <span class="badge bg-light text-dark p-3 rounded-4 shadow-sm">Consultation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services / Skills -->
+    <section id="skills" class="container mt-5 pt-5">
+        <h2 class="section-title text-center">My Services</h2>
+        <p class="section-subtitle text-center">Comprehensive solutions tailored to your needs</p>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="modern-card p-4 text-center">
+                    <i class="bi bi-phone service-icon"></i>
+                    <h4 class="fw-bold mb-3" style="color: var(--text-primary);">Mobile Development</h4>
+                    <p class="text-secondary" style="color: var(--text-secondary);">Expert mobile app development for iOS and Android platforms, creating feature-rich applications.</p>
+                    <button class="btn btn-modern btn-primary mt-3">Book Now</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="modern-card p-4 text-center">
+                    <i class="bi bi-code-square service-icon"></i>
+                    <h4 class="fw-bold mb-3" style="color: var(--text-primary);">React & Next.js</h4>
+                    <p class="text-secondary" style="color: var(--text-secondary);">Modern web development using React and Next.js, ensuring fast, responsive, SEO-friendly sites.</p>
+                    <button class="btn btn-modern btn-primary mt-3">Book Now</button>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="modern-card p-4 text-center">
+                    <i class="bi bi-palette service-icon"></i>
+                    <h4 class="fw-bold mb-3" style="color: var(--text-primary);">UI/UX Design</h4>
+                    <p class="text-secondary" style="color: var(--text-secondary);">Creating beautiful, intuitive interfaces that enhance user experience and drive engagement.</p>
+                    <button class="btn btn-modern btn-primary mt-3">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work with Filter -->
+    <section id="work" class="container mt-5 pt-5">
+        <h2 class="section-title text-center">My Selected Work</h2>
+        <p class="section-subtitle text-center">Browse my recent projects by category</p>
+
+        <!-- Filter Buttons -->
+        <div class="d-flex justify-content-center flex-wrap gap-2 mb-5">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="tours">Tours</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="blog">Blog</button>
+            <button class="filter-btn" data-filter="services">Services</button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="row g-4" id="projectsGrid">
+            <!-- Tours Card -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="tours">
+                <div class="modern-card">
+                    <img src="https://placehold.co/600x400/0d6efd/white?text=Tours" class="card-img-top" alt="Tours Website">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold" style="color: var(--text-primary);">Tours Website</h4>
+                        <p class="text-secondary" style="color: var(--text-secondary);">Curated travel experiences in Gilgit-Baltistan with stunning destination packages.</p>
+                        <a href="#" class="btn btn-modern btn-outline-primary w-100">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            <!-- E-commerce Card -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="ecommerce">
+                <div class="modern-card">
+                    <img src="https://placehold.co/600x400/0d6efd/white?text=E-commerce" class="card-img-top" alt="E-commerce">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold" style="color: var(--text-primary);">E-commerce Platform</h4>
+                        <p class="text-secondary" style="color: var(--text-secondary);">Dynamic online store with seamless shopping experience and secure checkout.</p>
+                        <a href="#" class="btn btn-modern btn-outline-primary w-100">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Card -->
+            <div class="col-md-6 col-lg-4 project-item" data-category="blog">
+                <div class="modern-card">
+                    <img src="https://placehold.co/600x400/0d6efd/white?text=Blog" class="card-img-top" alt="Blog">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold" style="color: var(--text-primary);">Blog Website</h4>
+                        <p class="text-secondary" style="color: var(--text-secondary);">Engaging blog platform with clean design and excellent readability.</p>
+                        <a href="#" class="btn btn-modern btn-outline-primary w-100">Visit Website</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Optional: Services Card (example) -->
+            <!-- <div class="col-md-6 col-lg-4 project-item" data-category="services">
+                <div class="modern-card">
+                    <img src="https://placehold.co/600x400/0d6efd/white?text=Services" class="card-img-top" alt="Services">
+                    <div class="card-body p-4">
+                        <h4 class="fw-bold" style="color: var(--text-primary);">Consulting Services</h4>
+                        <p class="text-secondary" style="color: var(--text-secondary);">Expert advice and solutions for your digital projects.</p>
+                        <a href="#" class="btn btn-modern btn-outline-primary w-100">Learn More</a>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+
+      
+    </section>
+
+  <!-- Work Experience (container width) -->
+<section class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="section-header mb-5 text-center">
+                <h2 class="section-title">Work Experience</h2>
+                <p class="text-secondary">My professional journey</p>
+            </div>
+            <div class="experience-timeline">
+                <!-- Experience Item 1 -->
+                <div class="experience-item d-flex gap-4 mb-5 p-4 rounded-4 hover-lift">
+                    <div class="experience-icon flex-shrink-0">
+                        <span class="badge bg-primary bg-opacity-10 p-3 rounded-4">
+                            <i class="bi bi-briefcase fs-3 text-primary"></i>
+                        </span>
+                    </div>
+                    <div class="experience-content flex-grow-1">
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-2">
+                            <h4 class="fw-bold mb-0" style="color: var(--text-primary);">Freelance Full Stack Developer</h4>
+                            <span class="badge bg-light text-dark px-3 py-2 rounded-pill">2022 - Present</span>
+                        </div>
+                        <p class="text-secondary mb-0" style="color: var(--text-secondary);">Delivering comprehensive web solutions for clients worldwide, specializing in responsive sites and custom applications using React, Node.js, and modern frameworks.</p>
+                    </div>
+                </div>
+                <!-- Experience Item 2 -->
+                <div class="experience-item d-flex gap-4 mb-5 p-4 rounded-4 hover-lift">
+                    <div class="experience-icon flex-shrink-0">
+                        <span class="badge bg-primary bg-opacity-10 p-3 rounded-4">
+                            <i class="bi bi-pencil fs-3 text-primary"></i>
+                        </span>
+                    </div>
+                    <div class="experience-content flex-grow-1">
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-2">
+                            <h4 class="fw-bold mb-0" style="color: var(--text-primary);">Graphic Designer</h4>
+                            <span class="badge bg-light text-dark px-3 py-2 rounded-pill">2021 - 2022</span>
+                        </div>
+                        <p class="text-secondary mb-0" style="color: var(--text-secondary);">Created visual identities, logos, marketing materials, and UI/UX designs for startups and small businesses.</p>
+                    </div>
+                </div>
+                <!-- Experience Item 3 -->
+                <div class="experience-item d-flex gap-4 p-4 rounded-4 hover-lift">
+                    <div class="experience-icon flex-shrink-0">
+                        <span class="badge bg-primary bg-opacity-10 p-3 rounded-4">
+                            <i class="bi bi-laptop fs-3 text-primary"></i>
+                        </span>
+                    </div>
+                    <div class="experience-content flex-grow-1">
+                        <div class="d-flex flex-wrap align-items-center gap-3 mb-2">
+                            <h4 class="fw-bold mb-0" style="color: var(--text-primary);">Web Development Intern</h4>
+                            <span class="badge bg-light text-dark px-3 py-2 rounded-pill">2020 - 2021</span>
+                        </div>
+                        <p class="text-secondary mb-0" style="color: var(--text-secondary);">Gained hands-on experience with PHP, Laravel, and front-end technologies while collaborating on real-world projects.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials - Full Width Section -->
+<section class="testimonials-fullwidth mt-5 py-5">
+    <div class="container">
+        <div class="section-header mb-5 text-center text-white">
+            <h2 class="section-title text-white">Testimonials</h2>
+            <p class="text-white-50">What clients say</p>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators -->
+                    <div class="carousel-indicators position-relative mb-4">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonial 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonial 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonial 3"></button>
+                    </div>
+
+                    <!-- Carousel items -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="testimonial-card-full p-5 text-center">
+                                <i class="bi bi-quote display-1 text-primary opacity-50 mb-4"></i>
+                                <p class="fs-4 fst-italic mb-4 text-white">"Sara delivered exceptional work on our e-commerce platform. Her technical expertise exceeded our expectations. She was responsive, professional, and truly cared about the project's success."</p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img src="https://placehold.co/70x70/0d6efd/white?text=MA" class="rounded-circle me-3" width="70" height="70" alt="Muhammad Ali">
+                                    <div class="text-start">
+                                        <h6 class="fw-bold mb-1 text-white">Muhammad Ali</h6>
+                                        <small class="text-white-50">Project Manager, Digital Solutions PK</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card-full p-5 text-center">
+                                <i class="bi bi-quote display-1 text-primary opacity-50 mb-4"></i>
+                                <p class="fs-4 fst-italic mb-4 text-white">"Working with Sara on our brand identity was a pleasure. She understood our vision perfectly and delivered stunning designs that truly represent our brand values. Highly recommended!"</p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img src="https://placehold.co/70x70/0d6efd/white?text=SW" class="rounded-circle me-3" width="70" height="70" alt="Sarah Williams">
+                                    <div class="text-start">
+                                        <h6 class="fw-bold mb-1 text-white">Sarah Williams</h6>
+                                        <small class="text-white-50">Marketing Director, Global Brands Co.</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="testimonial-card-full p-5 text-center">
+                                <i class="bi bi-quote display-1 text-primary opacity-50 mb-4"></i>
+                                <p class="fs-4 fst-italic mb-4 text-white">"Sara's attention to detail and creative solutions helped us launch our startup website on time and under budget. A true professional!"</p>
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <img src="https://placehold.co/70x70/0d6efd/white?text=JD" class="rounded-circle me-3" width="70" height="70" alt="John Doe">
+                                    <div class="text-start">
+                                        <h6 class="fw-bold mb-1 text-white">John Doe</h6>
+                                        <small class="text-white-50">Founder, TechStart</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Controls -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container mt-5 pt-5">
+        <h2 class="section-title text-center">Let's Connect</h2>
+        <p class="section-subtitle text-center">Have a project in mind? I'd love to hear from you.</p>
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="contact-form">
+                    <form>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" style="color: var(--text-primary);">Your Name</label>
+                            <input type="text" class="form-control modern-input" placeholder="John Doe">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" style="color: var(--text-primary);">Email Address</label>
+                            <input type="email" class="form-control modern-input" placeholder="hello@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" style="color: var(--text-primary);">Message</label>
+                            <textarea class="form-control modern-input" rows="4" placeholder="Tell me about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-modern btn-primary w-100 py-3">Send Message <i class="bi bi-send ms-2"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="ps-lg-4">
+                    <div class="d-flex align-items-center mb-5">
+                        <i class="bi bi-envelope-fill text-primary fs-1 me-4"></i>
+                        <div>
+                            <h5 style="color: var(--text-primary);">Email</h5>
+                            <a href="mailto:maryamsara443@gmail.com" class="text-decoration-none fs-5" style="color: var(--text-secondary);">maryamsara443@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-5">
+                        <i class="bi bi-briefcase-fill text-primary fs-1 me-4"></i>
+                        <div>
+                            <h5 style="color: var(--text-primary);">Portfolio</h5>
+                            <a href="#" class="text-decoration-none fs-5" style="color: var(--text-secondary);">saramaryam.dev</a>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-5">
+                        <i class="bi bi-headset text-primary fs-1 me-4"></i>
+                        <div>
+                            <h5 style="color: var(--text-primary);">Support</h5>
+                            <p class="mb-0" style="color: var(--text-secondary);">24/7 fast response for clients</p>
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <h5 class="mb-3" style="color: var(--text-primary);">Follow me</h5>
+                        <div class="d-flex gap-3">
+                            <a href="#" class="text-primary fs-2"><i class="bi bi-github"></i></a>
+                            <a href="#" class="text-primary fs-2"><i class="bi bi-linkedin"></i></a>
+                            <a href="#" class="text-primary fs-2"><i class="bi bi-twitter-x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <div class="container text-center">
+            <h3 class="fw-bold">Sara Maryam</h3>
+            <p class="text-white-50 mb-0">© 2025 All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Theme Toggle Script -->
+    <script>
+        (function() {
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                body.classList.add('dark');
+                themeIcon.classList.remove('bi-sun-fill');
+                themeIcon.classList.add('bi-moon-fill');
+            }
+
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark');
+                if (body.classList.contains('dark')) {
+                    themeIcon.classList.remove('bi-sun-fill');
+                    themeIcon.classList.add('bi-moon-fill');
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    themeIcon.classList.remove('bi-moon-fill');
+                    themeIcon.classList.add('bi-sun-fill');
+                    localStorage.setItem('theme', 'light');
+                }
+            });
+        })();
+    </script>
+    <!-- Filter Script -->
+    <script>
+        (function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterButtons.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
