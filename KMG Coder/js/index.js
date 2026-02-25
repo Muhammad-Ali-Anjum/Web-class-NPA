@@ -241,28 +241,145 @@ let {name,age,email}=person;
 console.log(name);
 console.log(age);
 
-let persons=[
+// let persons=[
+//     {
+//           name:"sydain",
+//     age:23,
+//     email:"sy@gmail.com",
+//     adres:{
+//         cit:["skardu","shigr","KMG","KHP"],
+//         zip:[1610,23121,342124]
+//     }
+//     },
+//     {
+//     name:"muntazr",
+//     age:23,
+//     email:"sy@gmail.com"
+//     },
+//      {
+//     name:"mutaba",
+//     age:23,
+//     email:"sy@gmail.com"
+//     }
+
+// ];
+
+// console.log(persons);
+
+
+let persons = [
     {
-          name:"sydain",
-    age:23,
-    email:"sy@gmail.com",
-    adres:{
-        cit:["skardu","shigr","KMG","KHP"],
-        zip:[1610,23121,342124]
-    }
+        name: "sydain",
+        age: 23,
+        email: "sy@gmail.com",
+        adres: {
+            cit: ["skardu", "shigr", "KMG", "KHP"],
+            zip: [1610, 23121, 342124]
+        },
+        // Function inside the object
+        getResult: function() {
+            return `Name: ${this.name}, City: ${this.adres.cit[0]}, Zip: ${this.adres.zip[0]}`;
+        }
     },
     {
-    name:"muntazr",
-    age:23,
-    email:"sy@gmail.com"
+        name: "muntazr",
+        age: 23,
+        email: "sy@gmail.com",
+        getResult: function() {
+            return `Name: ${this.name}, Email: ${this.email}`;
+        }
     },
-     {
-    name:"mutaba",
-    age:23,
-    email:"sy@gmail.com"
+    {
+        name: "mutaba",
+        age: 23,
+        email: "sy@gmail.com",
+        getResult: function() {
+            return `Name: ${this.name}, Age: ${this.age}`;
+        }
     }
 ];
 
-console.log(persons);
+// To see the results:
+persons.forEach(person => {
+    if (person.getResult) {
+        console.log(person.getResult());
+    }
+});
+
+let students = [
+    {
+        name: "Sydain",
+        marks: { 
+            math: 85,
+             english: 78, 
+             science: 92 
+            },
+        generateMarksheet: function() {
+            let total = this.marks.math + this.marks.english + this.marks.science;
+            const totl=300;
+            let percentage = (total / totl) * 100;
+            return `Name: ${this.name} |total marks: ${totl}| Obt Marks: ${total} | Percentage: ${percentage.toFixed(2)}%`;
+        }
+    },
+    {
+        name: "Muntazr",
+        marks: { math: 90, english: 85, science: 90 },
+         generateMarksheet: function() {
+            let total = this.marks.math + this.marks.english + this.marks.science;
+            const totl=300;
+            let percentage = (total / totl) * 100;
+            return `Name: ${this.name} |total marks: ${totl}| Obt Marks: ${total} | Percentage: ${percentage.toFixed(2)}%`;
+        }
+    }
+];
+
+students.forEach(student => {
+    console.log(student.generateMarksheet());
+});
 
 
+
+
+const fruits = ['apple', 'banana', 'cherry', 'date'];
+
+console.log("--- 1. JOIN ---");
+// join() converts an array to a string. Default is a comma.
+console.log("Standard Join:", fruits.join());      // "apple,banana,cherry,date"
+console.log("Custom Join:  ", fruits.join(' - ')); // "apple - banana - cherry - date"
+console.log("No-space Join:", fruits.join(' '));    // "applebananacherrydate"
+
+
+console.log("\n--- 2. REVERSE (Mutates Original) ---");
+const numbers = [1, 2, 3, 4, 5];
+
+console.log("Reversed:", numbers); 
+numbers.reverse(); 
+console.log("Original:", numbers);
+
+console.log("\n--- 3. TOREVERSED (Modern / Non-destructive) ---");
+const colors = ['red', 'green', 'blue'];
+const reversedColors = colors.toReversed(); // ES2023 syntax
+console.log("New Array: ", reversedColors); 
+console.log("Original:  ", colors);        
+
+
+
+console.log("\n--- 4. THE STRING REVERSAL TRICK ---");
+const word = "JavaScript";
+const reversedWord = word.split('').reverse().join('');
+console.log(`"${word}" backwards is "${reversedWord}"`);
+
+
+
+console.log("\n--- 5. OTHER COMMON PROPERTIES/METHODS ---");
+const tech = ['HTML', 'CSS', 'JS'];
+
+// Length Property
+console.log("Length:   ", tech.length); // 3
+
+// Sort (Alphabetical by default)
+console.log("Sorted:   ", [...tech].sort()); 
+
+
+// Includes (Check existence)
+console.log("Includes: ", tech.includes('JS')); 
