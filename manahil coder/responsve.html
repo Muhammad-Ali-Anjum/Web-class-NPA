@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        width: 100%;
+       
+
+    }
+    .sub1, .sub2{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* height: 65vh; */
+    }
+    .sub{
+        width: 23%;
+        height: 70vh;
+        box-shadow: 0px 0px 3px rgb(53, 53, 53);
+        border-radius: 12px;
+        margin-bottom: 20px;
+    }
+    .sub img{
+        width: 100%;
+    }
+    .sub h3{
+        text-align: center;
+        text-transform: capitalize;
+        font-size: 24px;
+    }
+    .sub p{
+        padding-left: 20px;
+        text-align: center;
+        line-height: 20px;
+        margin-top: -20px;
+    }
+    .btn{
+        width: 60%;
+        height: 6vh;
+        border: none;
+        background-color: tomato;
+        font-size: 18px;
+        color: white;
+        border-radius: 4px;
+        /* position: relative;
+        left: 50px; */
+        margin-left: 50px;
+        cursor: pointer;
+    }
+    .line{
+        width: 80%;
+        border-bottom: 2px solid;
+        margin-left: 30px;
+        margin-top: 10px;
+    }
+    .ftr{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .ftr p{
+        margin-top: 20px;
+    }
+
+    @media (max-width:992px) {
+        .main{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+        }
+        .sub1, .sub2{
+            flex-direction: column;
+            width: 47%;
+            /* height: 200vh; */
+        }
+        .sub{
+            width: 100%;
+        }
+        .btn{
+            margin-left: 85px;
+        }
+        .line {
+                margin-top: 24px;
+        }
+    }
+    @media (max-width:786px){
+        .btn {
+        margin-left: 63px;
+    }
+    .sub {
+        height: 60vh;}
+    }
+    @media (max-width:632px){
+        .main{
+            flex-direction: column;
+        }
+        .sub1 , .sub2{
+            width: 90%;
+        }
+        .sub {
+        height: 73vh;
+    }
+        .btn {
+        margin-left: 98px;
+    }
+
+    }
+    @media (max-width:480px){
+            .btn {
+        margin-left: 69px;
+    }
+    .sub {
+        height: 64vh;
+    }
+    }
+     @media (max-width:350px){
+        .btn {
+        margin-left: 55px;
+    }
+    .sub {
+        height: 57vh;
+    }
+     }
+</style>
+<body>
+    
+    <div class="main">
+        <div class="sub1">
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+        </div>
+        <div class="sub2">
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+            <div class="sub">
+                <img src="../img/carousel-1.jpg" alt="not found">
+                <h3>web devlopment</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, harum.</p>
+                <button class="btn">View</button>
+                <div class="line"></div>
+                <div class="ftr">
+                    <p>Intet</p>
+                    <p>2 month</p>
+                    <p>Rs 2000</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

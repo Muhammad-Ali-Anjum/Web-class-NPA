@@ -8,45 +8,81 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- AOS -->
+    <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code&display=swap" rel="stylesheet">
     <style>
+        /* CSS Variables for theming – ensures dark mode works regardless of Tailwind */
         :root {
             --primary: #2563eb;
             --secondary: #7c3aed;
             --accent: #f59e0b;
+            --bg-primary: #f8fafc;
+            --bg-secondary: #ffffff;
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --card-bg: #ffffff;
+            --card-shadow: 0 20px 40px -15px rgba(0,0,0,0.1);
+            --navbar-bg: rgba(255, 255, 255, 0.8);
+            --footer-bg: #0f172a;
+            --footer-text: #f1f5f9;
         }
+
+        body.dark {
+            --primary: #7c3aed;
+            --secondary: #a855f7;
+            --accent: #f97316;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --card-bg: #1e293b;
+            --card-shadow: 0 20px 40px -15px rgba(0,0,0,0.5);
+            --navbar-bg: rgba(15, 23, 42, 0.8);
+            --footer-bg: #020617;
+            --footer-text: #e2e8f0;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: background-color 0.3s, color 0.2s, border-color 0.2s;
         }
+
         body {
             font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
             overflow-x: hidden;
-            background-color: #f8fafc;
-            color: #1e293b;
-            transition: background-color 0.3s, color 0.2s;
         }
-        .dark body {
-            background-color: #0f172a;
-            color: #f1f5f9;
-        }
-        /* Scrollbar */
+
+        /* Apply variables to Tailwind utilities */
+        .bg-primary { background-color: var(--bg-primary); }
+        .bg-secondary { background-color: var(--bg-secondary); }
+        .text-primary { color: var(--text-primary); }
+        .text-secondary { color: var(--text-secondary); }
+        .text-muted { color: var(--text-muted); }
+        .border-color { border-color: var(--border-color); }
+
+        /* Custom scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #1e293b; }
         ::-webkit-scrollbar-thumb { background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 10px; }
 
-        /* Canvas background (particles + code symbols) */
+        /* Canvas background (code particles) */
         #codeCanvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
+            pointer-events: none; /* Let mouse events pass through to the document, but we track mouse on window */
             z-index: 0;
             font-family: 'Fira Code', monospace;
         }
@@ -75,11 +111,8 @@
             height: 100%;
             border: 2px solid var(--primary);
             background: transparent;
-            box-shadow: 0 0 30px rgba(37,99,235,0.5);
+            box-shadow: 0 0 30px var(--primary);
             opacity: 0.8;
-        }
-        .dark .cube-face {
-            box-shadow: 0 0 30px rgba(124,58,237,0.5);
         }
         .front  { transform: translateZ(150px); }
         .back   { transform: rotateY(180deg) translateZ(150px); }
@@ -170,13 +203,13 @@
         }
     </style>
 </head>
-<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-primary text-primary">
 
     <!-- Canvas for code particles -->
     <canvas id="codeCanvas"></canvas>
 
     <!-- Navbar -->
-    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm">
+    <nav class="fixed top-0 w-full z-50" style="background-color: var(--navbar-bg); backdrop-filter: blur(10px);">
         <div class="container mx-auto px-4 py-4 flex items-center justify-between">
             <a href="#" class="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Muhammad Ali Anjum</a>
             <div class="flex items-center gap-2">
@@ -187,15 +220,15 @@
                     <i class="bi bi-list text-3xl"></i>
                 </button>
             </div>
-            <div id="navbarNav" class="hidden lg:flex lg:items-center lg:gap-4 absolute lg:static top-20 left-0 w-full lg:w-auto bg-white dark:bg-gray-900 lg:bg-transparent p-4 lg:p-0 shadow-lg lg:shadow-none">
+            <div id="navbarNav" class="hidden lg:flex lg:items-center lg:gap-4 absolute lg:static top-20 left-0 w-full lg:w-auto bg-white dark:bg-gray-900 lg:bg-transparent p-4 lg:p-0 shadow-lg lg:shadow-none" style="background-color: var(--bg-secondary);">
                 <ul class="flex flex-col lg:flex-row lg:items-center gap-2">
-                    <li><a href="#home" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Home</a></li>
-                    <li><a href="#about" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">About</a></li>
-                    <li><a href="#services" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Services</a></li>
-                    <li><a href="#work" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Work</a></li>
-                    <li><a href="#process" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Process</a></li>
-                    <li><a href="#expertise" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Expertise</a></li>
-                    <li><a href="#contact" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition">Contact</a></li>
+                    <li><a href="#home" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Home</a></li>
+                    <li><a href="#about" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">About</a></li>
+                    <li><a href="#services" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Services</a></li>
+                    <li><a href="#work" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Work</a></li>
+                    <li><a href="#process" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Process</a></li>
+                    <li><a href="#expertise" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Expertise</a></li>
+                    <li><a href="#contact" class="nav-link block px-4 py-2 rounded-full hover:text-blue-600 dark:hover:text-blue-400 transition" style="color: var(--text-primary);">Contact</a></li>
                 </ul>
                 <button onclick="location.href='#contact'" class="btn-modern btn-primary-modern mt-4 lg:mt-0 lg:ml-4 w-full lg:w-auto">Let's Talk</button>
             </div>
@@ -209,7 +242,7 @@
             <div class="shape shape-2"></div>
             <div class="shape shape-3"></div>
             <!-- 3D Cube -->
-            <div class="cube-container hidden md:block">
+            <div class="cube-container  hidden md:block">
                 <div class="cube">
                     <div class="cube-face front"></div>
                     <div class="cube-face back"></div>
@@ -221,34 +254,259 @@
             </div>
         </div>
         <div class="container mx-auto px-4 relative z-10">
-            <div class="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+            <div class="grid lg:grid-cols-2 gap-12 items-center order-0 min-h-screen">
                 <div data-aos="fade-right">
                     <span class="inline-block bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 px-4 py-2 rounded-full text-sm font-semibold mb-6">👋 Hello Everyone, I Am</span>
                     <h1 class="text-5xl lg:text-6xl font-extrabold mb-4">
                         <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Muhammad</span><br>Ali Anjum
                     </h1>
-                    <h3 class="text-2xl text-gray-600 dark:text-gray-400 mb-6 typewriter" id="typewriter">Full Stack Developer</h3>
-                    <p class="text-lg text-gray-500 dark:text-gray-400 mb-8 leading-relaxed">Crafting digital experiences that blend creativity and technology. Based in Pakistan, I build modern web solutions that drive success.</p>
+                    <h3 class="text-2xl text-secondary mb-6 typewriter" id="typewriter">Full Stack Developer</h3>
+                    <p class="text-lg text-muted mb-8 leading-relaxed">Crafting digital experiences that blend creativity and technology. Based in Pakistan, I build modern web solutions that drive success.</p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#work" class="btn-modern btn-primary-modern">View My Work</a>
-                        <a href="#" class="btn-modern btn-outline-modern">Download CV</a>
+                        <a href="#" class="btn-modern btn-outline-modern" download>Download CV</a>
                     </div>
                 </div>
-                <div class="text-center" data-aos="fade-left">
+                <div class="text-center " data-aos="fade-left">
                     <div class="hero-image">
-                        <img src="https://placehold.co/400x400/2563eb/ffffff?text=MA" alt="Muhammad Ali Anjum">
+                        <img src="../../img/anjum.jpeg" alt="Muhammad Ali Anjum">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About, Services, Work, Process, Expertise, Contact sections (same as before) -->
-    <!-- For brevity, I'll include a condensed version; you can copy the full sections from previous answer -->
-    <!-- ... (all sections remain unchanged) ... -->
+    <!-- About Section -->
+    <section id="about" class="py-20 relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">About Me</h2>
+            <p class="section-subtitle text-center text-muted mb-12">Get to know me better</p>
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <!-- <img src="https://placehold.co/500x500/2563eb/ffffff?text=MA" alt="About Muhammad" class="rounded-3xl shadow-2xl w-full"> -->
+                    <img src="../../img/anjum.jpeg" alt="About Muhammad" class="rounded-3xl shadow-2xl w-full">
+                </div>
+                <div data-aos="fade-left">
+                    <p class="text-lg text-secondary mb-6">I am a passionate and dedicated Full Stack Developer with expertise in building custom WordPress websites, React.js applications, and backend systems using Node.js, MongoDB, and RESTful APIs. With a strong foundation in web technologies, I specialize in creating responsive, scalable, and user-friendly digital solutions for businesses across various industries.</p>
+                    <h4 class="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Providing All Types of Services & Open Discussions</h4>
+                    <div class="flex flex-wrap gap-3 mb-6">
+                        <span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-full shadow border border-blue-600">Programming</span>
+                        <span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-full shadow border border-blue-600">Web Design</span>
+                        <span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-full shadow border border-blue-600">UI/UX</span>
+                        <span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-white px-4 py-2 rounded-full shadow border border-blue-600">Consultation</span>
+                    </div>
+                    <p class="text-muted">We offer a variety of services tailored to your needs with a focus on quality and client satisfaction. Our platform encourages open discussions to ensure clear communication and the best possible outcomes. Let's connect and bring your ideas to life!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-secondary relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">My Services</h2>
+            <p class="section-subtitle text-center text-muted mb-12">Providing All Types of Services & Open Discussions</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service cards -->
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-4 hover:scale-105 border border-color" style="background-color: var(--card-bg);" data-aos="flip-left" data-aos-delay="100">
+                    <i class="bi bi-phone text-6xl mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></i>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Mobile Application & Development</h4>
+                    <p class="text-muted">Expert mobile app development services for iOS and Android platforms, creating intuitive and feature-rich applications.</p>
+                    <button class="btn-modern btn-outline-modern mt-4">Learn More</button>
+                </div>
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-4 hover:scale-105 border border-color" style="background-color: var(--card-bg);" data-aos="flip-left" data-aos-delay="200">
+                    <i class="bi bi-code-square text-6xl mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></i>
+                    <h4 class="text-xl font-bold mb-3 text-primary">React Next & Responsive Coding</h4>
+                    <p class="text-muted">Modern web development using React and Next.js, ensuring responsive, fast, and SEO-friendly websites.</p>
+                    <button class="btn-modern btn-outline-modern mt-4">Learn More</button>
+                </div>
+                <div class="service-card bg-card p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-4 hover:scale-105 border border-color" style="background-color: var(--card-bg);" data-aos="flip-left" data-aos-delay="300">
+                    <i class="bi bi-palette text-6xl mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"></i>
+                    <h4 class="text-xl font-bold mb-3 text-primary">User Interface & Experience Design</h4>
+                    <p class="text-muted">Creating beautiful, intuitive interfaces that enhance user experience and drive engagement.</p>
+                    <button class="btn-modern btn-outline-modern mt-4">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Work -->
+    <section id="work" class="py-20 relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">My Selected Work</h2>
+            <p class="section-subtitle text-center text-muted mb-12">Some of my recent projects</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project cards (same overlay effect) -->
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="https://placehold.co/600x400/2563eb/ffffff?text=Tours" alt="Tours" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">Tours Website</h4>
+                        <p class="text-sm mt-2">Ilyas Skardu Tours specializes in curated travel experiences in Gilgit-Baltistan.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="https://placehold.co/600x400/7c3aed/ffffff?text=E-commerce" alt="E-commerce" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">E-commerce Website</h4>
+                        <p class="text-sm mt-2">Dynamic online stores tailored to captivate audiences and drive sales.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="https://placehold.co/600x400/f59e0b/ffffff?text=Blog" alt="Blog" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">Blog Website</h4>
+                        <p class="text-sm mt-2">Captivating blog platforms with sleek layouts and seamless navigation.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="https://placehold.co/600x400/10b981/ffffff?text=Plumber" alt="Plumber" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">Plumber Website</h4>
+                        <p class="text-sm mt-2">Emergency Plumber Croydon London - professional services website.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="https://placehold.co/600x400/ef4444/ffffff?text=Guest+House" alt="Guest House" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">Guest House Website</h4>
+                        <p class="text-sm mt-2">Burj Baltistan International Guest House - luxurious accommodations in Skardu.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+                <div class="project-card relative rounded-3xl overflow-hidden h-96 shadow-xl group" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Marketing" alt="Marketing" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="project-overlay absolute bottom-[-100%] left-0 w-full p-8 bg-gradient-to-t from-black/90 to-transparent text-white transition-all duration-500 group-hover:bottom-0">
+                        <h4 class="text-2xl font-bold">Digital Marketing Agency</h4>
+                        <p class="text-sm mt-2">Intellectual Rush - SEO, PPC, social media marketing, and web design.</p>
+                        <a href="#" class="inline-block mt-4 btn-modern btn-primary-modern text-sm">Visit</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="btn-modern btn-primary-modern px-8 py-3">View All Projects</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="py-20 bg-secondary relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">How The Process Of Work</h2>
+            <p class="section-subtitle text-center text-muted mb-12">My approach to delivering excellence</p>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="process-step bg-card p-8 rounded-3xl shadow-lg border border-color text-center hover:translate-y-[-10px] transition" style="background-color: var(--card-bg);" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-2xl font-bold">1</div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Branding & Research</h4>
+                    <p class="text-muted">We help businesses build strong, memorable brands through in-depth research and strategic insights. From understanding your audience to creating a unique brand identity, our process ensures your brand stands out.</p>
+                </div>
+                <div class="process-step bg-card p-8 rounded-3xl shadow-lg border border-color text-center hover:translate-y-[-10px] transition" style="background-color: var(--card-bg);" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-2xl font-bold">2</div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Development</h4>
+                    <p class="text-muted">We specialize in crafting custom, scalable, and efficient solutions to meet your business needs. From front-end interfaces to back-end systems, our development services ensure high performance and security.</p>
+                </div>
+                <div class="process-step bg-card p-8 rounded-3xl shadow-lg border border-color text-center hover:translate-y-[-10px] transition" style="background-color: var(--card-bg);" data-aos="fade-left" data-aos-delay="400">
+                    <div class="step-number w-16 h-16 mx-auto mb-6 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white flex items-center justify-center text-2xl font-bold">3</div>
+                    <h4 class="text-xl font-bold mb-3 text-primary">Final Products</h4>
+                    <p class="text-muted">Delivering ready-to-use, high-quality solutions designed to meet your needs and make a lasting impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="expertise" class="py-20 relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">My Personal Expertise</h2>
+            <p class="section-subtitle text-center text-muted mb-12">Technologies and skills I work with</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Full-Stack Web Development</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">React.js Development</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Node.js Backend Development</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Custom WordPress Development</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">API Integrations</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Tailwind CSS for Styling</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Frontend & Backend Integration</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Database Management (MongoDB)</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">RESTful API Development</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">Design Systems & Component-Based Design</span>
+                <span class="expertise-item bg-card px-4 py-3 rounded-full text-center shadow border border-color hover:scale-105 hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 hover:text-white transition" style="background-color: var(--card-bg); color: var(--text-primary);">E-commerce Solutions (WooCommerce, Payment Integrations)</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-secondary relative z-10">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-center text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent relative inline-block w-full after:content-[''] after:absolute after:bottom-[-10px] after:left-1/2 after:-translate-x-1/2 after:w-24 after:h-1 after:bg-gradient-to-r after:from-blue-600 after:to-purple-600 after:rounded">Let's Connect</h2>
+            <p class="section-subtitle text-center text-muted mb-12">Have a project in mind? I'd love to hear from you.</p>
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <div class="contact-form bg-card p-8 rounded-3xl shadow-xl" style="background-color: var(--card-bg);">
+                        <form action="mailto:anjumbalgharii@gmail.com" method="POST" enctype="text/plain">
+                            <div class="mb-6">
+                                <label class="block text-secondary font-semibold mb-2">Your Name</label>
+                                <input type="text" name="Name" class="w-full border-2 border-color rounded-xl px-4 py-3 bg-primary text-primary focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition" placeholder="Enter your name" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-secondary font-semibold mb-2">Email Address</label>
+                                <input type="email" name="Email" class="w-full border-2 border-color rounded-xl px-4 py-3 bg-primary text-primary focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition" placeholder="Enter your email" required>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-secondary font-semibold mb-2">Message</label>
+                                <textarea name="Message" class="w-full border-2 border-color rounded-xl px-4 py-3 bg-primary text-primary focus:border-blue-600 focus:ring-2 focus:ring-blue-600/20 transition" rows="5" placeholder="Tell me about your project..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-modern btn-primary-modern w-full py-3">Send Message <i class="bi bi-send ml-2"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <div class="lg:pl-8">
+                        <h3 class="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Contact Information</h3>
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="bi bi-envelope-fill text-3xl" style="color: var(--primary);"></i>
+                            <div>
+                                <h5 class="font-bold text-primary">Email</h5>
+                                <a href="mailto:anjumbalgharii@gmail.com" class="text-secondary hover:text-blue-600 transition">anjumbalgharii@gmail.com</a>
+                                <p class="text-sm text-muted mt-1">Send an email directly</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="bi bi-briefcase-fill text-3xl" style="color: var(--secondary);"></i>
+                            <div>
+                                <h5 class="font-bold text-primary">Portfolio</h5>
+                                <p class="text-secondary">Professional Web Developer</p>
+                                <a href="#" class="text-sm text-blue-600 hover:underline">Visit my portfolio website</a>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 mb-6">
+                            <i class="bi bi-headset text-3xl" style="color: var(--accent);"></i>
+                            <div>
+                                <h5 class="font-bold text-primary">Support</h5>
+                                <p class="text-secondary">24/7 Customer Support</p>
+                                <p class="text-sm text-muted">Fast response times for all client inquiries</p>
+                            </div>
+                        </div>
+                        <div class="mt-8">
+                            <h5 class="font-bold text-primary mb-3">Follow Me</h5>
+                            <div class="flex gap-4">
+                                <a href="#" class="text-3xl" style="color: var(--primary);"><i class="bi bi-github"></i></a>
+                                <a href="#" class="text-3xl" style="color: var(--primary);"><i class="bi bi-linkedin"></i></a>
+                                <a href="#" class="text-3xl" style="color: var(--primary);"><i class="bi bi-twitter-x"></i></a>
+                                <a href="#" class="text-3xl" style="color: var(--primary);"><i class="bi bi-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 dark:bg-gray-950 text-white py-12 mt-20">
+    <footer class="py-12" style="background-color: var(--footer-bg); color: var(--footer-text);">
         <div class="container mx-auto px-4 text-center">
             <h3 class="text-3xl font-bold mb-3 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Muhammad Ali Anjum</h3>
             <p class="text-gray-400 mb-3">Full Stack Developer | WordPress Developer | MERN Stack Developer</p>
@@ -286,44 +544,58 @@
             });
         });
 
-        // Theme toggle
+        // Theme toggle (using CSS variables)
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
-        const html = document.documentElement;
+        const body = document.body;
+
         const savedTheme = localStorage.getItem('theme');
         if (savedTheme === 'dark') {
-            html.classList.add('dark');
-            themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
+            body.classList.add('dark');
+            themeIcon.classList.remove('bi-sun-fill');
+            themeIcon.classList.add('bi-moon-fill');
+        } else {
+            body.classList.remove('dark');
+            themeIcon.classList.remove('bi-moon-fill');
+            themeIcon.classList.add('bi-sun-fill');
         }
+
         themeToggle.addEventListener('click', () => {
-            html.classList.toggle('dark');
-            if (html.classList.contains('dark')) {
-                themeIcon.classList.replace('bi-sun-fill', 'bi-moon-fill');
-                localStorage.setItem('theme', 'dark');
-            } else {
-                themeIcon.classList.replace('bi-moon-fill', 'bi-sun-fill');
+            if (body.classList.contains('dark')) {
+                body.classList.remove('dark');
+                themeIcon.classList.remove('bi-moon-fill');
+                themeIcon.classList.add('bi-sun-fill');
                 localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.add('dark');
+                themeIcon.classList.remove('bi-sun-fill');
+                themeIcon.classList.add('bi-moon-fill');
+                localStorage.setItem('theme', 'dark');
             }
         });
 
-        // ========== CODE PARTICLE BACKGROUND (with symbols) ==========
+        // ========== MOUSE-INTERACTIVE CODE PARTICLE BACKGROUND ==========
         const canvas = document.getElementById('codeCanvas');
         const ctx = canvas.getContext('2d');
         let width, height;
         let particles = [];
-        const codeSymbols = ['{', '}', '()', '=>', 'const', 'let', 'if', 'for', '</>', '/*', '*/', '===', '!==', '++', '--', '#', '@', '$', '%', '&', '?', ':', ';', ',', '.', '<>', '[]'];
-        const particleCount = 120; // more particles for richer effect
+        let mouseX = null, mouseY = null;
+        const mouseRadius = 300; // radius of influence
+        const attractionStrength = 0.02; // how strongly particles are pulled towards cursor
+        const codeSymbols = ['{', '}', '()', '=>', 'const','var','()=>','return', 'let', 'if', 'for', '</>', '/*', '*/', 'function', '++', '--', '$', '%', '&', '?', ':', ';', ',', '.', '<>', '[]'];
+        const particleCount = 1000;
 
         function initParticles() {
             particles = [];
             for (let i = 0; i < particleCount; i++) {
-                // 40% chance to be a code symbol, 60% dot
                 const isSymbol = Math.random() < 0.4;
                 particles.push({
                     x: Math.random() * width,
                     y: Math.random() * height,
                     vx: (Math.random() - 0.5) * 0.2,
                     vy: (Math.random() - 0.5) * 0.2,
+                    baseVx: (Math.random() - 0.5) * 0.2,
+                    baseVy: (Math.random() - 0.5) * 0.2,
                     size: isSymbol ? 14 + Math.random() * 16 : 2 + Math.random() * 3,
                     symbol: isSymbol ? codeSymbols[Math.floor(Math.random() * codeSymbols.length)] : null,
                     isSymbol: isSymbol,
@@ -340,6 +612,16 @@
             initParticles();
         }
 
+        // Track mouse movement
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouseX = null; // reset when mouse leaves window
+        });
+
         function hexToRgb(hex) {
             let c = hex.substring(1);
             if (c.length === 3) c = c.split('').map(ch => ch + ch).join('');
@@ -349,14 +631,37 @@
 
         function drawParticles() {
             ctx.clearRect(0, 0, width, height);
-            const primaryColor = getComputedStyle(document.documentElement).getPropertyValue('--primary').trim() || '#2563eb';
-            ctx.fillStyle = primaryColor;
-            ctx.font = '14px "Fira Code", monospace';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
+            const primaryColor = getComputedStyle(body).getPropertyValue('--primary').trim() || '#2563eb';
 
-            // Draw particles (dots and symbols)
             particles.forEach(p => {
+                // Mouse attraction effect
+                if (mouseX !== null && mouseY !== null) {
+                    const dx = mouseX - p.x;
+                    const dy = mouseY - p.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    if (dist < mouseRadius) {
+                        // Attract towards cursor
+                        const force = (mouseRadius - dist) / mouseRadius; // 0 to 1
+                        p.vx += dx * force * attractionStrength;
+                        p.vy += dy * force * attractionStrength;
+                    }
+                }
+
+                // Apply velocity
+                p.x += p.vx;
+                p.y += p.vy;
+
+                // Dampen velocity gradually back to base
+                p.vx += (p.baseVx - p.vx) * 0.01;
+                p.vy += (p.baseVy - p.vy) * 0.01;
+
+                // Wrap around edges
+                if (p.x < 0) p.x = width;
+                if (p.x > width) p.x = 0;
+                if (p.y < 0) p.y = height;
+                if (p.y > height) p.y = 0;
+
+                // Draw particle
                 if (p.isSymbol) {
                     ctx.font = `${p.size}px "Fira Code", monospace`;
                     ctx.fillStyle = `rgba(${hexToRgb(primaryColor)}, ${p.opacity})`;
@@ -367,20 +672,9 @@
                     ctx.fillStyle = `rgba(${hexToRgb(primaryColor)}, ${p.opacity})`;
                     ctx.fill();
                 }
-
-                // Move
-                p.x += p.vx;
-                p.y += p.vy;
-
-                // Wrap around edges
-                if (p.x < 0) p.x = width;
-                if (p.x > width) p.x = 0;
-                if (p.y < 0) p.y = height;
-                if (p.y > height) p.y = 0;
             });
 
-            // Draw connections between nearby particles (dots only, or all? we'll connect all for a network feel)
-            ctx.strokeStyle = primaryColor;
+            // Draw connections
             ctx.lineWidth = 0.5;
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
@@ -404,7 +698,7 @@
         resizeCanvas();
         drawParticles();
 
-        // Typewriter effect (same)
+        // Typewriter effect
         const typewriterElement = document.getElementById('typewriter');
         const roles = ['Full Stack Developer', 'WordPress Developer', 'MERN Stack Developer', 'UI/UX Enthusiast'];
         let roleIndex = 0, charIndex = 0, isDeleting = false;

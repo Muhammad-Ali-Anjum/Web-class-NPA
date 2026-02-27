@@ -1,13 +1,13 @@
 // console.log(a);
 // var a=54;
-// let a=43
+// // let a=43
 
-// sub();
-// {
-// function sub(){
-//     console.log("the sum fuction is running");
+
+
+function sub(){
+    console.log("the sum fuction is running");
     
-// }}
+}
 try {
     console.log("the code is runing");
     
@@ -15,7 +15,7 @@ try {
     console.error(`The code is not runinr ${error.message}`);
     
 }
-
+sub();
 
 function getMonthName(monthIndex) {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -32,5 +32,5 @@ function getMonthName(monthIndex) {
   }
 }
 
-getMonthName(1);
-getMonthName(13); 
+getMonthName(13);
+// getMonthName(13); 
