@@ -6,36 +6,52 @@
     <title>Document</title>
 </head>
 <style>
-    a:hover{
-        color: tomato;
-    }
-    a:active{
-        color: rebeccapurple;
-    }
-    a:visited{
-        color: red;
-    }
-    .main{
-        width: 200px;
-        height: 200px;
-        background-color: aquamarine;
-        transition: 2s;
-    }
-    .main:hover{
-        width: 250px;
-        height: 300px;
+   .main{
+    width: 200px;
+    height: 300px;
+    background-color: rgb(59, 180, 180);
+    transition: 2s;
+   }
+   .main:hover{
+    width: 210px;
+    height: 310px;
+   }
+   li{
+    list-style-type: none;
+   }
+   a{
+    text-decoration: none;
+   }
+   a:visited{
+    color: red;
+   }
+   a:active{
+    color: rebeccapurple;
+   }
+p::first-letter{
+    font-size: 50px;
+}
+p::first-line{
+    color: rebeccapurple;
+}
+p::before{
+    content: "the";
+}
+p::after{
+    content: url(../img/arrow\ icon.png);
+}
 
-    }
 
 </style>
 <body>
     <div class="main"></div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat minus nostrum tempore! Fuga vero ea perferendis cum, minima odit quo eaque ex explicabo nisi sequi aut ullam nesciunt, harum repellat?</p>
     <ul>
-        <li><a href="#">home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-        <li><a href="">Login</a></li>
-        <li><a href="">reg</a></li>
+        <li><a href="#Home">home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#login">Login</a></li>
+        <li><a href="#reg">reg</a></li>
     </ul>
 </body>
 </html>

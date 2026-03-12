@@ -17,6 +17,8 @@
 // // // // const mark=(total/300)*100;
 // // // // console.log("percentage",mark);
 
+const PromptSync = require("prompt-sync");
+
 // // // // // let mark=45;
 // // // // if(mark>80 && mark<=100){
 // // // //     console.log("A");
@@ -322,7 +324,26 @@ else{
 },1000);
     });
   }
-  login("admin","123")
-  .then((res)=>console.log(res)
-  )
-  .catch((rj)=>console.error(rj))
+//   login("adin","13")
+//   .then((res)=>console.log(res))
+//   .catch((rj)=>console.error(rj))
+
+function sign(name){
+return new Promise((accept,reject)=>{
+   setTimeout(()=>{
+    if(name==="anjum"){
+    accept("Login sucessfully")
+   }
+   else{
+    reject("Login fail")
+   }
+   },500)
+})}
+// sign("anjum")
+// .then((e)=>console.log(e))
+// .catch((e)=>console.error(e))
+sign("")
+.then((e)=>console.log(e))
+.catch((e)=>console.error(e))
+
+

@@ -108,10 +108,52 @@
             height: 100vh;
             background-color: aqua;
         }
+       #toggle{
+            display: none;
+        }
+
+        @media (max-width:768px) {
+            .menu,.btn{
+                display: none;
+            }
+            header{
+                justify-content: space-between;
+                padding-left: 40px;
+            }
+            #toggle {
+                display: block;
+                
+            }
+            .menu1{
+                width: 300px;
+                height: 600px;
+            
+                padding-top: 30px;
+                position: relative;
+                top: 330px;
+                right: -100%;
+                /* left: -100%; */
+                transition: 2s;
+                background-color: rgb(255, 255, 255);
+
+            }
+             .menu1 ul li a{
+            text-decoration: none;
+            color: #333;
+            font-size: 24px;
+            line-height: 50px;
+            padding-left: 60px;
+        }
+            input[type="checkbox"]:checked ~ .menu1{
+               right: 0%;
+
+            }
+        }
 
 </style>
 <body>
     <!-- header -->
+    
      <header>
         <nav class="logo">Next <span class="plnr">Plnanners</span></nav>
         <nav class="menu">
@@ -123,12 +165,33 @@
                     <li><a href="#">Contact</a></li>
                 </ul>
         </nav>
+         <input type="checkbox" name="" id="toggle">
+          <nav class="menu1">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+        </nav>
         <nav class="btn"> <button>Apply </button></nav>
      </header>
+      
      <div class="hero">
+         <!-- Mobile Nav Bar -->
+          <!-- <nav class="menu1">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+        </nav> -->
         <h1>welcome </h1>
      </div>
-     <div class="about"></div>
+ 
     
 </body>
 </html>

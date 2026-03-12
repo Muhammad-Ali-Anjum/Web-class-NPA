@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .con ul li a{
+text-decoration: none;
+    }
+    .con ul li{
+        list-style-type: none;
+    }
+    .main +p{
+        color: rebeccapurple;
+    }
+    .main ~p{
+        color: red;
+    }
+    .mains{
+        width: 200px;
+        height: 400px;
+        background-color: antiquewhite;
+        position: relative;
+        left: -100%;
+        transition: 2s;
+        
+    }
+    input[type="checkbox"]:checked ~ .mains{
+        left: 0%;
+    }
+</style>
+<body>
+    <input type="checkbox">
+    <div class="mains">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+    <div class="con">
+        <ul>
+            <li><a href="#">Home</a></li>
+        </ul>
+    </div>
+    <div class="main">
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga, explicabo in? Similique, iure ad voluptas sapiente corrupti possimus sit vel! Laborum, quas iure magni illum possimus corporis voluptas enim architecto?
+        </p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe vitae sunt accusamus, repellat optio at voluptate numquam, maiores fugit laborum nesciunt porro dolor deserunt. Facere voluptate nobis qui molestias earum?</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta delectus placeat impedit quia corporis accusamus, cum animi optio commodi consequuntur eos, itaque labore, porro est! Culpa inventore delectus dolore nobis?
+    </div>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita exercitationem, ex dolor numquam eius quo accusamus at voluptas ea! Consequatur expedita, accusamus fugit totam architecto laudantium qui placeat perspiciatis sequi.</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure nesciunt consequatur molestiae, placeat delectus est dolor ullam ad expedita exercitationem sunt veritatis minima odit commodi quos beatae, voluptatibus quae magni!</p>
+</body>
+</html>

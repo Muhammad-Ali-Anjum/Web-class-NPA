@@ -1,14 +1,14 @@
-const arr = [3, 7, 2, 8];
+const arr = [4, 7, 2, 8];
 const [first, ...rest] = arr;
 const last = rest[rest.length - 1];
 
 const sum = first + last;
 let res=sum%2===0 ? "Even ":"odd";
 console.log(sum % 2 === 0 ? "Even" : "Odd");
-if(sum%2===0){
-  console.log("even");
+// if(sum%2===0){
+//   console.log("even");
   
-}
+// }
 
 // task 2
 const arr1 = [12, 5, 9, 21, 3];
@@ -18,14 +18,20 @@ let typ=43;
 for (let i = 1; i < arr1.length; i++) {
   if (arr1[i] > max) {
     max = arr[i];
+    console.log(arr1[i]);
+    
   }
+  console.log(max);
+  
 }
 console.log(`the length of array is ${arr1.length}`);
 
 
-console.log(max);
+// console.log(max);
 
-// Check whether a series is arithmetic using destructuring.
+// // Check whether a series is arithmetic using destructuring.
+console.log("--------------------");
+
 const arr3 = [4, 8, 12, 16];
 const [a, b] = arr;
 const diff = b - a;
@@ -40,13 +46,13 @@ for (let i = 1; i < arr3.length - 1; i++) {
 }
 
 console.log(isArithmetic);
-// Calculate average and count elements greater than average.
+// // Calculate average and count elements greater than average.
 
 const arr4 = [10, 20, 30, 40];
 let sums = 0;
 
 for (let num of arr4) {
-  sums += num;
+  sums += num;// sum=sum+num;
 }
 
 const avg = sums / arr.length;
@@ -60,13 +66,14 @@ for (let num of arr4) {
 
 console.log(count);
 
-// Swap first and second elements using destructuring.
+// // Swap first and second elements using destructuring.
 let arr5 = [5, 9, 12];
 [arr5[0], arr5[1]] = [arr5[1], arr5[0]];
 
 console.log(arr5);
 // Reverse an array without destructuring.
 const arr6 = [1, 2, 3, 4, 5];
+// arr6.reverse()
 let reversed = [];
 
 for (let i = arr6.length - 1; i >= 0; i--) {
@@ -75,32 +82,32 @@ for (let i = arr6.length - 1; i >= 0; i--) {
 
 console.log(reversed);
 
-// Determine whether a series is increasing or decreasing using destructuring
+// // Determine whether a series is increasing or decreasing using destructuring
 
 const arr7 = [20, 15, 10, 5];
 const [firsts, second] = arr;
 
-let type = second > firsts ? "Increasing" : "Decreasing";
+let type = second < firsts ? "Increasing" : "Decreasing";
 console.log(type);
 
-// Find the second smallest number without destructuring.
-const arr8 = [7, 2, 9, 4, 1];
+// // Find the second smallest number without destructuring.
+// const arr8 = [7, 2, 9, 4, 1];
 
-let smallest = Infinity;
-let secondSmallest = Infinity;
+// let smallest = Infinity;
+// let secondSmallest = Infinity;
 
-for (let num of arr8) {
-  if (num < smallest) {
-    secondSmallest = smallest;
-    smallest = num;
-  } else if (num < secondSmallest && num !== smallest) {
-    secondSmallest = num;
-  }
-}
+// for (let num of arr8) {
+//   if (num < smallest) {
+//     secondSmallest = smallest;
+//     smallest = num;
+//   } else if (num < secondSmallest && num !== smallest) {
+//     secondSmallest = num;
+//   }
+// }
 
-console.log(secondSmallest);
+// console.log(secondSmallest);
 
-// Separate the first element and remaining elements using destructuring.
+// // Separate the first element and remaining elements using destructuring.
 const arr9 = [100, 200, 300, 400];
 const [f, ...remain] = arr9;
 
