@@ -172,49 +172,66 @@
 // console.log(arr1);
 
 
-let arr1=["admin","teacher","student"];
-console.log(arr1[0]);
-console.log(arr1[1]);
-arr1.push("Editer")
-arr1.push("staff")
-console.log(arr1);
-arr1.pop()
-console.log(arr1);
-arr1.unshift("id")
+// let arr1=["admin","teacher","student"];
+// console.log(arr1[0]);
+// console.log(arr1[1]);
+// arr1.push("Editer")
+// arr1.push("staff")
+// console.log(arr1);
+// arr1.pop()
+// console.log(arr1);
+// arr1.unshift("id")
 
-console.log(arr1);
-arr1.shift()
-console.log(arr1);
+// console.log(arr1);
+// arr1.shift()
+// console.log(arr1);
 
-function run(){
-    console.log("backend is runing");
+// function run(){
+//     console.log("backend is runing");
+    
+// }
+// run()
+
+// let runing=()=>{
+//     console.log("API is runing");
+
+// }
+// runing()
+
+// let sum=(a,b)=>{
+// console.log(a+b);
+
+// }
+// sum(2,4)
+
+// let sums=(a,b)=> console.log(a+b);
+// sums(2,3)
+// let sm=(a,b)=>{
+//     return a+b
+// }
+// console.log(sm(2,3));
+
+// let sms=(a,b)=> a+b;
+// console.log(sms(1,1));
+
+// let sq=a=> a*a;
+// console.log(sq(2));
+
+
+let sum=(a,b,...c)=>{
+    console.log(a,b,c);
     
 }
-run()
+sum(1,2,3,3,5,3,[1,3,5,6,7])
 
-let runing=()=>{
-    console.log("API is runing");
+let arr=["vits","tota","OD","Primo"];
+let [vits,tota,od,...rest]=arr;
+console.log(arr[0]);
+console.log(vits);
+console.log(od);
 
-}
-runing()
+let arra=[23,43,32,43]
+console.log(arra.concat(arr));
 
-let sum=(a,b)=>{
-console.log(a+b);
-
-}
-sum(2,4)
-
-let sums=(a,b)=> console.log(a+b);
-sums(2,3)
-let sm=(a,b)=>{
-    return a+b
-}
-console.log(sm(2,3));
-
-let sms=(a,b)=> a+b;
-console.log(sms(1,1));
-
-let sq=a=> a*a;
-console.log(sq(2));
 
 
