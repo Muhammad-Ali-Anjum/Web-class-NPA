@@ -218,20 +218,36 @@
 // console.log(sq(2));
 
 
-let sum=(a,b,...c)=>{
-    console.log(a,b,c);
+// let sum=(a,b,...c)=>{
+//     console.log(a,b,c);
     
-}
-sum(1,2,3,3,5,3,[1,3,5,6,7])
+// }
+// sum(1,2,3,3,5,3,[1,3,5,6,7])
 
-let arr=["vits","tota","OD","Primo"];
-let [vits,tota,od,...rest]=arr;
-console.log(arr[0]);
-console.log(vits);
-console.log(od);
+// let arr=["vits","tota","OD","Primo"];
+// let [vits,tota,od,...rest]=arr;
+// console.log(arr[0]);
+// console.log(vits);
+// console.log(od);
 
-let arra=[23,43,32,43]
-console.log(arra.concat(arr));
+// let arra=[23,43,32,43]
+// console.log(arra.concat(arr));
+
+
+let arr=["Iphone","techno","opo","infinix","redmi"];
+let product=arr.map(product=>product)
+console.log(product);
+let arr1=[1100,200,400,300,2000]
+let filt=arr1.filter(index=>index>400)
+console.log(filt);
+let search=arr.filter(search=>search.includes("ipad"))
+console.log(search);
+let find=arr.find(find=>find=="Iphone")
+console.log(find);
+
+let reduce=arr1.reduce((sum,price)=>sum+price,0)
+console.log(reduce);
+// let forech=
 
 
 
