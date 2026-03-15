@@ -234,20 +234,128 @@
 // console.log(arra.concat(arr));
 
 
-let arr=["Iphone","techno","opo","infinix","redmi"];
-let product=arr.map(product=>product)
-console.log(product);
-let arr1=[1100,200,400,300,2000]
-let filt=arr1.filter(index=>index>400)
-console.log(filt);
-let search=arr.filter(search=>search.includes("ipad"))
-console.log(search);
-let find=arr.find(find=>find=="Iphone")
-console.log(find);
+// let arr=["Iphone","techno","opo","infinix","redmi"];
+// let product=arr.map(product=>product)
+// console.log(product);
+// let arr1=[1100,200,400,300,2000]
+// let filt=arr1.filter(index=>index>400)
+// console.log(filt);
+// let search=arr.filter(search=>search.includes("ipad"))
+// console.log(search);
+// let find=arr.find(find=>find=="Iphone")
+// console.log(find);
 
-let reduce=arr1.reduce((sum,price)=>sum+price,0)
-console.log(reduce);
+// let reduce=arr1.reduce((sum,price)=>sum+price,0)
+// console.log(reduce);
 // let forech=
 
+// object
+let obj={
+    name:"sara",
+    age:18,
+    location:{
+        zipcode:16100,
+        steet:"xyz123",
+        country:"pakistan"
+    }
+}
+console.log(obj.name);
+console.log(obj);
+console.log(obj.location.country);
+let obj2={
+    name:"rukhsana",
+    age:19,
+    country:["Pk","IN","US","UK"],
+    province:{
+        state:[
+            {
+            state:{
+                provinces:["lahore","GB"],
+                zipcode:[122002,16100],
+                steet:"acbd123"
+            }
+        },
+          {
+            state:{
+                provinces:["lahore","GB"],
+                zipcode:[122002,16100],
+                steet:"acbd123"
+            }
+        }
+    ]
+    }
+}
 
+console.log(obj2);
+
+console.log(obj2.province.state);
+obj2.province.state.map(e=> console.log(e)
+)
+
+
+console.log("+++++++++++++card+++++++++++++++++");
+
+
+// Sample Products
+const products = [
+    { id: 1, name: "Laptop", price: 1000 },
+    { id: 2, name: "Phone", price: 500 },
+    { id: 3, name: "Headphones", price: 100 },
+];
+
+// Shopping Cart
+let cart = [];
+
+// Cart Operations
+const cartAction = (action, productId = null, quantity = 1) => {
+    const findProduct = id => products.find(p => p.id === id);
+
+    switch(action){
+        case "add":
+            if (!productId) return console.log("Select product to add");
+            const product = findProduct(productId);
+            if (!product) return console.log("Product not found");
+            const existing = cart.find(p => p.id === productId);
+            existing ? existing.quantity += quantity : cart.push({ ...product, quantity });
+            console.log(`${product.name} added (Qty: ${quantity})`);
+            break;
+
+        case "remove":
+            if (!productId) return console.log("Select product to remove");
+            cart = cart.filter(p => p.id !== productId);
+            console.log("Product removed from cart");
+            break;
+
+        case "update":
+            if (!productId) return console.log("Select product to update");
+            const item = cart.find(p => p.id === productId);
+            if (!item) return console.log("Product not in cart");
+            item.quantity = quantity;
+            console.log(`Updated ${item.name} quantity to ${quantity}`);
+            break;
+
+        case "checkout":
+            if (!cart.length) return console.log("Cart is empty");
+            console.log("🛒 Cart Summary:");
+            const total = cart.reduce((sum, p) => {
+                console.log(`${p.name} x ${p.quantity} = $${p.price * p.quantity}`);
+                return sum + p.price * p.quantity;
+            }, 0);
+            console.log(`Total: $${total}`);
+            cart = [];
+            console.log("✅ Checkout complete!");
+            break;
+
+        default:
+            console.log("Invalid action! Use: add, remove, update, checkout");
+    }
+};
+
+// ✅ Example Usage
+cartAction("add", 1);
+cartAction("add", 2, 2);
+cartAction("update", 2, 3);
+cartAction("remove", 2);
+cartAction("checkout");
+console.log(cart);
 
