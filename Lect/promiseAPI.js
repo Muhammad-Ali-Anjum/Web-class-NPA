@@ -58,6 +58,8 @@ fetch("https://jsonplaceholder.typicode.com/users/1")
       console.log(data.name);
       console.log(data.email);
       console.log(data.age);
+      console.log(data.course);
+      
       
   })
   .catch((error) => {
