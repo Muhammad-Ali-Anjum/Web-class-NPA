@@ -377,16 +377,27 @@
 
 
 
-let obj={
-    name:"sara",
-    age:20,
-    address:"bcs",
-    zipcode:1234,
-    country:"pakistan"
-}
-let {name,age,address,zipcode,...rest}=obj;
-console.log(name);
-console.log(age);
-console.log(address);
-console.log(zipcode);
-console.log(rest);
+// let obj={
+//     name:"sara",
+//     age:20,
+//     address:"bcs",
+//     zipcode:1234,
+//     country:"pakistan"
+// }
+// let {name,age,address,zipcode,...rest}=obj;
+// console.log(name);
+// console.log(age);
+// console.log(address);
+// console.log(zipcode);
+// console.log(rest);
+
+const student = {
+    name: "Sara",
+    age: 21,
+    course: "IT",
+    display: function () {
+        console.log(this.name + " is studying " + this.course);
+    }
+};
+// student.display();
+student.display()
