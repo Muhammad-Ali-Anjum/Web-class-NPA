@@ -451,3 +451,29 @@
     
 // }
 // run()
+let count = 5;
+function countdown() {
+  if (count === 0) {
+    console.log("Done!");
+    return;
+  }
+  console.log(count);
+  count--;
+  setTimeout(countdown, 1000);
+}
+countdown();
+console.log("Program started");
+// setTimeout (runs once)
+const timeoutId = setTimeout(() => {
+  console.log("setTimeout executed after 3 seconds");
+}, 3000);
+
+function factorial(n) {
+  // 1. Base Case: stop at 1
+  if (n <= 1) return 1;
+  
+  // 2. Recursive Case: n * factorial of (n - 1)
+  return n * factorial(n - 1);
+}
+
+console.log(factorial(5)); // Output: 120
