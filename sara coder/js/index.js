@@ -391,13 +391,33 @@
 // console.log(zipcode);
 // console.log(rest);
 
-const student = {
-    name: "Sara",
-    age: 21,
-    course: "IT",
-    display: function () {
-        console.log(this.name + " is studying " + this.course);
-    }
-};
-// student.display();
-student.display()
+// const student = {
+//     name: "Sara",
+//     age: 21,
+//     course: "IT",
+//     display: function () {
+//         console.log(this.name + " is studying " + this.course);
+//     }
+// };
+// // student.display();
+// student.display()
+
+function add(x) {
+    return x + 2;
+}
+function mul(x) {
+    return x * 3;
+}
+
+function compose(mul, add) {
+    return function(x) {
+        // return add(mul(x));// add(parameter) mul(12) add(mul(4))
+        return mul(add(x));// add(6) mul(18) add(mul(4))
+  };
+}
+var res = compose(mul, add)(4);
+console.log("the result is: " + res);
+
+function sm(){
+    console.log("this is sum function");
+}sm();
