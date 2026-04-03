@@ -24,9 +24,7 @@
 //   console.log('Counter stopped');
 // }, 10000);
 
-
 let count = 5;
-
 function countdown() {
   if (count === 0) {
     console.log("Done!");
@@ -36,11 +34,8 @@ function countdown() {
   count--;
   setTimeout(countdown, 1000);
 }
-
 countdown();
-
 console.log("Program started");
-
 // setTimeout (runs once)
 const timeoutId = setTimeout(() => {
   console.log("setTimeout executed after 3 seconds");
