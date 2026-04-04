@@ -36,6 +36,34 @@
 
 
 
-let a=4
-let b=4
-console.log(a-b);
+// let a=4
+// let b=4
+// console.log(a-b);
+
+let oper="/shop";
+switch(oper){
+    case "/home":
+        console.log("welcome to home page");
+        break
+    case "/about":
+        console.log("about page");
+        break
+    case "/shop":
+        console.log("shop page");
+        break
+    default:
+        console.log("404 page not found");
+    
+       
+        
+        
+}
+ for(let i=1;i<10;i++){
+            if(i==1 || i==3){
+                continue;
+            }
+            else{
+                console.log(i);
+            }
+            
+        }
