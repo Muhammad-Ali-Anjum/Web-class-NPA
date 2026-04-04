@@ -456,17 +456,22 @@ function hellfunction3(callback){
 function parameterfunction(){
     console.log("this is parameter function");
 }
-hellfunction(function(){
+// hellfunction(function(){
+//     hellfunction2(function(){
+//         hellfunction3(function(){
+//             parameterfunction();
+//         })
+//     })
+// })
+hellfunction3(function(){
     hellfunction2(function(){
-        hellfunction3(function(){
-            parameterfunction();
-        })
+        parameterfunction();
     })
-})
-hellfunction2(
-    function(){
-        hellfunction(function(){
-            parameterfunction();
-        })
-    }
-)
+    })
+// hellfunction2(
+//     function(){
+//         hellfunction(function(){
+//             parameterfunction();
+//         })
+//     }
+// )
