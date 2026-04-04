@@ -402,22 +402,71 @@
 // // student.display();
 // student.display()
 
-function add(x) {
-    return x + 2;
-}
-function mul(x) {
-    return x * 3;
-}
+// function add(x) {
+//     return x + 2;
+// }
+// function mul(x) {
+//     return x * 3;
+// }
 
-function compose(mul, add) {
-    return function(x) {
-        // return add(mul(x));// add(parameter) mul(12) add(mul(4))
-        return mul(add(x));// add(6) mul(18) add(mul(4))
-  };
-}
-var res = compose(mul, add)(4);
-console.log("the result is: " + res);
+// function compose(mul, add) {
+//     return function(x) {
+//         // return add(mul(x));// add(parameter) mul(12) add(mul(4))
+//         return mul(add(x));// add(6) mul(18) add(mul(4))
+//   };
+// }
+// var res = compose(mul, add)(4);
+// console.log("the result is: " + res);
 
-function sm(){
-    console.log("this is sum function");
-}sm();
+// function sm(){
+//     console.log("this is sum function");
+// }sm();
+
+// function greet(name, callback) {
+//     console.log("Hello, " + name);
+//     callback();
+// }
+// function sayGoodbye() {
+//     console.log("Goodbye!");
+// }
+// greet("axl", sayGoodbye);
+function hi(name,callbackfunction){
+    console.log("hi "+name);
+    callbackfunction();
+}
+function parameterfunction(){
+    console.log("bye");
+}
+hi("sara",parameterfunction)
+// parameterfunction(addEventListener,debugger,d)
+
+function hellfunction(callback){
+    console.log("this is hell function 1");
+    callback();
+}
+function hellfunction2(callback){
+    console.log("this is hell function 2");
+
+    callback();
+}
+function hellfunction3(callback){
+    console.log("this is hell function3");
+    callback();
+}
+function parameterfunction(){
+    console.log("this is parameter function");
+}
+hellfunction(function(){
+    hellfunction2(function(){
+        hellfunction3(function(){
+            parameterfunction();
+        })
+    })
+})
+hellfunction2(
+    function(){
+        hellfunction(function(){
+            parameterfunction();
+        })
+    }
+)
