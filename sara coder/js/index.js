@@ -463,11 +463,11 @@ function parameterfunction(){
 //         })
 //     })
 // })
-hellfunction3(function(){
-    hellfunction2(function(){
-        parameterfunction();
-    })
-    })
+// hellfunction3(function(){
+//     hellfunction2(function(){
+//         parameterfunction();
+//     })
+//     })
 // hellfunction2(
 //     function(){
 //         hellfunction(function(){
@@ -475,3 +475,16 @@ hellfunction3(function(){
 //         })
 //     }
 // )
+
+// setTimeout(function,1000)
+setTimeout(()=>{
+console.log("settime out function run");
+
+},1000)
+console.log("outer function run");
+
+function logout(){
+    console.log("logout");
+    
+}
+setTimeout(logout,2000);

@@ -40,30 +40,50 @@
 // let b=4
 // console.log(a-b);
 
-let oper="/shop";
-switch(oper){
-    case "/home":
-        console.log("welcome to home page");
-        break
-    case "/about":
-        console.log("about page");
-        break
-    case "/shop":
-        console.log("shop page");
-        break
-    default:
-        console.log("404 page not found");
+// let oper="/shop";
+// switch(oper){
+//     case "/home":
+//         console.log("welcome to home page");
+//         break
+//     case "/about":
+//         console.log("about page");
+//         break
+//     case "/shop":
+//         console.log("shop page");
+//         break
+//     default:
+//         console.log("404 page not found");
     
        
         
         
-}
- for(let i=1;i<10;i++){
-            if(i==1 || i==3){
-                continue;
-            }
-            else{
-                console.log(i);
-            }
+// }
+//  for(let i=1;i<10;i++){
+//             if(i==1 || i==3){
+//                 continue;
+//             }
+//             else{
+//                 console.log(i);
+//             }
             
-        }
+//         }
+
+// function
+function greding(){
+console.log("salam");
+}
+greding()
+greding()
+greding()
+function gradings(para){
+    console.log(`hi ${para}`);
+    
+}
+gradings("hassan")
+
+function sum(num1,num2){
+return num1+num2;
+}
+console.log(sum(2,3));
+console.log(sum(2,6));
+
