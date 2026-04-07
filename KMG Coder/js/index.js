@@ -479,22 +479,22 @@
 // console.log(factorial(5)); // Output: 120
 
 // promise
-const myPromise = new Promise((resolve, reject) => {
-    const success = false;
-    if (success) {
-        resolve("Promise resolved successfully!");
-    } else {
-        reject("Promise rejected.");
-    }
-});
+// const myPromise = new Promise((resolve, reject) => {
+//     const success = false;
+//     if (success) {
+//         resolve("Promise resolved successfully!");
+//     } else {
+//         reject("Promise rejected.");
+//     }
+// });
 
 // pypromise()
 // myPromise
 //     .then(result => console.log(result))
 //     .catch(error => console.error(error));
-myPromise
-.then(data=>console.log(data))
-.catch(err=>console.log(err))
+// myPromise
+// .then(data=>console.log(data))
+// .catch(err=>console.log(err))
 
 function login(username, password) {
     return new Promise((resolve, reject) => {
@@ -509,7 +509,21 @@ function login(username, password) {
         }, 1000);
     });
 }
-login("admin", "1234")
-.then(message => console.log(message))
-.catch(error => console.error(error))
-.finally(() => console.log("Login attempt finished."));
+// login("admin", "1234")
+// .then(message => console.log(message))
+// .catch(error => console.error(error))
+// .finally(() => console.log("Login attempt finished."));
+
+let objpromise=new Promise((resolve,reject)=>{
+    let obj={
+        name:"muntazer",
+        age:23,
+        email:"munto@gmail.com"
+    }
+    resolve(obj);
+});
+objpromise
+.then(data=>console.log(data.name))
+.then(data=>console.log("data is resolved"))
+.catch(err=>console.log(err))
+
