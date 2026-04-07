@@ -451,29 +451,65 @@
     
 // }
 // run()
-let count = 5;
-function countdown() {
-  if (count === 0) {
-    console.log("Done!");
-    return;
-  }
-  console.log(count);
-  count--;
-  setTimeout(countdown, 1000);
-}
-countdown();
-console.log("Program started");
-// setTimeout (runs once)
-const timeoutId = setTimeout(() => {
-  console.log("setTimeout executed after 3 seconds");
-}, 3000);
+// let count = 5;
+// function countdown() {
+//   if (count === 0) {
+//     console.log("Done!");
+//     return;
+//   }
+//   console.log(count);
+//   count--;
+//   setTimeout(countdown, 1000);
+// }
+// countdown();
+// console.log("Program started");
+// // setTimeout (runs once)
+// const timeoutId = setTimeout(() => {
+//   console.log("setTimeout executed after 3 seconds");
+// }, 3000);
 
-function factorial(n) {
-  // 1. Base Case: stop at 1
-  if (n <= 1) return 1;
+// function factorial(n) {
+//   // 1. Base Case: stop at 1
+//   if (n <= 1) return 1;
   
-  // 2. Recursive Case: n * factorial of (n - 1)
-  return n * factorial(n - 1);
-}
+//   // 2. Recursive Case: n * factorial of (n - 1)
+//   return n * factorial(n - 1);
+// }
 
-console.log(factorial(5)); // Output: 120
+// console.log(factorial(5)); // Output: 120
+
+// promise
+const myPromise = new Promise((resolve, reject) => {
+    const success = false;
+    if (success) {
+        resolve("Promise resolved successfully!");
+    } else {
+        reject("Promise rejected.");
+    }
+});
+
+// pypromise()
+// myPromise
+//     .then(result => console.log(result))
+//     .catch(error => console.error(error));
+myPromise
+.then(data=>console.log(data))
+.catch(err=>console.log(err))
+
+function login(username, password) {
+    return new Promise((resolve, reject) => {
+      let usernames="admin";
+      let passwords="1234";
+        setTimeout(() => {
+            if (username === usernames && password === passwords) {
+                resolve("Login successful!");
+            } else {
+              reject("Invalid username or password.");
+            }
+        }, 1000);
+    });
+}
+login("admin", "1234")
+.then(message => console.log(message))
+.catch(error => console.error(error))
+.finally(() => console.log("Login attempt finished."));
