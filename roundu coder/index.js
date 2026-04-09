@@ -69,21 +69,51 @@
 //         }
 
 // function
-function greding(){
-console.log("salam");
-}
-greding()
-greding()
-greding()
-function gradings(para){
-    console.log(`hi ${para}`);
+// function greding(){
+// console.log("salam");
+// }
+// greding()
+// greding()
+// greding()
+// function gradings(para){
+//     console.log(`hi ${para}`);
     
-}
-gradings("hassan")
+// }
+// gradings("hassan")
 
-function sum(num1,num2){
-return num1+num2;
-}
-console.log(sum(2,3));
-console.log(sum(2,6));
+// function sum(num1,num2){
+// return num1+num2;
+// }
+// console.log(sum(2,3));
+// console.log(sum(2,6));
 
+//  arrow function
+let greading=()=>{
+console.log("hi");
+}
+greading();
+
+let greads=()=> console.log("hi this is short method");
+greads()
+let num=(num)=>console.log(`number is ${num}`);
+num(23);
+let nums=num=>console.log(`numbers is :${num}`);
+nums(32);
+
+let numb=num=>num*num;
+console.log(numb(2));
+let numbs=(num)=>{
+    return num*num
+}
+
+console.log(numb(4));
+let numb1=(num,num1, num2)=>num*num1*num2;
+console.log(numb1(2,3,4));
+
+// let numb3=(num,num1)=>num<num1? "num is less":"num1 is grater then num";
+// console.log(numb1(2,3));
+// let age=43;
+// let status=age>=15?"can vote":"can not vote";
+// console.log(status);
+let statuss=(age)=> age>=15?"can vote":"can not vote";
+console.log(statuss(47));
