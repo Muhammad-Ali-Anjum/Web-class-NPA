@@ -1,0 +1,21 @@
+ .con{
+        width: 30%; 
+        height: 30vh;
+         background-color: yellowgreen;
+    }
+    .con1{
+        width: 30%; 
+        height: 30vh;
+         background-color: rgb(116, 21, 0);
+    }
+    .con2{
+        width: 30%; 
+        height: 30vh;
+         background-color: rgb(108, 8, 248);
+    }
+
+/* selector 
+. class 
+# id
+* universal
+body tag   */
