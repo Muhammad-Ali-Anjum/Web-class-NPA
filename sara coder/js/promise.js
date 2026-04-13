@@ -57,6 +57,32 @@
 // fetch('https://dummyjson.com/products/1')
 // .then(res => res.json())
 // .then(console.log);
-fetch('https://dummyjson.com/products')
-.then(res => res.json())
-.then(console.log);
+// fetch('https://dummyjson.com/products')
+// .then(res => res.json())
+// .then(console.log);
+
+// async function anaa(params) {
+//     try {
+//         let response = await fetch('https://dummyjson.com');
+//         let data = await response.json();
+//         console.log(data);
+//         return data; 
+//     } catch (e) {
+//         console.error("Error:", e);
+//     }
+// }
+// anaa("a");
+
+async function fetchData() {
+   try{
+     let response=await fetch('https://dummyjson.com/products/1');
+    let data=await response.json();
+    console.log(data);
+    return data;
+
+   } 
+    catch(error){
+        console.error("Error:", error);
+    }
+}
+fetchData()
