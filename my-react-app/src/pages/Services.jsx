@@ -1,8 +1,12 @@
 import React from 'react'
+import Counter from '../components/Counter'
 
 function Services() {
   return (
-    <div className='dark:bg-indigo-900 md:text-indigo-700 d-flex '>Services</div>
+   <>
+   <Counter/>
+   
+   </>
 
   )
 }
