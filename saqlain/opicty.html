@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .main{
+        display: flex;
+        gap: 10px;
+    }
+    .box1{
+        width: 400px;
+        height: 200px;
+        /* background-color: red; */
+        /* opacity: 0.5; */
+        opacity: 0.8;
+    }
+    .box2{
+        width: 400px;
+        height: 200px;
+        /* background-color: red; */
+    }
+    .dropdown {  position: relative;
+  display: inline-block;}
+.dropbtn {  background-color: #4CAF50;
+  color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    }
+.dropdown-content {  display: none;
+  position: absolute;   
+    background-color: #f9f9f9;
+    min-width: 160px;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+    z-index: 1; 
+}
+.dropdown-content ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.dropdown-content ul li a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown-content ul li a:hover {background-color: #f1f1f1}
+.dropdown:hover .dropdown-content {display: block;}
+</style>
+<body>
+    <!-- opacity -->
+     <div class="main">
+        <div class="box1"> <img src="../img/download.jpg" alt=""></div>
+        <div class="box2"> <img src="../img/download.jpg" alt=""></div>
+     </div>
+     <!-- dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+            <ul>
+                <li><a href="#">Link 1</a></li>
+                <li><a href="#">Link 2</a></li>
+                <li><a href="#">Link 3</a></li>
+            </ul>
+            </div>
+        </div>
+</body>
+</html>
