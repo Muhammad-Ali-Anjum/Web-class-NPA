@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .transform {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .transform h1 {
+        color: #333;
+    }
+    .transform p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #555;
+    }
+    .transform ul {
+        list-style-type: disc;
+        margin-left: 20px;
+    }
+    .transform li {
+        margin-bottom: 10px;
+    }
+    .transform code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 4px;
+        font-family: 'Courier New', Courier, monospace;
+    }
+    .rotate {
+        width: 100px;
+        height: 100px;
+        background-color: #4CAF50;
+        transform: rotate(40deg);
+        margin: 20px;
+        transform: rotate(40deg);
+        transform: translate(200px,10px);
+        transform: scale(0.5    );
+        transform: scalex(0.1);
+  transform: rotateZ(7deg);
+    }
+</style>
+<body>
+    <!-- transform -->
+       <div class="rotate">
+
+        </div>
+    <div class="transform">
+        <h1>Transform</h1>
+        <p>Transform is a CSS property that allows you to apply various transformations to an element, such as scaling, rotating, skewing, and translating. It can be used to create dynamic and visually appealing effects on web pages.</p>
+        <h2>Types of Transformations</h2>
+        <ul>
+            <li><strong>Scale:</strong> Resizes an element. For example, <code>transform: scale(1.5);</code> will make the element 1.5 times larger.</li>
+            <li><strong>Rotate:</strong> Rotates an element by a specified angle. For example, <code>transform: rotate(45deg);</code> will rotate the element 45 degrees clockwise.</li>
+            <li><strong>Skew:</strong> Skews an element along the X or Y axis. For example, <code>transform: skew(20deg);</code> will skew the element by 20 degrees.</li>
+            <li><strong>Translate:</strong> Moves an element from its original position. For example, <code>transform: translate(50px, 100px);</code> will move the element 50 pixels to the right and 100 pixels down.</li>
+        </ul>
+        <h2>Combining Transformations</h2>
+        <p>You can combine multiple transformations by separating them with spaces. For example:</p>
+        <code>transform: rotate(30deg) scale(1.5) translate(20px, 10px);</code>
+        <p>This will rotate the element 30 degrees, scale it to 1.5 times its original size, and then translate it 20 pixels to the right and 10 pixels down.</p>
+        </div>
+      
+
+</body>
+</html>
