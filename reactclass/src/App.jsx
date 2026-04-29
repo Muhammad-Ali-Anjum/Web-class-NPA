@@ -1,6 +1,9 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+// correct for v6
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
-import ProtectedRoute from "./components/ProtectedRoute";
+
+// import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./page/Home";
 import Books from "./page/Books";
@@ -21,9 +24,9 @@ function App() {
         <Route
           path="/books/:id"
           element={
-            <ProtectedRoute>
-              <BookDetails />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            //   <BookDetails />
+            // </ProtectedRoute>
           }
         />
       </Routes>

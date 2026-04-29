@@ -170,103 +170,130 @@
 //         console.log("404 page not found");
 // }
 
-for(let i=1;i<=10;i++){
-    console.log(i);
-}
-for(let j=10;j>=1;j--){
-    console.log(j);
-}
-
-for(let k=1;k<=10;k++){
-    if(k%2==0){
-        console.log(k);
-    }
-}
-for(let m=1;m<=10;m++){
-    if(m%2!=0){
-        console.log(m);
-    }
-}
-let sum=0;
-for(let n=1;n<=10;n++){
-    sum+=n;
-}
-console.log("sum of numbers from 1 to 10 is: " + sum);
-let factorial=1;
-let num=5;
-for(let p=1;p<=num;p++){
-    factorial*=p;
-}
-console.log("factorial of " + num + "   is: " + factorial);
-while(num>=1){
-    console.log(num);
-    num--;
-}
-
-while(num<=10){
-    console.log(num);
-    num++;
-}
-while(num<=10){
-    if(num%2==0){
-        console.log(num);
-    }
-    num++;
-}
-do{
-    console.log(num);
-    num++;
-}while(num<=10);
-
-// continue
-for(let i=1;i<=10;i++){
-    if(i%2==0){
-        continue;
-    }
-    console.log(i);
-}
-
-for(let j=1;j<=10;j++){
-    if(j==5){
-        break;
-    }
-    console.log(j);
-}
-// nested loop
-for(let i=1;i<=3;i++){
-    for(let j=1;j<=3;j++){
-        console.log("i: " + i + ", j: " + j);
-    }
-}
-
-// pattern
-for(let i=1;i<=5;i++){
-    let pattern="";
-    for(let j=1;j<=i;j++){
-        pattern+="* ";
-    }
-    console.log(pattern);
-}
-
-for(let i=5;i>=1;i--){
-    let pattern=""; 
-    for(let j=1;j<=i;j++){
-        pattern+="* ";
-    }
-    console.log(pattern);
-}
-
-// while(true){
-//     let input=prompt("Enter a number (or 'exit' to quit):");
-//     if(input.toLowerCase() === "exit"){
-//         console.log("Exiting the loop. Goodbye!");
-//         break;
-//     }
-//     let number=parseInt(input);
-//     if(isNaN(number)){
-//         console.log("Invalid input. Please enter a valid number.");
-//         continue;
-//     }
-//     console.log("You entered: " + number);
+// for(let i=1;i<=10;i++){
+//     console.log(i);
+// }
+// for(let j=10;j>=1;j--){
+//     console.log(j);
 // }
 
+// for(let k=1;k<=10;k++){
+//     if(k%2==0){
+//         console.log(k);
+//     }
+// }
+// for(let m=1;m<=10;m++){
+//     if(m%2!=0){
+//         console.log(m);
+//     }
+// }
+// let sum=0;
+// for(let n=1;n<=10;n++){
+//     sum+=n;
+// }
+// console.log("sum of numbers from 1 to 10 is: " + sum);
+// let factorial=1;
+// let num=5;
+// for(let p=1;p<=num;p++){
+//     factorial*=p;
+// }
+// console.log("factorial of " + num + "   is: " + factorial);
+// while(num>=1){
+//     console.log(num);
+//     num--;
+// }
+
+// while(num<=10){
+//     console.log(num);
+//     num++;
+// }
+// while(num<=10){
+//     if(num%2==0){
+//         console.log(num);
+//     }
+//     num++;
+// }
+// do{
+//     console.log(num);
+//     num++;
+// }while(num<=10);
+
+// // continue
+// for(let i=1;i<=10;i++){
+//     if(i%2==0){
+//         continue;
+//     }
+//     console.log(i);
+// }
+
+// for(let j=1;j<=10;j++){
+//     if(j==5){
+//         break;
+//     }
+//     console.log(j);
+// }
+// // nested loop
+// for(let i=1;i<=3;i++){
+//     for(let j=1;j<=3;j++){
+//         console.log("i: " + i + ", j: " + j);
+//     }
+// }
+
+// // pattern
+// for(let i=1;i<=5;i++){
+//     let pattern="";
+//     for(let j=1;j<=i;j++){
+//         pattern+="* ";
+//     }
+//     console.log(pattern);
+// }
+
+// for(let i=5;i>=1;i--){
+//     let pattern=""; 
+//     for(let j=1;j<=i;j++){
+//         pattern+="* ";
+//     }
+//     console.log(pattern);
+// }
+
+// // while(true){
+// //     let input=prompt("Enter a number (or 'exit' to quit):");
+// //     if(input.toLowerCase() === "exit"){
+// //         console.log("Exiting the loop. Goodbye!");
+// //         break;
+// //     }
+// //     let number=parseInt(input);
+// //     if(isNaN(number)){
+// //         console.log("Invalid input. Please enter a valid number.");
+// //         continue;
+// //     }
+// //     console.log("You entered: " + number);
+// // }
+
+// function
+function hi(){
+    console.log("hi this is my first function");
+}
+hi();
+// let a=43;
+// let b=3;
+// console.log(a+b);
+
+function add(x,y){
+    return x+y;
+}
+let sum=add(10,20);
+console.log(sum);
+console.log(add(2,3,3,5,6));
+
+// rest oper
+// ...name
+function sumAll(...numbers){
+    let total=0;
+    for(let num of numbers){
+        total+=num;
+    }
+    return total;
+}
+let result=sumAll(1,2,3,4,5,6,7,8,9,10);
+console.log(result);
