@@ -1,0 +1,27 @@
+// Array
+let arr = [1, 2, 3, 4, 5];
+console.log(arr);
+console.log(arr.length);
+console.log(arr[0]);
+console.log(arr[4]);
+arr.push(6);
+console.log(arr);
+arr.pop();
+console.log(arr);
+arr.unshift(0);
+arr.unshift(-1);
+console.log(arr);
+arr.shift();
+console.log(arr);
+let arr2 = [6, 7, 8];
+let newArr = arr.concat(arr2);
+console.log(newArr);
+let slicedArr = newArr.slice(2, 5);
+console.log(slicedArr);
+let splicedArr = newArr.splice(2, 3);
+console.log(splicedArr);
+console.log(newArr);
+let includes3 = newArr.includes(1);
+console.log(includes3);
+let indexOf4 = newArr.indexOf(4);
+console.log(indexOf4);
