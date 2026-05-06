@@ -1,41 +1,17 @@
-// import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import Header from "./components/Header";
-// import "./App.css";
-
-// import Home from "./pages/Home";
-// import About from "./pages/About";
-// import Contact from "./pages/Contact";
-// import Services from "./pages/Services";
-
-
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Header />
-// {/* <section>
-//   <header/>
-// </section> */}
-//       <Routes>
-//         <Route path="/" element={<Home />} />
-//         <Route path="/about" element={<About />} />
-//         <Route path="/contact" element={<Contact />} />
-//         <Route path="/services" element={<Services />} />
-//       <Route path="/tour/:id" element={<TourDetails />} />
-      
-        
-//       </Routes>
-//     </BrowserRouter>
-//   );
-// }
-
-// export default App;
-import "./App.css";
-import "./index.css";
-
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
-  return <Home />;
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
