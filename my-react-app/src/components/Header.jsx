@@ -1,38 +1,26 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
-const Header = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
+function Header({ total }) {
   return (
-    <header className="header">
-      <div className="container">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+      
+      <div>
+        <h2 className="text-4xl font-bold">
+          Trending Products
+        </h2>
 
-        {/* Logo */}
-        <div className="logo">
-          {/* <a href="/">app</a> */}
-          <Link to="/">MyApp</Link>
-        </div>
-
-        {/* Nav */}
-        <nav className={`nav ${menuOpen ? "active" : ""}`}>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/services">Services</Link>
-        </nav>
-
-        {/* Mobile Menu */}
-        <div 
-          className="hamburger"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          ☰
-        </div>
-
+        <p className="text-gray-400 mt-2">
+          Explore premium collections
+        </p>
       </div>
-    </header>
+
+      <div className="mt-4 md:mt-0">
+        <span className="bg-white/10 px-5 py-3 rounded-2xl text-gray-300">
+          {total} Products
+        </span>
+      </div>
+    </div>
   );
-};
+}
 
 export default Header;
