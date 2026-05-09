@@ -46,12 +46,12 @@ function ProductCard({ item, onClick }) {
             </p>
 
             <p className="text-xs text-gray-500 mt-1">
-              Stock: {item.stock}
+              Stock:  {item.stock}
             </p>
           </div>
 
           <button className="bg-cyan-400 text-black px-4 py-2 rounded-xl font-medium hover:bg-cyan-300 transition-all">
-            View
+            Views
           </button>
         </div>
       </div>
