@@ -12,3 +12,14 @@ if (number > 0) {
 } else {
   console.log("The number is zero.");
 }
+// -----------------------------------------
+// 2. Check if a person is eligible to vote
+// -----------------------------------------
+// let age = prompt("Enter your age: ");
+let age = 18;
+
+if (age >= 18) {
+  console.log("You are eligible to vote.");
+} else {
+  console.log("You are not eligible to vote.");
+}
