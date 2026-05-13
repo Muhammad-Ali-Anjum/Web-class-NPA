@@ -1,0 +1,34 @@
+    /* Css type 
+    inline css (within html tag)
+    internal css (within style tag in head)
+    external css (within separate file and linked to html file)
+    
+    */
+    /* selector  
+    element selector (selects all elements of a specific type)
+    class selector (selects all elements with a specific class)
+    id selector (selects a single element with a specific id)
+
+    */
+   .cont1{
+       
+        background-color: red;
+        color: white;
+        width: 500px;
+        height:500px;
+    
+    }
+    .cont2{
+        background-color: green;
+        color: white;
+        width: 500px;
+        height:500px;
+    
+    }
+    .cont3{
+        background-color: blue;
+        color: white;
+        width: 500px;
+        height:500px;
+    
+    }
