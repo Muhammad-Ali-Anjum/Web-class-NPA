@@ -9,6 +9,7 @@ function About() {
     setCount(count+1);
   }
   // let name="manahil";
+  // 
   return (
     <div>
       {/* <h1>Name: {name}</h1> */}
