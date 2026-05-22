@@ -441,3 +441,69 @@ function Home() {
 }
 
 export default Home
+
+
+// import React from "react";
+// import Card from "./Card";
+
+// const Home = () => {
+//   const tourData = [
+//     {
+//       id: 1,
+//       title: "Hunza Valley Tour",
+//       image:
+//         "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+//       price: "$250",
+//     },
+//     {
+//       id: 2,
+//       title: "Skardu Adventure",
+//       image:
+//         "https://images.unsplash.com/photo-1519046904884-53103b34b206",
+//       price: "$300",
+//     },
+//     {
+//       id: 3,
+//       title: "Fairy Meadows Trip",
+//       image:
+//         "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+//       price: "$280",
+//     },
+//   ];
+
+//   return (
+//     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+//       {tourData.map((tour) => (
+//         <Card key={tour.id} data={tour} />
+//       ))}
+//     </div>
+//   );
+// };
+
+// export default Home;
+
+//  import React from "react";
+
+// const Card = ({ data }) => {
+//   return (
+//     <div className="bg-white shadow-lg rounded-xl overflow-hidden">
+//       <img
+//         src={data.image}
+//         alt={data.title}
+//         className="w-full h-52 object-cover"
+//       />
+
+//       <div className="p-4">
+//         <h2 className="text-xl font-bold">{data.title}</h2>
+
+//         <p className="text-gray-600 mt-2">{data.price}</p>
+
+//         <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg">
+//           Book Now
+//         </button>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Card;
