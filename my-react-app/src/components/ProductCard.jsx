@@ -1,6 +1,8 @@
 import React from "react";
 
 function ProductCard({ item, onClick }) {
+  console.log(item);
+  
   return (
     <div
       onClick={onClick}
@@ -37,6 +39,10 @@ function ProductCard({ item, onClick }) {
         <p className="text-gray-400 text-sm mt-3 line-clamp-2">
           {item.description}
         </p>
+         <p className="text-red-300 text-sm mt-3 line-clamp-2">
+          {item.returnPolicy}
+        </p>
+
 
         {/* Bottom */}
         <div className="flex items-center justify-between mt-6">
