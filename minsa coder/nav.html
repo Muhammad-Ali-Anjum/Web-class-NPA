@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cloudflare.com" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: wheat;
+        }
+        header h1{
+            font-size: 34px;
+           text-transform:capitalize;
+        }   
+        .planners{
+            color: rgb(235, 215, 1);
+        }
+        nav ul{
+            display: flex;
+            list-style-type: none;
+        }
+        nav ul li{
+            margin-right: 20px;
+        }
+        nav ul li a{
+            text-decoration: none;
+            font-size: 18px;
+            color: black;
+        }
+        .card button{
+            background-color: rgb(31, 0, 82);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            width: 140px;
+            border-radius: 8px;
+            font-size: 18px;
+
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <h1>next <span class="planners">Planners</span> </h1>
+         <nav>
+          <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+          </ul>
+            </nav>
+            <nav class="card">
+                <!-- <ul>
+                    <li>
+                        <i class="fa-solid fa-cart-arrow-down" style="color: rgb(99, 230, 190);"></i>
+                    </li>
+                </ul> -->
+                <button class="apply">apply</button>
+            </nav>
+         
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/fontawesome.min.js" integrity="sha512-obFNtQ1JKCrxPBPLmYDUevlriATl5EhvwU3CFtdW/HKOkeAe0bbsyZfHO44/f1QyndrZJ464TQvrRP9ZjyXSSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
