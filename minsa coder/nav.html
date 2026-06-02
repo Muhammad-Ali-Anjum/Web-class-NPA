@@ -10,14 +10,22 @@
         *{
             margin: 0;
             padding: 0;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
         header{
+            width: 100%;
+            height: 80px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
-            background-color: wheat;
+            /* padding: 20px; */
+            background-color: rgb(245, 245, 245);
+            position: fixed;
+            top: 0;
+            box-shadow: 0px 3px 2px rgb(223, 223, 223);
+            left: 0;
+            z-index: 1000;
+    
         }
         header h1{
             font-size: 34px;
@@ -49,6 +57,66 @@
             font-size: 18px;
 
         }
+        .min{
+            width: 100%;
+            height: 110vh;
+            background-image: url(../img/carousel-1.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100vh;
+        }
+        .about{
+            width: 100%;
+            height: 78vh;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .about1{
+            width: 40%;
+            height: 100%;
+            
+        }
+        .about1 img{
+            width: 100%;
+            height: 80%;
+        }
+        .about1 h1{
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .about1 p{
+            font-size: 18px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .min h1{
+            font-size: 48px;
+            color: white;
+           position: absolute;
+            top: 40%;
+            left:30%;
+        }
+        .min p{
+            font-size: 24px;
+            color: white;
+            position: absolute;
+            top: 50%;
+            left:32%;
+
+        }
+        .min button{
+            background-color: rgb(31, 0, 82);
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            cursor: pointer;
+            width: 140px;
+            border-radius: 8px;
+            font-size: 18px;
+            position: absolute;
+            top: 60%;
+            left:45%;
+        }
     </style>
 </head>
 <body>
@@ -72,6 +140,19 @@
             </nav>
          
     </header>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/js/fontawesome.min.js" integrity="sha512-obFNtQ1JKCrxPBPLmYDUevlriATl5EhvwU3CFtdW/HKOkeAe0bbsyZfHO44/f1QyndrZJ464TQvrRP9ZjyXSSA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <div class="min">
+    <h1>Welcome to <span class="np">Next Planners</span></h1>
+    <p>Your journey to success starts here.</p>
+    <button class="apply">Apply Now</button>
+
+
+   </div>
+   <div class="about">
+    <div class="about1"> <h1>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum, quis.</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus ea ducimus iste veniam magnam, saepe distinctio debitis nesciunt tempore voluptatem cum fugit molestiae omnis neque quaerat nemo dolorem beatae facere?
+    Impedit, dignissimos aperiam, ipsum deleniti accusamus temporibus, excepturi id eveniet quas autem maxime eos. Sit iure esse earum nihil maxime ab corporis quibusdam laborum ducimus blanditiis possimus, deserunt animi nesciunt!
+    Obcaecati ipsum vero enim, modi, fuga quisquam ex commodi molestias expedita vitae dolorum corrupti id quaerat pariatur sunt, placeat neque quia sit ut odit officiis tenetur minima! Odio, dolores commodi.</p></div>
+    <div class="about1"><img src="../img/download.jpg" alt=""></div>
+   </div>
 </body>
 </html>
