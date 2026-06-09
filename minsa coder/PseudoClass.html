@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    heading{
+     width: 100%;
+     height: 400px;
+    }
+    heading p{
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        font-size: 20px;
+            color: white;
+            position: relative;
+            z-index: 1;
+        
+    }
+    heading img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.7;
+        z-index: -1;
+    }
+    .main{
+        position:absolute;
+        width: 200px ;
+        height: 300px;
+        background-color: azure;
+        border: none;
+        border-radius: 8px;
+       
+    }
+    .main:hover {
+        width: 201px ;
+        height: 301px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: 0.5s;
+        transition-property: all;
+        transition-timing-function: ease-in-out;
+    }
+    .main button{
+        width: 150px;
+        height: 40px;
+        background-color: rgb(244, 152, 136);
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .main button:hover{
+        background-color:tomato;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        transition: 2s;
+        /* transition: all 3s ease-in-out; */
+    }
+</style>
+<body>
+    <!-- Pseudo class -->
+    <heading>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repudiandae iste, ex animi vel fugit excepturi commodi sequi quia expedita dolorum? Voluptas minima corporis tempora non tempore quod sapiente! Optio, consequatur.
+        Rerum soluta asperiores iusto quidem consequatur sed nesciunt, blanditiis modi, natus, corporis temporibus quod adipisci minima explicabo tempora cumque vitae sequi incidunt corrupti quam recusandae. Debitis eos rem repellendus minus!
+        Exercitationem, minima dolore. Enim odio fuga ut amet adipisci assumenda unde incidunt, illum a quos corrupti sequi laborum ducimus obcaecati facere repellendus corporis dolorum sed perspiciatis aspernatur vel id maiores.
+        Ab perferendis, obcaecati ullam atque eaque non quia recusandae nihil culpa accusantium blanditiis nulla natus nam, optio maiores mollitia. Reiciendis sapiente natus earum! Deleniti vero itaque ipsa harum sit quaerat.
+        Numquam aliquam consequuntur iste, nulla cum obcaecati accusantium! Repellat omnis earum animi perferendis! Illo, delectus itaque perspiciatis incidunt, ratione est quisquam iure, minus cum repellendus quas pariatur sequi ducimus blanditiis.</p>
+        <img src="../img/carousel-1.jpg" alt="">
+    </heading>
+     <div class="main">
+        <!-- Pseudo class -->
+         <button>hover me</button>
+
+     </div>
+</body>
+</html>
