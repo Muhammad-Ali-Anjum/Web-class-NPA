@@ -394,6 +394,7 @@ console.log(products);
 
   const handleCardClick = (id) => {
     navigate(`/product/${id}`);
+    // <a href={`/product/${id}`}>View Product</a>
   };
 
   if (error) {
