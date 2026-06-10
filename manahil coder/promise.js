@@ -30,6 +30,7 @@ getUser.then((message) => {
     console.log('this is in the then ' + message);
 }).catch((message) => {
     // console.log('this is in the catch ' + message);
+    
     console.error('this is an error ' + message);
 });
 
