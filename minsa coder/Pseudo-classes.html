@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+        ul{
+            width: 20%;
+            list-style-type: none;
+            display: flex;
+            justify-content: space-around;
+            /* background-color: rgb170, 170, 170); */
+        }
+        li a{
+            text-decoration: none;
+            color: black;
+        }
+        li a:hover{
+            color: red;
+        }
+        li a:active{
+            color: green;
+        }
+        li a:visited{
+            color: blue;
+        }
+        li a:link{
+            color: black;
+        }
+        /* Pseudo-element */
+        p::first-letter{
+            font-size: 3em;
+            color: red;
+        }
+
+        p::first-line{
+            font-size: 1.5em;
+            color: blue;
+        }
+            p::before{
+                content: "Before";
+                /* content: url(../img/arrow\ icon.png); */
+                color: green;
+            }
+
+            p::after{
+                content: "After";
+                /* content: url(../img/arrow\ icon.png); */
+                color: orange;
+            }
+            /* CSS Dropdowns  */
+            .Dropdown{
+                position: relative;
+                display: inline-block;
+            }
+            .dropbtn{
+                background-color: rgb(170, 170, 170);
+                color: black;
+                padding: 10px;
+                font-size: 16px;
+                border: none;
+                cursor: pointer;
+            }
+            .dropdown-content{
+                display: none;
+                position: absolute;
+                background-color: rgb(170, 170, 170);
+                min-width: 160px;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+            .dropdown-content a{
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+            }
+            .dropdown-content a:hover{
+                background-color: rgb(170, 170, 170);
+            }
+            .Dropdown:hover .dropdown-content{
+                display: block;
+            }
+
+    </style>
+</head>
+<body>
+    <!-- Pseudo-classes -->
+    <h1>CSS Pseudo-classes</h1>
+    <ul>
+        <li><a href="./anchortag.html">Home</a></li>
+        <li><a href="./flex.html">About</a></li>
+        <li><a href="./anchortag.html">Contact</a></li>
+    </ul>
+    <!-- Pseudo-element -->
+    <h1>CSS Pseudo-elements</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+    <!-- CSS Dropdowns  -->
+     <div class="Dropdown">
+        <button class="dropbtn">Dropdown</button>
+        <div class="dropdown-content">
+            <a href="#">Khp</a>
+            <a href="#">KMG</a>
+            <a href="#">SKD</a>
+        </div>
+     </div>
+</body>
+</html>
