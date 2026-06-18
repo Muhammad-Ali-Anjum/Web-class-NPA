@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Datashow from '../componentss/Datashow';
 // import { useState } from 'react';
 function About() {
   // useState
@@ -10,6 +11,8 @@ function About() {
   }
   // let name="manahil";
   // 
+  let a="anjum";
+  let age=32
   return (
     <div>
       {/* <h1>Name: {name}</h1> */}
@@ -23,6 +26,7 @@ function About() {
 
       }>increment</button>
       <button onClick={() => setCount(count - 1)} className='btn'>Decrement</button>
+      <Datashow name={a} age={age}/>
 
     </div>
   )
