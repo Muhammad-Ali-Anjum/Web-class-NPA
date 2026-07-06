@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 300px;
+            height: 400px;
+            border: 1px solid black;
+        }
+        .sub{
+            width:100px;
+            height: 100px;
+            background-color: red;
+            /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+            position: relative;
+            animation: kuchbi 2s linear 1s infinite alternate none;
+        }
+       @keyframes kuchbi {
+            /* 0%{
+                transform: rotate(0deg);
+                background-color: red;
+            }
+            50%{
+                transform: rotate(180deg);
+                background-color: blue;
+            }
+            100%{
+                transform: rotate(360deg);
+                background-color: green;
+            } */
+             0%{
+                top: 0%;
+                left: 0%;
+                background-color: red;
+             }
+            25%{
+                top: 0%;
+                left: 200px;
+                background-color: blue;}
+            50%{
+                top: 300px;
+                left: 200px;
+                background-color: green;}
+            75%{
+                top: 300px;
+                left: 0%;
+                background-color: yellow;}
+            100%{
+                top: 0%;
+                left: 0%;
+                background-color: red;}
+
+        
+       }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="sub"></div>
+
+    </div>
+</body>
+</html>
