@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+        }
+        .header{
+            width: 100%;
+            height: 14vh;
+            background-color: aquamarine;
+            position: fixed;
+            z-index: 1;
+        }
+        .hero{
+            width: 100%;
+            height: 100vh;
+            background-color: bisque;
+        }
+        .footer{
+            width: 100%;
+            height: 40vh;
+            background-color: black;
+        }
+
+        .sub{
+            width: 50%;
+            height: 80vh;
+            background-color: blueviolet;
+            position: relative;
+            top: 14vh;
+            /* z-index: 1; */
+        }
+           .sub1 {
+            width: 50%;
+            height: 80vh;
+            background-color: rgb(43, 226, 49);
+            position: relative;
+            top: -66vh;
+            left: 50%;
+        }
+        .card{
+            width: 60%;
+            height: 70vh;
+            border: 1px solid black;
+           margin: 12vh 0px 20% 12%;
+           
+
+
+        }
+        .card .prof{
+            width: 30%;
+            position: relative;
+            left: 5%;
+            top: 4vh;
+        }
+        .prof img{
+            width: 80%;
+            height: 30vh;
+            border-radius: 80%;
+        }
+        .serv{
+            position:relative;
+            left: 40%;
+            top: -30vh;
+
+        }
+        p{
+            position: relative;
+            left: 120px;
+        }
+        .pi{
+            position: relative;
+            left: 40%;
+            top: -18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+
+    </div>
+    <div class="hero">
+        <div class="sub"></div>
+        <div class="sub1"></div>
+    </div>
+    <div class="footer"></div>
+    <div class="card">
+        <div class="prof">
+            <img src="../img/anjum.jpeg" alt="">
+            <h2>Name : Anjum</h2>
+            <p>Full stack dev</p>
+        </div>
+        <div class="serv">
+            <h1>Services</h1>
+            <ul>
+                <li>Web dev</li>
+                <li>App dev</li>
+                <li>Game dev</li>
+                <li>AI and NLP</li>
+            </ul>
+        </div>
+        <p>Anjm@gmai.com</p>
+        <p class="pi">1234765432</p>
+    </div>
+</body>
+</html>
