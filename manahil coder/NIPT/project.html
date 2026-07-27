@@ -11,7 +11,9 @@
     <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
-        /* ===== CSS Variables ===== */
+        /* ============================================================
+                   CSS VARIABLES & RESET
+                   ============================================================ */
         :root {
             --primary: #0a1a3a;
             --primary-light: #1a2e5a;
@@ -27,7 +29,6 @@
             --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        /* ===== Reset & Base ===== */
         * {
             margin: 0;
             padding: 0;
@@ -56,32 +57,15 @@
             display: block;
         }
 
-        /* ===== Utility ===== */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 5%;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .section-title {
-            font-family: 'Syne', sans-serif;
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        .section-sub {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-        }
-
-        /* ===== Top Bar ===== */
+        /* ============================================================
+                   TOP BAR
+                   ============================================================ */
         .top-bar {
             background: var(--primary);
             color: rgba(255, 255, 255, 0.85);
@@ -105,7 +89,9 @@
             color: var(--accent);
         }
 
-        /* ===== Header / Nav ===== */
+        /* ============================================================
+                   HEADER / NAV
+                   ============================================================ */
         .main-header {
             background: var(--white);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
@@ -208,7 +194,9 @@
             transition: var(--transition);
         }
 
-        /* ===== Hero ===== */
+        /* ============================================================
+                   HERO SECTION
+                   ============================================================ */
         .hero {
             background: linear-gradient(135deg, rgba(10, 26, 58, 0.75) 0%, rgba(10, 26, 58, 0.30) 100%),
                 url('https://images.unsplash.com/photo-1589308073059-c2d7e2c14e7b?w=1600&q=80') center/cover no-repeat;
@@ -239,7 +227,7 @@
             margin-bottom: 2rem;
             line-height: 1.7;
         }
-        .hero-btn {
+        .btn-primary {
             display: inline-block;
             background: var(--accent);
             color: var(--primary);
@@ -250,7 +238,7 @@
             transition: all var(--transition);
             box-shadow: 0 8px 20px rgba(240, 165, 0, 0.3);
         }
-        .hero-btn:hover {
+        .btn-primary:hover {
             background: var(--accent-hover);
             transform: translateY(-3px);
             box-shadow: 0 14px 28px rgba(240, 165, 0, 0.4);
@@ -267,7 +255,28 @@
             }
         }
 
-        /* ===== About ===== */
+        /* ============================================================
+                   SECTION TITLES
+                   ============================================================ */
+        .section-title {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+        .section-sub {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+        }
+        .text-center {
+            text-align: center;
+        }
+
+        /* ============================================================
+                   ABOUT / WRAPPER
+                   ============================================================ */
         .about-section {
             display: flex;
             align-items: center;
@@ -311,7 +320,9 @@
             transform: scale(1.02);
         }
 
-        /* ===== Why Choose ===== */
+        /* ============================================================
+                   WHY CHOOSE US
+                   ============================================================ */
         .why-section {
             background: var(--primary);
             padding: 4rem 5%;
@@ -354,7 +365,9 @@
             box-shadow: 0 0 30px rgba(240, 165, 0, 0.3);
         }
 
-        /* ===== Offer Section ===== */
+        /* ============================================================
+                   WHAT WE OFFER (CARDS)
+                   ============================================================ */
         .offer-section {
             padding: 5rem 5%;
             max-width: 1300px;
@@ -404,7 +417,9 @@
             font-size: 0.95rem;
         }
 
-        /* ===== Season ===== */
+        /* ============================================================
+                   ALL-SEASON
+                   ============================================================ */
         .season-section {
             background: radial-gradient(circle at 20% 30%, #1a0a0a, #0a0a0a);
             padding: 4rem 5%;
@@ -439,7 +454,9 @@
             max-width: 550px;
         }
 
-        /* ===== Services ===== */
+        /* ============================================================
+                   SERVICES
+                   ============================================================ */
         .services-section {
             padding: 5rem 5%;
             max-width: 1300px;
@@ -483,7 +500,9 @@
             font-size: 0.9rem;
         }
 
-        /* ===== Commitment ===== */
+        /* ============================================================
+                   COMMITMENT
+                   ============================================================ */
         .commitment-section {
             display: flex;
             align-items: center;
@@ -522,7 +541,9 @@
             font-size: 1.05rem;
         }
 
-        /* ===== Packages ===== */
+        /* ============================================================
+                   TOUR PACKAGES
+                   ============================================================ */
         .packages-section {
             background: #eef1f7;
             padding: 5rem 5%;
@@ -582,7 +603,9 @@
             font-size: 0.9rem;
         }
 
-        /* ===== Footer ===== */
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
         .footer {
             background: #0e1a2b;
             color: rgba(255, 255, 255, 0.8);
@@ -643,7 +666,9 @@
             flex: 1 1 100%;
         }
 
-        /* ===== Responsive ===== */
+        /* ============================================================
+                   RESPONSIVE BREAKPOINTS
+                   ============================================================ */
         @media (max-width: 992px) {
             .hero-content h1 {
                 font-size: 3rem;
@@ -838,7 +863,7 @@
         <div class="hero-content">
             <h1>Explore <span>Skardu</span><br />Like Never Before</h1>
             <p>Discover the majestic valleys, crystal lakes, and ancient culture of Baltistan with Pakistan's most trusted travel experts.</p>
-            <a href="#" class="hero-btn">Plan Your Trip <i class="fas fa-arrow-right"></i></a>
+            <a href="#" class="btn-primary">Plan Your Trip <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 

@@ -19,7 +19,7 @@
             align-items: center;
         }
         header h1{
-            font-size: 24px;
+            font-size: 28px;
             width: 20%;
         }
         .navlinks{
@@ -49,19 +49,86 @@
             border-radius: 5px;
             
         }
+        .hero{
+            width: 100%;
+            height: 10vh;
+        }
+        .footer{
+            width: 100%;
+            height: 70vh;
+            background-color: #333;
+            display: flex;
+            justify-content: space-evenly;
+            /* align-items: center; */
+            /* margin-top: 20px; */
+            padding-top: 40px;
+        }
+
+        .footeritem{
+            width: 30%;
+        }
+        .footeritem p{
+            color: #fff;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .footeritem h3, .footeritem h1{
+            color: #fff;
+            line-height: 2;
+
+        }
+        .footeritem a{
+            text-decoration: none;
+            color: #fff;
+            line-height: 2.5;
+            align-items: center;
+        }
+        .footeritem li{
+            list-style: none;
+        }
+        .footeritem  address{
+            color: #fff;
+        }
     </style>
 </head>
 <body>
      <header>
-        <h1>My Website</h1>
+        <h1>My logo</h1>
         <nav class="navlinks">
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#about">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
         <div class="btn"><button>Apply</button></div>
     </header>
+
+<div class="hero"></div>
+
+    <footer class="footer">
+        <div class="footeritem">
+            <a href="/"><img src="../img/arrow icon.png" alt=""></a>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quisquam natus id reiciendis nam laudantium? Recusandae commodi officia harum accusantium, eius enim eaque tempore culpa tenetur? Maiores error debitis laboriosam aspernatur!</p>
+            
+        </div>
+        <div class="footeritem">
+            <h1>Quick link</h1>
+             <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#about">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footeritem">
+           <h1> Contact info</h1>
+           <address>next planner</address>
+           <h3>12345678</h3>
+           <h3>info@nextplanner.com</h3>
+        </div>
+
+    </footer>
 </body>
 </html>
