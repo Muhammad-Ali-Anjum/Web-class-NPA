@@ -90,6 +90,36 @@
         .footeritem  address{
             color: #fff;
         }
+        .navlinks ul li a:hover{
+            color: rgb(132, 0, 255);
+        }
+        .navlinks ul li a:active{
+            color: rgb(132, 0, 255);
+        }
+        .navlinks ul li a:link{
+            color: white;
+        }
+        .navlinks ul li a:visited{
+            color: tomato;
+        }
+        .navlinks ul li a:checked{
+            color: turquoise;
+        }
+        .main{
+            width: 300px;
+            height: 400px;
+            cursor: pointer;
+            border: 1px solid black;
+            border-radius: 12px;
+            transition: 2s;
+            /* transform: ; */
+        }
+        .main:hover{
+            width: 308px;
+            height: 409px;
+            box-shadow: -30px -30px 42px 12px rgb(69, 68, 68);
+border: none;
+        }
     </style>
 </head>
 <body>
@@ -106,7 +136,9 @@
         <div class="btn"><button>Apply</button></div>
     </header>
 
-<div class="hero"></div>
+<div class="hero">
+    <div class="main"></div>
+</div>
 
     <footer class="footer">
         <div class="footeritem">
