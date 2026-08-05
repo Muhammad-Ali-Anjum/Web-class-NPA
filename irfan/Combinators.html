@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Combinators */
+        .main h1{
+            font: 30px;
+        }
+        /* child selctor */
+        .main >p{
+color: aqua;
+        }
+        /* Adjacent Sibling Selector (+) */
+        .main + p{
+            color: red;
+        }
+        /* General Sibling Selector (~) */
+        .main ~p{
+            color: violet;
+        }
+        .main:first-child{
+            color: rgb(0, 26, 128);
+        }
+        .main::after{
+            content: "Hello ";
+            content: url(../img/arrow\ icon.png);
+            color: rgb(0, 26, 128);
+        }
+        .main::before{
+            content: "Hello ";
+            /* content: url(../img/arrow\ icon.png); */
+            color: rgb(0, 26, 128);
+        }
+        .main p::first-letter{
+            color: rgb(0, 26, 128);
+            font: 900;
+            font-size: 50px;
+        }
+        .main p::first-line{
+            color: rgb(0, 26, 128);
+            font: 900;
+            font-size: 20px;
+        }
+        .main p::selection{
+            color: rgb(0, 26, 128);
+            font: 900;
+            font-size: 20px;
+        }
+.main p::marker{
+            color: rgb(0, 26, 128);
+            font: 900;
+            font-size: 20px;
+        }
+        .main p::backdrop{
+            color: rgb(0, 26, 128);
+            font: 900;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Combinators -->
+     <div class="main"> <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, obcaecati.
+     </h1>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+    </div>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod non amet exercitationem dignissimos velit ullam. Dignissimos laborum, aliquid cumque aspernatur animi eos eveniet magnam nihil quisquam. Excepturi commodi omnis ipsum?</p>
+
+
+
+</body>
+</html>
