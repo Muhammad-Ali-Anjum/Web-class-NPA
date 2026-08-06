@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* combinator */
+        .main p{
+
+        }
+        /* child selector */
+        .main > p{
+            color: rebeccapurple;
+
+        }
+        /* adjacent sibling selector */
+        .main + p{
+            color: red;
+        }
+        /* general sibling selector */
+        .main ~p{
+            color: brown;
+        }
+        p::first-letter{
+            font-size: 2rem;
+            color: blue;
+        }
+        p::first-line{
+            font-size: 18px;
+        }
+        p::after{
+            content: "hi";
+            content: url(../img/arrow\ icon.png);
+        }
+        p::before{
+            content: "the";
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p>
+         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p>
+    </div>
+     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, esse quisquam eos tenetur animi consequuntur, optio labore sequi blanditiis alias aut debitis fugiat! Voluptate, voluptas quam. At quisquam autem repudiandae.
+        </p>
+</body>
+</html>
