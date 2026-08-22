@@ -20,5 +20,23 @@ const age=12;
 console.log(age);
 
 
+// opertator
+// compression operator
+// == equal to
+//  != not equal to
+//  <= less then or equal to 
+// >= greater then or equal to
+
+// logical
+// && and 
+// || or 
+//  ! not 
+
+// arthematic operator
+//  + ,- ,*, % , /
+let a=30;
+let b=50;
+const rest=a+b;
+console.log(`the sum of two number ${rest}`);
 
 
