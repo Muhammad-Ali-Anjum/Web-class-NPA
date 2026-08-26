@@ -34,27 +34,48 @@ console.log(age);
 
 // arthematic operator
 //  + ,- ,*, % , /
-let a=30;
-let b=50;
-const rest=a+b;
-console.log(`the sum of two number ${rest}`);
+// let a=30;
+// let b=50;
+// const rest=a+b;
+// console.log(`the sum of two number ${rest}`);
 
-const per=90;
-if(per>=80 && per<=100){
-    console.log("A+");
-}
-else if(per>=70 && per<=79){
-    console.log("A");
-}
-else if(per>=60 && per<=69){
-    console.log("B");
-}
-else if(per>=50 && per<=59){
-    console.log("C");
-}
-else if(per>=40 && per<=49){
-    console.log("D");
+// const per=90;
+// if(per>=80 && per<=100){
+//     console.log("A+");
+// }
+// else if(per>=70 && per<=79){
+//     console.log("A");
+// }
+// else if(per>=60 && per<=69){
+//     console.log("B");
+// }
+// else if(per>=50 && per<=59){
+//     console.log("C");
+// }
+// else if(per>=40 && per<=49){
+//     console.log("D");
+// }
+// else{
+//     console.log("Fail");
+// }
+
+let num =13;
+if(num%2==0){
+    console.log(`The number ${num} is even`)
 }
 else{
-    console.log("Fail");
+    console.log(`The number ${num} is odd`)
+
+}
+let blnc=30000;
+if(blnc>0){
+    console.log(`Currently amount ${blnc}`);
+    if(blnc>=5000){
+        console.log(`Your transistion is too heigh`);
+        
+    }
+    else{
+        console.log("normal transistion");
+        
+    }
 }
