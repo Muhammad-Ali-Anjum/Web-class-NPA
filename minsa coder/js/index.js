@@ -1,4 +1,4 @@
-console.log("hello World");
+// console.log("hello World");
 // data type 
 // 1 paramative 
 // its value cannot change / static
@@ -12,12 +12,12 @@ var name="minsa";
 // console.log(name);
 var name="mina";
 // console.log(name);
-let names="minsa";
-console.log(names);
+// let names="minsa";
+// console.log(names);
 // let names="mina";
-console.log(names);
-const age=12;
-console.log(age);
+// console.log(names);
+// const age=12;
+// console.log(age);
 
 
 // opertator
@@ -59,23 +59,63 @@ console.log(age);
 //     console.log("Fail");
 // }
 
-let num =13;
-if(num%2==0){
-    console.log(`The number ${num} is even`)
-}
-else{
-    console.log(`The number ${num} is odd`)
+// let num =13;
+// if(num%2==0){
+//     console.log(`The number ${num} is even`)
+// }
+// else{
+//     console.log(`The number ${num} is odd`)
 
+// }
+// let blnc=30000;
+// if(blnc>0){
+//     console.log(`Currently amount ${blnc}`);
+//     if(blnc>=5000){
+//         console.log(`Your transistion is too heigh`);
+        
+//     }
+//     else{
+//         console.log("normal transistion");
+        
+//     }
+// }
+
+let a=12;
+let b=32;
+let oper="/"    
+switch (oper){
+    case '+':
+        console.log("total sum :", a+b);
+        break;
+    case '*':
+        console.log("total  :", a*b);
+        break
+    case '-':
+        console.log("total sub :", a-b);
+        break;
+    default:
+        console.log("invlid operator");
+
+
+
+        
 }
-let blnc=30000;
-if(blnc>0){
-    console.log(`Currently amount ${blnc}`);
-    if(blnc>=5000){
-        console.log(`Your transistion is too heigh`);
+
+let page='/abou';
+switch (page){
+    case '/home':
+        console.log("Home page");
+        break;
+    case '/login':
+        console.log("login page");
+        break;
+    case '/about':
+        console.log("about page");
+        break;
+    default:
+        console.log("404 error");
+
+
+
         
-    }
-    else{
-        console.log("normal transistion");
-        
-    }
 }
