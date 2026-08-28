@@ -16,7 +16,7 @@ var name="mina";
 // console.log(names);
 // let names="mina";
 // console.log(names);
-// const age=12;
+// const age=12;git 
 // console.log(age);
 
 
@@ -80,42 +80,61 @@ var name="mina";
 //     }
 // }
 
-let a=12;
-let b=32;
-let oper="/"    
-switch (oper){
-    case '+':
-        console.log("total sum :", a+b);
-        break;
-    case '*':
-        console.log("total  :", a*b);
-        break
-    case '-':
-        console.log("total sub :", a-b);
-        break;
-    default:
-        console.log("invlid operator");
+// let a=12;
+// let b=32;
+// let oper="/"    
+// switch (oper){
+//     case '+':
+//         console.log("total sum :", a+b);
+//         break;
+//     case '*':
+//         console.log("total  :", a*b);
+//         break
+//     case '-':
+//         console.log("total sub :", a-b);
+//         break;
+//     default:
+//         console.log("invlid operator");
 
 
 
         
+// }
+
+// let page='/abou';
+// switch (page){
+//     case '/home':
+//         console.log("Home page");
+//         break;
+//     case '/login':
+//         console.log("login page");
+//         break;
+//     case '/about':
+//         console.log("about page");
+//         break;
+//     default:
+//         console.log("404 error");
+
+
+
+        
+// }
+
+// for(Infinity,condataion,inc/dec){
+
+// }
+
+for (let i=0;i<20;i++){
+    console.log("Hi says to sorry");
+    
 }
-
-let page='/abou';
-switch (page){
-    case '/home':
-        console.log("Home page");
-        break;
-    case '/login':
-        console.log("login page");
-        break;
-    case '/about':
-        console.log("about page");
-        break;
-    default:
-        console.log("404 error");
-
-
-
-        
+for (let i=1;i<=20;i++){
+    console.log("2" ,"X", i,"=", 2*i);
+    
+}
+for(let i=0;i<100;i++){
+if(i%2==0){
+    console.log("even number : ", i);
+    
+}
 }
