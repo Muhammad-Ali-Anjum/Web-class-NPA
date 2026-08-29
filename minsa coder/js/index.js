@@ -124,17 +124,59 @@ var name="mina";
 
 // }
 
-for (let i=0;i<20;i++){
-    console.log("Hi says to sorry");
+// for (let i=0;i<20;i++){
+//     console.log("Hi says to sorry");
+    
+// }
+// for (let i=1;i<=20;i++){
+//     console.log("2" ,"X", i,"=", 2*i);
+    
+// }
+// for(let i=0;i<100;i++){
+// if(i%2==0){
+//     console.log("even number : ", i);
+    
+// }
+// }
+// const num=2;
+// let temp=0;
+// for(let fact=1;fact<=num;fact++){
+
+//     if (fact==0){
+//         return 1
+//     }
+//     else {
+//        console.log(temp=temp*(num-1));
+        
+//     }
+    
+    
+// }
+// console.log(temp);
+
+// let str4 = "hello world";
+// let vowels = 0, consonants = 0;
+// for (let ch of str4.toLowerCase()) {
+//   if ("aeiou".includes(ch)) vowels++;
+//   else if (ch >= 'a' && ch <= 'z') consonants++;
+// }
+// console.log("4️⃣ Vowels:", vowels, "Consonants:", consonants);
+let check="hi this is my test perpose";
+let vowel=1;
+let con=1;
+for(let teststr of check.toLowerCase()){
+    if("aeiou".includes(teststr)) vowel++;
+    // if(teststr=='a' || teststr=='e'|| teststr=='i' || teststr=='o' || teststr=='u') vowel++
+    
+    else if(teststr>='a' && teststr<='z') con++;
+    
     
 }
-for (let i=1;i<=20;i++){
-    console.log("2" ,"X", i,"=", 2*i);
-    
-}
-for(let i=0;i<100;i++){
-if(i%2==0){
-    console.log("even number : ", i);
-    
-}
+console.log("vowels ",vowel,"consonant",con);
+
+for(let i=0; i<10;i++){
+    for(let j=0;j<10;j++){
+        console.log("[",i,j,"]");
+        
+    }
 }
