@@ -161,22 +161,69 @@ var name="mina";
 //   else if (ch >= 'a' && ch <= 'z') consonants++;
 // }
 // console.log("4️⃣ Vowels:", vowels, "Consonants:", consonants);
-let check="hi this is my test perpose";
-let vowel=1;
-let con=1;
-for(let teststr of check.toLowerCase()){
-    if("aeiou".includes(teststr)) vowel++;
-    // if(teststr=='a' || teststr=='e'|| teststr=='i' || teststr=='o' || teststr=='u') vowel++
+// let check="hi this is my test perpose";
+// let vowel=1;
+// let con=1;
+// for(let teststr of check.toLowerCase()){
+//     if("aeiou".includes(teststr)) vowel++;
+//     // if(teststr=='a' || teststr=='e'|| teststr=='i' || teststr=='o' || teststr=='u') vowel++
     
-    else if(teststr>='a' && teststr<='z') con++;
+//     else if(teststr>='a' && teststr<='z') con++;
     
     
-}
-console.log("vowels ",vowel,"consonant",con);
+// }
+// console.log("vowels ",vowel,"consonant",con);
 
-for(let i=0; i<10;i++){
-    for(let j=0;j<10;j++){
-        console.log("[",i,j,"]");
+// for(let i=0; i<10;i++){
+//     for(let j=0;j<10;j++){
+//         console.log("[",i,j,"]");
+        
+//     }
+// }
+
+let a=10;
+// while(a<20){
+//   if(a%2==0){
+//     console.log(a);
+//   }
+    
+// }
+// do{
+//     console.log(a);
+//     a++;
+// }while(a<=100)
+
+// console.log("Example 3: Multiplication Table 1-5");
+// for (let i = 1; i <= 5; i++) {
+//     let row = '';
+//     for (let j = 1; j <= 5; j++) {
+//         row += `${i * j}\t`;
+//     }
+//     console.log(row);
+// }
+// console.log("\n");
+for(let i=1;i<10;i++){
+    let tempt='';
+    for(let j=1;j<10;j++){
+    //    tempt=tempt + `${i*j} \t`;
+    tempt+=`${i*j} \t`
+
         
     }
+    console.log(tempt);
+    
+}
+for(let i=0;i<5;i++){
+    let tempt='';
+    for(let j=0;j<i;j++){
+        tempt+="* \t"
+    }
+        console.log(tempt);
+}
+for(let i=5;i>0;i--){
+    let tempt='';
+    for(let j=i;j>0;j--){
+        tempt+="* \t"
+    }
+        console.log(tempt);
 }
