@@ -1,52 +1,52 @@
-const user = {};  // empty object
+// // const user = {};  // empty object
 
-user.name = "Ali";       
-user.age = 22;          
-user.city = "Skardu";    
+// // user.name = "Ali";       
+// // user.age = 22;          
+// // user.city = "Skardu";    
 
-console.log(user);
+// // console.log(user);
 
-const student = {};
+// // const student = {};
 
-for (let i = 1; i <= 3; i++) {
-  student[`subject${i}`] = `Course ${i}`;
-}
+// // for (let i = 1; i <= 3; i++) {
+// //   student[`subject${i}`] = `Course ${i}`;
+// // }
 
-console.log(student);
-
-
-const employee = {
-  name: "Ali",
-  position: "Developer",
-  salary: 50000
-};
-
-const removeKey = "salary";
-delete employee[removeKey];
-
-console.log(employee);
+// // console.log(student);
 
 
-const baseInfo = { name: "Ali" };
-const extraInfo = { age: 22, city: "Skardu" };
+// const employee = {
+//   name: "Ali",
+//   position: "Developer",
+//   salary: 50000
+// };
 
-const fullProfile = Object.assign({}, baseInfo, extraInfo);
-console.log(fullProfile);
+// const removeKey = "salary";
+// delete employee[removeKey];
+
+// console.log(employee);
 
 
-function formToObject(formData) {
-  const obj = {};
-  for (const [key, value] of formData.entries()) {
-    obj[key] = value;
-  }
-  return obj;
-}
+// const baseInfo = { name: "Ali" };
+// const extraInfo = { age: 22, city: "Skardu" };
 
-const formData = new FormData();
-formData.append("username", "Ali");
-formData.append("email", "ali@example.com");
+// const fullProfile = Object.assign({}, baseInfo, extraInfo);
+// console.log(fullProfile);
 
-console.log(formToObject(formData));
+
+// function formToObject(formData) {
+//   const obj = {};
+//   for (const [key, value] of formData.entries()) {
+//     obj[key] = value;
+//   }
+//   return obj;
+// }
+
+// const formData = new FormData();
+// formData.append("username", "Ali");
+// formData.append("email", "ali@example.com");
+
+// console.log(formToObject(formData));
 
 
 const products = [
@@ -69,7 +69,7 @@ const employees = [
 ];
 
 const totalSalary = employees
-  .map(e => e.salary)
+  .map(elm => elm.salary)
   .reduce((sum, val) => sum + val, 0);
 
 console.log("Total Salary:", totalSalary);
