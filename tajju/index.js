@@ -92,53 +92,65 @@
 //     console.log("F grade");
 // }
 
-let balance=500;
-let amount=1000;
-if(balance<=amount){
-console.log(`your current balance is ${amount} and your withdraw amount is ${balance}`);
-if(amount>=10000){
-    console.log("high withdraw");
-}
-else if(amount>=5000){
-    console.log("mid level withdraw");
+// let balance=500;
+// let amount=1000;
+// if(balance<=amount){
+// console.log(`your current balance is ${amount} and your withdraw amount is ${balance}`);
+// if(amount>=10000){
+//     console.log("high withdraw");
+// }
+// else if(amount>=5000){
+//     console.log("mid level withdraw");
     
-}
-else{
-    console.log("normal withdraw");
+// }
+// else{
+//     console.log("normal withdraw");
     
-}
+// }
 
-}
-else{
-    console.log("insuffecient balance");
+// }
+// else{
+//     console.log("insuffecient balance");
     
-}
-let shiping=500000;
-if (shiping>=5000){
-    if(shiping>=7000 && shiping<10000)
-    {
-        console.log(`your spending amount is ${shiping}  10% discout`);
+// }
+// let shiping=500000;
+// if (shiping>=5000){
+//     if(shiping>=7000 && shiping<10000)
+//     {
+//         console.log(`your spending amount is ${shiping}  10% discout`);
         
-    }
-    else if(shiping>=10000 && shiping<20000){
-                console.log(`your spending amount is ${shiping}  20% discout`);
-    }
-    else if(shiping>=20000 && shiping<50000){
-                console.log(`your spending amount is ${shiping}  30% discout`);
+//     }
+//     else if(shiping>=10000 && shiping<20000){
+//                 console.log(`your spending amount is ${shiping}  20% discout`);
+//     }
+//     else if(shiping>=20000 && shiping<50000){
+//                 console.log(`your spending amount is ${shiping}  30% discout`);
 
-    }
-    else{
+//     }
+//     else{
        
-     console.log(`your spending amount is ${shiping} discount 5% if you sepend more then you get discount`);
+//      console.log(`your spending amount is ${shiping} discount 5% if you sepend more then you get discount`);
 
-    }
+//     }
+// }
+// else{
+//      console.log(`your spending amount is ${shiping} if you sepend more then you get discount`);
+// }
+
+let page='/home';
+switch(page){
+    case '/home':
+        console.log("login home page");
+        break;
+    case '/about':
+        console.log("login about page");
+        break;
+    case '/contact':
+        console.log("contect page");
+        break;
+    default:
+        console.log("404 error");
+        
+        
+        
 }
-else{
-     console.log(`your spending amount is ${shiping} if you sepend more then you get discount`);
-}
-
-
-
-
-
-
