@@ -111,40 +111,65 @@
 
 
 // object
-let obj={
-    name:"Tajju",
-    age:22
-}
+// let obj={
+//     name:"Tajju",
+//     age:22
+// }
 
-console.log(obj.name);
-console.log(obj.age);
-console.log(obj);
-// nested object
-let obj1={
-    name:"Tajju",
-    age:22,
-    address:{
-        city:"skardu",
-        country:"Pakistan"
-    }
-}
-console.log(obj1.address.city);
-console.log(obj1.address.country);
+// console.log(obj.name);
+// console.log(obj.age);
+// console.log(obj);
+// // nested object
+// let obj1={
+//     name:"Tajju",
+//     age:22,
+//     address:{
+//         city:"skardu",
+//         country:"Pakistan"
+//     }
+// }
+// console.log(obj1.address.city);
 // console.log(obj1.address.country);
-// object with array
+// // console.log(obj1.address.country);
+// // object with array
 
-let obj2={
-    name:"Tajju",
-    age:22,
-    hobbies:["reading","writing","coding","sports","music"]
+// let obj2={
+//     name:"Tajju",
+//     age:22,
+//     hobbies:["reading","writing","coding","sports","music"]
+// }
+// console.log(obj2.hobbies[0]);
+// console.log(obj2.hobbies[1]);
+// console.log(obj2.hobbies[2]);
+// let [firstHobby,secondHobby,thirdHobby]=obj2.hobbies;
+// console.log(firstHobby);
+// console.log(secondHobby);
+// console.log(thirdHobby);
+// let [...restHobbies]=obj2.hobbies;
+// console.log(restHobbies);
+
+// tradictional function
+function add(a,b){
+    return a+b;
 }
-console.log(obj2.hobbies[0]);
-console.log(obj2.hobbies[1]);
-console.log(obj2.hobbies[2]);
-let [firstHobby,secondHobby,thirdHobby]=obj2.hobbies;
-console.log(firstHobby);
-console.log(secondHobby);
-console.log(thirdHobby);
-let [...restHobbies]=obj2.hobbies;
-console.log(restHobbies);
+console.log(add(3,4));
+console.log(add(44,4));
+// functional component base code 
+// type of function
+// arrow fucntion
+let sum=()=>{
+    console.log("hi this is arrow function")
+}
+sum()
 
+let sums=()=> console.log("hi this is arrow function");
+sums()
+
+function sqr(a){
+    console.log(a*a);
+    
+}
+sqr(2)
+
+let sqrs=a=>console.log(a*a);
+sqrs(4)
