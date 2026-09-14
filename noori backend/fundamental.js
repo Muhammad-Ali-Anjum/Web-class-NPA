@@ -149,27 +149,61 @@
 // console.log(restHobbies);
 
 // tradictional function
-function add(a,b){
-    return a+b;
-}
-console.log(add(3,4));
-console.log(add(44,4));
-// functional component base code 
-// type of function
-// arrow fucntion
-let sum=()=>{
-    console.log("hi this is arrow function")
-}
-sum()
+// function add(a,b){
+//     return a+b;
+// }
+// console.log(add(3,4));
+// console.log(add(44,4));
+// // functional component base code 
+// // type of function
+// // arrow fucntion
+// let sum=()=>{
+//     console.log("hi this is arrow function")
+// }
+// sum()
 
-let sums=()=> console.log("hi this is arrow function");
-sums()
+// let sums=()=> console.log("hi this is arrow function");
+// sums()
 
-function sqr(a){
-    console.log(a*a);
+// function sqr(a){
+//     console.log(a*a);
     
-}
-sqr(2)
+// }
+// sqr(2)
 
-let sqrs=a=>console.log(a*a);
-sqrs(4)
+// let sqrs=a=>console.log(a*a);
+// sqrs(4)
+
+let sqrs1=(a,b)=>console.log(a*b);
+sqrs1(4,5)
+let sqrs2=(a,b)=>a*b;
+console.log(sqrs2(4,5));
+
+let sqr=a=>console.log(a*a);
+sqr(3);
+// product cards calculation arrow function with array
+
+let products=[
+    {name:"product1",price:100},
+    {name:"product2",price:200},
+    {name:"product3",price:300},
+    {name:"product4",price:400},
+    {name:"product5",price:500},
+    {name:"product5",price:500},
+    {name:"product5",price:500},
+
+];
+let totalPrice=products.reduce((accumulator,currentvalue)=>{
+    return accumulator+currentvalue.price;
+}
+);
+console.log(`Total Price: ${totalPrice}`);
+
+let totalPrice1=products.reduce((accumulator,currentvalue)=>accumulator+currentvalue.price,0);
+console.log(`Total Price: ${totalPrice1}`);
+
+let discountedPrice=products.map((product)=>{
+    return {name:product.name,price:product.price*0.9};
+}
+);
+console.log(`Discounted Prices: ${JSON.stringify(discountedPrice)}`);
