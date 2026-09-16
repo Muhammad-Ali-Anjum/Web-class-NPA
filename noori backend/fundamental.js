@@ -174,36 +174,54 @@
 // let sqrs=a=>console.log(a*a);
 // sqrs(4)
 
-let sqrs1=(a,b)=>console.log(a*b);
-sqrs1(4,5)
-let sqrs2=(a,b)=>a*b;
-console.log(sqrs2(4,5));
+// let sqrs1=(a,b)=>console.log(a*b);
+// sqrs1(4,5)
+// let sqrs2=(a,b)=>a*b;
+// console.log(sqrs2(4,5));
 
-let sqr=a=>console.log(a*a);
-sqr(3);
-// product cards calculation arrow function with array
+// let sqr=a=>console.log(a*a);
+// sqr(3);
+// // product cards calculation arrow function with array
 
-let products=[
-    {name:"product1",price:100},
-    {name:"product2",price:200},
-    {name:"product3",price:300},
-    {name:"product4",price:400},
-    {name:"product5",price:500},
-    {name:"product5",price:500},
-    {name:"product5",price:500},
+// let products=[
+//     {name:"product1",price:100},
+//     {name:"product2",price:200},
+//     {name:"product3",price:300},
+//     {name:"product4",price:400},
+//     {name:"product5",price:500},
+//     {name:"product5",price:500},
+//     {name:"product5",price:500},
 
-];
-let totalPrice=products.reduce((accumulator,currentvalue)=>{
-    return accumulator+currentvalue.price;
+// ];
+// let totalPrice=products.reduce((accumulator,currentvalue)=>{
+//     return accumulator+currentvalue.price;
+// }
+// );
+// console.log(`Total Price: ${totalPrice}`);
+
+// let totalPrice1=products.reduce((accumulator,currentvalue)=>accumulator+currentvalue.price,0);
+// console.log(`Total Price: ${totalPrice1}`);
+
+// let discountedPrice=products.map((product)=>{
+//     return {name:product.name,price:product.price*0.9};
+// }
+// );
+// console.log(`Discounted Prices: ${JSON.stringify(discountedPrice)}`);
+// within object function
+let obj={
+    id:1,
+    name:"abc",
+    age:20,
+    adress:{
+        countery:['pk','us','uk'],
+        city:['kpk','GB','panjab'],
+        zip:[12312,2424,4334,5355,4344]
+    },
+    fn:function(){
+        console.log(`name ${this.name} age ${this.age} id ${this.id}`);
+        
+    }
+
 }
-);
-console.log(`Total Price: ${totalPrice}`);
+obj.fn();
 
-let totalPrice1=products.reduce((accumulator,currentvalue)=>accumulator+currentvalue.price,0);
-console.log(`Total Price: ${totalPrice1}`);
-
-let discountedPrice=products.map((product)=>{
-    return {name:product.name,price:product.price*0.9};
-}
-);
-console.log(`Discounted Prices: ${JSON.stringify(discountedPrice)}`);
