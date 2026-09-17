@@ -24,7 +24,24 @@ console.log(b);
 // let b=34;
 const c=21;
 console.log(c);
-const c=43
+// const c=43
+// compression operator
+// <,>,<=,>=,==,!=
+// logical operator 
+// and && or || not !
+// AND
+//  T T  T
+// T F F 
+// F T F 
+// F F F 
+// OR 
+// T T T
+// T F T
+// F T T
+// F F F
+// NOT
+// T F 
+// F T
 
 
 

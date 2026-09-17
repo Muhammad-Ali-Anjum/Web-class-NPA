@@ -208,20 +208,40 @@
 // );
 // console.log(`Discounted Prices: ${JSON.stringify(discountedPrice)}`);
 // within object function
-let obj={
-    id:1,
-    name:"abc",
-    age:20,
-    adress:{
-        countery:['pk','us','uk'],
-        city:['kpk','GB','panjab'],
-        zip:[12312,2424,4334,5355,4344]
-    },
-    fn:function(){
-        console.log(`name ${this.name} age ${this.age} id ${this.id}`);
+// let obj={
+//     id:1,
+//     name:"abc",
+//     age:20,
+//     adress:{
+//         countery:['pk','us','uk'],
+//         city:['kpk','GB','panjab'],
+//         zip:[12312,2424,4334,5355,4344]
+//     },
+//     fn:function(){
+//         console.log(`name ${this.name} age ${this.age} id ${this.id}`);
         
+//     }
+
+// }
+// obj.fn();
+
+// recusive function
+
+
+
+// function factorial(n) {
+//     // Base Case
+//     if (n === 1 || n === 0) {
+//         return 1;
+//     }
+//     // Recursive Case
+//     return n * factorial(n - 1);
+// }
+// console.log(factorial(4)); 
+function factorial(num){
+    if (num===1 || num===0){
+        return 1;
     }
-
+    return num* factorial(num-1);
 }
-obj.fn();
-
+console.log(factorial(4));
