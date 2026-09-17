@@ -16,14 +16,14 @@
 // int var let const flooat , boolean
 // operator 
 //  assign operator  it represt by =
-var a=12;
-var a=43;
-console.log(a);
-let b=22;
-console.log(b);
-// let b=34;
-const c=21;
-console.log(c);
+// var a=12;
+// var a=43;
+// console.log(a);
+// let b=22;
+// console.log(b);
+// // let b=34;
+// const c=21;
+// console.log(c);
 // const c=43
 // compression operator
 // <,>,<=,>=,==,!=
@@ -42,6 +42,27 @@ console.log(c);
 // NOT
 // T F 
 // F T
+
+let a =199;
+let alive="death"
+if (a>=18 && alive=="alive"){
+console.log("eligble for vot");
+}
+else{
+    console.log("not eligbile");
+    
+}
+
+let username="abc"
+let pswd=1234;
+if(username==="abc" && pswd==12345){
+    console.log("user login successfully");
+    
+}
+else{
+    console.log("invlid credential");
+    
+}
 
 
 
