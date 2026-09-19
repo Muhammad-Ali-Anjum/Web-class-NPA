@@ -43,26 +43,83 @@
 // T F 
 // F T
 
-let a =199;
-let alive="death"
-if (a>=18 && alive=="alive"){
-console.log("eligble for vot");
+// let a =199;
+// let alive="death"
+// if (a>=18 && alive=="alive"){
+// console.log("eligble for vot");
+// }
+// else{
+//     console.log("not eligbile");
+    
+// }
+
+// let username="abc"
+// let pswd=1234;
+// if(username==="abc" && pswd==12345){
+//     console.log("user login successfully");
+    
+// }
+// else{
+//     console.log("invlid credential");
+    
+// }
+// marks 
+// percentage =(totalMarks/obtMarks) *100
+let per =40;
+if (per >=80 && per<=100){
+    console.log("Grade A++");
+    
+}
+else if (per >=70 && per <=80){
+    console.log("Grade A");
+
+}
+else if (per >=60 && per <=70){
+    console.log("Grade B");
+
+}
+else if(per >=50 && per <=60){
+    console.log("Grade C");
+
 }
 else{
-    console.log("not eligbile");
-    
+    console.log("Grade F");
+
 }
 
-let username="abc"
-let pswd=1234;
-if(username==="abc" && pswd==12345){
-    console.log("user login successfully");
+let balance=200;
+console.log("Enter 1 for balance check \nEnter 2 for recharge \n3 for package");
+let input=3;
+if (balance>=100){
+if (input==1){
+    console.log(` your balance is ${balance}`);
     
+}
+else if (input===2){
+    console.log(`You have successfully recharge`);
+    
+}
+else if(input==3){
+    console.log("Enter 1 for weekly \nEnter 2 for Monthly ");
+    packagees=1
+    if(packagees==1){
+        console.log("you have successfly weekly package");
+        
+    }
+    else if (packagees==2){
+        console.log("you have successfly monthly package");
+    }
+    else{
+        console.log("please choose correct option");
+    }
+}
+ else{
+        console.log("please choose correct option");
+    }
+
+
 }
 else{
-    console.log("invlid credential");
+    console.log("insuffcient balance");
     
 }
-
-
-
