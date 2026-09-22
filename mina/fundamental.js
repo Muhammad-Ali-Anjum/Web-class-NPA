@@ -124,20 +124,45 @@
     
 // }
 
-let page="/contact";
-switch (page){
-    case '/home':
-        console.log("login Home page");
-        break
-    case '/about':
-        console.log("login about page");
-        break
-    case "/contact":
-        console.log("login contact page");
-        break
-    default:
-        console.log("404 page not found");
+// let page="/contact";
+// switch (page){
+//     case '/home':
+//         console.log("login Home page");
+//         break
+//     case '/about':
+//         console.log("login about page");
+//         break
+//     case "/contact":
+//         console.log("login contact page");
+//         break
+//     default:
+//         console.log("404 page not found");      
+// }
 
+// let a=3;
+// if (a>=18){
+//     console.log("eligibal for vote costing");
+    
+// }
+// else{
+// console.log("not elibile");}
 
-        
+// if (a%2==0){
+//     console.log("even numver");
+    
+// }
+// else{
+//     console.log("odd number");
+    
+// }
+// callback function
+
+function grd(name,callback){
+console.log("Hi my name is ", name);
+callback();
+
 }
+function printing(){
+    console.log("this is printing function ");  
+}
+grd("ali",printing)
