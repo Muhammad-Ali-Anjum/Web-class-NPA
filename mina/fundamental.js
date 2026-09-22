@@ -65,61 +65,79 @@
 // }
 // marks 
 // percentage =(totalMarks/obtMarks) *100
-let per =40;
-if (per >=80 && per<=100){
-    console.log("Grade A++");
+// let per =40;
+// if (per >=80 && per<=100){
+//     console.log("Grade A++");
     
-}
-else if (per >=70 && per <=80){
-    console.log("Grade A");
+// }
+// else if (per >=70 && per <=80){
+//     console.log("Grade A");
 
-}
-else if (per >=60 && per <=70){
-    console.log("Grade B");
+// }
+// else if (per >=60 && per <=70){
+//     console.log("Grade B");
 
-}
-else if(per >=50 && per <=60){
-    console.log("Grade C");
+// }
+// else if(per >=50 && per <=60){
+//     console.log("Grade C");
 
-}
-else{
-    console.log("Grade F");
+// }
+// else{
+//     console.log("Grade F");
 
-}
+// }
 
-let balance=200;
-console.log("Enter 1 for balance check \nEnter 2 for recharge \n3 for package");
-let input=3;
-if (balance>=100){
-if (input==1){
-    console.log(` your balance is ${balance}`);
+// let balance=200;
+// console.log("Enter 1 for balance check \nEnter 2 for recharge \n3 for package");
+// let input=3;
+// if (balance>=100){
+// if (input==1){
+//     console.log(` your balance is ${balance}`);
     
-}
-else if (input===2){
-    console.log(`You have successfully recharge`);
+// }
+// else if (input===2){
+//     console.log(`You have successfully recharge`);
     
-}
-else if(input==3){
-    console.log("Enter 1 for weekly \nEnter 2 for Monthly ");
-    packagees=1
-    if(packagees==1){
-        console.log("you have successfly weekly package");
+// }
+// else if(input==3){
+//     console.log("Enter 1 for weekly \nEnter 2 for Monthly ");
+//     packagees=1
+//     if(packagees==1){
+//         console.log("you have successfly weekly package");
         
-    }
-    else if (packagees==2){
-        console.log("you have successfly monthly package");
-    }
-    else{
-        console.log("please choose correct option");
-    }
-}
- else{
-        console.log("please choose correct option");
-    }
+//     }
+//     else if (packagees==2){
+//         console.log("you have successfly monthly package");
+//     }
+//     else{
+//         console.log("please choose correct option");
+//     }
+// }
+//  else{
+//         console.log("please choose correct option");
+//     }
 
 
-}
-else{
-    console.log("insuffcient balance");
+// }
+// else{
+//     console.log("insuffcient balance");
     
+// }
+
+let page="/contact";
+switch (page){
+    case '/home':
+        console.log("login Home page");
+        break
+    case '/about':
+        console.log("login about page");
+        break
+    case "/contact":
+        console.log("login contact page");
+        break
+    default:
+        console.log("404 page not found");
+
+
+        
 }
