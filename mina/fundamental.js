@@ -157,12 +157,30 @@
 // }
 // callback function
 
-function grd(name,callback){
-console.log("Hi my name is ", name);
-callback();
+// function grd(name,callback){
+// console.log("Hi my name is ", name);
+// callback();
+
+// }
+// function printing(){
+//     console.log("this is printing function ");  
+// }
+// grd("ali",printing)
+
+for(let i=1;i<10;i++){
+    console.log(i );
+}
+// ++a ,a++
+let total=0;
+for (let a=1;a<100;a++){
+    // total=total+a;
+total+=a;
+// console.log(total);
 
 }
-function printing(){
-    console.log("this is printing function ");  
+console.log(`total sum of 1 to 100 = ${total}`);
+
+for (let i=1;i<20;i++){
+    console.log(`${i} X 3 = ${i*3}`);
+    
 }
-grd("ali",printing)
