@@ -27,14 +27,42 @@
         *{
             padding: 0px;
             margin: 0px;
+            /* overflow: hidden; */
         }
         header{
             width: 100%;
             height: 13vh;
             box-shadow: 0px 0px 12px -3px black;
             background-color: wheat(28, 213, 80);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
             
 
+        }
+        .logo{
+            width: 30%;
+            height: 12vh;
+
+        }
+        .logo img{
+            width: 60%;
+            height: inherit;
+        }
+        .pramaryheader{
+            width: 30%;
+        }
+        .pramaryheader ul {
+            display: flex;
+            justify-content: space-between;
+        }
+        .pramaryheader ul li{
+            font-size: 18px;
+            font-weight: bold;
+            list-style-type: none;
+        }
+        .pramaryheader ul li a{
+            text-decoration: none;
         }
 
     </style>
@@ -42,7 +70,7 @@
 <body>
     <header>
         <div class="logo"><img src="../img/arrow icon.png" alt=""></div>
-        <div>
+        <div class="pramaryheader">
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
@@ -74,6 +102,6 @@
         <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, quisquam ut. Quas dicta nulla quam unde hic iusto molestias rem enim explicabo corrupti quae labore, velit perferendis? Nemo, quasi velit!
         </p>
-        
+
 </body>
 </html>
