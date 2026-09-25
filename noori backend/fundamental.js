@@ -287,52 +287,69 @@
     
 // }
 
-let a =3;
-if (a%2==0){
-    console.log("even number");
+// let a =3;
+// if (a%2==0){
+//     console.log("even number");
     
-}
-else{
-    console.log("odd number");
+// }
+// else{
+//     console.log("odd number");
     
-}
+// }
 
 
-let page="/about";
-switch (page){
-    case '/home':
-        console.log("home page ");
-        break;
-    case '/about':
-        console.log("About page");
-        break;
-    case '/login':
-        console.log("login page");
-        break
-    default:
-        console.log("404 error");
+// let page="/about";
+// switch (page){
+//     case '/home':
+//         console.log("home page ");
+//         break;
+//     case '/about':
+//         console.log("About page");
+//         break;
+//     case '/login':
+//         console.log("login page");
+//         break
+//     default:
+//         console.log("404 error");
         
         
         
         
+// }
+// let b=3;
+// let c=5;
+// let oper="+";
+// switch (oper){
+//     case '+':
+//         console.log("sum of two value",b+c);
+//         break;
+//     case '/about':
+//         console.log("About page");
+//         break;
+//     case '/login':
+//         console.log("login page");
+//         break
+//     default:
+//         console.log("404 error");
+        
+        
+        
+        
+// }
+
+// settimeout
+setTimeout(()=>{
+    console.log("this is runing 1st code");
+    
+},2000)
+setTimeout(()=>{
+    console.log("this is runing 2nd code ");
+    
+},1000)
+
+
+function orderStatus(pizza, status) {
+  console.log(`Your ${pizza} pizza is ${status}!`);
 }
-let b=3;
-let c=5;
-let oper="+";
-switch (oper){
-    case '+':
-        console.log("sum of two value",b+c);
-        break;
-    case '/about':
-        console.log("About page");
-        break;
-    case '/login':
-        console.log("login page");
-        break
-    default:
-        console.log("404 error");
-        
-        
-        
-        
-}
+
+setTimeout(orderStatus, 500, "Pepperoni", "panding\ll");
