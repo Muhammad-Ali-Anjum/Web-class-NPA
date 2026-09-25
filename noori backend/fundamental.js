@@ -238,10 +238,101 @@
 //     return n * factorial(n - 1);
 // }
 // console.log(factorial(4)); 
-function factorial(num){
-    if (num===1 || num===0){
-        return 1;
-    }
-    return num* factorial(num-1);
+// function factorial(num){
+//     if (num===1 || num===0){
+//         return 1;
+//     }
+//     return num* factorial(num-1);
+// }
+// console.log(factorial(4));
+
+// callback function
+
+
+// The outer function accepts a callback function as its third argument
+// function calculate(num1, num2, operationCallback) {
+//     return operationCallback(num1, num2);
+// }
+// const add = (a, b) => a + b;
+// const multiply = (a, b) => a * b;
+// console.log(calculate(5, 3, add));     
+// console.log(calculate(5, 3, multiply));
+
+// function calculate(num1, num2, num3,callbackfun){
+// return callbackfun(num1, num2,num3);
+// }
+// const add=(a,b,c)=>a+b+c;
+// const sub=(a,c,s)=>a-c-s;
+// console.log(calculate(3,2,3,sub));
+
+// let per=100;
+// if (per>=80 && per<=100){
+//     console.log("Grad A+");
+    
+// }
+// else if(per>=70 && per<80){
+//     console.log("Grad A");
+    
+// }
+// else if (per >=60 && per <70){
+//     console.log("Grad B");
+    
+// }
+// else if (per>=50 && per <60){
+// console.log("Grad C");
+
+// }
+// else{
+//     console.log("Grad F");
+    
+// }
+
+let a =3;
+if (a%2==0){
+    console.log("even number");
+    
 }
-console.log(factorial(4));
+else{
+    console.log("odd number");
+    
+}
+
+
+let page="/about";
+switch (page){
+    case '/home':
+        console.log("home page ");
+        break;
+    case '/about':
+        console.log("About page");
+        break;
+    case '/login':
+        console.log("login page");
+        break
+    default:
+        console.log("404 error");
+        
+        
+        
+        
+}
+let b=3;
+let c=5;
+let oper="+";
+switch (oper){
+    case '+':
+        console.log("sum of two value",b+c);
+        break;
+    case '/about':
+        console.log("About page");
+        break;
+    case '/login':
+        console.log("login page");
+        break
+    default:
+        console.log("404 error");
+        
+        
+        
+        
+}
