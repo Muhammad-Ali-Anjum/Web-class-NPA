@@ -167,20 +167,118 @@
 // }
 // grd("ali",printing)
 
-for(let i=1;i<10;i++){
-    console.log(i );
-}
-// ++a ,a++
-let total=0;
-for (let a=1;a<100;a++){
-    // total=total+a;
-total+=a;
-// console.log(total);
+// for(let i=1;i<10;i++){
+//     console.log(i );
+// }
+// // ++a ,a++
+// let total=0;
+// for (let a=1;a<100;a++){
+//     // total=total+a;
+// total+=a;
+// // console.log(total);
 
-}
-console.log(`total sum of 1 to 100 = ${total}`);
+// }
+// console.log(`total sum of 1 to 100 = ${total}`);
 
-for (let i=1;i<20;i++){
-    console.log(`${i} X 3 = ${i*3}`);
+// for (let i=1;i<20;i++){
+//     console.log(`${i} X 3 = ${i*3}`);
     
+// }
+// for (let i=0;i<30;i++){
+//     if(i%2==0){
+//         console.log(i);
+        
+//     }
+// }
+// console.log("divisable by 4");
+
+// for (let i=0;i<20; i++){
+//     if(i%4==0){
+//         console.log(i);
+        
+//     }
+// }
+
+// console.log("========================");
+
+// for (let i=0;i<20;i++){
+//     if (i==3 || i==5) {
+//         continue;
+//     }
+//     else{
+//     console.log(i);
+
+//     }
+    
+// }
+// // nested loop
+// console.log("----------------");
+// let n=20
+// for (let i=1;i<5;i++){
+//     for(let j=1;j<n;j++){//4 less then 4 
+//         console.log(i,j);
+        
+//     }
+// }
+
+// for (let i=0;i<10;i++){
+//     let row="*"
+//     for(j=0;j<10;j++){
+//         row+=row;
+        
+//     }
+    
+//     console.log(row ,"/n");
+// }
+
+// let aa=1;
+// let res=aa++;
+// console.log(res);
+// let b=1;
+// let reslt=++b;
+// console.log(reslt);
+
+
+
+// let a=1;
+// while (a<5){
+//     console.log(a);
+//     a++;
+
+    
+// }
+
+// let dos=1;
+// do{
+// console.log(dos);
+// dos++
+
+// }while(dos<5)
+
+let arr=[1,2,3,4,5,6,7,8];
+console.log(arr[0]);
+console.log(arr[1]);
+console.log(arr[2]);
+console.log(arr[3]);
+console.log(arr[4]);
+console.log(arr[5]);
+console.log(arr[6]);
+console.log(arr[7]);
+// console.log(arr[8])
+console.log(arr);
+for(let i=0;i<arr.length;i++){
+    console.log(arr[i]);   
 }
+let total=0
+for (let i=0;i<arr.length;i++){
+total+=arr[i];
+}
+let totals=0
+console.log(`Total numbet ${total}`);
+for (let i=0;i<arr.length;i++){
+    if(i%2==0){
+    totals+=arr[i];
+    }
+}
+console.log(`Total numbet ${totals}`);
+

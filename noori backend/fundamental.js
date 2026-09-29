@@ -338,18 +338,62 @@
 // }
 
 // settimeout
-setTimeout(()=>{
-    console.log("this is runing 1st code");
+// setTimeout(()=>{
+//     console.log("this is runing 1st code");
     
-},2000)
-setTimeout(()=>{
-    console.log("this is runing 2nd code ");
+// },2000)
+// setTimeout(()=>{
+//     console.log("this is runing 2nd code ");
     
-},1000)
+// },1000)
 
 
-function orderStatus(pizza, status) {
-  console.log(`Your ${pizza} pizza is ${status}!`);
-}
+// function orderStatus(pizza, status) {
+//   console.log(`Your ${pizza} pizza is ${status}!`);
+// }
 
-setTimeout(orderStatus, 500, "Pepperoni", "panding\ll");
+// setTimeout(orderStatus, 500, "Pepperoni", "panding\ll");
+
+// let mypromis=new Promise((res,rej)=>{
+//     let check=false;
+//     if(check){
+//         res("function resole")
+//     }
+//     else{
+//         rej("function is rejct")
+//     }
+// });
+
+// mypromis.then(resole=> console.log(resole))
+// .catch(rejcted=> console.error(rejcted)
+// );
+
+// async function fetchUserData() {
+//   const url = 'https://typicode.com';
+  
+//   try {
+//     const response = await fetch(url);
+    
+//     // Always check response.ok (status 200-299) before parsing
+//     if (!response.ok) {
+//       throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+    
+//     const data = await response.json(); // Parses the response body as JSON
+//     console.log(data);
+//   } catch (error) {
+//     console.error('Fetch failed:', error.message); // Catches network errors
+//   }
+// }
+
+// fetchUserData();
+
+// fetch('https://dummyjson.com/products')
+// .then(res => res.json())
+// .then(console.log);
+
+
+fetch('https://dummyjson.com/products/1')
+.then(res=>res.json())
+.then(res=>console.log(res))
+.catch(err=>console.error(err))

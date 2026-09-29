@@ -1,6 +1,3 @@
-// ===============================================
-// JS Nested Loops – Complete Lecture (Basic to Advanced)
-// ===============================================
 
 // ================================
 // 1️⃣ Basic Nested Loop
@@ -16,7 +13,6 @@ console.log("\n");
 // Logical explanation:
 // Outer loop runs first (i = 1 → 3), and for each outer iteration,
 // the inner loop runs completely (j = 1 → 2)
-
 // ================================
 // 2️⃣ Multiplication Table
 // ================================
