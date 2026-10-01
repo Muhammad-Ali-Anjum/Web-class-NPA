@@ -255,30 +255,99 @@
 
 // }while(dos<5)
 
-let arr=[1,2,3,4,5,6,7,8];
-console.log(arr[0]);
-console.log(arr[1]);
-console.log(arr[2]);
-console.log(arr[3]);
-console.log(arr[4]);
-console.log(arr[5]);
-console.log(arr[6]);
-console.log(arr[7]);
-// console.log(arr[8])
-console.log(arr);
-for(let i=0;i<arr.length;i++){
-    console.log(arr[i]);   
-}
-let total=0
-for (let i=0;i<arr.length;i++){
-total+=arr[i];
-}
-let totals=0
-console.log(`Total numbet ${total}`);
-for (let i=0;i<arr.length;i++){
-    if(i%2==0){
-    totals+=arr[i];
-    }
-}
-console.log(`Total numbet ${totals}`);
+// let arr=[1,2,3,4,5,6,7,8];
+// console.log(arr[0]);
+// console.log(arr[1]);
+// console.log(arr[2]);
+// console.log(arr[3]);
+// console.log(arr[4]);
+// console.log(arr[5]);
+// console.log(arr[6]);
+// console.log(arr[7]);
+// // console.log(arr[8])
+// console.log(arr);
+// for(let i=0;i<arr.length;i++){
+//     console.log(arr[i]);   
+// }
+// let total=0
+// for (let i=0;i<arr.length;i++){
+// total+=arr[i];
+// }
+// let totals=0
+// console.log(`Total numbet ${total}`);
+// for (let i=0;i<arr.length;i++){
+//     if(i%2==0){
+//     totals+=arr[i];
+//     }
+// }
+// console.log(`Total numbet ${totals}`);
 
+// array
+// let arr=[1,34,34,67,8,99,754,2,[2,4,56,7,7]]
+// // console.log(arr[8]);
+// let array=[12,3,4,5,6]
+// console.log(array);
+// array.push(4)
+// array.push(12)
+// array.push(32)
+// // array.push(52,3,4,5,5,4,56,5,56,565,6,5,6,56,3)
+// console.log(array);
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.pop()
+// array.push(4)
+// array.push(12)
+// array.push(32)
+// console.log(array);
+// array.unshift(2,353,5,35,3553,53)
+// array.shift()
+// array.shift()
+// array.shift()
+// array.shift()
+// // array.shift()
+// // array.shift()
+// // array.shift()
+// // array.shift()
+// // array.shift()
+// console.log(array);
+
+// let res=array + arr
+
+// console.log(res);
+
+// let text = (age < 18) ? "Minor" : "Adult";
+let age = 10;
+let text;
+if (age < 18) {
+    text = "Minor";
+    console.log(text);
+}
+else {
+    text = "Adult";
+    console.log(text);
+}
+//  ternary operator
+let result=(age < 18) ? "Minor" : "Adult";
+console.log(result);
+// let nname=(condition )? "true" : "false";
+// nested loop pattern
+for (let i = 1; i <= 5; i++) {
+    let row = "";
+    for (let j = 1; j <= i; j++) {
+        row += "*";
+    }
+    console.log(row);
+}
+for (let i = 5; i >= 1; i--) {
+    let row = "";
+    for (let j = 1; j <= i; j++) {
+        row += "*";
+    }
+    console.log(row);
+}
