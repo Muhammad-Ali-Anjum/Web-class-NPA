@@ -399,91 +399,107 @@
 // .catch(err=>console.error(err))
 
 // Promises
-let myPromise = new Promise((resolve, reject) => {
-    let check = true;
-    if (check) {
-        resolve("Promise resolved successfully");
-    } else {
-        reject("Promise rejected");
-    }
-});
+// let myPromise = new Promise((resolve, reject) => {
+//     let check = true;
+//     if (check) {
+//         resolve("Promise resolved successfully");
+//     } else {
+//         reject("Promise rejected");
+//     }
+// });
 
-// myPromise
+// // myPromise
+// //     .then(result => console.log(result))
+// //     .catch(error => console.error(error));
+// // promise with object
+// let myPromise2 = new Promise((resolve, reject) => {
+//     let obj = {
+//         name: "norri",
+//         age: 22,
+//         city: "Skardu"
+//     };
+//     let check = true;
+//     if (check) {
+//         resolve(obj);
+//     } else {
+//         reject("Failed to resolve promise");
+//     }
+// });
+
+// myPromise2
 //     .then(result => console.log(result))
 //     .catch(error => console.error(error));
-// promise with object
-let myPromise2 = new Promise((resolve, reject) => {
-    let obj = {
-        name: "norri",
-        age: 22,
-        city: "Skardu"
-    };
-    let check = true;
-    if (check) {
-        resolve(obj);
-    } else {
-        reject("Failed to resolve promise");
+
+// // product cardlisting with promise
+// let products = [
+//     { name: "product1", price: 100 },
+//     { name: "product2", price: 200 },
+//     { name: "product3", price: 300 },
+//     { name: "product4", price: 400 },
+//     { name: "product5", price: 500 },
+// ];
+
+// let productPromise = new Promise((resolve, reject) => {
+//     let check = true;
+//     if (check) {
+//         resolve(products);
+//     } else {
+//         reject("Failed to resolve promise");
+//     }
+// });
+
+// productPromise
+//     .then(result => console.log(result))
+//     .catch(error => console.error(error));
+// // product calculation with promise
+// let productCalculationPromise = new Promise((resolve, reject) => {
+//     let totalPrice = products.reduce((accumulator, currentValue) => {
+//         return accumulator + currentValue.price;
+//     }, 0);
+//     let check = true;
+//     if (check) {
+//         resolve(totalPrice);
+//     } else {
+//         reject("Failed to resolve promise");
+//     }
+// });
+
+// productCalculationPromise
+//     .then(result => console.log(result))
+//     .catch(error => console.error(error));
+
+// // refreshing the product calculation promise to include a discount calculation:
+// let productDiscountCalculationPromise = new Promise((resolve, reject) => {
+//     let totalPrice = products.reduce((accumulator, currentValue) => {
+//         return accumulator + currentValue.price;
+//     }, 0);
+//     let discount = totalPrice * 0.1;
+//     let finalPrice = totalPrice - discount;
+//     let check = true;
+//     if (check) {
+//         resolve(finalPrice);
+//     } else {
+//         reject("Failed to resolve promise");
+//     }
+// });
+
+// productDiscountCalculationPromise
+//     .then(result => console.log(result))
+//     .catch(error => console.error(error));
+
+
+
+// promise with dummy api real data
+
+function fetchingData(){
+    return new Promise((resolve,reject)=>{
+        // https://dummyjson.com/products
+        fetch('https://dummyjson.com/products')
+        .then(res=>res.json())
+        .then(res=>console.log(res))
+        .catch(err=>console.error(err))
     }
-});
-
-myPromise2
-    .then(result => console.log(result))
-    .catch(error => console.error(error));
-
-// product cardlisting with promise
-let products = [
-    { name: "product1", price: 100 },
-    { name: "product2", price: 200 },
-    { name: "product3", price: 300 },
-    { name: "product4", price: 400 },
-    { name: "product5", price: 500 },
-];
-
-let productPromise = new Promise((resolve, reject) => {
-    let check = true;
-    if (check) {
-        resolve(products);
-    } else {
-        reject("Failed to resolve promise");
-    }
-});
-
-productPromise
-    .then(result => console.log(result))
-    .catch(error => console.error(error));
-// product calculation with promise
-let productCalculationPromise = new Promise((resolve, reject) => {
-    let totalPrice = products.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.price;
-    }, 0);
-    let check = true;
-    if (check) {
-        resolve(totalPrice);
-    } else {
-        reject("Failed to resolve promise");
-    }
-});
-
-productCalculationPromise
-    .then(result => console.log(result))
-    .catch(error => console.error(error));
-
-// refreshing the product calculation promise to include a discount calculation:
-let productDiscountCalculationPromise = new Promise((resolve, reject) => {
-    let totalPrice = products.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue.price;
-    }, 0);
-    let discount = totalPrice * 0.1;
-    let finalPrice = totalPrice - discount;
-    let check = true;
-    if (check) {
-        resolve(finalPrice);
-    } else {
-        reject("Failed to resolve promise");
-    }
-});
-
-productDiscountCalculationPromise
-    .then(result => console.log(result))
-    .catch(error => console.error(error));
+            )
+}
+fetchingData();
 
