@@ -491,15 +491,45 @@
 
 // promise with dummy api real data
 
-function fetchingData(){
-    return new Promise((resolve,reject)=>{
-        // https://dummyjson.com/products
-        fetch('https://dummyjson.com/products')
-        .then(res=>res.json())
-        .then(res=>console.log(res))
-        .catch(err=>console.error(err))
-    }
-            )
-}
-fetchingData();
+// function fetchingData(){
+//     return new Promise((resolve,reject)=>{
+//         // https://dummyjson.com/products
+//         fetch('https://dummyjson.com/products')
+//         .then(res=>res.json())
+//         .then(res=>console.log(res))
+//         .catch(err=>console.error(err))
+//     }
+//             )
+// }
+// fetchingData();
 
+
+// asign awatit function  api
+
+// async function fetchData() {
+//     try {
+//         const response = await fetch('https://dummyjson.com/products');
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//         const data = await response.json();
+//         console.log(data);
+//     } catch (error) {
+//         console.error('Fetch failed:', error.message);
+//     }
+// }
+// fetchData();
+async function fetchData() {
+    try{
+        const response = await fetch('https://dummyjson.com/prodcts');
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    const data = await response.json();
+    console.log(data);
+    }
+    catch (error) {
+        console.error('Fetch failed:', error.message);
+    }
+}
+fetchData()

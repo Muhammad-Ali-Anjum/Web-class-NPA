@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    /* headerstyle */
+    *{
+        padding: 0px;
+    margin: 0px;    }
+    .main{
+        width: 100%;
+        height: 12vh;
+        background-color: aqua;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .logo{
+        width: 30%;
+        font-size: 30px;
+    }
+    .primaryheader{
+        width: 35%;
+    }
+    .primaryheader ul{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .primaryheader ul li{
+        list-style-type: none;
+    }
+    .primaryheader ul li a{
+        text-decoration: none;
+        font-size: 18px;
+    }
+    .search{
+        width: 10%;
+    }
+    .search input{
+        /* width: 100%; */
+        border: none;
+        height: 4vh;
+
+    }
+
+</style>
+</head>
+<body>
+    
+    <!-- header creater -->
+     <div class="main">
+        <div class="logo">logo</div>
+        <div class="primaryheader">
+            <ul>
+                <li><a href="./flex.html">Home</a></li>
+                <li><a href="./flex.html">About</a></li>
+                <li><a href="./flex.html">Services</a></li>
+                <li><a href="./flex.html">Contact</a></li>
+
+            </ul>
+        </div>
+        <div class="search"><input type="search"></div>
+     </div>
+</body>
+</html>

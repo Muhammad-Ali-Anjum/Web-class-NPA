@@ -322,32 +322,40 @@
 // console.log(res);
 
 // let text = (age < 18) ? "Minor" : "Adult";
-let age = 10;
-let text;
-if (age < 18) {
-    text = "Minor";
-    console.log(text);
-}
-else {
-    text = "Adult";
-    console.log(text);
-}
-//  ternary operator
-let result=(age < 18) ? "Minor" : "Adult";
-console.log(result);
-// let nname=(condition )? "true" : "false";
-// nested loop pattern
-for (let i = 1; i <= 5; i++) {
-    let row = "";
-    for (let j = 1; j <= i; j++) {
-        row += "*";
-    }
-    console.log(row);
-}
-for (let i = 5; i >= 1; i--) {
-    let row = "";
-    for (let j = 1; j <= i; j++) {
-        row += "*";
-    }
-    console.log(row);
+// let age = 10;
+// let text;
+// if (age < 18) {
+//     text = "Minor";
+//     console.log(text);
+// }
+// else {
+//     text = "Adult";
+//     console.log(text);
+// }
+// //  ternary operator
+// let result=(age < 18) ? "Minor" : "Adult";
+// console.log(result);
+// // let nname=(condition )? "true" : "false";
+// // nested loop pattern
+// for (let i = 1; i <= 5; i++) {
+//     let row = "";
+//     for (let j = 1; j <= i; j++) {
+//         row += "*";
+//     }
+//     console.log(row);
+// }
+// for (let i = 5; i >= 1; i--) {
+//     let row = "";
+//     for (let j = 1; j <= i; j++) {
+//         row += "*";
+//     }
+//     console.log(row);
+// }
+
+let arr=[1,2,3,4,5,6,67,7,7,6,5,43,2,222,3,343];
+// console.log(arr);
+for (let i=0;i<arr.length;i++)
+{
+    console.log(i,arr[i]);
+    
 }
