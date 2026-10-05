@@ -16,6 +16,8 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        position: fixed;
+        
     }
     .logo{
         width: 30%;
@@ -45,6 +47,47 @@
         height: 4vh;
 
     }
+    .hero{
+        width:100%;
+    height:110vh;
+    background-image:url(../img/carousel-1.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1px;
+    /* margin-top: 12vh; */
+    
+    }
+    .hero h2{
+        color: white;
+        font-size: 50px;
+        text-align: center;
+        padding-top: 20vh;
+    }
+    .hero h3{
+        color: white;
+        font-size: 30px;
+        text-align: center;
+        padding-top: 2vh;
+    } 
+    .hero p{
+        color: white;
+        font-size: 20px;
+        text-align: center;
+        padding-top: 2vh;
+    }
+    .hero button{
+        display: block;
+        margin: 0 auto;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 2vh;
+    }
 
 </style>
 </head>
@@ -64,5 +107,12 @@
         </div>
         <div class="search"><input type="search"></div>
      </div>
+     <div class ="hero">
+        <!-- <h1>Welcome To Our Website</h1> -->
+        <h2>Your Success Is Our Priority</h2>
+        <h3>Explore Our Services</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <button>Get Started</button>
+         </div>
 </body>
 </html>
