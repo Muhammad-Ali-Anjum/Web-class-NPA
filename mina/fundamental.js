@@ -352,10 +352,105 @@
 //     console.log(row);
 // }
 
-let arr=[1,2,3,4,5,6,67,7,7,6,5,43,2,222,3,343];
-// console.log(arr);
-for (let i=0;i<arr.length;i++)
-{
-    console.log(i,arr[i]);
+// let arr=[1,2,3,4,5,6,67,7,7,6,5,43,2,222,3,343];
+// // console.log(arr);
+// for (let i=0;i<arr.length;i++)
+// {
+//     console.log(i,arr[i]);
     
-}
+// }
+// let arr=[1,2,3,4,5,6,67,7,7,6,5,43,2,222,3,343];
+// console.log(arr);
+
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+// arr.pop()
+
+
+// console.log(arr);
+// arr.push(4)
+// arr.push(12)
+// arr.push(32)
+// console.log(arr);
+// arr.unshift(2,353,5,35,3553,53)
+// console.log(arr);
+
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// arr.shift()
+// console.log(arr);
+
+// // splice
+// let arr1=[1,2,3,4,5,6,7,8,9,10];
+// let splicesarr=arr1.splice(2,4);
+// console.log(` array: ${arr1}`);
+// console.log(`removed elements: ${splicesarr}`);
+
+// // slice
+// let arr2=[1,2,3,4,5,6,7,8,9,10];
+// let slicedarr=arr2.slice(1,3);
+// console.log(` array: ${arr2}`);
+// console.log(`sliced array: ${slicedarr}`);
+// // index check
+// let arr3=[1,2,3,4,5,6,7,8,9,10];
+// let index=arr3.indexOf(3);
+// console.log(` array: ${arr3}`);
+// console.log(`index of 3: ${index}`);
+
+// console.log(`arr3[0]: ${arr3[0]}`);
+// console.log(`arr3[2]: ${arr3[2]}`);
+// console.log(`arr3[4]: ${arr3[4]}`);
+
+// // includes check
+// let arr4=[1,2,3,4,5,6,7,8,9,10];
+// let includescheck=arr4.includes(5);
+// console.log(` array: ${arr4}`);
+// console.log(`includes check for 5: ${includescheck}`);
+
+// // reverse
+// let arr5=[1,2,3,4,5,6,7,8,9,10];
+// let reversedarr=arr5.reverse();
+// console.log(` array: ${arr5}`);
+// console.log(`reversed array: ${reversedarr}`);
+
+// // sort
+// let arr6=[5,2,9,1,5,6];
+// let sortedarr=arr6.sort((a,b)=>a-b);
+// console.log(` array: ${arr6}`);
+// console.log(`sorted array: ${sortedarr}`);
+
+
+let arr=[1,2,3,4,5,6]
+console.log(arr);
+
+let splices=arr.splice(1,2)
+console.log(splices);
+
+let splice=arr.slice(1,2)
+console.log(splice);
+let sorts=arr.reverse()
+console.log(sorts);
+
+let indexs=arr.indexOf(1)
+console.log(indexs);
+
+let inclue=arr.includes(1);
+console.log(inclue);
+
+
+
+
+
+

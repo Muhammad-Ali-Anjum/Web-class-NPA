@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Next Planners | Technology & Education</title>
+
+    <style>
+
+        /* =========================================
+           GLOBAL
+        ========================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #f97316;
+
+            --dark: #0f172a;
+            --text: #64748b;
+            --light: #f8fafc;
+            --white: #ffffff;
+
+            --border: #e5e7eb;
+
+            --shadow:
+                0 10px 30px rgba(15, 23, 42, 0.07);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 76px;
+
+            z-index: 1000;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 7%;
+
+            background: rgba(255, 255, 255, 0.94);
+
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            color: white;
+
+            font-size: 20px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            box-shadow:
+                0 7px 18px rgba(37, 99, 235, 0.25);
+        }
+
+        .logo-text h2 {
+            font-size: 19px;
+            line-height: 1.1;
+        }
+
+        .logo-text span {
+            font-size: 10px;
+            color: var(--text);
+        }
+
+
+        /* NAVIGATION */
+
+        .navigation ul {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+
+            list-style: none;
+        }
+
+        .navigation a {
+            position: relative;
+
+            color: #334155;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .navigation a:hover,
+        .navigation .active {
+            color: var(--primary);
+        }
+
+        .navigation .active::after {
+            content: "";
+
+            position: absolute;
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background: var(--primary);
+
+            left: 50%;
+            bottom: -12px;
+
+            transform: translateX(-50%);
+        }
+
+
+        /* HEADER ACTIONS */
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .search-box {
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 12px;
+
+            background: #f1f5f9;
+
+            border: 1px solid #e2e8f0;
+
+            border-radius: 10px;
+        }
+
+        .search-box input {
+            width: 120px;
+
+            border: none;
+            outline: none;
+
+            background: transparent;
+
+            font-size: 13px;
+        }
+
+        .search-icon {
+            margin-right: 7px;
+            color: #64748b;
+        }
+
+        .login-btn {
+            padding: 10px 18px;
+
+            border-radius: 9px;
+
+            color: white;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            background: var(--primary);
+
+            transition: 0.3s;
+        }
+
+        .login-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            min-height: 650px;
+
+            margin-top: 76px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(15, 23, 42, 0.93),
+                    rgba(15, 23, 42, 0.65),
+                    rgba(15, 23, 42, 0.20)
+                ),
+                url("../img/carousel-1.jpg");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-content {
+            width: 90%;
+            max-width: 1200px;
+
+            margin: auto;
+
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+
+            padding: 7px 15px;
+
+            margin-bottom: 20px;
+
+            border-radius: 30px;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            background: rgba(255,255,255,0.12);
+
+            border: 1px solid rgba(255,255,255,0.2);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            max-width: 720px;
+
+            margin-bottom: 20px;
+
+            font-size: clamp(42px, 6vw, 70px);
+
+            line-height: 1.05;
+
+            letter-spacing: -2px;
+        }
+
+        .hero h1 span {
+            color: #60a5fa;
+        }
+
+        .hero p {
+            max-width: 600px;
+
+            margin-bottom: 30px;
+
+            color: #e2e8f0;
+
+            font-size: 17px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 13px 23px;
+
+            border-radius: 9px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            color: white;
+
+            background: rgba(255,255,255,0.08);
+
+            border: 1px solid rgba(255,255,255,0.4);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--dark);
+        }
+
+
+        /* =========================================
+           COURSES SECTION
+        ========================================= */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-header {
+            max-width: 650px;
+
+            margin: 0 auto 50px;
+
+            text-align: center;
+        }
+
+        .section-label {
+            margin-bottom: 8px;
+
+            color: var(--primary);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 1.5px;
+
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            margin-bottom: 12px;
+
+            color: var(--dark);
+
+            font-size: 40px;
+
+            letter-spacing: -1px;
+        }
+
+        .section-header p {
+            color: var(--text);
+            font-size: 15px;
+        }
+
+
+        /* =========================================
+           COURSE GRID
+        ========================================= */
+
+        .courses {
+            max-width: 1250px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 24px;
+        }
+
+
+        /* =========================================
+           COURSE CARD
+        ========================================= */
+
+        .course-card {
+            position: relative;
+
+            overflow: hidden;
+
+            background: white;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 7px 20px rgba(15, 23, 42, 0.05);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+
+            border-color: #d6e2f5;
+
+            box-shadow:
+                0 22px 45px rgba(15, 23, 42, 0.13);
+        }
+
+
+        /* =========================================
+           CARD IMAGE
+        ========================================= */
+
+        .course-image {
+            height: 215px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition:
+                transform 0.6s ease;
+        }
+
+        .course-card:hover
+        .course-image img {
+            transform: scale(1.08);
+        }
+
+
+        /* IMAGE OVERLAY */
+
+        .course-image::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(15,23,42,0.05),
+                    rgba(15,23,42,0.40)
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================
+           LEVEL BADGE
+        ========================================= */
+
+        .course-level {
+            position: absolute;
+
+            z-index: 3;
+
+            top: 14px;
+            left: 14px;
+
+            padding: 6px 12px;
+
+            border-radius: 30px;
+
+            color: var(--primary);
+
+            background: rgba(255,255,255,0.96);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,0.12);
+        }
+
+
+        /* =========================================
+           WISHLIST
+        ========================================= */
+
+        .wishlist {
+            position: absolute;
+
+            z-index: 3;
+
+            top: 13px;
+            right: 13px;
+
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            color: #334155;
+
+            background: rgba(255,255,255,0.95);
+
+            font-size: 17px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .wishlist:hover {
+            color: #ef4444;
+
+            transform: scale(1.1);
+
+            background: white;
+        }
+
+
+        /* =========================================
+           CARD CONTENT
+        ========================================= */
+
+        .course-content {
+            padding: 21px;
+        }
+
+        .course-category {
+            margin-bottom: 6px;
+
+            color: var(--primary);
+
+            font-size: 11px;
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.7px;
+        }
+
+        .course-title {
+            margin-bottom: 8px;
+
+            color: var(--dark);
+
+            font-size: 20px;
+
+            line-height: 1.3;
+        }
+
+        .course-description {
+            min-height: 66px;
+
+            margin-bottom: 15px;
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            line-height: 1.65;
+        }
+
+
+        /* =========================================
+           RATING
+        ========================================= */
+
+        .course-rating {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 17px;
+        }
+
+        .stars {
+            color: #f59e0b;
+
+            font-size: 14px;
+
+            letter-spacing: 1px;
+        }
+
+        .rating-number {
+            color: #334155;
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .students {
+            color: #94a3b8;
+
+            font-size: 11px;
+        }
+
+
+        /* =========================================
+           COURSE META
+        ========================================= */
+
+        .course-meta {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            margin-bottom: 18px;
+
+            padding: 11px 0;
+
+            border-top: 1px solid #eef2f7;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .meta-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 5px;
+
+            color: #64748b;
+
+            font-size: 11px;
+        }
+
+        .meta-icon {
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           CARD FOOTER
+        ========================================= */
+
+        .course-footer {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .price-box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .price-label {
+            color: #94a3b8;
+
+            font-size: 10px;
+        }
+
+        .price {
+            color: var(--dark);
+
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .enroll-btn {
+            padding: 10px 15px;
+
+            border-radius: 9px;
+
+            color: white;
+
+            background: var(--primary);
+
+            font-size: 12px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .enroll-btn:hover {
+            background: var(--primary-dark);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================
+           SECONDARY SECTION
+        ========================================= */
+
+        .stats {
+            background: white;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            text-align: center;
+        }
+
+        .stat {
+            padding: 35px 20px;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h3 {
+            color: var(--primary);
+
+            font-size: 30px;
+
+            margin-bottom: 3px;
+        }
+
+        .stat p {
+            color: var(--text);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            padding: 50px 7%;
+
+            color: #cbd5e1;
+
+            background: #0f172a;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .footer-logo {
+            color: white;
+
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .footer-text {
+            margin-top: 5px;
+
+            color: #94a3b8;
+
+            font-size: 12px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 22px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 1100px) {
+
+            .courses {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .navigation {
+                display: none;
+            }
+
+            .header {
+                padding: 0 5%;
+            }
+
+            .section {
+                padding: 80px 5%;
+            }
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 650px) {
+
+            .header {
+                height: 70px;
+
+                padding: 0 20px;
+            }
+
+            .logo-text {
+                display: none;
+            }
+
+            .search-box {
+                display: none;
+            }
+
+            .hero {
+                margin-top: 70px;
+
+                min-height: 590px;
+            }
+
+            .hero h1 {
+                font-size: 43px;
+
+                letter-spacing: -1.5px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .courses {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 65px 20px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .stats-container {
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .stat {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .footer-container {
+                flex-direction: column;
+
+                gap: 25px;
+
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         HEADER
+    ========================================= -->
+
+    <header class="header">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                N
+            </div>
+
+            <div class="logo-text">
+
+                <h2>Next Planners</h2>
+
+                <span>
+                    Technology & Education
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="navigation">
+
+            <ul>
+
+                <li>
+                    <a href="#" class="active">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#courses">
+                        Courses
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Services
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Contact
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <div class="search-box">
+
+                <span class="search-icon">
+                    🔍
+                </span>
+
+                <input
+                    type="search"
+                    placeholder="Search"
+                >
+
+            </div>
+
+
+            <a
+                href="#"
+                class="login-btn"
+            >
+                Login
+            </a>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🚀 Learn • Build • Grow
+            </div>
+
+
+            <h1>
+
+                Build Your Future
+                With
+
+                <span>
+                    Technology
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Learn practical digital skills,
+                develop real projects, and prepare
+                yourself for the modern technology-driven
+                world.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#courses"
+                    class="btn btn-primary"
+                >
+                    Explore Courses →
+                </a>
+
+
+                <a
+                    href="#"
+                    class="btn btn-outline"
+                >
+                    Learn More
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         STATS
+    ========================================= -->
+
+    <section class="stats">
+
+        <div class="stats-container">
+
+            <div class="stat">
+
+                <h3>
+                    20+
+                </h3>
+
+                <p>
+                    Professional Courses
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    500+
+                </h3>
+
+                <p>
+                    Students
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    15+
+                </h3>
+
+                <p>
+                    Expert Trainers
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <h3>
+                    95%
+                </h3>
+
+                <p>
+                    Student Satisfaction
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         COURSES
+    ========================================= -->
+
+    <section
+        class="section"
+        id="courses"
+    >
+
+        <div class="section-header">
+
+            <div class="section-label">
+                Our Courses
+            </div>
+
+
+            <h2>
+                Learn Skills That Matter
+            </h2>
+
+
+            <p>
+
+                Explore practical courses designed
+                to help you build useful skills and
+                create real-world projects.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="courses">
+
+
+            <!-- =================================
+                 CARD 1
+            ================================= -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Web Development"
+                    >
+
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+
+
+                    <div class="wishlist">
+                        ♡
+                    </div>
+
+                </div>
+
+
+                <div class="course-content">
+
+                    <div class="course-category">
+                        Development
+                    </div>
+
+
+                    <h3 class="course-title">
+                        Web Development
+                    </h3>
+
+
+                    <p class="course-description">
+
+                        Learn HTML, CSS, JavaScript
+                        and modern web development by
+                        building practical projects.
+
+                    </p>
+
+
+                    <div class="course-rating">
+
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+
+                        <span class="rating-number">
+                            4.9
+                        </span>
+
+                        <span class="students">
+                            (120 students)
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-meta">
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ◷
+                            </span>
+
+                            3 Months
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ▣
+                            </span>
+
+                            24 Lessons
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-footer">
+
+                        <div class="price-box">
+
+                            <span class="price-label">
+                                Course Fee
+                            </span>
+
+                            <span class="price">
+                                Rs. 3,000
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="enroll-btn"
+                        >
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CARD 2
+            ================================= -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Python Programming"
+                    >
+
+
+                    <span class="course-level">
+                        Intermediate
+                    </span>
+
+
+                    <div class="wishlist">
+                        ♡
+                    </div>
+
+                </div>
+
+
+                <div class="course-content">
+
+                    <div class="course-category">
+                        Programming
+                    </div>
+
+
+                    <h3 class="course-title">
+                        Python Programming
+                    </h3>
+
+
+                    <p class="course-description">
+
+                        Learn Python fundamentals,
+                        problem solving, functions,
+                        data structures and projects.
+
+                    </p>
+
+
+                    <div class="course-rating">
+
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+
+                        <span class="rating-number">
+                            4.8
+                        </span>
+
+                        <span class="students">
+                            (98 students)
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-meta">
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ◷
+                            </span>
+
+                            3 Months
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ▣
+                            </span>
+
+                            28 Lessons
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-footer">
+
+                        <div class="price-box">
+
+                            <span class="price-label">
+                                Course Fee
+                            </span>
+
+                            <span class="price">
+                                Rs. 3,000
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="enroll-btn"
+                        >
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CARD 3
+            ================================= -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Digital Marketing"
+                    >
+
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+
+
+                    <div class="wishlist">
+                        ♡
+                    </div>
+
+                </div>
+
+
+                <div class="course-content">
+
+                    <div class="course-category">
+                        Marketing
+                    </div>
+
+
+                    <h3 class="course-title">
+                        Digital Marketing
+                    </h3>
+
+
+                    <p class="course-description">
+
+                        Learn social media, content
+                        marketing, SEO and the basics
+                        of online business.
+
+                    </p>
+
+
+                    <div class="course-rating">
+
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+
+                        <span class="rating-number">
+                            4.9
+                        </span>
+
+                        <span class="students">
+                            (85 students)
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-meta">
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ◷
+                            </span>
+
+                            3 Months
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ▣
+                            </span>
+
+                            20 Lessons
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-footer">
+
+                        <div class="price-box">
+
+                            <span class="price-label">
+                                Course Fee
+                            </span>
+
+                            <span class="price">
+                                Rs. 3,000
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="enroll-btn"
+                        >
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================
+                 CARD 4
+            ================================= -->
+
+            <div class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Advanced Development"
+                    >
+
+
+                    <span class="course-level">
+                        Advanced
+                    </span>
+
+
+                    <div class="wishlist">
+                        ♡
+                    </div>
+
+                </div>
+
+
+                <div class="course-content">
+
+                    <div class="course-category">
+                        Software Development
+                    </div>
+
+
+                    <h3 class="course-title">
+                        Advanced Development
+                    </h3>
+
+
+                    <p class="course-description">
+
+                        Build modern applications using
+                        advanced programming concepts
+                        and real-world projects.
+
+                    </p>
+
+
+                    <div class="course-rating">
+
+                        <span class="stars">
+                            ★★★★★
+                        </span>
+
+                        <span class="rating-number">
+                            4.9
+                        </span>
+
+                        <span class="students">
+                            (72 students)
+                        </span>
+
+                    </div>
+
+
+                    <div class="course-meta">
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ◷
+                            </span>
+
+                            3 Months
+
+                        </div>
+
+
+                        <div class="meta-item">
+
+                            <span class="meta-icon">
+                                ▣
+                            </span>
+
+                            30 Lessons
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="course-footer">
+
+                        <div class="price-box">
+
+                            <span class="price-label">
+                                Course Fee
+                            </span>
+
+                            <span class="price">
+                                Rs. 3,000
+                            </span>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="enroll-btn"
+                        >
+                            View Course →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <div class="footer-logo">
+                    Next Planners
+                </div>
+
+                <p class="footer-text">
+                    Technology, education and digital skills.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#">
+                    About
+                </a>
+
+                <a href="#">
+                    Courses
+                </a>
+
+                <a href="#">
+                    Services
+                </a>
+
+                <a href="#">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>

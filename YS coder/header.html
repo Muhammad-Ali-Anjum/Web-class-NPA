@@ -17,6 +17,7 @@
         justify-content: space-around;
         align-items: center;
         position: fixed;
+        z-index: 1;
         
     }
     .logo{
@@ -54,7 +55,9 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    z-index: -1px;
+    z-index: 0;
+    position: relative;
+    top: 12vh;
     /* margin-top: 12vh; */
     
     }
@@ -62,22 +65,30 @@
         color: white;
         font-size: 50px;
         text-align: center;
-        padding-top: 20vh;
+        /* padding-top: 20vh; */
+        position: relative;
+        top: 20vh;
     }
     .hero h3{
         color: white;
         font-size: 30px;
         text-align: center;
         padding-top: 2vh;
+        position: relative;
+        top: 2vh;
     } 
     .hero p{
         color: white;
         font-size: 20px;
         text-align: center;
-        padding-top: 2vh;
+        /* padding-top: 2vh; */
+        position: relative;
+        top: 15vh;
     }
     .hero button{
         display: block;
+        position: relative;
+        top: 20vh;
         margin: 0 auto;
         padding: 10px 20px;
         font-size: 18px;
@@ -87,6 +98,63 @@
         border-radius: 5px;
         cursor: pointer;
         margin-top: 2vh;
+    }
+    .latestNews{
+        text-align: center;
+        font-size: 34px;
+        margin-top: 15vh;
+        transform: uppercase;
+        margin-bottom: 10vh;
+    }
+    
+    .lestscard{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 200px;
+
+    }
+    .cards{
+        width: 23%;
+        border-radius: 12px;
+        box-shadow: 0px 0px 10px -2px black;
+        padding-bottom: 30px;
+
+    }
+    .cards img{
+        width: 100%;
+        border-radius: 12px 12px 0px 0px;
+    }
+    .cards h1{
+        text-align: center;
+        transform: uppercase;
+        font-size: 24px;
+    }
+    .cards p{
+        font-size: 18px;
+        padding: 0px 12px 0px 12px;
+        text-align: justify;
+        line-height: 1.5;
+    }
+    .cardFooter{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .cardlevel{
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: white;
+        background-color: #007bff;
+        width: 100px;
+        /* margin: 0 auto; */
+        padding: 5px 0px;
+        border-radius: 5px;
+        position: relative;
+        top:-48vh;
+        left: 3%;
     }
 
 </style>
@@ -114,5 +182,58 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <button>Get Started</button>
          </div>
+
+         <h1 class="latestNews">Over latest News</h1>
+         <div class="lestscard">
+            <div class="cards">
+                <img src="../img/carousel-1.jpg" alt="">
+                <h1>Web Dev</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, fuga magnam. Alias.</p>
+                    <p class="cardlevel">Biggner</p>
+
+                <hr>
+                <div class="cardFooter">
+                    <p>3 Month</p>
+                    <p>Rs 3000</p>
+                </div>
+            </div>
+             <div class="cards">
+                <img src="../img/carousel-1.jpg" alt="">
+                <h1>Web Dev</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, fuga magnam. Alias.</p>
+                    <p class="cardlevel">Intermadiate</p>
+
+                <hr>
+                <div class="cardFooter">
+                    <p>3 Month</p>
+                    <p>Rs 3000</p>
+                </div>
+            </div>
+             <div class="cards">
+                <img src="../img/carousel-1.jpg" alt="">
+                <h1>Web Dev</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, fuga magnam. Alias.</p>
+                    <p class="cardlevel">Biggner</p>
+
+                <hr>
+                <div class="cardFooter">
+                    <p>3 Month</p>
+                    <p>Rs 3000</p>
+                </div>
+            </div>
+             <div class="cards">
+                <img src="../img/carousel-1.jpg" alt="">
+                <h1>Web Dev</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis, fuga magnam. Alias.</p>
+                    <p class="cardlevel">Advanvance</p>
+
+                <hr>
+                <div class="cardFooter">
+                    <p>3 Month</p>
+                    <p>Rs 3000</p>
+                </div>
+            </div>
+         </div>
+         <!-- <h1>lest </h1> -->
 </body>
 </html>
