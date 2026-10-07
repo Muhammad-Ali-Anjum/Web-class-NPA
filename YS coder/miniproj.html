@@ -1,0 +1,2951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Next Planners - Technology, Education, Digital Services and Software Solutions.">
+
+    <title>Next Planners | Technology & Education</title>
+
+    <style>
+        /* =========================================================
+           ROOT
+        ========================================================= */
+
+        :root {
+            --primary: #282460;
+            --primary-dark: #1d1948;
+            --primary-light: #4b46a3;
+
+            --orange: #f69322;
+            --orange-dark: #df7910;
+            --orange-light: #fff3e5;
+
+            --white: #ffffff;
+            --black: #111827;
+
+            --text: #5f6472;
+            --text-dark: #252936;
+            --muted: #8b91a1;
+
+            --light: #f7f8fc;
+            --border: #e6e8ef;
+
+            --success: #16a34a;
+
+            --radius: 18px;
+            --radius-lg: 26px;
+
+            --shadow-sm:
+                0 5px 20px rgba(25, 29, 55, 0.06);
+
+            --shadow:
+                0 15px 45px rgba(25, 29, 55, 0.10);
+
+            --shadow-lg:
+                0 25px 70px rgba(25, 29, 55, 0.14);
+
+            --container: 1200px;
+        }
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family:
+                Inter,
+                "Segoe UI",
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font: inherit;
+        }
+
+        .container {
+            width: min(92%, var(--container));
+            margin: auto;
+        }
+
+        /* =========================================================
+           HEADER
+        ========================================================= */
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(14px);
+
+            border-bottom: 1px solid rgba(40, 36, 96, 0.07);
+        }
+
+        .nav {
+            height: 82px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+
+            border-radius: 12px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+            font-size: 22px;
+            font-weight: 800;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--primary-light)
+                );
+
+            box-shadow:
+                0 8px 20px rgba(40, 36, 96, 0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-text strong {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .logo-text span {
+            color: var(--muted);
+            font-size: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 600;
+
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-button {
+            color: white !important;
+
+            padding: 12px 21px;
+
+            border-radius: 10px;
+
+            background: var(--orange);
+
+            box-shadow:
+                0 8px 20px rgba(246, 147, 34, 0.25);
+        }
+
+        .nav-button:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 27px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            min-height: 760px;
+            padding-top: 82px;
+
+            display: flex;
+            align-items: center;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(246, 147, 34, 0.18),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 10% 80%,
+                    rgba(75, 70, 163, 0.35),
+                    transparent 32%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #191642,
+                    #282460 55%,
+                    #37317e
+                );
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            right: -180px;
+            top: 80px;
+        }
+
+        .hero-content {
+            width: min(92%, var(--container));
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            gap: 80px;
+            align-items: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.10);
+            border: 1px solid rgba(255,255,255,0.12);
+
+            color: #fff;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            margin-bottom: 22px;
+        }
+
+        .hero h1 {
+            color: white;
+
+            font-size: clamp(42px, 5vw, 68px);
+
+            line-height: 1.08;
+
+            letter-spacing: -2px;
+
+            max-width: 700px;
+
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero-description {
+            max-width: 600px;
+
+            color: rgba(255,255,255,0.75);
+
+            font-size: 17px;
+
+            margin-bottom: 35px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 24px;
+
+            border-radius: 11px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+
+            box-shadow:
+                0 10px 30px rgba(246, 147, 34, 0.28);
+        }
+
+        .btn-primary:hover {
+            background: var(--orange-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            color: white;
+
+            border: 1px solid rgba(255,255,255,0.25);
+
+            background: rgba(255,255,255,0.05);
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Hero visual */
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-main-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border-radius: 28px;
+
+            background: white;
+
+            box-shadow: var(--shadow-lg);
+
+            transform: rotate(1deg);
+        }
+
+        .hero-main-card img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .hero-card-bottom {
+            padding: 22px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-card-bottom h3 {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        .hero-card-bottom p {
+            font-size: 12px;
+            color: var(--muted);
+        }
+
+        .hero-price {
+            color: var(--orange);
+            font-size: 20px;
+            font-weight: 800;
+        }
+
+        .floating-card {
+            position: absolute;
+
+            left: -45px;
+            bottom: 35px;
+
+            padding: 16px 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            background: white;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .floating-icon {
+            width: 42px;
+            height: 42px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: var(--orange-light);
+
+            font-size: 20px;
+        }
+
+        .floating-card strong {
+            display: block;
+            color: var(--primary);
+            font-size: 14px;
+        }
+
+        .floating-card span {
+            font-size: 11px;
+            color: var(--muted);
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .stats {
+            margin-top: -45px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .stats-box {
+            background: white;
+
+            border-radius: 18px;
+
+            box-shadow: var(--shadow);
+
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+
+            overflow: hidden;
+        }
+
+        .stat {
+            padding: 25px;
+
+            text-align: center;
+
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat h3 {
+            color: var(--primary);
+            font-size: 28px;
+        }
+
+        .stat p {
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        /* =========================================================
+           SECTION
+        ========================================================= */
+
+        .section {
+            padding: 105px 0;
+        }
+
+        .section-header {
+            text-align: center;
+
+            max-width: 650px;
+
+            margin: 0 auto 55px;
+        }
+
+        .section-label {
+            display: inline-block;
+
+            color: var(--orange);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 10px;
+        }
+
+        .section-header h2 {
+            color: var(--primary);
+
+            font-size: clamp(30px, 4vw, 43px);
+
+            line-height: 1.15;
+
+            margin-bottom: 14px;
+        }
+
+        .section-header p {
+            color: var(--text);
+            font-size: 15px;
+        }
+
+        /* =========================================================
+           COURSES
+        ========================================================= */
+
+        .courses {
+            display: grid;
+
+            grid-template-columns:
+                repeat(4,1fr);
+
+            gap: 22px;
+        }
+
+        .course-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            overflow: hidden;
+
+            transition: 0.35s;
+
+            box-shadow: var(--shadow-sm);
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+
+            border-color: rgba(246,147,34,0.3);
+
+            box-shadow: var(--shadow);
+        }
+
+        .course-image {
+            height: 190px;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .course-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: 0.5s;
+        }
+
+        .course-card:hover .course-image img {
+            transform: scale(1.07);
+        }
+
+        .course-level {
+            position: absolute;
+
+            top: 14px;
+            left: 14px;
+
+            padding: 5px 10px;
+
+            background: white;
+
+            border-radius: 7px;
+
+            color: var(--primary);
+
+            font-size: 10px;
+            font-weight: 800;
+        }
+
+        .course-content {
+            padding: 21px;
+        }
+
+        .course-category {
+            color: var(--orange);
+
+            font-size: 10px;
+            font-weight: 800;
+
+            text-transform: uppercase;
+        }
+
+        .course-title {
+            color: var(--primary);
+
+            font-size: 18px;
+
+            margin: 7px 0 9px;
+        }
+
+        .course-description {
+            font-size: 12px;
+            color: var(--muted);
+
+            min-height: 52px;
+        }
+
+        .course-meta {
+            display: flex;
+
+            justify-content: space-between;
+
+            padding: 14px 0;
+
+            margin-top: 10px;
+
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+
+            font-size: 11px;
+        }
+
+        .course-footer {
+            padding-top: 16px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+        .price {
+            color: var(--primary);
+
+            font-size: 19px;
+            font-weight: 800;
+        }
+
+        .enroll-btn {
+            color: var(--orange);
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           SERVICES
+        ========================================================= */
+
+        .services-section {
+            background: var(--light);
+        }
+
+        .services {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+
+            padding: 32px;
+
+            border-radius: var(--radius);
+
+            border: 1px solid var(--border);
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-6px);
+
+            border-color: rgba(246,147,34,0.35);
+
+            box-shadow: var(--shadow);
+        }
+
+        .service-icon {
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 15px;
+
+            background: var(--orange-light);
+
+            font-size: 25px;
+
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            color: var(--primary);
+
+            font-size: 19px;
+
+            margin-bottom: 8px;
+        }
+
+        .service-card p {
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about {
+            display: grid;
+
+            grid-template-columns:
+                0.95fr 1.05fr;
+
+            gap: 75px;
+
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            width: 100%;
+
+            height: 480px;
+
+            object-fit: cover;
+
+            border-radius: 28px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .experience {
+            position: absolute;
+
+            right: -25px;
+            bottom: 30px;
+
+            background: var(--primary);
+
+            color: white;
+
+            padding: 20px 25px;
+
+            border-radius: 15px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .experience strong {
+            display: block;
+
+            color: var(--orange);
+
+            font-size: 30px;
+
+            line-height: 1;
+        }
+
+        .experience span {
+            font-size: 11px;
+        }
+
+        .about-content h2 {
+            color: var(--primary);
+
+            font-size: 43px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .about-content p {
+            margin-bottom: 18px;
+
+            font-size: 14px;
+        }
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 15px;
+
+            margin-top: 28px;
+        }
+
+        .feature {
+            display: flex;
+
+            gap: 10px;
+
+            align-items: flex-start;
+
+            font-size: 13px;
+
+            color: var(--text-dark);
+        }
+
+        .check {
+            color: var(--orange);
+
+            font-weight: 900;
+        }
+
+        /* =========================================================
+           PRODUCTS
+        ========================================================= */
+
+        .products {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .product-card {
+            padding: 30px;
+
+            border-radius: 20px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    var(--primary),
+                    #37317e
+                );
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+            transition: 0.3s;
+        }
+
+        .product-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 160px;
+            height: 160px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.05);
+
+            right: -60px;
+            top: -60px;
+        }
+
+        .product-card:hover {
+            transform: translateY(-7px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .product-number {
+            color: var(--orange);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            margin-bottom: 25px;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: rgba(255,255,255,0.72);
+
+            font-size: 13px;
+
+            margin-bottom: 20px;
+        }
+
+        .product-link {
+            color: white;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        /* =========================================================
+           WHY US
+        ========================================================= */
+
+        .why-section {
+            background: var(--light);
+        }
+
+        .why {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 22px;
+        }
+
+        .why-card {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            border: 1px solid var(--border);
+        }
+
+        .why-card span {
+            font-size: 28px;
+        }
+
+        .why-card h3 {
+            color: var(--primary);
+
+            margin: 15px 0 7px;
+
+            font-size: 18px;
+        }
+
+        .why-card p {
+            font-size: 13px;
+        }
+
+        /* =========================================================
+           INQUIRY
+        ========================================================= */
+
+        .inquiry-section {
+            background:
+                linear-gradient(
+                    135deg,
+                    #f7f8fc,
+                    #ffffff
+                );
+        }
+
+        .inquiry-wrapper {
+            display: grid;
+
+            grid-template-columns:
+                0.85fr 1.15fr;
+
+            gap: 60px;
+
+            align-items: start;
+        }
+
+        .inquiry-info {
+            padding-top: 10px;
+        }
+
+        .inquiry-info h2 {
+            color: var(--primary);
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin: 10px 0 18px;
+        }
+
+        .inquiry-info > p {
+            font-size: 14px;
+
+            margin-bottom: 30px;
+
+            max-width: 470px;
+        }
+
+        .contact-list {
+            display: grid;
+            gap: 17px;
+        }
+
+        .contact-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+        }
+
+        .contact-icon {
+            width: 46px;
+            height: 46px;
+
+            flex-shrink: 0;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            background: var(--orange-light);
+
+            color: var(--orange);
+
+            font-size: 18px;
+        }
+
+        .contact-item strong {
+            display: block;
+
+            color: var(--primary);
+
+            font-size: 13px;
+        }
+
+        .contact-item span {
+            font-size: 12px;
+
+            color: var(--muted);
+        }
+
+        /* Form */
+
+        .inquiry-form {
+            background: white;
+
+            padding: 35px;
+
+            border-radius: 24px;
+
+            border: 1px solid var(--border);
+
+            box-shadow: var(--shadow);
+
+            position: relative;
+        }
+
+        .form-heading {
+            margin-bottom: 25px;
+        }
+
+        .form-heading h3 {
+            color: var(--primary);
+
+            font-size: 25px;
+
+            margin-bottom: 5px;
+        }
+
+        .form-heading p {
+            font-size: 12px;
+
+            color: var(--muted);
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2,1fr);
+
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: var(--text-dark);
+
+            font-size: 12px;
+
+            font-weight: 700;
+        }
+
+        .form-group label span {
+            color: var(--orange);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+
+            border: 1px solid var(--border);
+
+            background: #fbfbfd;
+
+            color: var(--text-dark);
+
+            border-radius: 10px;
+
+            padding: 13px 14px;
+
+            outline: none;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: var(--orange);
+
+            background: white;
+
+            box-shadow:
+                0 0 0 3px rgba(246,147,34,0.09);
+        }
+
+        .form-group textarea {
+            min-height: 125px;
+
+            resize: vertical;
+        }
+
+        .submit-button {
+            width: 100%;
+
+            border: none;
+
+            cursor: pointer;
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 10px;
+
+            background: var(--orange);
+
+            color: white;
+
+            font-weight: 800;
+
+            font-size: 13px;
+
+            transition: 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--orange-dark);
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 10px 25px rgba(246,147,34,0.25);
+        }
+
+        .form-note {
+            text-align: center;
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            margin-top: 12px;
+        }
+
+        /* =========================================================
+           CTA
+        ========================================================= */
+
+        .cta {
+            padding: 90px 0;
+        }
+
+        .cta-box {
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    #3d378c
+                );
+
+            border-radius: 28px;
+
+            padding: 65px;
+
+            text-align: center;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: "";
+
+            position: absolute;
+
+            width: 250px;
+            height: 250px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            left: -80px;
+            top: -100px;
+        }
+
+        .cta-box h2 {
+            color: white;
+
+            font-size: 40px;
+
+            line-height: 1.15;
+
+            margin-bottom: 14px;
+        }
+
+        .cta-box p {
+            color: rgba(255,255,255,0.72);
+
+            max-width: 600px;
+
+            margin: auto auto 28px;
+
+            font-size: 14px;
+        }
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #15132f;
+
+            color: rgba(255,255,255,0.65);
+
+            padding: 70px 0 25px;
+        }
+
+        .footer-grid {
+            display: grid;
+
+            grid-template-columns:
+                1.5fr 1fr 1fr 1fr;
+
+            gap: 50px;
+
+            padding-bottom: 50px;
+        }
+
+        .footer-brand h3 {
+            color: white;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 12px;
+
+            max-width: 300px;
+        }
+
+        footer h4 {
+            color: white;
+
+            font-size: 13px;
+
+            margin-bottom: 15px;
+        }
+
+        footer ul {
+            list-style: none;
+        }
+
+        footer li {
+            margin-bottom: 8px;
+        }
+
+        footer li a {
+            font-size: 12px;
+
+            transition: 0.3s;
+        }
+
+        footer li a:hover {
+            color: var(--orange);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.08);
+
+            padding-top: 20px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            font-size: 10px;
+        }
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1100px) {
+
+            .courses {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .hero-content {
+                gap: 45px;
+            }
+
+            .services,
+            .products,
+            .why {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .about {
+                gap: 45px;
+            }
+        }
+
+        @media (max-width: 850px) {
+
+            .menu-icon {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+
+                top: 82px;
+                left: 0;
+
+                width: 100%;
+
+                background: white;
+
+                padding: 20px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+
+                gap: 5px;
+
+                border-bottom: 1px solid var(--border);
+
+                box-shadow: var(--shadow);
+
+                display: none;
+            }
+
+            .nav-links a {
+                padding: 12px;
+            }
+
+            #menu-toggle:checked ~ .nav-links {
+                display: flex;
+            }
+
+            .hero {
+                min-height: auto;
+
+                padding-top: 145px;
+                padding-bottom: 110px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-main-card img {
+                height: 340px;
+            }
+
+            .floating-card {
+                left: 15px;
+            }
+
+            .stats-box {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .stat:nth-child(-n+2) {
+                border-bottom: 1px solid var(--border);
+            }
+
+            .about,
+            .inquiry-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                max-width: 650px;
+            }
+
+            .inquiry-info {
+                max-width: 650px;
+            }
+
+            .footer-grid {
+                grid-template-columns:
+                    repeat(2,1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+
+                letter-spacing: -1px;
+            }
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+            .hero-main-card img {
+                height: 260px;
+            }
+
+            .courses,
+            .services,
+            .products,
+            .why {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-box {
+                grid-template-columns: 1fr;
+            }
+
+            .stat {
+                border-right: none;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content h2,
+            .inquiry-info h2 {
+                font-size: 34px;
+            }
+
+            .about-image img {
+                height: 350px;
+            }
+
+            .experience {
+                right: 15px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .inquiry-form {
+                padding: 22px;
+            }
+
+            .cta-box {
+                padding: 45px 22px;
+            }
+
+            .cta-box h2 {
+                font-size: 30px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 8px;
+
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="header">
+
+    <div class="container nav">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-icon">
+                N
+            </div>
+
+            <div class="logo-text">
+                <strong>Next Planners</strong>
+                <span>Technology & Education</span>
+            </div>
+
+        </a>
+
+        <input type="checkbox" id="menu-toggle">
+
+        <label for="menu-toggle" class="menu-icon">
+            ☰
+        </label>
+
+        <nav class="nav-links">
+
+            <a href="#home">Home</a>
+
+            <a href="#courses">Courses</a>
+
+            <a href="#services">Services</a>
+
+            <a href="#products">Products</a>
+
+            <a href="#about">About</a>
+
+            <a href="#inquiry">Contact</a>
+
+            <a href="#inquiry" class="nav-button">
+                Start a Conversation
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div>
+
+            <div class="hero-badge">
+                ✦ Learn • Build • Grow
+            </div>
+
+            <h1>
+                Build Your Future
+                With <span>Technology</span>
+            </h1>
+
+            <p class="hero-description">
+                Learn practical digital skills, build real projects,
+                and access modern technology solutions designed for
+                students, businesses and organizations.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#courses" class="btn btn-primary">
+                    Explore Courses →
+                </a>
+
+                <a href="#inquiry" class="btn btn-outline">
+                    Send an Inquiry
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-visual">
+
+            <div class="hero-main-card">
+
+                <img
+                    src="../img/carousel-1.jpg"
+                    alt="Technology Education"
+                >
+
+                <div class="hero-card-bottom">
+
+                    <div>
+                        <h3>
+                            Web Development
+                        </h3>
+
+                        <p>
+                            Learn by building real projects
+                        </p>
+                    </div>
+
+                    <div class="hero-price">
+                        Rs. 3,000
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="floating-card">
+
+                <div class="floating-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>Practical Learning</strong>
+                    <span>Skills for real-world work</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<div class="stats">
+
+    <div class="container">
+
+        <div class="stats-box">
+
+            <div class="stat">
+                <h3>20+</h3>
+                <p>Professional Courses</p>
+            </div>
+
+            <div class="stat">
+                <h3>500+</h3>
+                <p>Students</p>
+            </div>
+
+            <div class="stat">
+                <h3>15+</h3>
+                <p>Expert Trainers</p>
+            </div>
+
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Student Satisfaction</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     COURSES
+========================================================= -->
+
+<section class="section" id="courses">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Our Courses
+            </span>
+
+            <h2>
+                Learn Skills That Matter
+            </h2>
+
+            <p>
+                Practical training designed to help you learn,
+                practice and build useful technology skills.
+            </p>
+
+        </div>
+
+
+        <div class="courses">
+
+            <!-- COURSE 1 -->
+
+            <article class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Web Development"
+                    >
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        Development
+                    </span>
+
+                    <h3 class="course-title">
+                        Web Development
+                    </h3>
+
+                    <p class="course-description">
+                        Learn HTML, CSS, JavaScript and modern
+                        web development through practical projects.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>3 Months</span>
+
+                        <span>30+ Lessons</span>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="price">
+                            Rs. 3,000
+                        </span>
+
+                        <a href="#inquiry" class="enroll-btn">
+                            Enquire →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- COURSE 2 -->
+
+            <article class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Python Programming"
+                    >
+
+                    <span class="course-level">
+                        Beginner
+                    </span>
+
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        Programming
+                    </span>
+
+                    <h3 class="course-title">
+                        Python Programming
+                    </h3>
+
+                    <p class="course-description">
+                        Start programming with Python and develop
+                        a strong foundation in problem solving.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>3 Months</span>
+
+                        <span>28+ Lessons</span>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="price">
+                            Rs. 3,000
+                        </span>
+
+                        <a href="#inquiry" class="enroll-btn">
+                            Enquire →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- COURSE 3 -->
+
+            <article class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Digital Marketing"
+                    >
+
+                    <span class="course-level">
+                        Intermediate
+                    </span>
+
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        Marketing
+                    </span>
+
+                    <h3 class="course-title">
+                        Digital Marketing
+                    </h3>
+
+                    <p class="course-description">
+                        Learn SEO, social media, content strategy
+                        and practical digital marketing.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>3 Months</span>
+
+                        <span>25+ Lessons</span>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="price">
+                            Rs. 3,000
+                        </span>
+
+                        <a href="#inquiry" class="enroll-btn">
+                            Enquire →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- COURSE 4 -->
+
+            <article class="course-card">
+
+                <div class="course-image">
+
+                    <img
+                        src="../img/carousel-1.jpg"
+                        alt="Advanced Development"
+                    >
+
+                    <span class="course-level">
+                        Advanced
+                    </span>
+
+                </div>
+
+                <div class="course-content">
+
+                    <span class="course-category">
+                        Development
+                    </span>
+
+                    <h3 class="course-title">
+                        Advanced Development
+                    </h3>
+
+                    <p class="course-description">
+                        Build modern applications and understand
+                        professional development workflows.
+                    </p>
+
+                    <div class="course-meta">
+
+                        <span>4 Months</span>
+
+                        <span>40+ Lessons</span>
+
+                    </div>
+
+                    <div class="course-footer">
+
+                        <span class="price">
+                            Rs. 5,000
+                        </span>
+
+                        <a href="#inquiry" class="enroll-btn">
+                            Enquire →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="section services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                What We Do
+            </span>
+
+            <h2>
+                Digital Services For Modern Needs
+            </h2>
+
+            <p>
+                From websites and software to digital marketing,
+                we help organizations move forward with technology.
+            </p>
+
+        </div>
+
+
+        <div class="services">
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◇
+                </div>
+
+                <h3>
+                    Web Development
+                </h3>
+
+                <p>
+                    Modern, responsive websites and web applications
+                    for businesses, institutions and organizations.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    SaaS Solutions
+                </h3>
+
+                <p>
+                    Practical software products that help organizations
+                    manage their daily operations more efficiently.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◎
+                </div>
+
+                <h3>
+                    Digital Marketing
+                </h3>
+
+                <p>
+                    SEO, social media and content strategies designed
+                    to help businesses reach the right audience.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    Graphic Design
+                </h3>
+
+                <p>
+                    Professional visual designs for brands,
+                    campaigns, educational materials and businesses.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◫
+                </div>
+
+                <h3>
+                    E-Commerce
+                </h3>
+
+                <p>
+                    Online stores and digital commerce solutions
+                    designed for growing businesses.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◉
+                </div>
+
+                <h3>
+                    IT Training
+                </h3>
+
+                <p>
+                    Practical technology education for students,
+                    professionals and organizations.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================= -->
+
+<section class="section" id="about">
+
+    <div class="container">
+
+        <div class="about">
+
+            <div class="about-image">
+
+                <img
+                    src="../img/carousel-1.jpg"
+                    alt="Next Planners"
+                >
+
+                <div class="experience">
+
+                    <strong>5+</strong>
+
+                    <span>
+                        Years of Experience
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    About Next Planners
+                </span>
+
+                <h2>
+                    Technology That Helps People Grow
+                </h2>
+
+                <p>
+                    Next Planners is focused on technology education,
+                    software development and digital solutions.
+                    Our goal is simple: make technology useful,
+                    practical and accessible.
+                </p>
+
+                <p>
+                    We work with students, educational institutions,
+                    businesses and organizations to provide practical
+                    training and reliable digital solutions.
+                </p>
+
+
+                <div class="features">
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        Practical learning
+                    </div>
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        Real-world projects
+                    </div>
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        Modern technology
+                    </div>
+
+                    <div class="feature">
+                        <span class="check">✓</span>
+                        Business-focused solutions
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCTS
+========================================================= -->
+
+<section class="section" id="products">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Our Products
+            </span>
+
+            <h2>
+                Software Built For Real Problems
+            </h2>
+
+            <p>
+                Our technology products are designed to solve
+                practical challenges faced by institutions and businesses.
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+            <div class="product-card">
+
+                <div class="product-number">
+                    PRODUCT 01
+                </div>
+
+                <h3>
+                    School & College LMS
+                </h3>
+
+                <p>
+                    A SaaS-based learning management system for
+                    schools and colleges with academic and administrative
+                    management features.
+                </p>
+
+                <a href="#inquiry" class="product-link">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-number">
+                    PRODUCT 02
+                </div>
+
+                <h3>
+                    Point of Sale System
+                </h3>
+
+                <p>
+                    A practical POS solution designed to help shops
+                    manage sales, products and daily business operations.
+                </p>
+
+                <a href="#inquiry" class="product-link">
+                    Learn More →
+                </a>
+
+            </div>
+
+
+            <div class="product-card">
+
+                <div class="product-number">
+                    PRODUCT 03
+                </div>
+
+                <h3>
+                    Tourism Platform
+                </h3>
+
+                <p>
+                    A tourism platform connecting hotels, vehicles,
+                    adventure locations and travelers in one place.
+                </p>
+
+                <a href="#inquiry" class="product-link">
+                    Learn More →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     WHY US
+========================================================= -->
+
+<section class="section why-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                Why Next Planners
+            </span>
+
+            <h2>
+                Built Around Practical Results
+            </h2>
+
+            <p>
+                We focus on useful skills, practical solutions
+                and technology that creates real value.
+            </p>
+
+        </div>
+
+
+        <div class="why">
+
+            <div class="why-card">
+
+                <span>◆</span>
+
+                <h3>
+                    Practical Skills
+                </h3>
+
+                <p>
+                    Our training focuses on skills that students
+                    and professionals can actually use.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <span>◇</span>
+
+                <h3>
+                    Real Projects
+                </h3>
+
+                <p>
+                    We believe people learn better when they build
+                    and solve real problems.
+                </p>
+
+            </div>
+
+
+            <div class="why-card">
+
+                <span>✦</span>
+
+                <h3>
+                    Future Ready
+                </h3>
+
+                <p>
+                    We keep our learning and technology solutions
+                    aligned with changing digital needs.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     INQUIRY SECTION
+========================================================= -->
+
+<section class="section inquiry-section" id="inquiry">
+
+    <div class="container">
+
+        <div class="inquiry-wrapper">
+
+            <!-- LEFT -->
+
+            <div class="inquiry-info">
+
+                <span class="section-label">
+                    Get In Touch
+                </span>
+
+                <h2>
+                    Let's Discuss Your Idea
+                </h2>
+
+                <p>
+                    Looking for a course, website, software solution
+                    or digital service? Send us your requirements.
+                    Our team will review your inquiry and get back to you.
+                </p>
+
+
+                <div class="contact-list">
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ✉
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Email
+                            </strong>
+
+                            <span>
+                                anjumbalgharii@gmail.com
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ☎
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Phone
+                            </strong>
+
+                            <span>
+                                Contact our team for details
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <div class="contact-icon">
+                            ◉
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Location
+                            </strong>
+
+                            <span>
+                                Gilgit-Baltistan, Pakistan
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT FORM -->
+
+            <div class="inquiry-form">
+
+                <div class="form-heading">
+
+                    <h3>
+                        Send an Inquiry
+                    </h3>
+
+                    <p>
+                        Fill in the details below and tell us how we can help.
+                    </p>
+
+                </div>
+
+
+                <form action="#" method="post">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>
+                                Full Name <span>*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Email Address <span>*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Phone Number
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="phone"
+                                placeholder="+92 XXX XXXXXXX"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Inquiry Type <span>*</span>
+                            </label>
+
+                            <select name="inquiry_type" required>
+
+                                <option value="">
+                                    Select inquiry type
+                                </option>
+
+                                <option value="course">
+                                    Course / Training
+                                </option>
+
+                                <option value="website">
+                                    Website Development
+                                </option>
+
+                                <option value="software">
+                                    Software Solution
+                                </option>
+
+                                <option value="saas">
+                                    SaaS Product
+                                </option>
+
+                                <option value="digital-marketing">
+                                    Digital Marketing
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Course or Service
+                            </label>
+
+                            <select name="service">
+
+                                <option value="">
+                                    Select a course or service
+                                </option>
+
+                                <option>
+                                    Web Development
+                                </option>
+
+                                <option>
+                                    Python Programming
+                                </option>
+
+                                <option>
+                                    Digital Marketing
+                                </option>
+
+                                <option>
+                                    Graphic Design
+                                </option>
+
+                                <option>
+                                    School & College LMS
+                                </option>
+
+                                <option>
+                                    Point of Sale System
+                                </option>
+
+                                <option>
+                                    Tourism Platform
+                                </option>
+
+                                <option>
+                                    Custom Software
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Message <span>*</span>
+                            </label>
+
+                            <textarea
+                                name="message"
+                                placeholder="Tell us about your requirements..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="submit-button"
+                    >
+                        Submit Inquiry →
+                    </button>
+
+
+                    <p class="form-note">
+                        Your information will only be used to respond to your inquiry.
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     CTA
+========================================================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <div class="cta-box">
+
+            <h2>
+                Ready to Build Something Better?
+            </h2>
+
+            <p>
+                Whether you want to learn a new skill or need
+                a technology solution for your organization,
+                let's start the conversation.
+            </p>
+
+            <a href="#inquiry" class="btn btn-primary">
+                Send Your Inquiry →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+
+                <h3>
+                    Next Planners
+                </h3>
+
+                <p>
+                    Technology education, software development
+                    and digital solutions for students, businesses
+                    and organizations.
+                </p>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Company
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#about">
+                            About Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            Services
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#products">
+                            Products
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#inquiry">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Learning
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#courses">
+                            Web Development
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#courses">
+                            Python
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#courses">
+                            Digital Marketing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#courses">
+                            Graphic Design
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Services
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#services">
+                            Web Development
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            SaaS Solutions
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            Digital Marketing
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#services">
+                            IT Training
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Next Planners. All rights reserved.
+            </span>
+
+            <span>
+                Technology • Education • Digital Solutions
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+</body>
+</html>

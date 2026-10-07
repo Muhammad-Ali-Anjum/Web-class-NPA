@@ -432,25 +432,58 @@
 // console.log(`sorted array: ${sortedarr}`);
 
 
-let arr=[1,2,3,4,5,6]
-console.log(arr);
+// let arr=[1,2,3,4,5,6]
+// console.log(arr);
 
-let splices=arr.splice(1,2)
-console.log(splices);
+// let splices=arr.splice(1,2)
+// console.log(splices);
 
-let splice=arr.slice(1,2)
-console.log(splice);
-let sorts=arr.reverse()
-console.log(sorts);
+// let splice=arr.slice(1,2)
+// console.log(splice);
+// let sorts=arr.reverse()
+// console.log(sorts);
 
-let indexs=arr.indexOf(1)
-console.log(indexs);
+// let indexs=arr.indexOf(1)
+// console.log(indexs);
 
-let inclue=arr.includes(1);
-console.log(inclue);
+// let inclue=arr.includes(1);
+// console.log(inclue);
 
+function hi(){
+    console.log("hi this is function");
+    
+}
+hi()
+// hi()
 
+// hi()
 
+function add(a,b){
+    let sum=a+b;
+    console.log(`sum of ${a} and ${b} is ${sum}`);
+}
+add(2,3)
+add(4,5)
 
-
-
+// function base calculation
+function calculate(num1,num2,operator){
+    let result;
+    switch(operator){
+        case '+':
+            result=num1+num2;
+            break;
+        case '-':
+            result=num1-num2;
+            break;
+        case '*':
+            result=num1*num2;
+            break;
+        case '/':
+            result=num1/num2;
+        default:
+            console.log("invlid sytex");
+            return null;
+            console.log(result);
+            
+    }}
+    calculate(1,2,'+')
