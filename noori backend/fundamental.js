@@ -519,17 +519,52 @@
 //     }
 // }
 // fetchData();
-async function fetchData() {
-    try{
-        const response = await fetch('https://dummyjson.com/prodcts');
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    const data = await response.json();
-    console.log(data);
-    }
-    catch (error) {
-        console.error('Fetch failed:', error.message);
-    }
+// async function fetchData() {
+//     try{
+//         const response = await fetch('https://dummyjson.com/prodcts');
+//     if (!response.ok) {
+//         throw new Error(`HTTP error! Status: ${response.status}`);
+//     }
+//     const data = await response.json();
+//     console.log(data);
+//     }
+//     catch (error) {
+//         console.error('Fetch failed:', error.message);
+//     }
+// }
+// fetchData()
+
+let cart = [];
+
+async function addToCart(product) {
+  try {
+    console.log("Adding product...");
+
+    const response = await fakeApiRequest(product);
+
+    cart.push(response);
+
+    console.log("Product added successfully!");
+    console.log("Cart:", cart);
+
+  } catch (error) {
+    console.error("Failed to add product:", error);
+  }
 }
-fetchData()
+
+function fakeApiRequest(product) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(product);
+    }, 1000);
+  });
+}
+
+
+addToCart({
+  id: 1,
+  name: "Laptop",
+  price: 800,
+  quantity: 1
+});
+
