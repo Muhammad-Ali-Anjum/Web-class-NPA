@@ -534,37 +534,178 @@
 // }
 // fetchData()
 
+// let cart = [];
+
+// async function addToCart(product) {
+//   try {
+//     console.log("Adding product...");
+
+//     const response = await fakeApiRequest(product);
+
+//     cart.push(response);
+
+//     console.log("Product added successfully!");
+//     console.log("Cart:", cart);
+
+//   } catch (error) {
+//     console.error("Failed to add product:", error);
+//   }
+// }
+
+// function fakeApiRequest(product) {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       resolve(product);
+//     }, 1000);
+//   });
+// }
+
+
+// addToCart({
+//   id: 1,
+//   name: "Laptop",
+//   price: 800,
+//   quantity: 1
+// });
+
+
+const products = [
+  { id: 1, name: "Laptop", price: 120000 },
+  { id: 2, name: "Phone", price: 80000 },
+  { id: 3, name: "Headphones", price: 12000 },
+  { id: 4, name: "Smart Watch", price: 18000 }
+];
+
 let cart = [];
 
-async function addToCart(product) {
+
+// ADD TO CART
+async function addToCart(productId) {
   try {
-    console.log("Adding product...");
+    const product = await getProduct(productId);
 
-    const response = await fakeApiRequest(product);
+    const existingProduct = cart.find(
+      item => item.id === product.id
+    );
 
-    cart.push(response);
+    if (existingProduct) {
+      existingProduct.quantity++;
+    } else {
+      cart.push({
+        ...product,
+        quantity: 1
+      });
+    }
 
-    console.log("Product added successfully!");
+    console.log("Added to cart:", product.name);
     console.log("Cart:", cart);
 
   } catch (error) {
-    console.error("Failed to add product:", error);
+    console.log("Error:", error.message);
   }
 }
 
-function fakeApiRequest(product) {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(product);
-    }, 1000);
-  });
+
+// GET PRODUCT
+async function getProduct(productId) {
+
+  const product = products.find(
+    product => product.id === productId
+  );
+
+  if (!product) {
+    throw new Error("Product not found");
+  }
+
+  return product;
 }
 
 
-addToCart({
-  id: 1,
-  name: "Laptop",
-  price: 800,
-  quantity: 1
-});
+// REMOVE FROM CART
+async function removeFromCart(productId) {
 
+  const product = await getProduct(productId);
+
+  cart = cart.filter(
+    item => item.id !== product.id
+  );
+
+  console.log("Removed:", product.name);
+  console.log("Cart:", cart);
+}
+
+
+// INCREASE QUANTITY
+async function increaseQuantity(productId) {
+
+  const product = cart.find(
+    item => item.id === productId
+  );
+
+  if (!product) return;
+
+  product.quantity++;
+
+  console.log(cart);
+}
+
+
+// DECREASE QUANTITY
+async function decreaseQuantity(productId) {
+
+  const product = cart.find(
+    item => item.id === productId
+  );
+
+  if (!product) return;
+
+  product.quantity--;
+
+  if (product.quantity <= 0) {
+    await removeFromCart(productId);
+  }
+
+  console.log(cart);
+}
+
+
+// GET CART TOTAL
+async function getCartTotal() {
+
+  const total = cart.reduce(
+    (sum, item) =>
+      sum + item.price * item.quantity,
+    0
+  );
+
+  return total;
+}
+
+
+// CHECKOUT
+async function checkout() {
+
+  if (cart.length === 0) {
+    console.log("Cart is empty");
+    return;
+  }
+
+  const total = await getCartTotal();
+
+  console.log("Order placed!");
+  console.log("Total:", total);
+
+  cart = [];
+}
+
+
+// TEST
+await addToCart(1);
+await addToCart(1);
+await addToCart(3);
+
+console.log("Total:", await getCartTotal());
+
+await decreaseQuantity(1);
+
+console.log("Final Cart:", cart);
