@@ -530,19 +530,27 @@ function greed(){
 // calculate(1,2,'+')
 // calculate(3,4,'-')
 // arrow function its type of function which is used in es6
-const greet=()=>{
-    console.log("hi this is arrow function");
+// const greet=()=>{
+//     console.log("hi this is arrow function");
+// }
+// greet()
+
+// const grd=()=> console.log("hi this is arrow function");
+// grd()
+
+// const add=(a,b)=>{
+//         console.log(`sum of ${a} and ${b} is ${a+b}`);
+//     }
+
+//     add(3,3)
+// // short hand arrow function
+// const sub=(a,b)=>console.log(`difference of ${a} and ${b} is ${a-b}`);
+// sub(5,3)
+
+// arrow function with rest/ spread operator
+const greetAll=(...names)=>{
+    names.forEach(name=>{
+        console.log(`Hello ${name}`);
+    });
 }
-greet()
-
-const grd=()=> console.log("hi this is arrow function");
-grd()
-
-const add=(a,b)=>{
-        console.log(`sum of ${a} and ${b} is ${a+b}`);
-    }
-
-    add(3,3)
-// short hand arrow function
-const sub=(a,b)=>console.log(`difference of ${a} and ${b} is ${a-b}`);
-sub(5,3)
+greetAll("Ali","Ahmed","Omar","Zainab","Fatima","Ayesha","Hassan","Hussain","Zara","Amina");
