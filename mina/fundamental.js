@@ -548,9 +548,40 @@ function greed(){
 // sub(5,3)
 
 // arrow function with rest/ spread operator
-const greetAll=(...names)=>{
-    names.forEach(name=>{
-        console.log(`Hello ${name}`);
+// const greetAll=(...names)=>{
+//     names.forEach(name=>{
+//         console.log(`Hello ${name}`);
+//     });
+// }
+// greetAll("Ali","Ahmed","Omar","Zainab","Fatima","Ayesha","Hassan","Hussain","Zara","Amina");
+
+// arrow function in js
+let sum=(...rest)=>{
+    let total=0;
+    rest.forEach(num=>{
+        total+=num;
     });
+    return total;
 }
-greetAll("Ali","Ahmed","Omar","Zainab","Fatima","Ayesha","Hassan","Hussain","Zara","Amina");
+
+console.log(`Sum of numbers: ${sum(1,2,3,4,5,1,2,3,4,5,1,2,3,4,5)}`);
+
+// rest operator is used to pass multiple arguments to a function as an array. In the above example, we are using the rest operator to pass multiple numbers to the sum function and then calculating the total sum of those numbers. The forEach method is used to iterate over each number in the array and add it to the total variable. Finally, we return the total sum and log it to the console.
+
+// rest operator with function
+// let card=(...cards)=>{
+//     cards.forEach(card=>{
+//         console.log(`Card: ${card}`);
+//     });
+// }
+// card("Ace of Spades","King of Hearts","Queen of Diamonds","Jack of Clubs","10 of Hearts","9 of Diamonds","8 of Clubs","7 of Hearts","6 of Diamonds","5 of Clubs");
+
+
+// higher order function
+
+let arr=[1,23,4,5,6,7,8,9,0,9876,43];
+arr.map((num)=>console.log(num))
+fltr=arr.filter(num=>num%2==2
+)
+console.log(fltr);
+
