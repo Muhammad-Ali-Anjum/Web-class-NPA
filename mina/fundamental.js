@@ -564,7 +564,7 @@ let sum=(...rest)=>{
     return total;
 }
 
-console.log(`Sum of numbers: ${sum(1,2,3,4,5,1,2,3,4,5,1,2,3,4,5)}`);
+// console.log(`Sum of numbers: ${sum(1,2,3,4,5,1,2,3,4,5,1,2,3,4,5)}`);
 
 // rest operator is used to pass multiple arguments to a function as an array. In the above example, we are using the rest operator to pass multiple numbers to the sum function and then calculating the total sum of those numbers. The forEach method is used to iterate over each number in the array and add it to the total variable. Finally, we return the total sum and log it to the console.
 
@@ -579,9 +579,73 @@ console.log(`Sum of numbers: ${sum(1,2,3,4,5,1,2,3,4,5,1,2,3,4,5)}`);
 
 // higher order function
 
-let arr=[1,23,4,5,6,7,8,9,0,9876,43];
-arr.map((num)=>console.log(num))
-fltr=arr.filter(num=>num%2==2
-)
-console.log(fltr);
+// let arr=[1,23,4,5,6,7,8,9,0,9876,43];
+// arr.map((num)=>console.log(num))
+// fltr=arr.filter(num=>num%2==2
+// )
+// console.log(fltr);
 
+// let arr=[1,2,3,5,45,46,5,66,75,43,32];
+// let filtr=arr.filter(
+//     (num)=>{
+// return num%2==1
+//     }
+// )
+// console.log(filtr);
+
+// // map function
+// let maps=arr.map((num)=>num)
+// console.log(maps);
+
+// // for each
+// // let for each
+// arr.forEach(num=>console.log(num)
+// )
+// // reduce method
+// let sumss=arr.reduce((acumaltor,currentvalu)=>{
+//     return acumaltor+currentvalu
+    
+//     // console.log(acumaltor," : ",currentvalu);
+    
+// },0)
+// console.log("sum of all array",sumss);
+
+// let arr=[12,3,4,5,6,7,8,6,54,32]
+// let map =arr.map(num=>num);
+// console.log(map);
+// let arrsum=arr.reduce((acuulator,currentValue)=>acuulator+currentValue)
+// console.log("sum of array is :",arrsum);
+// arr.forEach(num=>console.log(num)
+// )
+
+// let finds=arr.find(num=>num%2==0);
+// console.log(finds);
+
+// let arr=[1,23,4,45,3,54,32,6,54,56,5434,56543,6,445,67,654]
+// console.log(arr[0]);
+// // Distructuing
+// let [a,b,c,...rest]=arr;
+// console.log(a,b ,c,rest);
+
+let arr=[12,3,4,5,6,7,3,88,99,9,7,6,54,3,2,2];
+// console.log(arr[2]);
+// let [a,b,c]=arr;
+// console.log(a);
+// console.log(b);
+// console.log(c);
+// let [d,e,...rest]=arr
+// console.log(d);
+// console.log(e);
+// console.log(rest);
+
+// object
+let obj={
+    name:"syeed",
+    age:23,
+    city:["skd","khp","kmg","sgr"]
+
+}
+
+console.log(obj.name);
+console.log(obj.age);
+console.log(obj.city[1]);
