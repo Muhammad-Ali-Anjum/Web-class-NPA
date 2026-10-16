@@ -638,14 +638,283 @@ let arr=[12,3,4,5,6,7,3,88,99,9,7,6,54,3,2,2];
 // console.log(e);
 // console.log(rest);
 
-// object
-let obj={
-    name:"syeed",
-    age:23,
-    city:["skd","khp","kmg","sgr"]
+// // object
+// let obj={
+//     name:"syeed",
+//     age:23,
+//     city:["skd","khp","kmg","sgr"]
 
+// }
+
+// console.log(obj.name);
+// console.log(obj.age);
+// console.log(obj.city[1]);
+// object
+
+// let obj={
+//     id:1,
+//     name:"anjum",
+//     age:34,
+
+// }
+// console.log(obj.name);
+// console.log(obj.age);
+
+// console.log(obj.id);
+
+// let objs={
+//     name:"meena",
+//     age:15,
+//     adress:{
+//         HouseNumbber:1234,
+//         city:"skardu",
+//         zipCode:16100,
+//         street:"123bcss alamdar chowk"
+//     }
+// }
+// console.log(objs);
+// console.log(objs.adress.HouseNumbber);
+
+
+let obj = {
+    id: 1,
+    name: "abc",
+    marks: [50, 40, 60, 70, 80, 90],
+
+    functions: function () {
+        console.log(`Name ${this.name} makes ${this.marks}`);
+
+        return this.marks.reduce((act, currentValue) => {
+            console.log(act, currentValue);
+            return act + currentValue;
+        }, 0);
+    }
+};
+
+console.log(obj.functions());
+
+
+let student = {
+    id: 101,
+    name: "Ali",
+    subjects: [
+        { name: "Computer Science", marks: 85 },
+        { name: "Mathematics", marks: 78 },
+        { name: "English", marks: 72 },
+        { name: "Physics", marks: 90 },
+        { name: "Urdu", marks: 80 }
+    ],
+
+    calculateResult: function () {
+        // Calculate total obtained marks
+        let total = this.subjects.reduce((sum, subject) => {
+            return sum + subject.marks;
+        }, 0);
+
+        // Calculate maximum marks
+        let maximumMarks = this.subjects.length * 100;
+
+        // Calculate percentage
+        let percentage = (total / maximumMarks) * 100;
+
+        // Determine grade
+        let grade;
+
+        if (percentage >= 80) {
+            grade = "A";
+        } else if (percentage >= 70) {
+            grade = "B";
+        } else if (percentage >= 60) {
+            grade = "C";
+        } else if (percentage >= 50) {
+            grade = "D";
+        } else {
+            grade = "Fail";
+        }
+
+        // Return the complete result
+        return {
+            studentName: this.name,
+            totalMarks: total,
+            maximumMarks: maximumMarks,
+            percentage: percentage.toFixed(2) + "%",
+            grade: grade
+        };
+    }
+};
+
+// Display student result
+console.log(student.calculateResult());
+
+
+let students = [
+    {
+        id: 1,
+        name: "Ali",
+        className: "ICS Part 1",
+        subjects: [
+            { name: "Computer Science", marks: 85 },
+            { name: "Mathematics", marks: 78 },
+            { name: "English", marks: 72 },
+            { name: "Physics", marks: 90 },
+            { name: "Urdu", marks: 80 }
+        ]
+    }
+];
+
+// Calculate student result
+function calculateResult(student) {
+    let total = student.subjects.reduce((sum, subject) => {
+        return sum + subject.marks;
+    }, 0);
+
+    let maximumMarks = student.subjects.length * 100;
+    let percentage = (total / maximumMarks) * 100;
+
+    let grade;
+
+    if (percentage >= 80) {
+        grade = "A+";
+    } else if (percentage >= 70) {
+        grade = "A";
+    } else if (percentage >= 60) {
+        grade = "B";
+    } else if (percentage >= 50) {
+        grade = "C";
+    } else if (percentage >= 40) {
+        grade = "D";
+    } else {
+        grade = "F";
+    }
+
+    let status = student.subjects.every(subject => subject.marks >= 40)
+        ? "Pass"
+        : "Fail";
+
+    return {
+        total,
+        maximumMarks,
+        percentage: percentage.toFixed(2),
+        grade,
+        status
+    };
 }
 
-console.log(obj.name);
-console.log(obj.age);
-console.log(obj.city[1]);
+// CREATE: Add a student
+function addStudent(name, className, subjects) {
+    let newStudent = {
+        id: students.length
+            ? Math.max(...students.map(s => s.id)) + 1
+            : 1,
+        name,
+        className,
+        subjects
+    };
+
+    students.push(newStudent);
+    console.log("Student added successfully!");
+}
+
+// READ: Display all student results
+function showResults() {
+    if (students.length === 0) {
+        console.log("No student records found.");
+        return;
+    }
+
+    students.forEach(student => {
+        let result = calculateResult(student);
+
+        console.log("\n--- STUDENT RESULT ---");
+        console.log("ID:", student.id);
+        console.log("Name:", student.name);
+        console.log("Class:", student.className);
+
+        console.log("\nSubject-wise Marks:");
+
+        student.subjects.forEach(subject => {
+            console.log(`${subject.name}: ${subject.marks}/100`);
+        });
+
+        console.log("\nTotal:", result.total, "/", result.maximumMarks);
+        console.log("Percentage:", result.percentage + "%");
+        console.log("Grade:", result.grade);
+        console.log("Status:", result.status);
+    });
+}
+
+// UPDATE: Change student details or marks
+function updateStudent(id, newName, newClass, newSubjects) {
+    let student = students.find(s => s.id === id);
+
+    if (!student) {
+        console.log("Student not found!");
+        return;
+    }
+
+    student.name = newName;
+    student.className = newClass;
+    student.subjects = newSubjects;
+
+    console.log("Student result updated successfully!");
+}
+
+// DELETE: Remove a student
+function deleteStudent(id) {
+    let oldLength = students.length;
+
+    students = students.filter(student => student.id !== id);
+
+    if (students.length < oldLength) {
+        console.log("Student deleted successfully!");
+    } else {
+        console.log("Student not found!");
+    }
+}
+
+// SEARCH: Find a student by ID
+function searchStudent(id) {
+    let student = students.find(s => s.id === id);
+
+    if (student) {
+        console.log(student);
+        console.log("Calculated Result:", calculateResult(student));
+    } else {
+        console.log("Student not found!");
+    }
+}
+
+
+// 1. Display existing results
+showResults();
+
+// 2. Add a new student
+addStudent("Ahmed", "ICS Part 1", [
+    { name: "Computer Science", marks: 92 },
+    { name: "Mathematics", marks: 88 },
+    { name: "English", marks: 75 },
+    { name: "Physics", marks: 81 },
+    { name: "Urdu", marks: 79 }
+]);
+
+// 3. Update the student's result
+updateStudent(1, "Ali Khan", "ICS Part 1", [
+    { name: "Computer Science", marks: 95 },
+    { name: "Mathematics", marks: 82 },
+    { name: "English", marks: 76 },
+    { name: "Physics", marks: 91 },
+    { name: "Urdu", marks: 85 }
+]);
+
+// 4. Search for a student
+searchStudent(1);
+
+// 5. Display all results again
+showResults();
+
+// 6. Delete a student
+deleteStudent(2);
+
+// 7. Display final records
+showResults();
+
