@@ -691,7 +691,7 @@ let obj = {
     }
 };
 
-console.log(obj.functions());
+// console.log(obj.functions());
 
 
 let student = {
@@ -760,6 +760,8 @@ let students = [
             { name: "Urdu", marks: 80 }
         ]
     }
+
+
 ];
 
 // Calculate student result
@@ -787,9 +789,7 @@ function calculateResult(student) {
         grade = "F";
     }
 
-    let status = student.subjects.every(subject => subject.marks >= 40)
-        ? "Pass"
-        : "Fail";
+    let status = student.subjects.every(subject => subject.marks >= 40)? "Pass": "Fail";
 
     return {
         total,
@@ -803,9 +803,7 @@ function calculateResult(student) {
 // CREATE: Add a student
 function addStudent(name, className, subjects) {
     let newStudent = {
-        id: students.length
-            ? Math.max(...students.map(s => s.id)) + 1
-            : 1,
+        id: students.length ? Math.max(...students.map(s => s.id)) + 1  : 1,
         name,
         className,
         subjects
@@ -907,7 +905,7 @@ updateStudent(1, "Ali Khan", "ICS Part 1", [
 ]);
 
 // 4. Search for a student
-searchStudent(1);
+searchStudent(2);
 
 // 5. Display all results again
 showResults();
@@ -917,4 +915,19 @@ deleteStudent(2);
 
 // 7. Display final records
 showResults();
+
+
+// let objs={
+//     id:1,
+//     name:"abc",
+//     age:32,
+//     group:"aas"
+// }
+
+// let {id,name,...rest}=objs
+// console.log(id,name);
+// console.log(rest);
+
+
+
 
