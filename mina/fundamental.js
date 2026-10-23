@@ -905,16 +905,16 @@ updateStudent(1, "Ali Khan", "ICS Part 1", [
 ]);
 
 // 4. Search for a student
-searchStudent(2);
+// searchStudent(2);
 
 // 5. Display all results again
-showResults();
+// showResults();
 
 // 6. Delete a student
-deleteStudent(2);
+// deleteStudent(2);
 
 // 7. Display final records
-showResults();
+// showResults();
 
 
 // let objs={
@@ -927,6 +927,34 @@ showResults();
 // let {id,name,...rest}=objs
 // console.log(id,name);
 // console.log(rest);
+
+
+// hell function
+
+// scope of varable
+// local 
+// global
+let a=43;
+function outer(){
+    let b=30;
+    console.log("outer function is runing");
+    
+    function innerfun(){
+        console.log("inner function is rining");
+        
+        function lastinner(inner){
+            console.log("last inner function is runing");
+            
+            return innerfun();
+        }
+        return lastinner
+
+    }
+}
+outer()
+// innerfun()
+// lastinner()
+
 
 
 

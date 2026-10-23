@@ -1,0 +1,41 @@
+.serviceheading{
+    font-size: 48px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+.sub{
+    width: 23%;
+    border: 1px solid black;
+    
+}
+.sub img{
+    width: 100%;
+}
+.sub h2{
+    font-size: 24px;
+    text-align: center;
+}
+
+.sub p{
+    text-align: justify;
+}
+.hrtag{
+    width: 80%;
+}
+.footercard{
+    display: flex;
+    /* justify-content: space-around; */
+    /* justify-content: space-between; */
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+.buybtn{
+    cursor: pointer;
+
+}
