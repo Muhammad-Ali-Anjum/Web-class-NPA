@@ -934,28 +934,181 @@ updateStudent(1, "Ali Khan", "ICS Part 1", [
 // scope of varable
 // local 
 // global
-let a=43;
-function outer(){
-    let b=30;
-    console.log("outer function is runing");
+// let a=43;
+// function outer(){
+//     let b=30;
+//     console.log("outer function is runing");
     
-    function innerfun(){
-        console.log("inner function is rining");
+//     function innerfun(){
+//         console.log("inner function is rining");
         
-        function lastinner(inner){
-            console.log("last inner function is runing");
+//         function lastinner(inner){
+//             console.log("last inner function is runing");
             
-            return innerfun();
-        }
-        return lastinner
+//             return innerfun();
+//         }
+//         return lastinner
 
+//     }
+// }
+// outer()
+// // innerfun()
+// // lastinner()
+
+
+// let objs={
+// id:1,
+// name:"abc",
+// age:21,
+// adres:{
+//     city:"skd",
+//     steet:"12bsc",
+//     postalCode:16100
+// }
+
+// }
+// console.log(objs.adres);
+// console.log(objs.age);
+// // let {id,name}=objs
+// // console.log(id);
+// // console.log(name);
+// // console.log(adres);
+// let {id,name,...rest}=objs
+// console.log(rest);
+
+
+
+// let n = Number(prompt("Enter N"));
+// let n=3
+
+// // for (let i = 1; i <= n; i++) {
+// //     let row = "";
+// //     for (let j = 1; j <= i; j++) {
+// //         row += "*";
+// //     }
+// //     for (let j = 1; j <= 2 * (n - i); j++) {
+// //         row += " ";
+// //     }
+// //     for (let j = 1; j <= i; j++) {
+// //         row += "*";
+// //     }
+// //     console.log(row);
+// // }
+
+// // for (let i = n - 1; i >= 1; i--) {
+// //     let row = "";
+// //     for (let j = 1; j <= i; j++) {
+// //         row += "*";
+// //     }
+// //     for (let j = 1; j <= 2 * (n - i); j++) {
+// //         row += " ";
+// //     }
+// //     for (let j = 1; j <= i; j++) {
+// //         row += "*";
+// //     }
+// //     console.log(row);
+// // }
+
+
+// // let n = Number(prompt("Enter N"));
+
+// for (let i = n; i >= 1; i--) {
+//     let row = "";
+
+//     for (let j = 1; j <= 2 * i - 1; j++) {
+//         row += "*";
+//     }
+
+//     console.log(row);
+// }
+
+// for (let i = 2; i <= n; i++) {
+//     let row = "";
+
+//     for (let j = 1; j <= 2 * i - 1; j++) {
+//         row += "*";
+//     }
+
+//     console.log(row);
+// }
+
+function butterfly(n) {
+    for (let i = 1; i <= n; i++) {
+        let row = "";
+        for (let j = 1; j <= i; j++) row += "*";
+        for (let j = 1; j <= 2 * (n - i); j++) row += " ";
+        for (let j = 1; j <= i; j++) row += "*";
+
+        console.log(row);
+    }
+
+    for (let i = n - 1; i >= 1; i--) {
+        let row = "";
+
+        for (let j = 1; j <= i; j++) row += "*";
+        for (let j = 1; j <= 2 * (n - i); j++) row += " ";
+        for (let j = 1; j <= i; j++) row += "*";
+
+        console.log(row);
     }
 }
-outer()
-// innerfun()
-// lastinner()
+
+butterfly(3);
+
+function hourglass(n) {
+    for (let i = n; i >= 1; i--) {
+        let row = "";
+        for (let j = 1; j <= 2 * i - 1; j++) {
+            row += "*";
+        }
+        console.log(" ".repeat(n - i) + row);
+    }
+
+    for (let i = 2; i <= n; i++) {
+        let row = "";
+
+        for (let j = 1; j <= 2 * i - 1; j++) {
+            row += "*";
+        }
+
+        console.log(" ".repeat(n - i) + row);
+    }
+}
+
+hourglass(3);
+
+function hourglass(n) {
+    for (let i = n; i >= 1; i--) {
+        console.log(" ".repeat(n - i) + "*".repeat(2 * i - 1));
+    }
+    for (let i = 2; i <= n; i++) {
+        console.log(" ".repeat(n - i) + "*".repeat(2 * i - 1));
+    }
+}
+
+hourglass(3);
+
+setTimeout(function(){
+console.log("this function 1");
+
+},2000)
+setTimeout(
+    function(){
+console.log("this is 2nd function");
+
+    },
+    1000
+)
 
 
+function un(){
+    console.log("1 is runing");
+    
+}
+function run(){
+    console.log("2 is runing");
+    
+}
 
-
-
+setTimeout(un,2000)
+setTimeout(run,1000)
