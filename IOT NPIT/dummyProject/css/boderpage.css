@@ -1,0 +1,132 @@
+*{
+            padding: 0px;
+            margin: 0px;
+        }
+
+        header{
+            width: 100%;
+            /* background-color: aquamarine; */
+            height: 14vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .log{
+            width: 20%;
+            height: inherit;    
+        }
+        header .log img{
+            width: 100%;
+            height: 14vh;
+        }
+
+        .primaryHeader{
+            width: 50%;
+        }
+        .primaryHeader ul{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .primaryHeader ul li{
+            list-style: none;
+        }
+        .primaryHeader ul li a{
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: 400;
+
+        }
+        .apply{
+            width: 20%;
+        }
+        .apply button{
+            width: 70%;
+            height: 6vh;
+            font-size: 18px;
+            border: none;
+            background-color: wheat;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .main{
+                width: 300px;
+                height: 300px;
+                border: 4px solid black;
+
+                /* border-radius: 12px; */
+                border-top-left-radius:400px;
+                border-bottom-right-radius: 300px;
+                background-color: green;
+        }
+        .main1{
+            
+                width: 300px;
+                height: 300px;
+                border: 4px solid black;
+                background-color: green;
+
+                /* border-radius: 12px; */
+                border-top-right-radius:400px;
+                border-bottom-left-radius: 300px;
+        }
+        .mains{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        .sub, .sub1{
+            width: 30%;
+            border-right: 4px solid black;
+            padding-right: 20px;
+            /* border-radius: 12px; */
+
+        }
+        /* .sub1{
+            width: 30%;
+        } */
+         .sub2{
+            width: 30%;
+        }
+        .sub img, .sub1 img, .sub2 img{
+            height: 12vh;
+        }
+        .sub p , .sub1 p ,.sub2 p{
+            margin-top: -14px;
+            /* justify-content:; */
+            text-align: justify;
+            /* list-style: none; */
+            line-height: 1.5;
+        }
+        .para{
+            width: 60%;
+            margin-left: 20%;
+            margin-top: 50px;
+            border-left: 4px solid green;
+            border-right: 4px solid green;
+            padding: 0px 22px 20px 22px;
+            border-radius: 52px;
+        
+        }
+        .para h1{
+            text-align: center;
+            font-size: 48px;
+            color: green;
+        }
+        .para p{
+            text-align: justify;
+            line-height: 1.5;
+            font-size: 18px;
+
+        }
+        .para button{
+            width: 30%;
+            height: 7vh;
+            font-size: 18px;
+            font-weight: 400;
+            border: none;
+            background-color: green;
+            color: white;
+        }
