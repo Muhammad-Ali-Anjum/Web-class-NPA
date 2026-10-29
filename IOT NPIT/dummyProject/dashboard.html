@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel Web Dashboard</title>
+    <!-- Chart.js for Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- SheetJS to read Excel files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f7fa; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); max-width: 800px; margin: auto; }
+        h2 { color: #1F4E79; }
+        .controls { margin-bottom: 20px; display: flex; gap: 20px; align-items: center; }
+        select { padding: 8px; font-size: 16px; border-radius: 4px; border: 1px solid #ccc; }
+        input[type="file"] { padding: 8px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📊 FourDomain Dashboard (Web)</h2>
+    
+    <div class="controls">
+        <div>
+            <label><b>1. Upload Excel File:</b></label><br>
+            <input type="file" id="excelUpload" accept=".xlsx, .xls" />
+        </div>
+        <div>
+            <label><b>2. Select Month:</b></label><br>
+            <select id="monthFilter" disabled>
+                <option value="All">-- All Months --</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="width: 100%; height: 400px;">
+        <canvas id="myChart"></canvas>
+    </div>
+</div>
+
+<script>
+    let rawData = [];
+    let chartInstance = null;
+
+    document.getElementById('excelUpload').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, {type: 'array', cellDates: true});
+            
+            // Hum Fact_Bookings sheet utha rahe hain (Aap isko Fact_Enrollment bhi kar sakte hain)
+            const sheetName = "Fact_Bookings"; 
+            const worksheet = workbook.Sheets[sheetName];
+            
+            if(!worksheet) {
+                alert("Sheet 'Fact_Bookings' nahi mili!");
+                return;
+            }
+
+            // Convert sheet to JSON
+            rawData = XLSX.utils.sheet_to_json(worksheet);
+            
+            populateMonths();
+        };
+        reader.readAsArrayBuffer(file);
+    });
+
+    function populateMonths() {
+        const monthSelect = document.getElementById('monthFilter');
+        monthSelect.innerHTML = '<option value="All">-- All Months --</option>';
+        
+        const months = new Set();
+        rawData.forEach(row => {
+            if(row.Date) {
+                // Date format ko convert karein
+                const dateObj = new Date(row.Date);
+                if(!isNaN(dateObj)) {
+                    const monthYear = dateObj.toLocaleString('default', { month: 'short', year: 'numeric' });
+                    months.add(monthYear);
+                }
+            }
+        });
+
+        Array.from(months).sort().forEach(m => {
+            const option = document.createElement('option');
+            option.value = m;
+            option.text = m;
+            monthSelect.appendChild(option);
+        });
+
+        monthSelect.disabled = false;
+        monthSelect.addEventListener('change', updateChart);
+        updateChart(); // Initial render
+    }
+
+    function updateChart() {
+        const selectedMonth = document.getElementById('monthFilter').value;
+        let filteredData = rawData;
+
+        if (selectedMonth !== "All") {
+            filteredData = rawData.filter(row => {
+                const dateObj = new Date(row.Date);
+                const monthYear = dateObj.toLocaleString('default', { month: 'short', year: 'numeric' });
+                return monthYear === selectedMonth;
+            });
+        }
+
+        // Data aggregate karein (Revenue by Destination)
+        const destinations = {};
+        filteredData.forEach(row => {
+            const dest = row.DestinationID || "Unknown";
+            const rev = row.Revenue || 0;
+            destinations[dest] = (destinations[dest] || 0) + rev;
+        });
+
+        const labels = Object.keys(destinations);
+        const dataValues = Object.values(destinations);
+
+        renderChart(labels, dataValues, selectedMonth);
+    }
+
+    function renderChart(labels, data, titleMonth) {
+        const ctx = document.getElementById('myChart').getContext('2d');
+        
+        if (chartInstance) {
+            chartInstance.destroy();
+        }
+
+        chartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: `Revenue (${titleMonth})`,
+                    data: data,
+                    backgroundColor: '#1F4E79',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>
