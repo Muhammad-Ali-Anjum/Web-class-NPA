@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NPIT — National Polytechnic Institute of Technology</title>
+<meta name="description" content="NPIT delivers industry-led training and certification programs built around real outcomes: hands-on projects, expert instructors and career support that continues well past graduation.">
+<meta name="theme-color" content="#17663f">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   NPIT — Complete Website Stylesheet
+   1.  Design tokens
+   2.  Reset & base
+   3.  Utilities
+   4.  Header & navigation
+   5.  Hero
+   6.  Partners strip
+   7.  About
+   8.  Programs
+   9.  Why choose us
+   10. Process steps
+   11. Stats band
+   12. Testimonials
+   13. Instructors
+   14. FAQ
+   15. Blog
+   16. Apply / CTA form
+   17. Footer
+   18. Back to top
+   19. Reveal animation
+   20. Responsive
+   21. Accessibility & motion
+   ========================================================= */
+
+/* ============ 1. DESIGN TOKENS ============ */
+:root {
+  --brand:        #17663f;
+  --brand-dark:   #0f4a2d;
+  --brand-light:  #e8f3ed;
+  --accent:       #e9c46a;
+  --accent-dark:  #d9b04e;
+
+  --ink:          #14201a;
+  --body:         #46534c;
+  --muted:        #6f7d76;
+  --line:         #e2e8e4;
+  --surface:      #ffffff;
+  --surface-alt:  #f6f9f7;
+  --dark:         #0c1712;
+  --white:        #ffffff;
+
+  --font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Helvetica, Arial, sans-serif;
+
+  --fs-xs:   0.8125rem;
+  --fs-sm:   0.9375rem;
+  --fs-base: 1rem;
+  --fs-md:   1.0625rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.5rem;
+  --fs-2xl:  2rem;
+  --fs-3xl:  2.75rem;
+  --fs-4xl:  3.5rem;
+
+  --s1: .25rem;  --s2: .5rem;   --s3: .75rem;  --s4: 1rem;
+  --s5: 1.5rem;  --s6: 2rem;    --s7: 2.5rem;  --s8: 3rem;
+  --s9: 4rem;    --s10: 5.5rem;
+
+  --container: 1200px;
+  --pad: 1.5rem;
+  --header-h: 84px;
+
+  --r-sm: 6px;
+  --r-md: 12px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  --sh-sm: 0 1px 2px rgba(20,32,26,.06);
+  --sh-md: 0 8px 24px rgba(20,32,26,.08);
+  --sh-lg: 0 20px 48px rgba(20,32,26,.14);
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+  --fast: 150ms;
+  --base: 250ms;
+}
+
+/* ============ 2. RESET & BASE ============ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+
+body {
+  font-family: var(--font);
+  font-size: var(--fs-md);
+  line-height: 1.65;
+  color: var(--body);
+  background: var(--surface);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main { flex: 1 0 auto; }
+
+h1, h2, h3, h4, h5 {
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.18;
+  letter-spacing: -.02em;
+}
+h1 { font-size: var(--fs-3xl); }
+h2 { font-size: var(--fs-2xl); }
+h3 { font-size: var(--fs-lg); }
+
+p { color: var(--body); }
+
+img { max-width: 100%; height: auto; display: block; }
+ul, ol { list-style: none; }
+
+a { color: var(--brand); text-decoration: none; transition: color var(--fast) var(--ease); }
+a:hover { color: var(--brand-dark); }
+
+button, input, select, textarea { font: inherit; color: inherit; }
+button { background: none; border: 0; cursor: pointer; }
+
+/* ============ 3. UTILITIES ============ */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.section { padding-block: var(--s9); }
+.section--alt { background: var(--surface-alt); border-block: 1px solid var(--line); }
+.section--dark { background: var(--dark); color: #cfd8d2; }
+.section--dark h2, .section--dark h3 { color: var(--white); }
+.section--dark p { color: rgba(255,255,255,.72); }
+
+.section__head { max-width: 680px; margin: 0 auto var(--s8); text-align: center; }
+.section__head--left { margin-inline: 0; text-align: left; }
+.section__head h2 { margin-bottom: var(--s4); text-wrap: balance; }
+.section__lead { font-size: var(--fs-md); color: var(--muted); }
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--s3);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.section--dark .eyebrow { color: var(--accent); }
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  padding: .85rem 1.7rem;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: .01em;
+  line-height: 1;
+  border-radius: var(--r-sm);
+  border: 2px solid transparent;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--fast) var(--ease),
+              border-color var(--fast) var(--ease),
+              color var(--fast) var(--ease),
+              transform var(--fast) var(--ease),
+              box-shadow var(--fast) var(--ease);
+}
+.btn:active { transform: translateY(1px); }
+.btn svg { flex-shrink: 0; }
+
+.btn--primary {
+  background: var(--brand); border-color: var(--brand); color: var(--white);
+  box-shadow: var(--sh-sm);
+}
+.btn--primary:hover {
+  background: var(--brand-dark); border-color: var(--brand-dark);
+  color: var(--white); box-shadow: var(--sh-md);
+}
+
+.btn--accent {
+  background: var(--accent); border-color: var(--accent); color: var(--ink);
+}
+.btn--accent:hover {
+  background: var(--accent-dark); border-color: var(--accent-dark); color: var(--ink);
+}
+
+.btn--ghost { background: transparent; border-color: var(--brand); color: var(--brand); }
+.btn--ghost:hover { background: var(--brand-light); border-color: var(--brand-dark); color: var(--brand-dark); }
+
+.btn--outline-light { background: transparent; border-color: rgba(255,255,255,.55); color: var(--white); }
+.btn--outline-light:hover { background: rgba(255,255,255,.12); border-color: #fff; color: var(--white); }
+
+.btn--lg { padding: 1rem 2.1rem; font-size: var(--fs-base); }
+.btn--block { width: 100%; }
+
+/* --- Skip link --- */
+.skip-link {
+  position: absolute; top: -120%; left: var(--s4); z-index: 1000;
+  padding: .75rem 1.25rem; background: var(--brand); color: #fff;
+  font-weight: 600; border-radius: var(--r-sm);
+  transition: top var(--fast) var(--ease);
+}
+.skip-link:focus { top: var(--s3); color: #fff; }
+
+/* ============ 4. HEADER & NAV ============ */
+.site-header {
+  position: sticky; top: 0; z-index: 200;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+
+.header__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--s5); min-height: var(--header-h);
+}
+
+/* --- Logo (text-based, no broken images) --- */
+.logo { display: inline-flex; align-items: center; gap: .7rem; flex-shrink: 0; }
+.logo__mark {
+  display: grid; place-items: center;
+  width: 42px; height: 42px;
+  background: var(--brand); color: #fff;
+  font-weight: 800; font-size: 1.15rem; letter-spacing: -.03em;
+  border-radius: 10px;
+  box-shadow: var(--sh-sm);
+}
+.logo__text { display: flex; flex-direction: column; line-height: 1.1; }
+.logo__name { font-weight: 800; font-size: 1.2rem; color: var(--ink); letter-spacing: -.02em; }
+.logo__tag { font-size: .625rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+/* --- Nav --- */
+.primary-nav ul { display: flex; align-items: center; gap: var(--s6); }
+
+.nav-link {
+  position: relative; display: inline-block; padding: .4rem 0;
+  font-size: var(--fs-sm); font-weight: 500; color: var(--ink);
+  letter-spacing: .01em;
+}
+.nav-link::after {
+  content: ""; position: absolute; left: 0; bottom: 0;
+  width: 100%; height: 2px; background: var(--brand);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform var(--base) var(--ease);
+}
+.nav-link:hover, .nav-link:focus-visible, .nav-link.is-active { color: var(--brand); }
+.nav-link:hover::after, .nav-link:focus-visible::after, .nav-link.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav__cta { display: none; }
+.header__cta { flex-shrink: 0; }
+
+/* --- Hamburger --- */
+.nav-toggle {
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  width: 46px; height: 46px; padding: 11px;
+  border-radius: var(--r-sm); border: 1px solid var(--line);
+  background: var(--surface);
+}
+.nav-toggle__bar {
+  display: block; width: 100%; height: 2px; border-radius: 2px;
+  background: var(--ink);
+  transition: transform var(--base) var(--ease), opacity var(--base) var(--ease);
+}
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ============ 5. HERO ============ */
+.hero {
+  position: relative;
+  display: flex; align-items: center;
+  min-height: clamp(520px, 78vh, 760px);
+  padding-block: var(--s10);
+  background-color: #0c1712;
+  background-image:
+    linear-gradient(100deg, rgba(8,26,17,.94) 0%, rgba(8,26,17,.78) 44%, rgba(8,26,17,.34) 100%),
+    url("https://picsum.photos/seed/npit-hero-campus/1800/1000");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  isolation: isolate;
+}
+
+.hero__content { max-width: 660px; }
+
+.hero__eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  margin-bottom: var(--s5);
+  padding: .45rem 1rem;
+  font-size: var(--fs-xs); font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: #fff;
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.28);
+  border-radius: var(--r-pill);
+  backdrop-filter: blur(6px);
+}
+.hero__dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(233,196,106,.25);
+}
+
+.hero h1 {
+  color: #fff;
+  font-size: clamp(2.1rem, 1.3rem + 3.4vw, var(--fs-4xl));
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  margin-bottom: var(--s5);
+  text-wrap: balance;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+
+.hero__lead {
+  max-width: 54ch;
+  margin-bottom: var(--s7);
+  font-size: clamp(1rem, .95rem + .3vw, 1.15rem);
+  color: rgba(255,255,255,.86);
+}
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: var(--s4); margin-bottom: var(--s8); }
+
+.hero__stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--s5);
+  max-width: 520px;
+  padding-top: var(--s6);
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.hero__stat-value {
+  display: block;
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  font-weight: 800; color: #fff; letter-spacing: -.03em; line-height: 1.1;
+}
+.hero__stat-label {
+  display: block; margin-top: .2rem;
+  font-size: var(--fs-xs); font-weight: 500;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: rgba(255,255,255,.62);
+}
+
+/* ============ 6. PARTNERS STRIP ============ */
+.partners { padding-block: var(--s7); border-bottom: 1px solid var(--line); background: var(--surface); }
+.partners__label {
+  text-align: center; margin-bottom: var(--s5);
+  font-size: var(--fs-xs); font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+}
+.partners__list {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+  gap: var(--s5) var(--s8);
+}
+.partners__item {
+  font-size: 1.05rem; font-weight: 700; letter-spacing: -.01em;
+  color: #a8b4ad;
+  transition: color var(--base) var(--ease);
+  white-space: nowrap;
+}
+.partners__item:hover { color: var(--brand); }
+
+/* ============ 7. ABOUT ============ */
+.about__grid {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: var(--s9);
+  align-items: center;
+}
+
+.about__media { position: relative; }
+.about__img {
+  width: 100%; aspect-ratio: 4 / 3;
+  object-fit: cover; border-radius: var(--r-lg);
+  box-shadow: var(--sh-lg);
+}
+.about__badge {
+  position: absolute; right: -18px; bottom: -22px;
+  display: flex; align-items: center; gap: .85rem;
+  padding: 1rem 1.35rem;
+  background: var(--brand); color: #fff;
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-md);
+}
+.about__badge strong { display: block; font-size: 1.5rem; line-height: 1; letter-spacing: -.02em; }
+.about__badge span { font-size: var(--fs-xs); letter-spacing: .06em; text-transform: uppercase; opacity: .85; }
+
+.about__list { display: grid; gap: var(--s4); margin-top: var(--s6); }
+.about__list li { display: flex; gap: .85rem; align-items: flex-start; }
+.about__check {
+  flex-shrink: 0; display: grid; place-items: center;
+  width: 26px; height: 26px; margin-top: 2px;
+  background: var(--brand-light); color: var(--brand);
+  border-radius: 50%;
+}
+.about__list p { font-size: var(--fs-sm); color: var(--body); margin: 0; }
+.about__list strong { color: var(--ink); font-weight: 600; }
+
+/* ============ 8. PROGRAMS ============ */
+.filters {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: var(--s2); margin-bottom: var(--s7);
+}
+.filter {
+  padding: .55rem 1.15rem;
+  font-size: var(--fs-sm); font-weight: 500;
+  color: var(--body);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-pill);
+  transition: all var(--fast) var(--ease);
+}
+.filter:hover { border-color: var(--brand); color: var(--brand); }
+.filter.is-active {
+  background: var(--brand); border-color: var(--brand); color: #fff;
+  box-shadow: var(--sh-sm);
+}
+
+.programs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--s5);
+}
+
+.program {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: transform var(--base) var(--ease),
+              box-shadow var(--base) var(--ease),
+              border-color var(--base) var(--ease);
+}
+.program:hover {
+  transform: translateY(-5px);
+  border-color: var(--brand);
+  box-shadow: var(--sh-lg);
+}
+.program.is-hidden { display: none; }
+
+.program__media { position: relative; aspect-ratio: 16 / 9; background: var(--brand-light); overflow: hidden; }
+.program__media img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+.program:hover .program__media img { transform: scale(1.06); }
+
+.program__tag {
+  position: absolute; top: .85rem; left: .85rem;
+  padding: .3rem .7rem;
+  font-size: .6875rem; font-weight: 700;
+  letter-spacing: .06em; text-transform: uppercase;
+  color: var(--ink); background: var(--accent);
+  border-radius: var(--r-sm);
+}
+
+.program__body { display: flex; flex-direction: column; flex: 1; padding: var(--s5); }
+.program__title { font-size: var(--fs-lg); margin-bottom: var(--s2); }
+.program__desc { font-size: var(--fs-sm); color: var(--muted); margin-bottom: var(--s5); }
+
+.program__meta {
+  display: flex; flex-wrap: wrap; gap: var(--s4);
+  margin-top: auto; padding-top: var(--s4);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-xs); color: var(--muted); font-weight: 500;
+}
+.program__meta span { display: inline-flex; align-items: center; gap: .35rem; }
+
+/* ============ 9. WHY CHOOSE US ============ */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--s5);
+}
+.feature {
+  padding: var(--s6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: transform var(--base) var(--ease),
+              box-shadow var(--base) var(--ease),
+              border-color var(--base) var(--ease);
+}
+.feature:hover {
+  transform: translateY(-4px);
+  border-color: var(--brand);
+  box-shadow: var(--sh-md);
+}
+.feature__icon {
+  display: grid; place-items: center;
+  width: 50px; height: 50px; margin-bottom: var(--s5);
+  background: var(--brand-light); color: var(--brand);
+  border-radius: var(--r-md);
+}
+.feature h3 { font-size: var(--fs-base); margin-bottom: var(--s2); }
+.feature p { font-size: var(--fs-sm); color: var(--muted); line-height: 1.7; }
+
+/* ============ 10. PROCESS STEPS ============ */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: var(--s5);
+  counter-reset: step;
+}
+.step {
+  position: relative;
+  padding: var(--s6) var(--s5) var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+}
+.step::before {
+  counter-increment: step;
+  content: "0" counter(step);
+  display: block; margin-bottom: var(--s4);
+  font-size: 1.75rem; font-weight: 800; letter-spacing: -.04em;
+  color: var(--brand-light);
+  -webkit-text-stroke: 1px var(--brand);
+}
+.step h3 { font-size: var(--fs-base); margin-bottom: var(--s2); }
+.step p { font-size: var(--fs-sm); color: var(--muted); }
+
+/* ============ 11. STATS BAND ============ */
+.stats-band { padding-block: var(--s9); }
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: var(--s5);
+  text-align: center;
+}
+.stat__value {
+  display: block;
+  font-size: clamp(2rem, 1.5rem + 2vw, 3rem);
+  font-weight: 800; letter-spacing: -.04em; line-height: 1;
+  color: var(--accent);
+}
+.stat__label {
+  display: block; margin-top: .6rem;
+  font-size: var(--fs-sm); color: rgba(255,255,255,.66);
+}
+
+/* ============ 12. TESTIMONIALS ============ */
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--s5);
+}
+.testimonial {
+  display: flex; flex-direction: column;
+  padding: var(--s6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  box-shadow: var(--sh-sm);
+  transition: transform var(--base) var(--ease), box-shadow var(--base) var(--ease);
+}
+.testimonial:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+
+.testimonial__stars { display: flex; gap: 2px; margin-bottom: var(--s4); color: var(--accent); }
+.testimonial__quote { font-size: var(--fs-sm); color: var(--body); line-height: 1.75; margin-bottom: var(--s5); }
+.testimonial__author { display: flex; align-items: center; gap: .8rem; margin-top: auto; padding-top: var(--s4); border-top: 1px solid var(--line); }
+.testimonial__avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  object-fit: cover; background: var(--brand-light);
+}
+.testimonial__name { font-size: var(--fs-sm); font-weight: 600; color: var(--ink); }
+.testimonial__role { font-size: var(--fs-xs); color: var(--muted); }
+
+/* ============ 13. INSTRUCTORS ============ */
+.team {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+  gap: var(--s5);
+}
+.member {
+  text-align: center;
+  padding: var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  transition: transform var(--base) var(--ease), box-shadow var(--base) var(--ease);
+}
+.member:hover { transform: translateY(-4px); box-shadow: var(--sh-md); }
+.member__photo {
+  width: 108px; height: 108px; margin: 0 auto var(--s4);
+  border-radius: 50%; object-fit: cover;
+  border: 3px solid var(--brand-light);
+  background: var(--brand-light);
+}
+.member__name { font-size: var(--fs-base); margin-bottom: .15rem; }
+.member__role { font-size: var(--fs-xs); color: var(--brand); font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+
+/* ============ 14. FAQ ============ */
+.faq { max-width: 820px; margin-inline: auto; display: grid; gap: var(--s3); }
+
+.faq__item {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: border-color var(--base) var(--ease), box-shadow var(--base) var(--ease);
+}
+.faq__item[open] { border-color: var(--brand); box-shadow: var(--sh-sm); }
+
+.faq__item summary {
+  display: flex; align-items: center; justify-content: space-between; gap: var(--s4);
+  padding: 1.15rem var(--s5);
+  font-size: var(--fs-base); font-weight: 600; color: var(--ink);
+  cursor: pointer; list-style: none;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  width: 26px; height: 26px;
+  font-size: 1.15rem; font-weight: 400; line-height: 1;
+  color: var(--brand); background: var(--brand-light);
+  border-radius: 50%;
+  transition: transform var(--base) var(--ease);
+}
+.faq__item[open] summary::after { content: "−"; transform: rotate(180deg); }
+
+.faq__answer {
+  padding: 0 var(--s5) 1.25rem;
+  font-size: var(--fs-sm); color: var(--muted); line-height: 1.75;
+}
+
+/* ============ 15. BLOG ============ */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: var(--s5);
+}
+.post {
+  display: flex; flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: transform var(--base) var(--ease), box-shadow var(--base) var(--ease), border-color var(--base) var(--ease);
+}
+.post:hover { transform: translateY(-5px); border-color: var(--brand); box-shadow: var(--sh-lg); }
+.post__media { aspect-ratio: 16 / 10; overflow: hidden; background: var(--brand-light); }
+.post__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms var(--ease); }
+.post:hover .post__media img { transform: scale(1.06); }
+.post__body { padding: var(--s5); display: flex; flex-direction: column; flex: 1; }
+.post__meta { font-size: var(--fs-xs); color: var(--muted); margin-bottom: var(--s2); font-weight: 500; }
+.post__title { font-size: var(--fs-base); margin-bottom: var(--s3); line-height: 1.4; }
+.post__title a { color: var(--ink); }
+.post__title a:hover { color: var(--brand); }
+.post__excerpt { font-size: var(--fs-sm); color: var(--muted); margin-bottom: var(--s4); }
+.post__link {
+  display: inline-flex; align-items: center; gap: .4rem;
+  margin-top: auto;
+  font-size: var(--fs-sm); font-weight: 600; color: var(--brand);
+}
+.post__link svg { transition: transform var(--fast) var(--ease); }
+.post__link:hover svg { transform: translateX(3px); }
+
+/* ============ 16. APPLY / FORM ============ */
+.apply {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s9);
+  align-items: start;
+}
+
+.apply__info { padding-top: var(--s2); }
+.apply__info h2 { margin-bottom: var(--s4); }
+.apply__info > p { margin-bottom: var(--s6); color: var(--muted); }
+
+.apply__points { display: grid; gap: var(--s4); margin-bottom: var(--s6); }
+.apply__points li { display: flex; align-items: flex-start; gap: .8rem; font-size: var(--fs-sm); }
+.apply__points svg { flex-shrink: 0; margin-top: 3px; color: var(--brand); }
+
+.apply__contact { font-size: var(--fs-sm); color: var(--muted); }
+.apply__contact a { font-weight: 600; }
+
+.form {
+  padding: var(--s7);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  box-shadow: var(--sh-md);
+}
+.form__title { font-size: var(--fs-lg); margin-bottom: var(--s2); }
+.form__subtitle { font-size: var(--fs-sm); color: var(--muted); margin-bottom: var(--s6); }
+
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s4); }
+.field { display: flex; flex-direction: column; gap: .4rem; margin-bottom: var(--s4); }
+.field label { font-size: var(--fs-xs); font-weight: 600; color: var(--ink); letter-spacing: .02em; }
+.field label .req { color: #c0392b; }
+
+.field input, .field select, .field textarea {
+  width: 100%;
+  padding: .75rem .9rem;
+  font-size: var(--fs-sm);
+  color: var(--ink);
+  background: var(--surface-alt);
+  border: 1.5px solid var(--line);
+  border-radius: var(--r-sm);
+  transition: border-color var(--fast) var(--ease), background var(--fast) var(--ease), box-shadow var(--fast) var(--ease);
+}
+.field textarea { resize: vertical; min-height: 96px; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 3px rgba(23,102,63,.12);
+}
+.field input:user-invalid, .field select:user-invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192,57,43,.1);
+}
+
+.form__note { margin-top: var(--s4); font-size: var(--fs-xs); color: var(--muted); text-align: center; }
+
+.form__success {
+  display: none;
+  align-items: center; gap: .6rem;
+  margin-top: var(--s4);
+  padding: .85rem 1rem;
+  font-size: var(--fs-sm); font-weight: 500;
+  color: var(--brand-dark); background: var(--brand-light);
+  border: 1px solid #bfe0cd; border-radius: var(--r-sm);
+}
+.form__success.is-visible { display: flex; }
+
+/* ============ 17. FOOTER ============ */
+.site-footer { background: var(--dark); color: rgba(255,255,255,.68); font-size: var(--fs-sm); }
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.4fr;
+  gap: var(--s8);
+  padding-block: var(--s9) var(--s8);
+}
+
+.footer__brand .logo { margin-bottom: var(--s4); }
+.footer__brand .logo__name { color: #fff; }
+.footer__brand .logo__tag { color: rgba(255,255,255,.45); }
+.footer__brand p { font-size: var(--fs-sm); color: rgba(255,255,255,.6); max-width: 34ch; margin-bottom: var(--s5); }
+
+.socials { display: flex; gap: .6rem; }
+.socials a {
+  display: grid; place-items: center;
+  width: 38px; height: 38px;
+  color: rgba(255,255,255,.75);
+  background: rgba(255,255,255,.07);
+  border-radius: 50%;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease), transform var(--fast) var(--ease);
+}
+.socials a:hover { background: var(--brand); color: #fff; transform: translateY(-2px); }
+
+.footer__col h4 {
+  margin-bottom: var(--s4);
+  font-size: var(--fs-xs); font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  color: #fff;
+}
+.footer__col ul { display: grid; gap: .7rem; }
+.footer__col a { color: rgba(255,255,255,.62); font-size: var(--fs-sm); }
+.footer__col a:hover { color: var(--accent); }
+
+.newsletter p { font-size: var(--fs-sm); color: rgba(255,255,255,.6); margin-bottom: var(--s4); }
+.newsletter__form { display: flex; gap: .5rem; }
+.newsletter__form input {
+  flex: 1; min-width: 0;
+  padding: .7rem .9rem;
+  font-size: var(--fs-sm);
+  color: #fff;
+  background: rgba(255,255,255,.08);
+  border: 1px solid rgba(255,255,255,.16);
+  border-radius: var(--r-sm);
+}
+.newsletter__form input::placeholder { color: rgba(255,255,255,.4); }
+.newsletter__form input:focus {
+  outline: none; border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(233,196,106,.18);
+}
+.newsletter__form .btn { padding-inline: 1.15rem; }
+
+.footer__bottom {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--s4);
+  padding-block: var(--s5);
+  border-top: 1px solid rgba(255,255,255,.1);
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,.5);
+}
+.footer__bottom ul { display: flex; flex-wrap: wrap; gap: var(--s5); }
+.footer__bottom a { color: rgba(255,255,255,.55); }
+.footer__bottom a:hover { color: #fff; }
+
+/* ============ 18. BACK TO TOP ============ */
+.to-top {
+  position: fixed; right: 1.5rem; bottom: 1.5rem; z-index: 150;
+  display: grid; place-items: center;
+  width: 46px; height: 46px;
+  color: #fff; background: var(--brand);
+  border-radius: 50%;
+  box-shadow: var(--sh-md);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity var(--base) var(--ease),
+              transform var(--base) var(--ease),
+              visibility var(--base) var(--ease),
+              background var(--fast) var(--ease);
+}
+.to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.to-top:hover { background: var(--brand-dark); color: #fff; }
+
+/* ============ 19. REVEAL ANIMATION ============ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 600ms var(--ease), transform 600ms var(--ease);
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+/* ============ 20. RESPONSIVE ============ */
+
+/* --- ≤1100px --- */
+@media (max-width: 1100px) {
+  .about__grid { gap: var(--s7); }
+  .footer__top { grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s7); }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+/* --- ≤980px --- */
+@media (max-width: 980px) {
+  :root { --header-h: 74px; --s9: 3.25rem; }
+
+  .nav-toggle { display: flex; }
+  .header__cta { display: none; }
+
+  .primary-nav {
+    position: absolute; top: 100%; left: 0; right: 0;
+    display: none; flex-direction: column; gap: var(--s5);
+    padding: var(--s6) var(--pad) var(--s7);
+    background: var(--surface);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--sh-lg);
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
+  }
+  .primary-nav.is-open { display: flex; animation: navIn var(--base) var(--ease); }
+  .primary-nav ul { flex-direction: column; align-items: stretch; gap: 0; width: 100%; }
+  .primary-nav ul li { border-bottom: 1px solid var(--line); }
+  .nav-link { display: block; padding: var(--s4) 0; font-size: var(--fs-base); }
+  .nav-link::after { display: none; }
+  .nav__cta { display: inline-flex; width: 100%; }
+
+  .about__grid { grid-template-columns: 1fr; }
+  .about__media { order: -1; }
+  .about__badge { right: 12px; bottom: -18px; }
+
+  .programs { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .feature-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .steps { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: var(--s6); }
+  .testimonials { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; }
+  .team { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .blog-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+  .apply { grid-template-columns: 1fr; }
+  .footer__top { grid-template-columns: 1fr 1fr; }
+}
+
+@keyframes navIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* --- ≤640px --- */
+@media (max-width: 640px) {
+  :root { --pad: 1.25rem; --s9: 2.75rem; --s10: 3.5rem; }
+
+  h1 { font-size: var(--fs-2xl); }
+  h2 { font-size: var(--fs-xl); }
+
+  .logo__mark { width: 38px; height: 38px; font-size: 1rem; }
+  .logo__name { font-size: 1.05rem; }
+  .logo__tag { font-size: .5625rem; }
+
+  .hero { min-height: auto; padding-block: var(--s9); background-position: 62% center; }
+  .hero__actions { flex-direction: column; align-items: stretch; }
+  .hero__actions .btn { width: 100%; }
+  .hero__stats { grid-template-columns: repeat(3, 1fr); gap: var(--s3); }
+  .hero__stat-label { font-size: .625rem; }
+
+  .partners__list { gap: var(--s4) var(--s5); }
+  .partners__item { font-size: .9rem; }
+
+  .programs,
+  .feature-grid,
+  .steps,
+  .team,
+  .blog-grid { grid-template-columns: 1fr; }
+
+  .filters { justify-content: flex-start; overflow-x: auto; flex-wrap: nowrap; padding-bottom: .5rem; }
+  .filter { flex-shrink: 0; }
+
+  .form { padding: var(--s5); }
+  .form__row { grid-template-columns: 1fr; }
+
+  .footer__top { grid-template-columns: 1fr; gap: var(--s6); padding-block: var(--s7) var(--s6); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+
+  .to-top { right: 1rem; bottom: 1rem; width: 42px; height: 42px; }
+
+  .about__badge { right: 8px; bottom: -16px; padding: .8rem 1rem; }
+  .about__badge strong { font-size: 1.2rem; }
+}
+
+/* --- ≤380px --- */
+@media (max-width: 380px) {
+  .hero__stats { grid-template-columns: 1fr; gap: var(--s4); }
+  .newsletter__form { flex-direction: column; }
+}
+
+/* ============ 21. ACCESSIBILITY & MOTION ============ */
+:focus-visible {
+  outline: 3px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.hero :focus-visible,
+.section--dark :focus-visible { outline-color: var(--accent); }
+:focus:not(:focus-visible) { outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal { opacity: 1; transform: none; }
+  .program:hover, .feature:hover, .post:hover, .member:hover, .testimonial:hover { transform: none; }
+  .program:hover .program__media img,
+  .post:hover .post__media img { transform: none; }
+}
+
+@media (forced-colors: active) {
+  .btn { border: 2px solid ButtonText; }
+  .program, .feature, .step, .post, .testimonial, .member, .faq__item { border: 1px solid CanvasText; }
+}
+
+@media print {
+  .site-header, .site-footer, .to-top, .hero__actions,
+  .nav-toggle, .filters, .form, .newsletter { display: none !important; }
+  body { color: #000; background: #fff; }
+  .hero { background-image: none !important; color: #000; min-height: auto; padding: 1rem 0; }
+  .hero h1, .hero__lead, .hero__stat-value, .hero__stat-label { color: #000; }
+  .section { padding-block: 1.25rem; }
+  a { text-decoration: underline; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ==================== HEADER ==================== -->
+<header class="site-header" id="top">
+  <div class="container header__inner">
+
+    <a class="logo" href="#top" aria-label="NPIT — National Polytechnic Institute of Technology, home">
+      <span class="logo__mark" aria-hidden="true">N</span>
+      <span class="logo__text">
+        <span class="logo__name">NPIT</span>
+        <span class="logo__tag">Institute of Technology</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button"
+            aria-expanded="false" aria-controls="primary-nav"
+            aria-label="Open navigation menu">
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+      <span class="nav-toggle__bar" aria-hidden="true"></span>
+    </button>
+
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li><a class="nav-link" href="#about">About</a></li>
+        <li><a class="nav-link" href="#programs">Programs</a></li>
+        <li><a class="nav-link" href="#why">Why NPIT</a></li>
+        <li><a class="nav-link" href="#testimonials">Students</a></li>
+        <li><a class="nav-link" href="#blog">Insights</a></li>
+        <li><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn--primary nav__cta" href="#apply">Apply now</a>
+    </nav>
+
+    <a class="btn btn--primary header__cta" href="#apply">Apply now</a>
+
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ==================== HERO ==================== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="container">
+      <div class="hero__content">
+        <p class="hero__eyebrow">
+          <span class="hero__dot" aria-hidden="true"></span>
+          Now enrolling — Fall intake
+        </p>
+
+        <h1 id="hero-title">Learn the skills employers are <em>actually hiring for.</em></h1>
+
+        <p class="hero__lead">
+          Industry-led programs, hands-on projects, and one-to-one career support —
+          designed to take you from first lesson to first offer.
+        </p>
+
+        <div class="hero__actions">
+          <a class="btn btn--accent btn--lg" href="#apply">
+            Apply now
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--outline-light btn--lg" href="#programs">Explore programs</a>
+        </div>
+
+        <div class="hero__stats">
+          <div>
+            <span class="hero__stat-value">12k+</span>
+            <span class="hero__stat-label">Graduates</span>
+          </div>
+          <div>
+            <span class="hero__stat-value">96%</span>
+            <span class="hero__stat-label">Placement</span>
+          </div>
+          <div>
+            <span class="hero__stat-value">40+</span>
+            <span class="hero__stat-label">Programs</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PARTNERS ==================== -->
+  <section class="partners" aria-label="Hiring partners">
+    <div class="container">
+      <p class="partners__label">Trusted by hiring teams at</p>
+      <ul class="partners__list">
+        <li class="partners__item">NORTHWIND</li>
+        <li class="partners__item">Vertex Labs</li>
+        <li class="partners__item">HELIOS</li>
+        <li class="partners__item">Quanta</li>
+        <li class="partners__item">BLUEPEAK</li>
+        <li class="partners__item">Orbit&nbsp;Pay</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT ==================== -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="about__grid">
+
+        <div class="about__media reveal">
+          <img class="about__img"
+               src="https://picsum.photos/seed/npit-about-classroom/900/680"
+               alt="Students collaborating in an NPIT classroom"
+               width="900" height="680" loading="lazy">
+          <div class="about__badge">
+            <div>
+              <strong>15+</strong>
+              <span>Years training</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__info reveal">
+          <p class="eyebrow">About NPIT</p>
+          <h2 id="about-title">Education built with industry, for industry</h2>
+          <p class="section__lead" style="text-align:left;">
+            Since 2011 we've partnered with employers to design programs that reflect
+            the skills actually in demand — not the ones that were in demand a decade ago.
+            Every course is reviewed twice a year with our industry advisory board.
+          </p>
+
+          <ul class="about__list">
+            <li>
+              <span class="about__check" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <p><strong>Small cohorts.</strong> Maximum 20 students per class, so instructors know your name and your goals.</p>
+            </li>
+            <li>
+              <span class="about__check" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <p><strong>Real projects.</strong> You graduate with a portfolio built on briefs from actual partner companies.</p>
+            </li>
+            <li>
+              <span class="about__check" aria-hidden="true">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+              </span>
+              <p><strong>Career support for life.</strong> CV reviews, mock interviews and job referrals — available long after you graduate.</p>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== PROGRAMS ==================== -->
+  <section class="section section--alt" id="programs" aria-labelledby="programs-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Programs</p>
+        <h2 id="programs-title">Find the track that fits your ambition</h2>
+        <p class="section__lead">
+          Full-time and part-time options, all with live instruction and a portfolio
+          project you can show employers.
+        </p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter programs by category">
+        <button class="filter is-active" type="button" data-filter="all">All programs</button>
+        <button class="filter" type="button" data-filter="development">Development</button>
+        <button class="filter" type="button" data-filter="data">Data</button>
+        <button class="filter" type="button" data-filter="security">Security</button>
+        <button class="filter" type="button" data-filter="design">Design</button>
+      </div>
+
+      <ul class="programs">
+
+        <li class="program reveal" data-category="development">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-webdev/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Development</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">Full-Stack Web Development</h3>
+            <p class="program__desc">JavaScript, React, Node and PostgreSQL — from fundamentals to production deployment.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 24 weeks</span>
+              <span>Beginner friendly</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="program reveal" data-category="data">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-data/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Data</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">Data Analytics &amp; BI</h3>
+            <p class="program__desc">SQL, Python, statistical thinking and dashboarding with Power BI and Tableau.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 16 weeks</span>
+              <span>Beginner friendly</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="program reveal" data-category="security">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-security/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Security</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">Cybersecurity Essentials</h3>
+            <p class="program__desc">Threat modelling, network defence, incident response and preparation for Security+.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 20 weeks</span>
+              <span>Intermediate</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="program reveal" data-category="development">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-cloud/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Development</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">Cloud &amp; DevOps Engineering</h3>
+            <p class="program__desc">AWS, Docker, Kubernetes and CI/CD pipelines for modern infrastructure teams.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 22 weeks</span>
+              <span>Intermediate</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="program reveal" data-category="design">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-ux/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Design</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">UX &amp; Product Design</h3>
+            <p class="program__desc">Research, wireframing, prototyping and design systems in Figma — end to end.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 14 weeks</span>
+              <span>Beginner friendly</span>
+            </div>
+          </div>
+        </li>
+
+        <li class="program reveal" data-category="data">
+          <div class="program__media">
+            <img src="https://picsum.photos/seed/npit-ml/640/360" alt="" width="640" height="360" loading="lazy">
+            <span class="program__tag">Data</span>
+          </div>
+          <div class="program__body">
+            <h3 class="program__title">Applied Machine Learning</h3>
+            <p class="program__desc">Regression, classification, model evaluation and deploying ML services to production.</p>
+            <div class="program__meta">
+              <span><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg> 26 weeks</span>
+              <span>Advanced</span>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== WHY NPIT ==================== -->
+  <section class="section" id="why" aria-labelledby="why-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Why NPIT</p>
+        <h2 id="why-title">Training built around real outcomes</h2>
+        <p class="section__lead">
+          We measure success by where our graduates end up — not by how many
+          certificates we print.
+        </p>
+      </div>
+
+      <ul class="feature-grid">
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.7 2.7 3 6 3s6-1.3 6-3v-5.5"/></svg>
+          </span>
+          <h3>Industry-led curriculum</h3>
+          <p>Every syllabus is reviewed twice a year with hiring managers, so you learn what teams are using today.</p>
+        </li>
+
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg>
+          </span>
+          <h3>Hands-on from week one</h3>
+          <p>You write code, build dashboards and ship designs immediately — theory always follows practice.</p>
+        </li>
+
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13A4 4 0 0 1 16 11"/></svg>
+          </span>
+          <h3>Mentors, not lecturers</h3>
+          <p>Instructors are working practitioners with an average of 9 years in the field.</p>
+        </li>
+
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+          </span>
+          <h3>Flexible scheduling</h3>
+          <p>Evening and weekend cohorts for people balancing study with a full-time job.</p>
+        </li>
+
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg>
+          </span>
+          <h3>Career coaching included</h3>
+          <p>CV rewrites, LinkedIn reviews, mock interviews and warm introductions to partner teams.</p>
+        </li>
+
+        <li class="feature reveal">
+          <span class="feature__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7v6c0 5 3.8 9.2 9 11 5.2-1.8 9-6 9-11V7l-9-5Z"/><path d="m9 12 2 2 4-4"/></svg>
+          </span>
+          <h3>Accredited &amp; recognised</h3>
+          <p>Our certifications are mapped to national frameworks and recognised by 200+ employers.</p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ==================== PROCESS ==================== -->
+  <section class="section section--alt" id="process" aria-labelledby="process-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">How it works</p>
+        <h2 id="process-title">From application to first offer</h2>
+        <p class="section__lead">
+          A straightforward four-step path — most students start within three weeks
+          of applying.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <h3>Apply online</h3>
+          <p>Complete a five-minute form. No entrance exam and no prior qualifications required for most tracks.</p>
+        </li>
+        <li class="step reveal">
+          <h3>Talk to an advisor</h3>
+          <p>A 20-minute call to map your goals, experience and schedule to the right program.</p>
+        </li>
+        <li class="step reveal">
+          <h3>Start learning</h3>
+          <p>Join your cohort, meet your mentor and begin building on day one.</p>
+        </li>
+        <li class="step reveal">
+          <h3>Land the role</h3>
+          <p>Work with our careers team on applications, interviews and referrals until you're hired.</p>
+        </li>
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- ==================== STATS BAND ==================== -->
+  <section class="section section--dark stats-band" aria-label="NPIT by the numbers">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="reveal">
+          <span class="stat__value">12,400+</span>
+          <span class="stat__label">Students trained</span>
+        </div>
+        <div class="reveal">
+          <span class="stat__value">96%</span>
+          <span class="stat__label">Hired within 6 months</span>
+        </div>
+        <div class="reveal">
+          <span class="stat__value">200+</span>
+          <span class="stat__label">Hiring partners</span>
+        </div>
+        <div class="reveal">
+          <span class="stat__value">4.8/5</span>
+          <span class="stat__label">Average student rating</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS ==================== -->
+  <section class="section" id="testimonials" aria-labelledby="testimonials-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Student stories</p>
+        <h2 id="testimonials-title">What graduates say</h2>
+        <p class="section__lead">
+          Real feedback from people who changed careers with us.
+        </p>
+      </div>
+
+      <ul class="testimonials">
+
+        <li class="testimonial reveal">
+          <div class="testimonial__stars" aria-label="Rated 5 out of 5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">
+            "I went from a retail job to a junior developer role in seven months. The
+            portfolio projects were the difference — interviewers actually wanted to
+            talk about what I'd built."
+          </blockquote>
+          <div class="testimonial__author">
+            <img class="testimonial__avatar" src="https://i.pravatar.cc/88?img=47" alt="" width="44" height="44" loading="lazy">
+            <div>
+              <div class="testimonial__name">Amara Okafor</div>
+              <div class="testimonial__role">Junior Developer, Vertex Labs</div>
+            </div>
+          </div>
+        </li>
+
+        <li class="testimonial reveal">
+          <div class="testimonial__stars" aria-label="Rated 5 out of 5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">
+            "The evening cohort meant I could keep my job while retraining. The
+            career team rewrote my CV and set up three interviews in my final month."
+          </blockquote>
+          <div class="testimonial__author">
+            <img class="testimonial__avatar" src="https://i.pravatar.cc/88?img=12" alt="" width="44" height="44" loading="lazy">
+            <div>
+              <div class="testimonial__name">Daniel Reyes</div>
+              <div class="testimonial__role">Data Analyst, Quanta</div>
+            </div>
+          </div>
+        </li>
+
+        <li class="testimonial reveal">
+          <div class="testimonial__stars" aria-label="Rated 5 out of 5">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1L12 2Z"/></svg>
+          </div>
+          <blockquote class="testimonial__quote">
+            "Small classes made all the difference. My mentor reviewed every project
+            I submitted and pushed me to go further than I thought I could."
+          </blockquote>
+          <div class="testimonial__author">
+            <img class="testimonial__avatar" src="https://i.pravatar.cc/88?img=32" alt="" width="44" height="44" loading="lazy">
+            <div>
+              <div class="testimonial__name">Priya Nair</div>
+              <div class="testimonial__role">UX Designer, Bluepeak</div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== INSTRUCTORS ==================== -->
+  <section class="section section--alt" id="team" aria-labelledby="team-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Our instructors</p>
+        <h2 id="team-title">Learn from people who do the work</h2>
+        <p class="section__lead">
+          Every instructor is an active practitioner — not a full-time lecturer.
+        </p>
+      </div>
+
+      <ul class="team">
+        <li class="member reveal">
+          <img class="member__photo" src="https://i.pravatar.cc/216?img=15" alt="" width="108" height="108" loading="lazy">
+          <h3 class="member__name">Marcus Bell</h3>
+          <p class="member__role">Lead Instructor, Development</p>
+        </li>
+        <li class="member reveal">
+          <img class="member__photo" src="https://i.pravatar.cc/216?img=45" alt="" width="108" height="108" loading="lazy">
+          <h3 class="member__name">Sofia Lindqvist</h3>
+          <p class="member__role">Lead Instructor, Data</p>
+        </li>
+        <li class="member reveal">
+          <img class="member__photo" src="https://i.pravatar.cc/216?img=33" alt="" width="108" height="108" loading="lazy">
+          <h3 class="member__name">Kwame Mensah</h3>
+          <p class="member__role">Lead Instructor, Security</p>
+        </li>
+        <li class="member reveal">
+          <img class="member__photo" src="https://i.pravatar.cc/216?img=26" alt="" width="108" height="108" loading="lazy">
+          <h3 class="member__name">Elena Rossi</h3>
+          <p class="member__role">Lead Instructor, Design</p>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Questions</p>
+        <h2 id="faq-title">Frequently asked</h2>
+        <p class="section__lead">
+          Can't find what you need? <a href="#contact">Talk to an advisor</a>.
+        </p>
+      </div>
+
+      <div class="faq reveal">
+
+        <details class="faq__item" open>
+          <summary>Do I need previous experience to enrol?</summary>
+          <div class="faq__answer">
+            No. Most of our programs are beginner-friendly and start from the
+            fundamentals. For intermediate and advanced tracks we'll check your
+            background during the advisor call and recommend the right starting point.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>How long does a typical program take?</summary>
+          <div class="faq__answer">
+            Between 14 and 26 weeks depending on the track. Full-time students usually
+            study 30–35 hours per week; part-time evening cohorts run at around 15 hours
+            per week.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Is there financial support available?</summary>
+          <div class="faq__answer">
+            Yes. We offer monthly payment plans with no interest, a limited number of
+            partial scholarships for career changers, and employer-sponsored invoicing
+            for students whose companies are funding their training.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Are classes online, on campus, or both?</summary>
+          <div class="faq__answer">
+            Both. Every program runs as a live online cohort, and our campus offers
+            in-person sessions for Development, Data and Design tracks. You can switch
+            between the two formats mid-program if your circumstances change.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>What happens after I graduate?</summary>
+          <div class="faq__answer">
+            You keep lifetime access to career support: CV and portfolio reviews,
+            mock interviews, and referrals to our 200+ hiring partners. You also join
+            the NPIT alumni network, which runs regular hiring events and workshops.
+          </div>
+        </details>
+
+        <details class="faq__item">
+          <summary>Will I receive a recognised certificate?</summary>
+          <div class="faq__answer">
+            Yes. All programs lead to an NPIT certificate mapped to national
+            occupational standards. Several tracks also prepare you for external
+            vendor certifications such as AWS, CompTIA Security+ and Microsoft PL-300.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== BLOG ==================== -->
+  <section class="section section--alt" id="blog" aria-labelledby="blog-title">
+    <div class="container">
+
+      <div class="section__head reveal">
+        <p class="eyebrow">Insights</p>
+        <h2 id="blog-title">From the NPIT blog</h2>
+        <p class="section__lead">
+          Career advice, industry trends and stories from our community.
+        </p>
+      </div>
+
+      <div class="blog-grid">
+
+        <article class="post reveal">
+          <div class="post__media">
+            <img src="https://picsum.photos/seed/npit-blog-1/640/400" alt="" width="640" height="400" loading="lazy">
+          </div>
+          <div class="post__body">
+            <p class="post__meta">Careers · 6 min read</p>
+            <h3 class="post__title"><a href="#">The 2026 tech skills employers are actually hiring for</a></h3>
+            <p class="post__excerpt">We analysed 4,000 job postings from our hiring partners. Here's what came out on top.</p>
+            <a class="post__link" href="#">
+              Read article
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post__media">
+            <img src="https://picsum.photos/seed/npit-blog-2/640/400" alt="" width="640" height="400" loading="lazy">
+          </div>
+          <div class="post__body">
+            <p class="post__meta">Learning · 4 min read</p>
+            <h3 class="post__title"><a href="#">How to build a portfolio that gets you interviews</a></h3>
+            <p class="post__excerpt">Three projects, one clear narrative. Our careers team explains the formula.</p>
+            <a class="post__link" href="#">
+              Read article
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+        <article class="post reveal">
+          <div class="post__media">
+            <img src="https://picsum.photos/seed/npit-blog-3/640/400" alt="" width="640" height="400" loading="lazy">
+          </div>
+          <div class="post__body">
+            <p class="post__meta">Student story · 5 min read</p>
+            <h3 class="post__title"><a href="#">From hospitality to cloud engineering in eight months</a></h3>
+            <p class="post__excerpt">How one graduate moved industries without taking a pay cut.</p>
+            <a class="post__link" href="#">
+              Read article
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== APPLY ==================== -->
+  <section class="section" id="apply" aria-labelledby="apply-title">
+    <div class="container">
+      <div class="apply">
+
+        <div class="apply__info reveal">
+          <p class="eyebrow">Apply</p>
+          <h2 id="apply-title">Start your application</h2>
+          <p>
+            Fill in the form and an advisor will contact you within one working day
+            to talk through your options. There's no cost and no obligation.
+          </p>
+
+          <ul class="apply__points">
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Five-minute form, no entrance exam
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Interest-free payment plans available
+            </li>
+            <li>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              Next cohorts start every six weeks
+            </li>
+          </ul>
+
+          <p class="apply__contact">
+            Prefer to talk first? Call <a href="tel:+15550123456">+1 (555) 012-3456</a>
+            or email <a href="mailto:admissions@npit.edu">admissions@npit.edu</a>.
+          </p>
+        </div>
+
+        <form class="form reveal" id="apply-form" novalidate>
+          <h3 class="form__title">Admissions enquiry</h3>
+          <p class="form__subtitle">All fields marked with an asterisk are required.</p>
+
+          <div class="form__row">
+            <div class="field">
+              <label for="first-name">First name <span class="req" aria-hidden="true">*</span></label>
+              <input id="first-name" name="firstName" type="text" autocomplete="given-name" placeholder="Jordan" required>
+            </div>
+            <div class="field">
+              <label for="last-name">Last name <span class="req" aria-hidden="true">*</span></label>
+              <input id="last-name" name="lastName" type="text" autocomplete="family-name" placeholder="Ellis" required>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address <span class="req" aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="jordan@example.com" required>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+1 (555) 000-0000">
+          </div>
+
+          <div class="field">
+            <label for="program">Program of interest <span class="req" aria-hidden="true">*</span></label>
+            <select id="program" name="program" required>
+              <option value="" selected disabled>Select a program</option>
+              <option>Full-Stack Web Development</option>
+              <option>Data Analytics &amp; BI</option>
+              <option>Cybersecurity Essentials</option>
+              <option>Cloud &amp; DevOps Engineering</option>
+              <option>UX &amp; Product Design</option>
+              <option>Applied Machine Learning</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Anything we should know?</label>
+            <textarea id="message" name="message" rows="3" placeholder="Tell us about your goals or your schedule."></textarea>
+          </div>
+
+          <button class="btn btn--primary btn--block btn--lg" type="submit">
+            Submit application
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+
+          <p class="form__note">
+            By submitting you agree to our <a href="#">privacy policy</a>. We'll never share your details.
+          </p>
+
+          <div class="form__success" id="form-success" role="status" aria-live="polite">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+            <span>Thanks — your application has been received. An advisor will be in touch within one working day.</span>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="site-footer" id="contact">
+  <div class="container">
+
+    <div class="footer__top">
+
+      <div class="footer__brand">
+        <a class="logo" href="#top" aria-label="NPIT — home">
+          <span class="logo__mark" aria-hidden="true">N</span>
+          <span class="logo__text">
+            <span class="logo__name">NPIT</span>
+            <span class="logo__tag">Institute of Technology</span>
+          </span>
+        </a>
+        <p>
+          Industry-led training and certification built around real outcomes.
+          12,000+ graduates and counting.
+        </p>
+        <div class="socials">
+          <a href="#" aria-label="NPIT on LinkedIn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95C20.6 8.75 22 11 22 14.3V21h-4v-6c0-1.43-.03-3.27-2-3.27-2 0-2.3 1.56-2.3 3.17V21H9V9Z"/></svg>
+          </a>
+          <a href="#" aria-label="NPIT on X">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-6.8 7.8L23.2 22h-6.3l-4.9-6.4L6.4 22H3.3l7.3-8.3L1.2 2h6.4l4.4 5.9L18.9 2Zm-1.1 18h1.7L7.1 3.7H5.3L17.8 20Z"/></svg>
+          </a>
+          <a href="#" aria-label="NPIT on Instagram">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="#" aria-label="NPIT on YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.33a2.78 2.78 0 0 0-1.94-2C18.88 4.2 12 4.2 12 4.2s-6.88 0-8.6.47a2.78 2.78 0 0 0-1.94 2C1 8.4 1 12 1 12s0 3.6.46 5.33a2.78 2.78 0 0 0 1.94 2c1.72.47 8.6.47 8.6.47s6.88 0 8.6-.47a2.78 2.78 0 0 0 1.94-2C23 15.6 23 12 23 12ZM9.75 15.5v-7l6 3.5-6 3.5Z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <h4>Programs</h4>
+        <ul>
+          <li><a href="#programs">Web Development</a></li>
+          <li><a href="#programs">Data Analytics</a></li>
+          <li><a href="#programs">Cybersecurity</a></li>
+          <li><a href="#programs">Cloud &amp; DevOps</a></li>
+          <li><a href="#programs">UX Design</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4>Institute</h4>
+        <ul>
+          <li><a href="#about">About NPIT</a></li>
+          <li><a href="#team">Our instructors</a></li>
+          <li><a href="#testimonials">Student stories</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#blog">Insights</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col newsletter">
+        <h4>Stay in the loop</h4>
+        <p>Program updates, hiring events and career tips — once a month, no spam.</p>
+        <form class="newsletter__form" id="newsletter-form">
+          <label class="visually-hidden" for="newsletter-email" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="Your email address" required>
+          <button class="btn btn--accent" type="submit">Join</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; 2026 NPIT — National Polytechnic Institute of Technology. All rights reserved.</p>
+      <ul>
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Accessibility</a></li>
+        <li><a href="#">Sitemap</a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+<!-- ==================== BACK TO TOP ==================== -->
+<a class="to-top" href="#top" id="to-top" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</a>
+
+<script>
+/* =========================================================
+   NPIT — Behaviour
+   1. Mobile navigation
+   2. Scroll spy (active nav link)
+   3. Scroll reveal
+   4. Program filter
+   5. Application form
+   6. Newsletter form
+   7. Back to top
+   8. Current year
+   ========================================================= */
+(function () {
+  'use strict';
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 1. Mobile navigation ---------- */
+  var toggle = document.querySelector('.nav-toggle');
+  var nav    = document.getElementById('primary-nav');
+
+  function closeNav() {
+    if (!nav) return;
+    nav.classList.remove('is-open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open navigation menu');
+  }
+
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    });
+
+    nav.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeNav();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeNav();
+    });
+
+    // Close when clicking outside
+    document.addEventListener('click', function (e) {
+      if (!nav.classList.contains('is-open')) return;
+      if (nav.contains(e.target) || toggle.contains(e.target)) return;
+      closeNav();
+    });
+  }
+
+  /* ---------- 2. Scroll spy ---------- */
+  var sections = Array.prototype.slice.call(
+    document.querySelectorAll('main section[id], footer[id]')
+  );
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+
+  if ('IntersectionObserver' in window && sections.length && navLinks.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        var id = entry.target.id;
+        navLinks.forEach(function (link) {
+          link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+        });
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { spy.observe(s); });
+  }
+
+  /* ---------- 3. Scroll reveal ---------- */
+  var revealEls = Array.prototype.slice.call(document.querySelectorAll('.reveal'));
+
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -60px 0px', threshold: 0.08 });
+
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* ---------- 4. Program filter ---------- */
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.filter'));
+  var programs = Array.prototype.slice.call(document.querySelectorAll('.program'));
+
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cat = btn.getAttribute('data-filter');
+
+      filters.forEach(function (b) {
+        var active = b === btn;
+        b.classList.toggle('is-active', active);
+        b.setAttribute('aria-pressed', String(active));
+      });
+
+      programs.forEach(function (card) {
+        var match = cat === 'all' || card.getAttribute('data-category') === cat;
+        card.classList.toggle('is-hidden', !match);
+      });
+    });
+  });
+
+  /* ---------- 5. Application form ---------- */
+  var form = document.getElementById('apply-form');
+  var success = document.getElementById('form-success');
+
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Native validation (novalidate keeps control with us)
+      if (!form.checkValidity()) {
+        var firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      // Simulate a successful submission
+      success.classList.add('is-visible');
+      form.reset();
+
+      success.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+
+      window.setTimeout(function () {
+        success.classList.remove('is-visible');
+      }, 9000);
+    });
+  }
+
+  /* ---------- 6. Newsletter form ---------- */
+  var news = document.getElementById('newsletter-form');
+
+  if (news) {
+    news.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var input = news.querySelector('input');
+      if (!input.value || !input.checkValidity()) {
+        input.focus();
+        return;
+      }
+      input.value = '';
+      input.placeholder = 'Thanks — you are subscribed!';
+      window.setTimeout(function () {
+        input.placeholder = 'Your email address';
+      }, 4000);
+    });
+  }
+
+  /* ---------- 7. Back to top ---------- */
+  var toTop = document.getElementById('to-top');
+
+  if (toTop) {
+    var onScroll = function () {
+      toTop.classList.toggle('is-visible', window.scrollY > 600);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- 8. Current year ---------- */
+  var yearEls = document.querySelectorAll('.js-year');
+  var year = new Date().getFullYear();
+  yearEls.forEach(function (el) { el.textContent = year; });
+
+})();
+</script>
+
+</body>
+</html>

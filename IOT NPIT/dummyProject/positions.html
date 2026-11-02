@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            position: relative;
+            width: 70%;
+            height: 70vh;
+            /* top: 20%; */
+            background-color: #f0f0f0;
+
+        }
+        .relative{
+            position: relative;
+            width: 40%;
+            height: 50vh;
+            top: 40%;
+            z-index: 1;
+            background-color:blue;
+        }
+        .ans{
+            position: absolute;
+            width: 50%;
+            height: 70vh;
+            /* top: 70vh; */
+            z-index: 1;
+            background-color: red;
+            top: 40%;
+            left: 50%;
+            /* z-index: -; */
+
+        }
+        .fixed{
+            width: 4%;
+            height: 10vh;
+            background-color: green;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 2;
+        }
+        .cards{
+            width:50%;
+            height: 55vh;
+            background-color:darkkhaki;
+            /* border:1px solid black; */
+            border-radius: 10px;
+            box-shadow: 0px 0px -12px 2px black;
+
+        }
+        .card{
+            width:30%;
+            /* height: 50vh; */
+            /* background-color: #f0f0f0; */
+            position: relative;
+            left: 4%;
+            top: 10%;
+
+        }
+        .card h2{
+            text-align: center;
+            font-size: 1rem;
+        }
+        .card p{
+            text-align: center;
+            font-size: 0.8rem;
+        }
+        .card img{
+            width: 70%;
+            height: 20vh;
+            border-radius: 50%;
+        }
+        .services{
+            width:50%;
+            position: relative;
+            left: 40%;
+            top: -40vh;
+        }
+        .services h2{
+            /* text-align: center; */
+            font-size: 2rem;
+        }
+        .services ul li{
+            list-style-type:circle;
+            font-size: 1.2rem;
+            line-height: 1.5;
+        }
+        .contacts{
+            width:100%;
+            position: relative;
+            top: -35vh;
+        }
+        .contacts h2{
+            /* text-align: center; */
+            font-size: 1rem;
+            position: relative;
+            left: 1%;
+        }
+        .contact-info{
+            font-size: 1.1rem;
+            line-height: 1.5;
+            position: relative;
+            left: 7%;
+        }
+        .contact-phone{
+            font-size: 1.1rem;
+            line-height: 1.5;
+            position: relative;
+            left: 60%;
+            top:-7vh;
+        }
+        </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Positions</h1>
+        <p>This is a simple page to display positions.</p>
+    </div>
+    <div class="relative">
+
+    </div>
+    <div class="ans"></div>
+    <div class="fixed"></div>
+   <div class="cards"> <div class="card">
+        <h2>NPTS</h2>
+        <img src="../../img/anjum.jpeg" alt="not found">
+        <h2>Muhammad Ali Anjum</h2>
+        <p>NPTS Id: 123456789</p>
+
+    </div>
+    <div class="services">
+        <h2>Our Services</h2>
+        <ul>
+            <li>Web devlopment</li>
+            <li>App devlopment</li>
+            <li>Software devlopment</li>
+            <li>Graphic designing</li>
+            <li>Digital marketing</li>
+        </ul>
+    </div>
+    <div class="contacts">
+        <!-- <h2>Contact Us</h2> -->
+        <p class="contact-info">Email: anjumbalgharii@gmail.com</p>
+        <p class="contact-phone">Phone: 123-456-7890</p>
+    </div>
+</div>
+</body>
+</html>
