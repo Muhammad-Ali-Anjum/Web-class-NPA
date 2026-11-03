@@ -627,7 +627,7 @@ let sum=(...rest)=>{
 // let [a,b,c,...rest]=arr;
 // console.log(a,b ,c,rest);
 
-let arr=[12,3,4,5,6,7,3,88,99,9,7,6,54,3,2,2];
+// let arr=[12,3,4,5,6,7,3,88,99,9,7,6,54,3,2,2];
 // console.log(arr[2]);
 // let [a,b,c]=arr;
 // console.log(a);
@@ -1116,27 +1116,97 @@ let arr=[12,3,4,5,6,7,3,88,99,9,7,6,54,3,2,2];
 
 // callback fnction
 
-let fun=(callback)=>{
-    console.log("callback function is runing");
-    return callback
-}
+// let fun=(callback)=>{
+//     console.log("callback function is runing");
+//     return callback
+// }
 
-let fun1=()=>console.log("fun 1 is rining");
+// let fun1=()=>console.log("fun 1 is rining");
 
-fun(fun1())
+// fun(fun1())
 
-function calc(a, b, callback) {
-    return callback(a, b);
-}
+// function calc(a, b, callback) {
+//     return callback(a, b);
+// }
 
 
-function add(x, y) {
-    return x + y;
-}
+// function add(x, y) {
+//     return x + y;
+// }
 
-function mul(x, y) {
-    return x * y;
-}
+// function mul(x, y) {
+//     return x * y;
+// }
 
-console.log(calc(5, 3, add));    
-console.log(calc(5, 3, mul));
+// console.log(calc(5, 3, add));    
+// console.log(calc(5, 3, mul));
+
+
+// promise 
+let promis=new Promise((resole,reject)=>{
+    user=false;
+    if(user==true){
+        resole("login to Student portal")
+    }
+    else{
+        reject("Invlid user")
+    }
+})
+
+promis
+.then(res=>console.log(res)
+)
+.catch(error=>console.error(error))
+
+// promise with Array
+let promises = [
+    new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Promise 1 resolved"), 1000);
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Promise 2 resolved"), 2000);
+    }),
+    new Promise((resolve, reject) => {
+        setTimeout(() => resolve("Promise 3 resolved"), 3000);
+    })
+];
+
+Promise.all(promises)
+    .then(results => console.log(results))
+    .catch(error => console.error(error));
+// promise with finction
+
+let promiseFunction = user =>{
+    return new Promise((resolve,reject)=>{
+        if(user==true){
+            resolve("login to Student portal")
+        }
+        else{
+            reject("Invlid user")
+        }
+})}
+
+promiseFunction(true)
+.then(res=>console.log(res)
+)
+.catch(error=>console.error(error))
+
+// make function for multiple students pass in  promise
+let students = [
+    { name: "Ali", marks: 85 },
+    { name: "Ahmed", marks: 78 },
+    { name: "Omar", marks: 92 },
+];
+
+let checkStudents = studentList => {
+    let promises = studentList.map(student => {
+        return promiseFunction(student.marks >= 40); 
+    });
+    return Promise.all(promises);
+};
+
+checkStudents(students)
+    .then(results => console.log(results))
+    .catch(error => console.error(error));
+
+
