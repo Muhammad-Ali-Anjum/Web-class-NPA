@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Muhammad Ali Anjum | NPTS Profile</title>
+  <style>
+    /* ---------- Design tokens ---------- */
+    :root {
+      --bg: #f5f7fa;
+      --surface: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #1e4fd8;
+      --primary-dark: #1538a3;
+      --accent: #16a34a;
+      --border: #e5e7eb;
+      --radius: 16px;
+      --shadow: 0 4px 16px rgba(17, 24, 39, .08);
+      --shadow-lg: 0 12px 32px rgba(17, 24, 39, .18);
+    }
+
+    /* ---------- Base ---------- */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 48px 20px 112px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    /* ---------- Page shell ---------- */
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      margin-bottom: 32px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: #e8efff;
+      padding: 6px 14px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      line-height: 1.15;
+      letter-spacing: -.02em;
+      font-weight: 700;
+    }
+
+    .lede {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 52ch;
+    }
+
+    /* ---------- Layout ---------- */
+    .layout {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    /* ---------- Generic card ---------- */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      letter-spacing: -.01em;
+    }
+
+    .card-title::before {
+      content: "";
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+      background: var(--primary);
+      flex: none;
+    }
+
+    /* ---------- ID card ---------- */
+    .id-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .id-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: linear-gradient(135deg, var(--primary), #5b8cff);
+      color: #fff;
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .id-card__header span:last-child {
+      font-weight: 400;
+      letter-spacing: .04em;
+      opacity: .85;
+    }
+
+    .id-card__body {
+      display: flex;
+      gap: 20px;
+      padding: 22px 20px;
+      align-items: center;
+    }
+
+    .id-card__photo {
+      position: relative;
+      flex-shrink: 0;
+      width: 104px;
+      height: 104px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--primary), #5b8cff);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      box-shadow: 0 0 0 3px #fff, 0 0 0 4px var(--border);
+    }
+
+    .id-card__photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .id-card__info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .id-card__name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -.01em;
+      line-height: 1.3;
+    }
+
+    .id-card__role {
+      font-size: .85rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .id-card__badge {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: .75rem;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      font-variant-numeric: tabular-nums;
+      color: var(--primary-dark);
+      background: #eef3ff;
+      border: 1px dashed #c7d7ff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      letter-spacing: .02em;
+    }
+
+    .id-card__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      background: #fbfcfe;
+    }
+
+    .id-card__footer small {
+      font-size: .68rem;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    /* Simple CSS barcode */
+    .barcode {
+      flex-shrink: 0;
+      width: 108px;
+      height: 26px;
+      background: repeating-linear-gradient(
+        90deg,
+        #111 0px,
+        #111 2px,
+        transparent 2px,
+        transparent 4px,
+        #111 4px,
+        #111 5px,
+        transparent 5px,
+        transparent 8px
+      );
+      opacity: .75;
+      border-radius: 2px;
+    }
+
+    /* ---------- Services ---------- */
+    .services {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .services li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      font-size: .95rem;
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+
+    .services li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary);
+      box-shadow: 0 0 0 3px #e8efff;
+      flex: none;
+    }
+
+    .services li:hover {
+      border-color: #c7d7ff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* ---------- Contact ---------- */
+    .contact {
+      margin-top: 24px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 16px 18px;
+      background: #fbfcfe;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+
+    .contact-item .label {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .contact-item a {
+      color: var(--text);
+      font-weight: 500;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+      transition: color .2s ease;
+    }
+
+    .contact-item a:hover,
+    .contact-item a:focus-visible {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    /* ---------- Floating action button ---------- */
+    .fab {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-size: 1.4rem;
+      line-height: 1;
+      text-decoration: none;
+      box-shadow: var(--shadow-lg);
+      transition: transform .2s ease, background .2s ease;
+      z-index: 10;
+    }
+
+    .fab:hover,
+    .fab:focus-visible {
+      background: #12833c;
+      transform: translateY(-3px);
+    }
+
+    /* ---------- Focus visibility ---------- */
+    a:focus-visible,
+    .fab:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 3px;
+    }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 32px 16px 104px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .id-card__body {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .id-card__footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .barcode {
+        width: 100%;
+        height: 22px;
+      }
+
+      .services {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ---------- Motion preferences ---------- */
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- Hero -->
+    <header class="hero">
+      <span class="eyebrow">NPTS Profile</span>
+      <h1>Muhammad Ali Anjum</h1>
+      <p class="lede">Web, app and software development services — designed, built and delivered with care.</p>
+    </header>
+
+    <!-- Profile ID + Services -->
+    <div class="layout">
+      <!-- ID Card -->
+      <article class="id-card">
+        <div class="id-card__header">
+          <span>NPTS</span>
+          <span>Identity Card</span>
+        </div>
+
+        <div class="id-card__body">
+          <div class="id-card__photo">
+            <span aria-hidden="true">MA</span>
+            <img
+              src="../../img/anjum.jpeg"
+              alt="Muhammad Ali Anjum"
+              onerror="this.style.display='none'"
+            />
+          </div>
+
+          <div class="id-card__info">
+            <h2 class="id-card__name">Muhammad Ali Anjum</h2>
+            <p class="id-card__role">Full-Stack Developer</p>
+            <span class="id-card__badge">NPTS ID: 123456789</span>
+          </div>
+        </div>
+
+        <div class="id-card__footer">
+          <small>Valid for identification<br />and service access.</small>
+          <div class="barcode" aria-hidden="true"></div>
+        </div>
+      </article>
+
+      <!-- Services -->
+      <section class="card" aria-labelledby="services-title">
+        <h2 id="services-title" class="card-title">Our Services</h2>
+        <ul class="services">
+          <li>Web development</li>
+          <li>App development</li>
+          <li>Software development</li>
+          <li>Graphic designing</li>
+          <li>Digital marketing</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Contact -->
+    <section class="card contact" aria-labelledby="contact-title">
+      <h2 id="contact-title" class="card-title">Contact</h2>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <span class="label">Email</span>
+          <a href="mailto:anjumbalgharii@gmail.com">anjumbalgharii@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="label">Phone</span>
+          <a href="tel:+11234567890">123-456-7890</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating call button -->
+  <a class="fab" href="tel:+11234567890" aria-label="Call Muhammad Ali Anjum">&#9742;</a>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width: 100%;
+            border: 1px solid black;
+        }
+        /*decent comp .main p{} */
+        /* Child combinators */
+        .main > p {
+            color: red;
+        }
+        /* Next sibling combinator (+) */
+        .main + p {
+            color: blue;
+        }
+        /* general sibling combinator (~) */
+        .main ~ p {
+            color: green;
+        }
+        /* Pseudo-classes */
+        .pseudo-classes {
+            /* background-color: yellow; */
+            width: 50%;
+            height: 70vh;
+            border: 1px solid black;
+            transition: all 0.5s ease-in-out;
+        }
+        /* hovereffect */
+        .pseudo-classes:hover{
+            background-color: yellow;
+            cursor: pointer;
+        }
+        .card {
+            margin-top: 20px;
+            width: 30%;
+            height: 70vh;
+            border: 1px solid black;
+            transition: all 0.5s ease-in-out;
+
+        }
+        .card:hover {
+            background-color: yellow;
+            cursor: pointer;
+             width: 30.5%;
+            height: 70.5vh;
+            /* transform: scale(1.1); */
+
+        }
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        li{
+            list-style-type: none;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+            transition: all 0.5s ease-in-out;
+            font-size: 24px;
+        }
+        a:hover{
+            color: red;
+            font-size: 30px;
+        }
+        a:link{
+            color: blue;
+        }
+        a:visited{
+            color: green;
+        }
+        a:active{
+            color: yellow;
+        }
+        a:focus{
+            color: orange;
+        }
+        
+
+    </style>
+</head>
+<body>
+    
+    <div class="main">
+        <p>This is a simple paragraph.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsum nesciunt fuga natus ea. Eos omnis nam asperiores ad deleniti optio eaque quia? Alias magnam autem nesciunt facere nihil nam!</p>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum alias, assumenda consequatur esse pariatur iusto veniam at modi illo harum ut, impedit cupiditate, molestias ab obcaecati dolor iste mollitia eveniet?</p>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae nobis blanditiis tempora nostrum voluptate? Ex, vero! Explicabo aut laborum praesentium vel aliquam sequi vero. Expedita esse deleniti quas cum deserunt!</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum, soluta enim iste rerum, nam tempora saepe vero consequuntur voluptatum aut optio. Nostrum explicabo eos beatae magnam accusamus illum necessitatibus blanditiis!</p>
+    <!-- Pseudo-classes -->
+    <div class="pseudo-classes"></div>
+    <div class="card"></div>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="./bgimg.html">About</a></li>
+        <li><a href="./border.html">Contact</a></li>
+        
+    </ul>
+</body>
+</html>
