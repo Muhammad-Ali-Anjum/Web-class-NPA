@@ -1143,68 +1143,101 @@ let sum=(...rest)=>{
 
 
 // promise 
-let promis=new Promise((resole,reject)=>{
-    user=false;
-    if(user==true){
-        resole("login to Student portal")
-    }
-    else{
-        reject("Invlid user")
-    }
-})
+// let promis=new Promise((resole,reject)=>{
+//     user=false;
+//     if(user==true){
+//         resole("login to Student portal")
+//     }
+//     else{
+//         reject("Invlid user")
+//     }
+// })
 
-promis
-.then(res=>console.log(res)
-)
-.catch(error=>console.error(error))
+// promis
+// .then(res=>console.log(res)
+// )
+// .catch(error=>console.error(error))
 
-// promise with Array
-let promises = [
-    new Promise((resolve, reject) => {
-        setTimeout(() => resolve("Promise 1 resolved"), 1000);
-    }),
-    new Promise((resolve, reject) => {
-        setTimeout(() => resolve("Promise 2 resolved"), 2000);
-    }),
-    new Promise((resolve, reject) => {
-        setTimeout(() => resolve("Promise 3 resolved"), 3000);
-    })
-];
+// // promise with Array
+// let promises = [
+//     new Promise((resolve, reject) => {
+//         setTimeout(() => resolve("Promise 1 resolved"), 1000);
+//     }),
+//     new Promise((resolve, reject) => {
+//         setTimeout(() => resolve("Promise 2 resolved"), 2000);
+//     }),
+//     new Promise((resolve, reject) => {
+//         setTimeout(() => resolve("Promise 3 resolved"), 3000);
+//     })
+// ];
 
-Promise.all(promises)
-    .then(results => console.log(results))
-    .catch(error => console.error(error));
-// promise with finction
+// Promise.all(promises)
+//     .then(results => console.log(results))
+//     .catch(error => console.error(error));
+// // promise with finction
 
-let promiseFunction = user =>{
-    return new Promise((resolve,reject)=>{
-        if(user==true){
-            resolve("login to Student portal")
+// let promiseFunction = user =>{
+//     return new Promise((resolve,reject)=>{
+//         if(user==true){
+//             resolve("login to Student portal")
+//         }
+//         else{
+//             reject("Invlid user")
+//         }
+// })}
+
+// promiseFunction(true)
+// .then(res=>console.log(res)
+// )
+// .catch(error=>console.error(error))
+
+// // make function for multiple students pass in  promise
+// let students = [
+//     { name: "Ali", marks: 85 },
+//     { name: "Ahmed", marks: 78 },
+//     { name: "Omar", marks: 92 },
+// ];
+
+// let checkStudents = studentList => {
+//     let promises = studentList.map(student => {
+//         return promiseFunction(student.marks >= 40); 
+//     });
+//     return Promise.all(promises);
+// };
+
+// checkStudents(students)
+//     .then(results => console.log(results))
+//     .catch(error => console.error(error));
+
+
+// promise with array pass through function
+
+let arryfunction = arr => {
+    return new Promise((resolve, reject) => {
+        if (arr.length > 0) {
+            resolve(arr);
+        } else {
+            reject("Array is empty");
         }
-        else{
-            reject("Invlid user")
-        }
-})}
-
-promiseFunction(true)
-.then(res=>console.log(res)
-)
-.catch(error=>console.error(error))
-
-// make function for multiple students pass in  promise
-let students = [
-    { name: "Ali", marks: 85 },
-    { name: "Ahmed", marks: 78 },
-    { name: "Omar", marks: 92 },
-];
-
-let checkStudents = studentList => {
-    let promises = studentList.map(student => {
-        return promiseFunction(student.marks >= 40); 
     });
-    return Promise.all(promises);
-};
+}
+let myArray = [1, 2, 3, 4, 5];
+arryfunction(myArray).then(res => console.log("Array is not empty:", res))
+    .catch(error => console.error(error));
 
-checkStudents(students)
-    .then(results => console.log(results))
+// shoping card function with promise
+
+let shoppingCart = items => {
+    return new Promise((resolve, reject) => {
+        if (items.length > 0) {
+            resolve("Items added to cart: " + items.join(", "));
+        }
+        else {
+            reject("Cart is empty");
+        }
+    });
+}
+let items = ["Shirt", "Pants", "Shoes"];
+shoppingCart(items)
+    .then(res => console.log(res))
     .catch(error => console.error(error));
