@@ -1208,5 +1208,3 @@ let checkStudents = studentList => {
 checkStudents(students)
     .then(results => console.log(results))
     .catch(error => console.error(error));
-
-

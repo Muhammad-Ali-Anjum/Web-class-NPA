@@ -1,0 +1,102 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* Pseudo-Elements */
+            .main p::first-letter{
+                color: red;
+                font-size: 50px;
+                font-weight: bold;
+            }
+            .main p::first-line{
+                color: blue;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .main p::selection{
+                color: white;
+                background-color: black;
+            }
+            .main p::after{
+                /* content: "This is after pseudo element"; */
+                content:url(../../img/arrow\ icon.png);
+                color: green;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .main p::before{
+                content: "This is before pseudo element";
+                content:url(../../img/arrow\ icon.png);
+                content: "This is before pseudo element";
+                color: green;
+                font-size: 20px;
+                font-weight: bold;
+            }
+            /* animation */
+            .animation{
+                width:100px;
+            height:100px;
+            background-color: red;
+            /* animation-name:move;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            position: relative; */
+            position: relative;
+            animation: move 4s ease-in-out infinite;
+
+
+        }
+        .ms{
+            width: 300px;
+            height: 300px;
+            /* background-color: rgb(8, 218, 109); */
+            /* position: relative; */
+            border: 2px solid black;
+        }
+        @keyframes move {
+            0%{
+            left:0px; 
+            top:0px;
+            background: #000;
+        }
+            25%
+            {
+                left:200px;
+                top:0px;
+            background: red;
+        }
+            50%{
+                left:200px; 
+                top:200px;
+                background-color: yellow;
+            }
+            75%{
+                left:0px; 
+                top:200px;
+                background-color: rgb(8, 218, 109);
+            }
+            100%{
+                left:0px; 
+                top:0px;
+            background-color: rgb(8, 29, 218);}
+            
+        }
+        </style>
+    </head>
+    <body>
+        <h1>Pseudo-Elements</h1>
+        <div class="main">
+            <p>This is a paragraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum. agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+            </p>
+            <p>This is another paragraph. agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.agraph.lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum.</p>
+        </div>
+        <div class="ms">
+    <div class="animation"></div>
+
+        </div>
+    </body>
+    </html>
