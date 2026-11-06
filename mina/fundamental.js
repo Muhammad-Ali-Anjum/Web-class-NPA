@@ -1212,32 +1212,70 @@ let sum=(...rest)=>{
 
 // promise with array pass through function
 
-let arryfunction = arr => {
-    return new Promise((resolve, reject) => {
-        if (arr.length > 0) {
-            resolve(arr);
-        } else {
-            reject("Array is empty");
-        }
-    });
-}
-let myArray = [1, 2, 3, 4, 5];
-arryfunction(myArray).then(res => console.log("Array is not empty:", res))
-    .catch(error => console.error(error));
+// let arryfunction = arr => {
+//     return new Promise((resolve, reject) => {
+//         if (arr.length > 0) {
+//             resolve(arr);
+//         } else {
+//             reject("Array is empty");
+//         }
+//     });
+// }
+// let myArray = [1, 2, 3, 4, 5];
+// arryfunction(myArray).then(res => console.log("Array is not empty:", res))
+//     .catch(error => console.error(error));
 
-// shoping card function with promise
+// // shoping card function with promise
 
-let shoppingCart = items => {
+// let shoppingCart = items => {
+//     return new Promise((resolve, reject) => {
+//         if (items.length > 0) {
+//             resolve("Items added to cart: " + items.join(", "));
+//         }
+//         else {
+//             reject("Cart is empty");
+//         }
+//     });
+// }
+// let items = ["Shirt", "Pants", "Shoes"];
+// shoppingCart(items)
+//     .then(res => console.log(res))
+//     .catch(error => console.error(error));
+
+
+// dummy api with promise fetch('https://dummyjson.com/products')
+// fetch('https://dummyjson.com/products')
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+//     .catch(error => console.error('Error:', error));
+
+
+// api with function
+// let fetchData = url => {
+//     return new Promise((resolve, reject) => {
+//         fetch(url)
+//             .then(response => response.json())
+//             .then(data => resolve(data))
+//             .catch(error => reject(error));
+//     });
+// };
+// fetchData('https://dummyjson.com/products')
+//     .then(data => console.log(data))
+//     .catch(error => console.error('Error:', error));
+
+// use api finction with filter rating base
+
+let fetchData = url => {
     return new Promise((resolve, reject) => {
-        if (items.length > 0) {
-            resolve("Items added to cart: " + items.join(", "));
-        }
-        else {
-            reject("Cart is empty");
-        }
-    });
-}
-let items = ["Shirt", "Pants", "Shoes"];
-shoppingCart(items)
-    .then(res => console.log(res))
-    .catch(error => console.error(error));
+        // to check the rating of products is greater than 4.5 and return those products
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                let filteredProducts = data.products.filter(product => product.rating > 4.5);
+                resolve(filteredProducts);
+            })
+            .catch(error => reject(error));
+})};
+fetchData('https://dummyjson.com/products')
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+            width:100%;
+        }
+        .main ,.main1 {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .main .sub , .main1 .sub{
+            width:23%; 
+            height: 50vh;
+            background-color: aquamarine;
+               }
+               @media (max-width:944px){
+                .main, .main1{
+                    flex-direction: column;
+                    width:47%;
+                }
+                .main .sub , .main1 .sub{
+                    width:100%;
+                    margin-bottom: 20px;
+                }
+                .card{
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+
+                }
+               }
+               @media (max-width:700px) {
+                .card{
+                    flex-direction: column;
+                }
+                .main, .main1{
+                    width:90%;
+                }
+               }
+
+    </style>
+</head>
+<body>
+    
+<div class="card">
+    <div class="main">
+    <div class="sub"></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+</div>
+<div class="main1">
+    <div class="sub"></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+    <div class="sub"></div>
+</div>
+</div>
+
+</body>
+</html>
