@@ -1279,3 +1279,19 @@ let fetchData = url => {
 fetchData('https://dummyjson.com/products')
     .then(data => console.log(data))
     .catch(error => console.error('Error:', error));
+
+
+let fetchDatas = url => {
+    return new Promise((resolve, reject) => {
+        // to check the rating of products is greater than 4.5 and return those products
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                let filteredProducts = data.products.find(product => product.brand=="Knoll");
+                resolve(filteredProducts);
+            })
+            .catch(error => reject(error));
+})};
+fetchDatas('https://dummyjson.com/products')
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
